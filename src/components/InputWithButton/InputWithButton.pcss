@@ -1,0 +1,88 @@
+.input-with-button {
+  background: transparent;
+  color: #fff;
+  .input-name.inputs-custom {
+    flex: 1;
+    flex-direction: row;
+    padding: 8px 40px 8px 9px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+    border: var(--input-border-thin);
+    height: 39px;
+    transition: border 0.1s linear;
+    color: #fff;
+    background: transparent;
+    border-radius: var(--small-border-radius);
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    input {
+      background: unset;
+      color: #fff;
+    }
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:active{
+      border: 1px solid var(--blue);
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  .input-button,
+  .copyable-text-field__button{
+    background-color: transparent;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transition: .2s;
+    z-index: 999999;
+  }
+ 
+  legend {
+    margin-bottom: auto;
+    position: absolute;
+    width: max-content;
+  }
+ 
+  input { 
+    border-radius: 0;
+    border-style: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+  }
+}
+.input-with-paste{
+  .paste_button{
+    background-color: transparent;
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    transition: .2s;
+    z-index: 999999;
+    svg{
+      fill: var(--blue);
+      width: 17px;
+      height: 17px;
+    }
+  }
+  .input-group{
+    input{
+      &.inputs-custom{
+        padding-right: 45px;
+      }
+    }
+  }
+}
+.copy-iconprop{
+  fill: var(--blue);
+  width: 17px;
+  height: 17px;
+  transition: .2s;
+}

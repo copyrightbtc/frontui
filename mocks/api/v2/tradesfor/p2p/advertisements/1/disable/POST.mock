@@ -1,0 +1,24 @@
+HTTP/2 200
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: content-type, x-csrf-token
+
+
+{
+    "id": 1,
+    "coin_currency": "usdt",
+    "fiat_currency": "vnd",
+    "price": "25000.0",
+    "amount": "5200.0",
+    "min_amount": "20.0",
+    "max_amount": "100.0",
+    "lock_trade_amount": "0.0",
+    "state": "disabled",
+    "side": "sell",
+    "paytime": 15,
+    "description": "Tôi bán coin",
+    "created_at": "2024-06-18T17:43:34+02:00",
+    "updated_at": "2024-06-18T17:43:34+02:00"
+}

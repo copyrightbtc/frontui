@@ -1,0 +1,211 @@
+.api-keys-screen{
+  width: 100%;
+  max-width: 1160px;
+  padding: 55px 35px 0;
+  position: relative;
+  display: block;
+  margin: 0 auto 2.5rem;
+  &__state{
+    text-transform: capitalize;
+    &__active{
+      color: var(--success);
+    }
+    &__disabled{
+      color: var(--danger);
+    }
+  }
+  &__body{
+    margin: 15px auto;
+    &__header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 5px 15px;
+      h3{
+        color: #fff;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      &__button{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .little-button{
+        &.MuiButton-root{
+          .bigplus{
+            margin: 0;
+            margin-right: 10px;
+            width: 15px;
+          }
+        }
+      }
+    }
+    &__empty{
+      margin: 10px 0 55px;
+    }
+    &__otpempty{
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 35px 0 55px;
+      height: 100%;
+      flex-wrap: wrap;
+      img{
+        width: 100%;
+        margin-bottom: 1.2rem;
+        max-width: 70px;
+      }
+      h6{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      p{
+        color: #fff;
+        margin: 15px auto;
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+      }
+      .big-button{
+        &.MuiButtonBase-root {
+          max-width: max-content;
+          padding: 1.25rem 4rem;
+          margin-top: 25px;
+          width: 100%;
+          max-width: 285px;
+        }
+      }
+    }
+  }
+  &__header{
+    padding: 0;
+    width: 100%;
+    margin: 0 0 2.5rem;
+    h1{
+      color: #fff;
+      padding: 1.5rem 0;
+      font-size: 26px;
+      line-height: 40px;
+    }
+    p{
+      font-size: 15px;
+      padding: 7px 0;
+    }
+    a{
+      color: var(--accent);
+      margin: 0 4px 0 0;
+      font-size: 17px;
+      cursor: pointer;
+      transition: .3s;
+      background-color: transparent;
+      padding: 0;
+      font-weight: 400;
+      opacity: 1;
+      &:hover{
+        text-decoration: underline;
+        color: var(--accent);
+        opacity: 1;
+      }
+    }
+  }
+  &__status{
+    position: relative;
+    .form-check {
+      position: relative;
+      z-index: 1;
+      display: block;
+      min-height: 1.5rem;
+      padding-left: 2.25rem;
+      .form-check-label{
+        position: relative;
+        margin-bottom: 0;
+        margin-left: 12px;
+        font-size: 12px;
+        color: #fff;
+        display: block;
+        &:before {
+          content: "";
+          background-color: #fff;
+          border: none;
+          border-radius: 3px !important;
+          height: 20px;
+          left: -27px;
+          width: 33px !important;
+          top: 0px;
+          transition: 0.2s;
+          pointer-events: all;
+          position: absolute;
+          cursor: pointer;
+        }
+        &:after {
+          content: "";
+          display: block;
+          background-color: var(--danger);
+          border-radius: 4px;
+          height: 15px;
+          left: -25px;
+          top: 2px;
+          width: 15px;
+          position: absolute;
+          box-shadow: 0px 1px 3px 0px #0009;
+          cursor: pointer;
+        }
+      }
+      .form-check-input{
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        width: 1rem;
+        height: 1.25rem;
+        opacity: 0;
+        overflow: visible;
+        &:checked ~ .form-check-label::before {
+          background-color: var(--success);
+          border: none;
+          transition: 0.2s;
+          color: #fff;
+        }
+        &:checked ~ .form-check-label::after {
+          background-color: rgb(255, 255, 255);
+          left: -11px;
+        }
+      }
+    }
+  }
+  .delete-icon{
+    width: 20px;
+    fill: var(--danger);
+    cursor: pointer;
+  }
+  .modal-delete{
+    padding: 15px 15px;
+    width: 400px;
+  }
+  &__modal{
+    width: 450px;
+    padding: 15px 15px;
+    &__section{
+      margin: 15px 0;
+    }
+    .note-section{
+      width: 100%;
+      margin: 5px 0 15px;
+      color: #fff;
+      font-size: 15px;
+      text-align: left;
+    }
+    .warning-section{
+      font-size: 15px;
+      color: var(--danger);
+      margin: 15px 0 35px;
+      font-weight: 500;
+    }
+  }
+}

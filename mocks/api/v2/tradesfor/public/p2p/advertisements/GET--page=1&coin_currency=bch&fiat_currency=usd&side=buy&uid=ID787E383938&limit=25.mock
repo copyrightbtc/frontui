@@ -1,0 +1,106 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+   {
+      "id":4,
+      "coin_currency":"xrp",
+      "fiat_currency":"vnd",
+      "price":"10000.0",
+      "amount":"1000.0",
+      "state":"active",
+      "min_amount":"10000.0",
+      "max_amount":"100000.0",
+      "side":"buy",
+      "paytime":10,
+      "description":"Mua XRP giá cao",
+      "payments":[
+         {
+            "id":4,
+            "state":"active",
+            "payment_type":"e-wallet",
+            "data":{
+               "wallet_name":"ZaloPay",
+               "account_number":"03456789012"
+            }
+         }
+      ],
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "id":5,
+      "coin_currency":"ltc",
+      "fiat_currency":"vnd",
+      "price":"2000000.0",
+      "amount":"25.0",
+      "state":"active",
+      "min_amount":"50000.0",
+      "max_amount":"500000.0",
+      "side":"sell",
+      "paytime":25,
+      "description":"Bán LTC với giá ưu đãi",
+      "payments":[
+         {
+            "id":5,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"BIDV",
+               "bank_branch":"Thanh Xuan",
+               "account_number":"04567890123"
+            }
+         }
+      ],
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "id":6,
+      "coin_currency":"ada",
+      "fiat_currency":"vnd",
+      "price":"500000.0",
+      "amount":"200.0",
+      "state":"active",
+      "min_amount":"100000.0",
+      "max_amount":"2000000.0",
+      "side":"buy",
+      "paytime":5,
+      "description":"Mua ADA không giới hạn",
+      "payments":[
+         {
+            "id":6,
+            "state":"active",
+            "payment_type":"e-wallet",
+            "data":{
+               "wallet_name":"Payoo",
+               "account_number":"05678901234"
+            }
+         }
+      ],
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   }
+]

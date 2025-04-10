@@ -1,0 +1,23 @@
+HTTP/2 200
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+  {
+    "id":35,
+    "price":5.0,
+    "amount":2.5,
+    "total":12.5,
+    "fee_currency":"btc",
+    "fee":"0.02",
+    "fee_amount":"0.025",
+    "market":"btczar",
+    "created_at":1594951964,
+    "taker_type":"buy",
+    "side":"sell",
+    "order_id":167606950
+  },
+  {"id":34,"price":10894000,"amount":0.2414,"total":2629811.6,"market":"btczar","created_at":1594951957,"taker_type":"sell"}
+]

@@ -1,0 +1,49 @@
+.top-header{
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-between; 
+
+  img{
+    width: 100%;
+    max-width: 130px;
+    cursor: pointer;
+  }
+  &__left{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &__buttons{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 12px;
+      .MuiButton-root{
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #dad8d8;
+        &.MuiButton-root.MuiButton-outlined{ 
+          border: 1px solid #ffffff6e; 
+          padding: .41rem 3.25rem;
+          &:hover{
+            border: 1px solid #eff50180;
+            color: var(--accent);
+          }
+        }
+        &.MuiButton-root.MuiButton-text{
+          padding: .41rem 3rem;
+          &:hover{
+            color: var(--accent);
+          }
+        }
+      } 
+    } 
+  }
+}

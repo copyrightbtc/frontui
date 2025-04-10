@@ -1,0 +1,41 @@
+/* stylelint-disable */
+.cr-mobile-history-table {
+  background: var(--color-main-dark);
+
+  &__row {
+    font-size: 14px;
+  }
+
+  &--success {
+    color: var(--bids);
+  }
+
+  &--failed {
+    color: var(--asks);
+  }
+
+  &--pending {
+    color: var(--system-yellow);
+  }
+
+  .pagination-element p {
+    margin-bottom: 0;
+  }
+
+  .flexi-table__body {
+    tr {
+      border-bottom: 1px solid var(--divider-color-level-1) !important;
+      margin: 0 17px !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:last-child {
+        border-bottom: none !important;
+      }
+    }
+    td {
+      padding: 12px 0 !important;
+    }
+  }
+}

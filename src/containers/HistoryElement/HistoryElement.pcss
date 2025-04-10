@@ -1,0 +1,597 @@
+.filter-cell__dates{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 10px;
+    hr{
+        position: relative;
+        width: 21px;
+        height: 2px;
+        background: var(--light-grey);
+        margin: 0 5px;
+    }
+    .cell-date{
+        background-color: transparent;
+        color: var(--light-grey);
+        font-size: 14px;
+        width: 100%;
+        min-height: inherit;
+        margin-bottom: 10px;
+        min-width: 190px;
+        position: relative;
+        height: 39px;
+        .suffix-date{
+            position: absolute;
+            left: 7px;
+            top: 0;
+            display: block;
+            height: 39px;
+            line-height: 39px;
+        }
+        .input-date{
+            background-color: transparent;
+            color: #fff!important;
+            font-size: 13px;
+            border-radius: 4px;
+            border: var(--input-border-thin);
+            background-size: auto 24px;
+            background-repeat: no-repeat;
+            background-position: 10px;
+            width: 100%;
+            box-shadow: none;
+            transition: border 0.1s linear;
+            min-height: inherit;
+            min-width: 100%;
+            position: relative;
+            height: 39px;
+            &.react-date-picker{
+                position: relative;
+                &--open{
+                    border: var(--input-border-thin-focused);
+                }
+                .react-date-picker{
+                    &__wrapper{
+                        border: none;
+                        justify-content: flex-end;
+                    }
+                    &__inputGroup{
+                        text-align: right;
+                        input{
+                            color: #fff;
+                            font-size: 14px;
+                            font-weight: 400;
+                            &:placeholder{
+                                color: #fff!important;
+                                opacity: 1!important;
+                                font-size: 14px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    &__clear-button{
+                        svg{
+                            fill: var(--light-grey);
+                            stroke: var(--light-grey);
+                            width: 18px;
+                            height: 18px;
+                        }
+                        &:hover{
+                            svg{
+                                fill: var(--danger);
+                                stroke: var(--danger);
+                            }
+                        }
+                    }
+                    &__calendar-button{
+                        margin-right: 6px;
+                        svg{
+                            fill: var(--light-grey);
+                            width: 15px;
+                            height: 15px;
+                        }
+                        &:hover{
+                            svg{
+                                fill: var(--accent);
+                            }
+                        }
+                    }
+                    &__calendar{
+                        .react-calendar{
+                            background-color: var(--main-dark);
+                            box-shadow: var(--box-shadow-dark);
+                            border-radius: var(--small-border-radius);
+                            padding: 4px 0;
+                            position: absolute;
+                            top: 4px;
+                            width: 100%;
+                            z-index: 99999999999;
+                            border: none !important;
+                            &__navigation{
+                                margin-top: .5rem;
+                                button{
+                                    background-color: transparent;
+                                    font-size: 15px;
+                                    &.react-calendar__navigation__arrow{
+                                        font-size: 22px;
+                                    }
+                                    &:hover,
+                                    &:focus{
+                                        background-color: transparent;
+                                        color: var(--accent);
+                                    }
+                                }
+                            }
+                            &__year-view__months,
+                            &__year-view,
+                            &__century-view__decades,
+                            &__century-view__decades__decade,
+                            &__decade-view__years{
+                                font: inherit;
+                                button{
+                                    padding: 15px 10px;
+                                    font-size: 1rem;
+                                    border-radius: 4px;
+                                    border: 1px solid transparent;
+                                    text-transform: capitalize;
+                                    font-weight: 400;
+                                    color: #fff;
+                                    &:hover,
+                                    &:focus{
+                                        background-color: transparent;
+                                        border-color: var(--accent);
+                                    }
+                                    &.react-calendar__tile--hasActive,
+                                    &.react-calendar__tile--now,
+                                    &.react-calendar__tile--active{
+                                        background-color: var(--accent);
+                                        color: #000;
+                                        &:hover,
+                                        &:focus{
+                                            background-color: var(--accent);
+                                            border-color: var(--accent);
+                                            color: #000;
+                                        }
+                                    }
+                                }     
+                            }
+                            &__month-view__weekdays{
+                                text-transform: capitalize;
+                                font: inherit;
+                                font-size: .75rem;
+                                font-weight: 400;
+                                margin-top: .25rem;
+                                margin-bottom: 1.25rem;
+                                color: var(--light-grey);
+                            }
+                            &__month-view__days{
+                                button{
+                                    padding: 10px;
+                                    font-size: 1rem;
+                                    border-radius: 4px;
+                                    border: 1px solid transparent;
+                                    &:hover,
+                                    &:focus{
+                                        background-color: transparent;
+                                        border-color: var(--accent);
+                                    }
+                                    &.react-calendar__tile--active{
+                                        background-color: var(--accent);
+                                        color: #000;
+                                        &:hover,
+                                        &:focus{
+                                            background-color: var(--accent);
+                                            border-color: var(--accent);
+                                            color: #000;
+                                        }
+                                    }
+                                }
+                                &__day{
+                                    color: #fff;
+                                    &--weekend{
+                                        color: inherit
+                                    }
+                                    &--neighboringMonth{
+                                        color: var(--light-grey);
+                                    }
+                                }
+                            }
+                            &__tile{
+                                &:disabled{
+                                    background-color: transparent;
+                                    color: var(--dark-grey)!important;
+                                    cursor: not-allowed;
+                                    &:hover,
+                                    &:focus{
+                                        background-color: transparent;
+                                        border-color: transparent;
+                                    }
+                                }
+                                &--now{
+                                    background-color: var(--accent);
+                                    color: #000;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.themes{
+        hr{
+            background: var(--color-light-grey);
+        }
+        .cell-date{
+            color: var(--color-light-grey);
+            .input-date{
+                color: var(--color-dark)!important;
+                border: var(--color-input-border-thin);
+                &.react-date-picker{
+                    position: relative;
+                    &--open{
+                        border: var(--color-input-border-thin-focused);
+                    }
+                    .react-date-picker{
+                        &__inputGroup{
+                            input{
+                                color: var(--color-dark);
+                                &:placeholder{
+                                    color: var(--color-dark)!important;
+                                }
+                            }
+                        }
+                        &__clear-button{
+                            svg{
+                                fill: var(--color-light-grey);
+                                stroke: var(--color-light-grey);
+                            }
+                            &:hover{
+                                svg{
+                                    fill: var(--color-danger);
+                                    stroke: var(--color-danger);
+                                }
+                            }
+                        }
+                        &__calendar-button{
+                            svg{
+                                fill: var(--color-light-grey);
+                            }
+                            &:hover{
+                                svg{
+                                    fill: var(--color-accent);
+                                }
+                            }
+                        }
+                        &__calendar{
+                            .react-calendar{
+                                background-color: var(--color-main-dark);
+                                box-shadow: var(--color-box-shadow-dark);
+                                border-radius: var(--color-small-border-radius);
+                                &__navigation{
+                                    button{
+                                        &:hover,
+                                        &:focus{
+                                            color: var(--color-accent);
+                                        }
+                                    }
+                                }
+                                &__year-view__months,
+                                &__year-view,
+                                &__century-view__decades,
+                                &__century-view__decades__decade,
+                                &__decade-view__years{
+                                    font: inherit;
+                                    button{
+                                        color: var(--color-dark);
+                                        &:hover,
+                                        &:focus{
+                                            border-color: var(--color-accent);
+                                        }
+                                        &.react-calendar__tile--hasActive,
+                                        &.react-calendar__tile--now,
+                                        &.react-calendar__tile--active{
+                                            background-color: var(--color-accent);
+                                            color: var(--color-white);
+                                            &:hover,
+                                            &:focus{
+                                                background-color: var(--color-accent);
+                                                border-color: var(--color-accent);
+                                                color: var(--color-white);
+                                            }
+                                        }
+                                    }     
+                                }
+                                &__month-view__weekdays{
+                                    color: var(--color-light-grey);
+                                }
+                                &__month-view__days{
+                                    button{
+                                        &:hover,
+                                        &:focus{
+                                            border-color: var(--color-accent);
+                                        }
+                                        &.react-calendar__tile--active{
+                                            background-color: var(--color-accent);
+                                            color: var(--color-white);
+                                            &:hover,
+                                            &:focus{
+                                                background-color: var(--color-accent);
+                                                border-color: var(--color-accent);
+                                                color: var(--color-white);
+                                            }
+                                        }
+                                    }
+                                    &__day{
+                                        color: var(--color-dark);
+                                        &--neighboringMonth{
+                                            color: var(--color-light-grey);
+                                        }
+                                    }
+                                }
+                                &__tile{
+                                    &:disabled{
+                                        color: var(--color-dark-grey)!important;
+                                    }
+                                    &--now{
+                                        background-color: var(--color-accent);
+                                        color: var(--color-white);
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.keyword-search-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 9px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 250px;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    font-size: 14px;
+    border-radius: 4px;
+    border: var(--input-border-thin);
+    height: 39px;
+    transition: border 0.1s linear;
+    color: #fff;
+    &.focused{
+        border: var(--input-border-thin-focused);
+    }
+    &__cancel {
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 0 2px;
+        display: flex;
+        cursor: pointer;
+        svg {
+        fill: var(--light-grey);
+        height: 17px;
+        width: 17px;
+        transition: .2s;
+        }
+        &:hover{
+            svg {
+                fill: var(--danger);
+                height: 17px;
+                width: 17px;
+            }
+        }
+    }
+    &__icon {
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2px 0 0;
+        display: flex;
+        svg {
+        fill: var(--light-grey);
+        width: 17px;
+        height: 17px;
+        }
+    }
+    &__input {
+        border: none;
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        padding-left: 6px;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            text-transform: initial;
+        }
+    } 
+}
+
+.profile-history{
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  margin-bottom: 24px !important;
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 95%;
+  &__wrapper{
+    margin-bottom: 30px;
+    margin-top: 45px;
+  }
+}
+.filled-order{
+    white-space: nowrap;
+    &.full{
+        color: var(--accent)!important;
+    }
+}
+.feeamount{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    span{
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--light-grey);
+        margin-left: 3px;
+    }
+}
+.blockchainLink{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .loupe-icon{
+        user-select: none;
+        display: inline-block;
+        flex-shrink: 0;
+        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        width: 16px;
+        height: 16px;
+    }
+    .link{
+        &.dark{
+            cursor: default;
+            .loupe-icon{
+                fill: var(--dark-grey);
+            }
+            &:hover{
+                .loupe-icon{
+                    fill: var(--dark-grey);
+                } 
+            }
+        }
+    }
+    .copy_button{
+        &.MuiButtonBase-root{
+            width: 25px;
+            height: 25px;
+            margin: 0;
+            margin-left: 6px;
+            color: #fff;
+            padding: 6px;
+            .copy-iconprop {
+                fill: #fff;
+            }
+            &:hover{
+                color: var(--blue);
+                .copy-iconprop {
+                    fill: var(--blue);
+                }
+            }
+        }
+    }
+    .address{
+        position: relative;
+        &:after{
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: -4px;
+            border-bottom: 1px dashed #b4b9c166;
+            transition: .2s;
+        }
+        &:hover{
+            &:after{
+                border-bottom: 1px solid #eff50178;
+            }
+        }
+    }
+    .link{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        margin-left: 6px;
+        border-radius: 50%;
+        svg{
+            fill: #fff;
+            width: 17px;
+        }
+        &:hover{
+            background-color: rgba(0, 0, 0, 0.04);
+            svg{
+                fill: var(--accent);
+            }
+        }
+    }
+}
+.cancel-orders{
+  position: relative;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+  box-shadow: var(--small-button-shadow);
+  padding: 2px 12px;
+  border-radius: 3px;
+  font-size: 14px;
+  span{
+      white-space: nowrap;
+      margin-right: 7px;
+  }
+  &__close{
+    position: relative;
+    width: 13px;
+    height: 13px;
+    display: block;
+    &:before,
+    &:after {
+      content: "";
+      height: 2px;
+      left: 0px;
+      position: absolute;
+      top: 45%;
+      width: 100%;
+      background: var(--danger);
+      transition: all 0.2s ease 0s;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  &:hover{
+    box-shadow: var(--small-button-hover-shadow);
+  }
+  &:active{
+    box-shadow: var(--small-button-active-shadow);
+  }
+  &.themes{
+    color: var(--color-danger);
+    .cancel-orders__close{
+      &:before,
+      &:after {
+        background: var(--color-danger);
+      }   
+    }
+  }
+}

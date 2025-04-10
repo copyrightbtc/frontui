@@ -1,0 +1,122 @@
+.flexes-tables{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  height: 100%;
+  &__head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--table-lines-grey);
+    width: 100%;
+    max-width: 100%;
+    &__cell{
+      flex: 1 0 auto;
+      color: var(--light-grey);
+      background: transparent;
+      padding: 11px 8px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5rem;
+      letter-spacing: 0.01071em;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 0;
+    }
+  }
+  &__body{
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    &__row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+      &__cell{
+        flex: 1 0 auto;
+        color: #fff;
+        background: transparent;
+        padding: 11px 8px;
+        font-size: 13px;
+        line-height: 1.5rem;
+        letter-spacing: 0.01071em;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 0;
+      }
+      &:last-child{
+        border: none;
+      }
+      &.empty-row{
+        height: 100%;
+        cursor: default!important;
+        &::before{
+          display: none!important;
+          opacity: 0!important;
+          visibility: none!important;
+        }
+      }
+    }
+  }
+  &.with-hover{
+    .flexes-tables{
+      &__body{
+        &__row{
+          &:hover{
+            background: var(--hover-background-greyblue);
+          }
+          &.empty-row{
+            &:hover{
+              background: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.themes{
+    .flexes-tables{
+      &__head{
+        border-bottom: 1px solid var(--color-table-lines-grey);
+        &__cell{
+          color: var(--color-light-grey);
+        }
+      }
+      &__body{
+        &__row{
+          &__cell{
+            color: var(--color-dark);
+          }
+        }
+      }
+    }
+    &.with-hover{
+      .flexes-tables{
+        &__body{
+          &__row{
+            &:hover{
+              background: var(--color-hover-background-greyblue);
+            }
+            &.empty-row{
+              &:hover{
+                background: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.p2p-mobile-screen {
+    font-size: 1rem;
+    .btn-trade-option {
+        padding: 4px 16px;
+        border: none;
+        outline: none;
+        border-radius: 4px 0 0 4px;
+        clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%);
+        font-weight: 500;
+        transition: background, color 100ms ease-out;
+
+        @apply bg-gray-400; 
+        @apply text-gray-300;
+        &.active {
+            @apply bg-green-500;
+            @apply text-white;
+        }
+
+        &:last-of-type {
+            border-radius: 0 4px 4px 0;
+            clip-path: polygon(100% 0%, 0% 0%, 15% 100%, 100% 100%);
+            &.active {
+                @apply bg-red-500;
+            }
+        }
+    }
+    
+    .p2p-table {
+        border-bottom: 1px solid;
+        @apply border-gray-500;
+        tr {
+            font-size: 0.8rem;
+        }
+        th, td {
+            padding: 12px 8px;
+        }
+        td {
+            border-top: 1px solid;
+            @apply border-gray-500;
+            align-content: flex-start;
+        }
+        .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .btn-trade {
+            outline: unset;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 2px;
+            transition: background 75ms ease-in;
+            &.sell {
+                @apply bg-red-500;
+                @apply hover:bg-red-400;
+                &:active {
+                    @apply bg-red-300;
+                }
+            }
+            &.buy {
+                @apply bg-green-500;
+                @apply hover:bg-green-400;
+                &:active {
+                    @apply bg-green-300;
+                }
+            }
+        
+            &:disabled,
+            [disabled]{
+                @apply bg-gray-500 hover:bg-gray-500;
+                cursor: default;
+            }
+        }
+        .text-trade {
+            font-size: 1.25rem;
+        }
+        .col-action {
+            text-align: end;
+            align-content: flex-end;
+        }
+    }
+
+    .text-subdued {
+        @apply text-gray-200;
+    }
+    
+    .dislike-icon {
+        transform: rotateX(180deg);
+    }
+
+    .amount-change {
+        border-radius: 2px;
+        width: 20px;
+        height: 20px;
+        outline: none !important;
+        @apply flex items-center justify-center text-xl;
+        &__left {
+            @apply bg-red-400 hover:bg-red-300;
+        }
+        &__right {
+            @apply bg-green-400 hover:bg-green-300;
+        }
+    }
+    
+}

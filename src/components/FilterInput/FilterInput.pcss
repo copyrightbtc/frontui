@@ -1,0 +1,105 @@
+.search-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 9px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+  font-size: 14px;
+  border-radius: 4px;
+  border: var(--input-border-thin);
+  height: 39px;
+  transition: border 0.1s linear;
+  color: #fff;
+  &.focused{
+    border: var(--input-border-thin-focused);
+  }
+  &__cancel {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 2px;
+    display: flex;
+    cursor: pointer;
+    svg {
+      fill: var(--light-grey);
+      height: 17px;
+      width: 17px;
+      transition: .2s;
+    }
+    &:hover{
+      svg {
+        fill: var(--danger);
+        height: 17px;
+        width: 17px;
+      }
+    }
+  }
+  &__icon {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px 0 0;
+    display: flex;
+    svg {
+      fill: var(--light-grey);
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__input {
+    border: none;
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 6px;
+    text-transform: uppercase;
+    &::placeholder {
+      color: #fff;
+      text-transform: initial;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &.themes{
+    border: var(--color-input-border-thin);
+    &.focused{
+      border: var(--color-input-border-thin-focused);
+    }
+    &__cancel {
+      svg {
+        fill: var(--color-light-grey);
+      }
+      &:hover{
+        svg {
+          fill: var(--color-danger);
+        }
+      }
+    }
+    &__icon {
+      svg {
+        fill: var(--color-light-grey);
+      }
+    }
+  
+    &__input {
+      &::placeholder {
+        color: var(--color-dark);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

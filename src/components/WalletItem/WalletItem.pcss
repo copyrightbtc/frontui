@@ -1,0 +1,80 @@
+.wallets-list-modal{
+  width: 520px;
+  &__header{
+    width: 100%;
+    padding: 0px 10px 20px;
+    border-bottom: 1px solid var(--table-lines-grey);
+    margin-bottom: 15px;
+    .search-filter{
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  &__body{
+    overflow-y: auto;
+    padding-bottom: 20px;
+    height: 290px;
+  }
+}
+.walletlist-menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 19px;
+  cursor: pointer;
+  color: #fff;
+  transition: .2s;
+  position: relative;
+  &:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 2px;
+    top: 14%;
+    height: 72%;
+  }
+  &.chosen{
+    background: var(--hover-background-greyblue);
+    &:before{
+      background: var(--accent);
+    }
+  }
+  &:hover{
+    background: var(--hover-background-greyblue);
+  }
+  &__coin{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .currency-icon{
+      margin-right: 14px;
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &__balance{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .info-col{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .bold{
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .secondary{
+    color: var(--light-grey);
+    font-size: 13px;
+  }
+}

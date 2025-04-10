@@ -1,0 +1,132 @@
+.profile-section{
+  box-shadow: var(--box-shadow-huge);
+  background-color: var(--main-dark-brown);
+  padding: 1rem 1rem 1rem;
+  width: 100%; 
+  border-radius: var(--medium-border-radius);
+  margin-bottom: 25px;
+  &.blank{
+    box-shadow: none;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  &__content{
+    padding: 15px;
+    &__header{
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__rows{
+        width: 100%;
+        max-width: 50%;
+        flex: 1;
+      }
+      h2{
+        color: #fff;
+        font-size: 16px; 
+        font-weight: 400;
+        &.h2__withchild{
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+      
+        }
+      }
+    }
+  }
+  &__authsecurity{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    &__row{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      padding: 0;
+      margin: 9px 0;
+      img{
+        width: 100%;
+        max-width: 31px;
+        height: 31px;
+        margin: 0;
+        padding: 0;
+        margin-right: 17px;
+      }
+      &__password {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+        width: 100%;
+        &__button{
+          margin: 2px;
+          width: 100%;
+          max-width: 150px;
+        }
+        &__info{
+          display: flex;
+          flex-direction: column;
+          h5{
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 3px;
+            font-weight: 400!important;
+          }
+          p{
+            color: #fff;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+.accountpage-wrapper {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  min-height: 102vh;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  justify-content: space-between; 
+  position: relative;
+  color: var(--light-grey);
+
+  &__right{
+    min-height:100vh;
+    width:100%;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    flex: 1 0 85%;
+    margin-left: 230px;
+    background: var(--main-dark);
+    padding: 0em 45px 0 0;
+    overflow: hidden;
+
+    .profile-page {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+      margin-bottom: 24px !important;
+      flex-direction: column;
+      max-width: 1026px !important; 
+      box-sizing: border-box;
+      display: flex;
+      margin: 0 auto;
+      width: 100%;
+    }  
+  }
+}
+
+
+ 

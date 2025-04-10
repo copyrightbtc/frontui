@@ -1,0 +1,13 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+{
+    "currencies": ["xrp"],
+    "address": "GCOND2ZGWNMSHNIHU24HBJAKYM6H2G6FYN5NRQ46BP6G7MZSO5IM2JEJ",
+    "state": "active",
+    "blockchain_key": "ripple"
+}

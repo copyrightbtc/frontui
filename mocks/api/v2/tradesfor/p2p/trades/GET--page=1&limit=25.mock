@@ -1,0 +1,984 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    },
+    {
+        "maker": {
+            "uid": "ID64C0917431",
+            "username": null
+        },
+        "tid": 12312345,
+        "taker": {
+            "uid": "ID0BBEF963F3",
+            "username": null
+        },
+        "price": "25000.0",
+        "amount": "3.0",
+        "maker_accepted": true,
+        "taker_accepted": true,
+        "maker_seen": true,
+        "taker_seen": true,
+        "paytime": 15,
+        "state": "completed",
+        "side": "buy",
+        "created_at": "2024-06-18T18:17:00+02:00",
+        "updated_at": "2024-06-18T18:17:00+02:00",
+        "completed_at": "2024-06-18T18:17:00+02:00",
+        "coin_currency": "usdt",
+        "fiat_currency": "vnd",
+        "payment": {
+            "id": 26,
+            "member_id": 24,
+            "payment_type": "bank",
+            "state": "active",
+            "account_name": "NGUYEN HUU HA",
+            "data": {
+            "bank_name": "Vietcombank",
+            "bank_branch": "Hanoi",
+            "bank_account": "123456789"
+            },
+            "created_at": "2024-06-22T10:42:32.000+02:00",
+            "updated_at": "2024-06-22T10:42:32.000+02:00"
+        }
+    }
+]

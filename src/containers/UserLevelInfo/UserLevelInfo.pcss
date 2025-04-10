@@ -1,0 +1,195 @@
+.profile-userinfo {
+  display: flex;
+  &__verification{
+    margin: 0;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .verif_level{
+      &.MuiButton-root{
+        width: 100%;
+        color: #000;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 0px 13px;
+        box-shadow: var(--small-button-shadow); 
+        transition: .2s;
+        cursor: pointer;
+        border-radius: 3px; 
+        max-width: max-content;
+        text-transform: capitalize;
+        svg{
+          margin-left: 9px;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          fill: #fff;
+          flex-shrink: 0;
+          transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+        &:hover{
+          box-shadow: var(--small-button-hover-shadow);
+        }
+      } 
+    }
+    &__level-1{
+      .verif_level{
+        &.MuiButton-root{
+          color: #fff;
+          background: #ff1010;
+          &:hover{
+            background: #ff1010;
+          }
+        }
+      }
+    }
+    &__level-2{
+      .verif_level{
+        &.MuiButton-root{
+          svg{
+            fill: #000;
+          }
+          background: #14c3fd;
+          &:hover{
+            background: #14c3fd;
+          }
+        }
+      }
+    }
+    &__level-3{
+      .verified{
+        color: var(--success);
+        border: 1px solid var(--success);
+        font-size: 14px;
+        font-weight: 400;
+        padding: 2px 13px;
+        width: 100%;
+        border-radius: 3px;
+        max-width: max-content;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        svg{
+          margin-right: 9px;
+          width: 16px;
+        }
+      }
+    }
+  }
+  &__left{
+    width: 100%;
+    max-width: 50%;
+    padding-right: 44px;
+  } 
+  &__column{
+    width: 100%;
+    padding: 8px 0;
+    font-weight: 400;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--table-lines-grey);
+    &.fees{
+      span{
+        color: var(--accent);
+      } 
+    }
+    h5{
+      color: var(--light-grey);
+    }
+    span{
+      color: #fff;
+      font-size: 15px;
+      .tip_icon_container{
+        margin: 0;
+        margin-left: 6px;
+      }
+    } 
+  }
+  &__right{
+    width: 100%;
+    max-width: 50%;
+  }
+  &__withdraws{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 17px;
+    flex-wrap: wrap;
+    padding: 7px 15px;
+    border-radius: var(--small-border-radius);
+    box-shadow: var(--small-button-shadow);
+    &:last-child{
+      margin-bottom: 0;
+    }
+    h4{
+      width: 100%;
+      flex: 1 0 100%;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    &__row{
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 calc(100% / 3);
+      .tip_icon_container{
+        strong{
+          color: #fff;
+          font-size: 13px;
+          font-weight: 500;
+        }
+      }
+      span{
+        color: #fff;
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 3px;
+        &.danger{
+          color: var(--danger);
+        }
+        &.accent{
+          color: var(--accent);
+        }
+      }
+    }
+    &__infos{
+      display: flex;
+      width: 100%;
+      max-width: calc(100% - 70px);
+      height: 60px;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 0 calc(100% - 70px);
+      h5{
+        color: var(--light-grey);
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 3px;
+        .tip_icon_container{
+          margin-left: 4px;
+          background: #1f1f21;
+          svg{
+            width: 13px;
+            path{
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+    &__canvas{
+      width: 100%;
+      max-width: 70px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      flex: 1 0 70px;
+      }
+    } 
+}

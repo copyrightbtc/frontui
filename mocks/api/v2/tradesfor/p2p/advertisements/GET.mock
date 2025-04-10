@@ -1,0 +1,148 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+
+[
+  {
+      "id": 1,
+      "coin_currency": "btc",
+      "fiat_currency": "usd",
+      "price": "10.00",
+      "amount": "10.00",
+      "min_amount": "10.00",
+      "max_amount": "80.00",
+      "lock_trade_amount": "0.0",
+      "state": "active",
+      "side": "sell",
+      "paytime": 15,
+      "description": "Tôi bán coin",
+      "created_at": "2024-06-18T17:43:34+02:00",
+      "updated_at": "2024-06-18T17:43:34+02:00",
+      "payments":[
+         {
+            "id":1,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Vietcombank with really long name for test",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         },
+         {
+            "id":2,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Vietcombank",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         },
+         {
+            "id":3,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Monobank",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         },
+         {
+            "id":4,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Hello",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         }
+      ]
+  },
+  {
+      "id": 2,
+      "coin_currency": "btc",
+      "fiat_currency": "vnd",
+      "price": "231234500.0",
+      "amount": "0.05",
+      "min_amount": "1000000.0",
+      "max_amount": "5000000.0",
+      "lock_trade_amount": "0.0",
+      "state": "active",
+      "side": "buy",
+      "paytime": 30,
+      "description": "Mua BTC với giá tốt",
+      "created_at": "2024-06-25T14:23:22+07:00",
+      "updated_at": "2024-06-25T14:23:22+07:00"
+  },
+  {
+      "id": 3,
+      "coin_currency": "eth",
+      "fiat_currency": "vnd",
+      "price": "150.0",
+      "amount": "1.0",
+      "min_amount": "500000.0",
+      "max_amount": "3000000.0",
+      "lock_trade_amount": "0.0",
+      "state": "disabled",
+      "side": "sell",
+      "paytime": 20,
+      "description": "Bán ETH nhanh chóng",
+      "created_at": "2024-06-25T14:25:00+07:00",
+      "updated_at": "2024-06-25T14:25:00+07:00"
+  },
+  {
+      "id": 4,
+      "coin_currency": "xrp",
+      "fiat_currency": "vnd",
+      "price": "10000.0",
+      "amount": "500.0",
+      "min_amount": "10000.0",
+      "max_amount": "200000.0",
+      "lock_trade_amount": "1.0",
+      "state": "active",
+      "side": "buy",
+      "paytime": 10,
+      "description": "Mua XRP giá cao",
+      "created_at": "2024-06-25T14:30:00+07:00",
+      "updated_at": "2024-06-25T14:30:00+07:00"
+  },
+  {
+      "id": 5,
+      "coin_currency": "ltc",
+      "fiat_currency": "vnd",
+      "price": "2000000.0",
+      "amount": "10.0",
+      "min_amount": "50000.0",
+      "max_amount": "1000000.0",
+      "lock_trade_amount": "0.0",
+      "state": "active",
+      "side": "sell",
+      "paytime": 25,
+      "description": "Bán LTC với giá ưu đãi",
+      "created_at": "2024-06-25T14:35:00+07:00",
+      "updated_at": "2024-06-25T14:35:00+07:00"
+  },
+  {
+      "id": 6,
+      "coin_currency": "ada",
+      "fiat_currency": "vnd",
+      "price": "500000.0",
+      "amount": "100.0",
+      "min_amount": "20000.0",
+      "max_amount": "500000.0",
+      "lock_trade_amount": "0.0",
+      "state": "active",
+      "side": "buy",
+      "paytime": 5,
+      "description": "Mua ADA không giới hạn",
+      "created_at": "2024-06-25T14:40:00+07:00",
+      "updated_at": "2024-06-25T14:40:00+07:00"
+  }
+]

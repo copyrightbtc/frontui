@@ -1,0 +1,105 @@
+.documents-verifying {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: max-content;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 435px;
+  width: 100vw;
+ 
+  &__main-wrapper{
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+
+      &__left{
+        width: 100%;
+        max-width: 410px;
+        margin: 2px auto;
+      }
+      &__right{  
+        margin: 8px 0 20px;
+        width: 100%; 
+          ul{
+            margin: 4px 0;
+            padding-inline-start: 22px;
+            list-style: circle;
+            li{
+              margin: 4px 0;
+              color: var(--light-grey);
+            }
+          }
+          .MuiPaper-root{
+            background: var(--main-dark);
+            .arrow-exp{
+              user-select: none;
+              width: 21px;
+              height: 21px;
+              display: inline-block;
+              flex-shrink: 0;
+              transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+              fill: var(--blue);
+            }
+            .MuiAccordionSummary-content{
+              margin: 0;
+              span{ 
+                  color: var(--blue);
+                  font-size: 15px;
+                  padding: 5px 0;
+                  font-weight: 300;
+                  line-height: 17px;
+              }
+            }
+          }
+      }
+  }
+  h6{
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 13px;
+  } 
+  &__title{
+    margin: 11px 0 19px;
+    width: 100%; 
+  }
+  &__column{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .row {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      height: max-content;
+      justify-content: space-between;
+      width: 100%; 
+      max-width: 420px;
+      margin: 0 auto;
+      &.two{
+        fieldset{
+          width: 100%;
+          max-width: 45%;
+          flex: 1 0 45%;
+        } 
+      } 
+      fieldset{
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+.verification-modal__success{
+  margin: 5px 0 0;
+  width: 100%;
+  padding: 7px 1px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 30
+}
+  

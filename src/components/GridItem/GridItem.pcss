@@ -1,0 +1,151 @@
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left;
+  background: transparent !important;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  transition-property: transform;
+  .grid-item{
+    width: 100%;
+    height: 100%;
+    background: var(--color-main-dark);
+    border-radius: 0;
+    overflow: scroll;
+    padding: 0 !important;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &__header {
+      background: transparent;
+      position: relative;
+      height: 40px;
+      border-bottom: 1px solid var(--color-table-lines-grey);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      font-size: 13px;
+      color: var(--color-light-grey);
+    } 
+  }
+}
+.trade-window-classic{
+  background-color: var(--color-darkest);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 1fr minmax(253px, 320px) minmax(510px, 880px) minmax(253px, 320px) 1fr;
+  grid-template-rows: 61px 520px 450px 540px;
+  grid-template-areas:
+    "lefts subHeader subHeader market rights"
+    "lefts orderbook chart market rights"
+    "lefts orderbook orderform recenttrades rights"
+    "lefts openorders openorders openorders rights";
+
+  .orderbook{
+    grid-area: orderbook;
+  }
+  .chart{
+    grid-area: chart;
+  }
+  .subHeader{
+    grid-area: subHeader;
+  }
+  .orderform{
+    grid-area: orderform;
+  }
+  .recenttrades{
+    grid-area: recenttrades;
+  }
+  .market{
+    grid-area: market;
+  }
+  .openorders{
+    grid-area: openorders;
+  }
+}
+.trade-responsive-layout{
+  height: calc(100vh - 50px);
+  min-height: 680px;
+  width: 100%;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 1fr minmax(260px,320px) minmax(260px,320px);
+  grid-template-rows: 61px minmax(21rem, 1fr) auto minmax(20rem, auto);
+  grid-template-areas:
+    "subHeader subHeader orderbook recenttrades"
+    "chartarea chartarea orderbook recenttrades"
+    "chartarea chartarea orderform orderform"
+    "openorders openorders orderform orderform";
+
+  .orderbook{
+    grid-area: orderbook;
+  }
+  .chart{
+    grid-area: chartarea;
+  }
+  .subHeader{
+    grid-area: subHeader;
+  }
+  .orderform{
+    grid-area: orderform;
+  }
+  .recenttrades{
+    grid-area: recenttrades;
+  }
+  .openorders{
+    grid-area: openorders;
+  }
+}
+.grid-item { 
+  &__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__close::after,
+  &__close::before {
+    border: 1px solid #a9cde1;
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 1.55rem;
+    transform: rotate(45deg);
+    width: 1.5rem;
+  }
+
+  &__close::after {
+    transform: rotate(-45deg);
+  }
+
+  &__close:hover::after,
+  &__close:hover::before {
+    border-color: var(--color-dark);
+  }
+
+  &__title {
+    background-color: inherit;
+    color: #c1d4df;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+}
+
+.grid {
+  &-item {
+    height: 100%;
+
+    &__body {
+      height: 100%;
+      overflow-y: scroll;
+      padding: 0 !important;
+      scrollbar-width: none;
+    }
+  }
+}
+
+ 

@@ -1,0 +1,77 @@
+.p2porders-screen{
+  position: relative;
+  h2{
+    color: var(--color-dark);
+  }
+  .table-main{
+    .button-small{
+      margin-left: 15px;
+    }
+    tbody{
+      tr{
+        td{
+          font-size: 14px;
+          .date-split{
+            font-size: 13px;
+          }
+          .copy-field__text{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .copy-field{
+      &__text{
+        font-size: 13px;
+      }
+    }
+    .counterparty{
+      a{
+        border-bottom: 1px dotted var(--color-light-grey);
+        &:hover{
+          border-bottom: 1px solid var(--color-light-grey);
+        }
+      }
+    }
+    .side-info{
+      display: flex;
+      flex-direction: column;
+      .coins-block{
+        margin-bottom: 4px;
+      }
+      .text-buy{
+        color: var(--color-success);
+        font-size: 14px;
+        margin-right: 8px;
+        font-weight: 500;
+      }
+      .text-sell{
+        color: var(--color-danger);
+        font-size: 14px;
+        margin-right: 8px;
+        font-weight: 500;
+      }
+    }
+    .fiat-crypto{
+      display: flex;
+      flex-direction: column;
+      span{
+        &:first-child{
+          margin-bottom: 4px;
+        }
+      }
+    }
+    .little-button{
+      &.MuiButton-root{
+        color: var(--color-dark);
+        max-width: 150px;
+      }
+      .read-more{
+        fill: var(--color-dark);
+      }
+    }
+    .copy-field{
+      transition: 0s;
+    }
+  }
+}

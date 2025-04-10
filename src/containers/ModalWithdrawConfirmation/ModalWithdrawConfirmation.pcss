@@ -1,0 +1,63 @@
+.modal-body__withdraw-confirm {
+  padding: 15px 15px;
+  width: 510px;
+  &__body{
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  &__columns{
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--table-lines-grey);
+    &:nth-child(5){
+      border: none;
+    }
+    .name{
+      font-size: 13px;
+    }
+    .details{
+      color: #fff;
+      margin-top: 5px;
+      word-wrap: break-word;
+    }
+  }
+  &__block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 14px 5px;
+    border-radius: var(--small-border-radius);
+    box-shadow: var(--small-button-shadow);
+    color: #fff;
+    .name{
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+    .details{
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  .twofa__form__content{
+    &__body {
+      margin: 10px 0;
+    }
+    &__header {
+      margin: 20px 0 5px;
+    }
+  }
+}
+.modal-body__withdraw-success{
+  width: 480px;
+  &__body{
+    padding: 15px 15px;
+    span{
+      margin: 15px 0;
+      width: 100%;
+      display: block;
+    }
+  }
+}

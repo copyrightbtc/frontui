@@ -1,0 +1,270 @@
+.orders-type-menu{
+  width: 100%;
+  min-width: 100%;
+  position: relative;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5px 0 15px;
+  &.borders{
+    border-bottom: 1px solid var(--color-table-lines-grey);
+  }
+  &__tabs{
+    transition: .2s;
+    font-size: 14px;
+    padding: 5px 20px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    color: var(--color-dark);
+    position: relative;
+    height: 100%;
+    white-space: nowrap;
+    flex: 1;
+    width: 100%;
+    max-width: max-content;
+    &:after{
+      content: "";
+      bottom: -1px;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 0;
+      transition: width .2s;
+    }
+    &.active-tab{
+      &:after{
+        width: 100%;
+        transition: width .2s;
+      }
+    }
+  }
+  &__body{
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    &:not(.orders-type-menu__body__active) {
+      display: none;
+    }
+    &__active {
+      display: block;
+    }
+  }
+}
+.make-order-form{
+  &.buy-type{
+    .orders-type-menu{
+      &__tabs{
+        &.active-tab{
+          color: var(--color-buy);
+        }
+        &:hover{
+          color: var(--color-buy);
+        }
+        &:after{
+          background-color: var(--color-buy);
+        }
+      }
+    }
+  }
+  &.sell-type{
+    .orders-type-menu{
+      &__tabs{
+        &.active-tab{
+          color: var(--color-sell);
+        }
+        &:hover{
+          color: var(--color-sell);
+        }
+        &:after{
+          background-color: var(--color-sell);
+        }
+      }
+    }
+  }
+  &__field{
+    position: relative;
+    padding: 0 0 10px;
+    .error-message{
+      color: var(--color-danger);
+      font-size: 13px;
+      text-align: right;
+      width: 100%;
+      display: none;
+      &--visible{
+        display: block;
+      }
+    }
+    &__market-order{
+      display: flex;
+      align-items: center;
+      padding: 0px 9px;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--color-grey);
+      font-size: 14px;
+      border-radius: 4px;
+      border: var(--color-grey);
+      height: 38px;
+      pointer-events: auto;
+      cursor: not-allowed;
+      user-select: none;
+      .market-order{
+        &__price{
+          background-color: transparent;
+          color: var(--color-dark);
+          padding: 3px 0;
+          font-size: 13px;
+          font-weight: 400;
+          width: 100%;
+          box-shadow: none;
+          flex: 1 1;
+        }
+        &__coin-name{
+          align-items: center;
+          justify-content: flex-end;
+          margin: 0 2px;
+          display: inline-flex;
+          height: 38px;
+          color: var(--color-dark);
+          font-weight: 500;
+          flex: none;
+        }
+      }
+    }
+  }
+  &__percentage-slider {
+    width: 100%;
+  }
+  &__datas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+    flex-wrap: wrap;
+    .name{
+      font-size: 12px;
+      color: var(--color-light-grey);
+      white-space: nowrap;
+      &.dotted{
+        cursor: help;
+        border-bottom: 1px dotted var(--color-light-grey);
+      }
+    }
+    .datas{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 13px;
+      color: var(--color-dark);
+      white-space: nowrap;
+      span{
+        margin-left: 3px;
+      }
+      .deposit-link{
+        margin-left: 6px;
+        width: 17px;
+        height: 17px;
+        svg{
+          fill: var(--color-accent);
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &__button{
+    margin: 15px 0;
+    width: 100%;
+    max-width: 100%;
+    .order-button{
+      &.MuiButton-root{
+        width: 100%;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 0;
+        height: 38px;
+        text-transform: capitalize;
+        box-shadow: var(--color-small-button-shadow);
+        transition: .2s;
+        cursor: pointer;
+        &:hover{
+          box-shadow: var(--color-small-button-hover-shadow);
+        }
+        &:active{
+          box-shadow: var(--color-small-button-active-shadow);
+        }
+        &.buy{
+          background: var(--color-buy);
+          &:hover,
+          &:active{
+            background: var(--color-buy);
+          }
+          &.Mui-disabled{
+            background: #07c9414d;
+            &:hover,
+            &:active{
+              background: #07c9414d;
+            }
+          }
+        }
+        &.sell{
+          background: var(--color-sell);
+          &:hover,
+          &:active{
+            background: var(--color-sell);
+          }
+          &.Mui-disabled{
+            background: #d64c4f4d;
+            &:hover,
+            &:active{
+              background: #d64c4f4d;
+            }
+          }
+        }
+        &.Mui-disabled{
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    .trade-with-us{
+      &.MuiButton-root{
+        width: 100%;
+        text-transform: uppercase;
+        color: var(--main-dark);
+        background: var(--color-accent);
+        font-size: 14px;
+        font-weight: 400;
+        padding: 0;
+        height: 38px;
+        text-transform: capitalize;
+        box-shadow: var(--color-small-button-shadow);
+        transition: .2s;
+        cursor: pointer;
+        &:hover{
+          box-shadow: var(--color-small-button-hover-shadow);
+        }
+        &:active{
+          box-shadow: var(--color-small-button-active-shadow);
+        }
+      }
+    }
+  }
+  &__infos{
+    margin-top: 15px;
+    &:last-child{
+      margin-top: 25px;
+    }
+  }
+}

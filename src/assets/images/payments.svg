@@ -1,0 +1,128 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 420 478.8" style="enable-background:new 0 0 420 478.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#202228;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:url(#SVGID_1_);stroke-width:4;stroke-linecap:square;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#D7DDEF;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#A9B9E9;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#7291F2;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#2947B3;}
+	.st6{fill:#076CDB;}
+	.st7{fill:#0099DE;}
+	.st8{fill-rule:evenodd;clip-rule:evenodd;fill:#F8921A;}
+	.st9{fill:#157DD1;}
+	.st10{fill-rule:evenodd;clip-rule:evenodd;fill:#45CB3E;}
+	.st11{fill-rule:evenodd;clip-rule:evenodd;fill:#343434;}
+	.st12{fill-rule:evenodd;clip-rule:evenodd;fill:#8C8C8C;}
+	.st13{fill-rule:evenodd;clip-rule:evenodd;fill:#3C3C3B;}
+	.st14{fill-rule:evenodd;clip-rule:evenodd;fill:#141414;}
+	.st15{fill-rule:evenodd;clip-rule:evenodd;fill:#393939;}
+	.st16{fill:#53AE94;}
+	.st17{fill:#0E2D39;}
+	.st18{fill:#009A5F;}
+	.st19{fill:#4F4F4F;}
+	.st20{font-family:'Roboto-Regular';}
+	.st21{font-size:25.128px;}
+	.st22{font-family:'Roboto-Medium';}
+	.st23{font-size:14px;}
+	.st24{font-size:9px;}
+</style>
+<g id="Слой_2">
+	<g id="Слой_4">
+		<circle class="st0" cx="70.5" cy="110.8" r="28"/>
+		<circle class="st0" cx="210.9" cy="110.8" r="28"/>
+		<circle class="st0" cx="351.3" cy="110.8" r="28"/>
+		<circle class="st0" cx="70.5" cy="250.8" r="28"/>
+		<circle class="st0" cx="210.9" cy="250.8" r="28"/>
+		<circle class="st0" cx="351.3" cy="250.8" r="28"/>
+		<circle class="st0" cx="70.5" cy="390.8" r="28"/>
+		<circle class="st0" cx="210.9" cy="390.8" r="28"/>
+		<circle class="st0" cx="351.3" cy="390.8" r="28"/>
+	</g>
+	<g id="Слой_5">
+		<g>
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="59.4241" y1="361.0788" x2="58.4337" y2="360.214" gradientTransform="matrix(48.75 0 0 -16.875 -2815.75 6189.4414)">
+				<stop  offset="0" style="stop-color:#345BC1"/>
+				<stop  offset="1" style="stop-color:#FFFFFF"/>
+			</linearGradient>
+			<path class="st1" d="M88.7,103.5L75,114.9L62.1,104l-10.4,12.3"/>
+			<circle class="st2" cx="62.4" cy="104.7" r="4"/>
+			<circle class="st3" cx="75.2" cy="113.7" r="4"/>
+			<circle class="st4" cx="89" cy="103.7" r="4"/>
+			<path class="st5" d="M51.9,112.7c2.3,0,4,1.8,4,3.9c0,2.2-1.7,3.8-4,3.8c-2.3,0-3.9-1.6-3.9-3.8C48,114.5,49.6,112.7,51.9,112.7
+				L51.9,112.7z"/>
+		</g>
+	</g>
+	<g id="Слой_6">
+		<g>
+			<path class="st6" d="M199.2,105.6v12.8h-1c-0.3-0.1-0.6,0.1-0.8,0.3c-0.2,0.2-0.3,0.5-0.3,0.7v1h27.7v-1c0-0.3-0.1-0.6-0.3-0.7
+				c-0.2-0.2-0.5-0.3-0.8-0.3h-0.9v-12.8h-4.3v12.8h-2.1v-12.8H212v12.8h-2.1v-12.8h-4.3v12.8h-2.1v-12.8L199.2,105.6L199.2,105.6z"
+				/>
+			<path class="st6" d="M226.6,121.9c-0.2-0.2-0.5-0.3-0.8-0.3c0,0-29.7,0-29.7,0.1c-0.3-0.1-0.6,0.1-0.8,0.3
+				c-0.2,0.2-0.3,0.5-0.3,0.7v2.1h32v-2.1C226.9,122.4,226.8,122.1,226.6,121.9z"/>
+			<path class="st6" d="M226.9,103v-2.1l-16-6.4l-16,6.4v2.1h2.1h27.7c0,0,0,0,0-0.1H226.9z"/>
+			<path class="st6" d="M197.4,104.2c0.2,0.2,0.5,0.3,0.8,0.3h25.4c0.3,0.1,0.6-0.1,0.8-0.3c0.2-0.2,0.3-0.4,0.3-0.7h-27.7
+				C197.1,103.8,197.2,104,197.4,104.2z"/>
+		</g>
+	</g>
+	<g id="Слой_8">
+		<path class="st7" d="M69.2,235.8h-9v30H66v-11h3.4c7.2,0,11.3-3.6,11.3-9.7C80.8,238.8,77,235.8,69.2,235.8z M66,240.9h2.8
+			c5.2,0,6.1,1.5,6.1,4.1c0,2.4-0.7,4.6-5.9,4.6h-3C66,249.6,66,240.9,66,240.9z"/>
+	</g>
+	<g id="Слой_9">
+		<path class="st8" d="M225.5,247.2c0.7-4.2-2.3-6.5-6.4-8.1l1.5-5.7l-3.3-0.9l-1.5,5.5c-0.9-0.2-1.8-0.5-2.6-0.7l1.5-5.5l-3.3-0.9
+			l-1.5,5.7c-0.7-0.2-1.4-0.4-2.1-0.6l0,0l-4.5-1.3l-1,3.7c0,0,2.4,0.7,2.4,0.7c1.3,0.4,1.6,1.3,1.5,2.1l-1.7,6.4
+			c0.1,0,0.2,0.1,0.3,0.1l-0.3-0.1l-2.4,9c-0.2,0.4-0.6,1-1.5,0.8c0,0.1-2.4-0.7-2.4-0.7l-1.8,3.9l4.3,1.2c0.8,0.2,1.6,0.5,2.3,0.7
+			l-1.5,5.7l3.3,0.9l1.5-5.7c0.9,0.3,1.8,0.5,2.6,0.8l-1.5,5.6l3.3,1l1.5-5.7c5.6,1.3,9.9,0.9,11.8-4.4c1.6-4.3,0.1-6.8-2.8-8.5
+			C223.3,251.7,224.9,250.3,225.5,247.2z M217.6,258.1c-1.1,4.3-8,1.8-10.2,1.1l2-7.6C211.6,252.3,218.8,253.7,217.6,258.1
+			L217.6,258.1z M210.3,248.2l1.8-6.9c1.9,0.5,7.9,1.6,6.8,5.7C217.9,250.9,212.2,248.7,210.3,248.2L210.3,248.2z"/>
+	</g>
+	<g id="Слой_10">
+		<path id="Combined-Shape" class="st9" d="M356.5,237.4c10.6,0,12.4,5.8,10.9,13.9c-1,5.4-3.5,9.6-7.7,11.6
+			c-1.9,0.9-3.7,1.4-7.9,1.4h-12l1-5.6l10.5,0c6.3,0,8-2.7,8.9-5.1c0.3-0.9,1-3.7,1-5.3c0-3.2-1.5-5.2-6.9-5.2l-10.8,0l1-5.6H356.5z
+			 M339.3,248h12.3c0,0-0.1,0.7-0.5,2.3c-0.3,1.2-0.7,3.3-3.9,3.3h-12.3c0,0,0.1-0.7,0.5-2.3C335.7,250,336.1,248,339.3,248z"/>
+	</g>
+	<g id="Слой_11">
+		<path class="st10" d="M81.4,380.3c-1.5-4-5.2-4.5-9.6-3.8l-1.5-5.6l-3.3,0.8l1.5,5.5c-0.9,0.2-1.8,0.5-2.6,0.7l-1.5-5.5l-3.3,0.8
+			l1.5,5.6c-0.7,0.2-1.4,0.4-2.1,0.6l0,0l-4.6,1.1l1,3.7c0,0,2.4-0.7,2.4-0.6c1.3-0.3,2,0.4,2.3,1l1.7,6.4c0.1,0,0.2-0.1,0.4-0.1
+			l-0.4,0.1l2.4,9c0.1,0.5,0,1.2-0.9,1.4c0.1,0-2.4,0.6-2.4,0.6l0.4,4.3l4.3-1.1c0.8-0.2,1.6-0.4,2.4-0.6l1.5,5.7l3.3-0.8l-1.5-5.7
+			c0.9-0.2,1.8-0.4,2.7-0.6L77,409l3.3-0.8l-1.5-5.7c5.5-1.7,9-4.1,8-9.7c-0.8-4.5-3.3-5.9-6.7-5.9
+			C81.8,385.3,82.5,383.3,81.4,380.3z M80.1,393.7c1.2,4.3-6,5.5-8.3,6.1l-2-7.6C72,391.7,78.9,389.3,80.1,393.7L80.1,393.7z
+			 M68.8,388.8l-1.8-6.9c1.9-0.5,7.6-2.5,8.7,1.5C76.7,387.3,70.7,388.3,68.8,388.8z"/>
+	</g>
+	<g id="Слой_12">
+		<g>
+			<path class="st11" d="M210,372.1l-0.3,0.9v25.1l0.3,0.3l11.9-6.9L210,372.1z"/>
+			<path class="st12" d="M210,372.1l-11.9,19.3l11.9,6.9v-12.2V372.1z"/>
+			<path class="st13" d="M210,400.5l-0.1,0.2v8.9l0.1,0.4l11.9-16.4L210,400.5z"/>
+			<path class="st12" d="M210,410.1v-9.5l-11.9-6.9L210,410.1z"/>
+			<path class="st14" d="M210,398.3l11.9-6.9l-11.9-5.3V398.3z"/>
+			<path class="st15" d="M198.1,391.4l11.9,6.9v-12.2L198.1,391.4z"/>
+		</g>
+	</g>
+	<g id="Слой_13">
+		<path class="st16" d="M354.8,387.1V383h9.5v-6.3h-25.8v6.3h9.5v4.1c-7.7,0.4-13.5,1.9-13.5,3.7c0,1.8,5.8,3.3,13.5,3.7v13.3h6.8
+			v-13.3c7.7-0.4,13.4-1.9,13.4-3.7C368.3,389,362.5,387.4,354.8,387.1 M354.8,393.4L354.8,393.4c-0.2,0-1.2,0.1-3.4,0.1
+			c-1.8,0-3-0.1-3.4-0.1l0,0c-6.8-0.3-11.9-1.5-11.9-2.9s5.1-2.6,11.9-2.9v4.6c0.4,0,1.7,0.1,3.5,0.1c2.1,0,3.2-0.1,3.4-0.1v-4.6
+			c6.8,0.3,11.8,1.5,11.8,2.9S361.6,393.1,354.8,393.4"/>
+	</g>
+	<g id="Слой_7">
+		<path class="st17" d="M366.1,110.1h-8L356,106h12.8L366.1,110.1z M361.6,116.9h-0.9l-1.4-4.2h5L361.6,116.9z"/>
+		<path class="st18" d="M351.4,105.9l8,19h5.7l-13.7-30l-13.6,30h5.7L351.4,105.9z"/>
+		<polyline class="st17" points="333.8,106 351.4,106 353.2,110.1 336.9,110.1 333.8,106 		"/>
+		<polygon class="st17" points="356,116.9 341.5,116.9 338.4,112.8 354.2,112.8 		"/>
+	</g>
+	<text transform="matrix(1 0 0 1 147.4793 43.571)" class="st19 st20 st21">PAYMENTS</text>
+</g>
+<g id="Слой_14">
+	<text transform="matrix(1 0 0 1 195.17 162.8939)"><tspan x="0" y="0" class="st22 st23">Bank </tspan><tspan x="-10.1" y="10.8" class="st19 st20 st24">Wire transfer</tspan></text>
+	<text transform="matrix(1 0 0 1 323.4114 162.8939)"><tspan x="0" y="0" class="st22 st23">Volet </tspan><tspan x="-5.5" y="10.8" class="st19 st20 st24">Payment system</tspan></text>
+	<text transform="matrix(1 0 0 1 189.0587 302.5535)"><tspan x="0" y="0" class="st22 st23">Bitcoin </tspan><tspan x="-3.4" y="10.8" class="st19 st20 st24">BTC transfer</tspan></text>
+	<text transform="matrix(1 0 0 1 48.8575 302.5535)"><tspan x="0" y="0" class="st22 st23">Payeer </tspan><tspan x="-11.7" y="10.8" class="st19 st20 st24">Payment system</tspan></text>
+	<text transform="matrix(1 0 0 1 332.9104 302.5535)"><tspan x="0" y="0" class="st22 st23">DASH </tspan><tspan x="-7.2" y="10.8" class="st19 st20 st24">DASH transfer</tspan></text>
+	<text transform="matrix(1 0 0 1 180.794 442.213)"><tspan x="0" y="0" class="st22 st23">Ethereum </tspan><tspan x="4.8" y="10.8" class="st19 st20 st24">ETH transfer</tspan></text>
+	<text transform="matrix(1 0 0 1 31.0401 442.213)"><tspan x="0" y="0" class="st22 st23">Bitcoin Cash </tspan><tspan x="13.7" y="10.8" class="st19 st20 st24">BCH transfer</tspan></text>
+	<text transform="matrix(1 0 0 1 330.9036 442.213)"><tspan x="0" y="0" class="st22 st23">Tether </tspan><tspan x="-7.6" y="10.8" class="st19 st20 st24">USDT transfer</tspan></text>
+</g>
+</svg>

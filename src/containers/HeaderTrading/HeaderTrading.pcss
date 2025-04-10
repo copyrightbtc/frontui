@@ -1,0 +1,89 @@
+.support-button {
+  color: #fff;
+  &.MuiButton-root{
+    border: none;
+    border-radius: .25rem;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    background: transparent;
+    margin: 0 8px;
+    position: relative;
+    width: 43px;
+    min-width: 43px;
+    height: 43px;
+    .support-icon { 
+        fill: #fff;
+        width: 18px;
+    }
+  }
+  &.themes{
+    color: var(--color-dark);
+    .support-icon { 
+      fill: var(--color-dark);
+      width: 18px;
+    }
+  }
+}
+.header-trading{
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-main-dark);
+  height: 50px;
+  &.trading_style{
+    padding: 4px 15px;
+    margin-bottom: 1px;
+  }
+  button.MuiButton-root .arrow_menu{
+    &:after,
+    &:before {
+        background: var(--color-dark);
+    }
+  }
+  img{
+    width: 100%;
+    max-width: 130px;
+    cursor: pointer;
+  }
+  &__left{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &__buttons{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 12px;
+      .MuiButton-root{
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #dad8d8;
+        &.MuiButton-root.MuiButton-outlined{ 
+          border: 1px solid var(--color-light-dark);
+          color: var(--color-dark);
+          padding: .41rem 3.25rem;
+          &:hover{
+            border: 1px solid #eff50180;
+            color: var(--color-accent);
+          }
+        }
+        &.MuiButton-root.MuiButton-text{
+          padding: .41rem 3rem;
+          color: var(--color-dark);
+          &:hover{
+            color: var(--color-accent);
+          }
+        }
+      } 
+    } 
+  }
+} 

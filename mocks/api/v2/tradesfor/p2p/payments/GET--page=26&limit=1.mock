@@ -1,0 +1,23 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+  {
+    "id": 26,
+    "member_id": 24,
+    "payment_type": "bank",
+    "state": "active",
+    "account_name": "NGUYEN HUU HA",
+    "data": {
+      "bank_name": "Vietcombank",
+      "bank_branch": "Hanoi",
+      "bank_account": "123456789"
+    },
+    "created_at": "2024-06-22T10:42:32.000+02:00",
+    "updated_at": "2024-06-22T10:42:32.000+02:00"
+  }
+]

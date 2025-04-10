@@ -1,0 +1,96 @@
+.ticker-table {
+  display: block;
+  height: 100%;
+  min-height: 380px;
+  max-height: 380px;
+  overflow: hidden;
+  &__wrapper{ 
+    height: 339px;
+    overflow: hidden;
+    width: 100%;
+    border-top-left-radius: var(--small-border-radius);
+    border-top-right-radius: var(--small-border-radius);
+    box-shadow: var(--box-shadow-light);
+    background: var(--main-dark-brown);
+    padding-top: 10px;
+    &__head{
+      height: 34px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1 0 auto;
+      border-bottom: 1px solid var(--table-lines-grey);
+      .cell{
+        color: var(--text-darkgrey);
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0 12px;
+        text-align: right;
+        flex: 1;
+        &:first-child{
+          width: 100%;
+          max-width: 150px;
+          text-align: left;
+        }
+      }
+    }
+    &__body{
+      overflow: hidden;
+      overflow-y: auto;
+      height: 100%;
+      max-height: 285px;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      &__row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        color: #fff;
+        padding: 0 24px;
+        border-bottom: 1px solid var(--table-lines-grey);
+        &:hover{
+          background: var(--hover-background-greyblue);
+        }
+        .cell{
+          text-align: right;
+          font-size: 14px;
+          padding: 11px 12px;
+          background: transparent;
+          flex: 1;
+          &.icons{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 150px;
+            .currency-icon{
+              width: 100%;
+              max-width: 25px;
+              height: 25px;
+              margin-right: 10px;
+              img{
+                width: 100%;
+              }
+            }
+          }
+          .positive{
+            color: var(--success);
+          }
+          .negative{
+            color: var(--danger);
+          }
+        }
+      }
+    }
+  }
+  .button-underlines{
+    &__button{
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+  }
+}
+ 

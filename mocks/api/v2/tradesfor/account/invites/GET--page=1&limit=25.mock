@@ -1,0 +1,34 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+  {"email": "test1@gmail.com", "uid": "ID12378329841", "total": "0.03", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test2@gmail.com", "uid": "ID12456329843", "total": "0.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test3@gmail.com", "uid": "ID12366329844", "total": "0.11", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test4@gmail.com", "uid": "ID12226329845", "total": "3.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test5@gmail.com", "uid": "ID12124329846", "total": "6.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test1@gmail.com", "uid": "ID12378329841", "total": "0.03", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test2@gmail.com", "uid": "ID12456329843", "total": "0.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test3@gmail.com", "uid": "ID12366329844", "total": "0.11", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test4@gmail.com", "uid": "ID12226329845", "total": "3.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test5@gmail.com", "uid": "ID12124329846", "total": "6.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test1@gmail.com", "uid": "ID12378329841", "total": "0.03", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test2@gmail.com", "uid": "ID12456329843", "total": "0.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test3@gmail.com", "uid": "ID12366329844", "total": "0.11", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test4@gmail.com", "uid": "ID12226329845", "total": "3.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test5@gmail.com", "uid": "ID12124329846", "total": "6.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test1@gmail.com", "uid": "ID12378329841", "total": "0.03", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test2@gmail.com", "uid": "ID12456329843", "total": "0.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test3@gmail.com", "uid": "ID12366329844", "total": "0.11", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test4@gmail.com", "uid": "ID12226329845", "total": "3.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test5@gmail.com", "uid": "ID12124329846", "total": "6.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test1@gmail.com", "uid": "ID12378329841", "total": "0.03", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test2@gmail.com", "uid": "ID12456329843", "total": "0.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test3@gmail.com", "uid": "ID12366329844", "total": "0.11", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test4@gmail.com", "uid": "ID12226329845", "total": "3.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"},
+  {"email": "test5@gmail.com", "uid": "ID12124329846", "total": "6.21", "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"}
+]

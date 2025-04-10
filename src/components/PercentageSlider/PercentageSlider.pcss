@@ -1,0 +1,128 @@
+.percentage-slider {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  .start__end{
+    width: 100%;
+    position: absolute;
+    height: 2px;
+    left: 0;
+    background: transparent;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 8;
+    &::before,
+    &::after{
+      position: absolute;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--color-light-grey);
+      background: var(--color-main-dark);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    &::before{
+      content: "";
+      left: 0;
+    }
+    &::after{
+      content: "";
+      right: 0;
+    }
+  }
+  &__track {
+    position: relative;
+    height: 14px;
+    background: transparent;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+    &:after{
+      content: "";
+      width: 100%;
+      height: 2px;
+      background: var(--color-light-grey);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+    &__backs{
+      height: 2px;
+      left: 0;
+      position: absolute;
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 7;
+      background: var(--color-accent);
+    }
+  }
+
+  &__checkpoint {
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--color-light-grey);
+    background: var(--color-main-dark);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  &__handle {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--color-main-dark);
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+
+    &--start {
+      transform: translate(0, -50%);
+    }
+
+    &--end {
+      transform: translate(-100%, -50%);
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-grey);
+    color: var(--color-dark);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: none;
+    white-space: nowrap;
+  }
+
+  &:hover .percentage-slider__tooltip,
+  .percentage-slider__handle:active + .percentage-slider__tooltip {
+    display: block;
+  }
+
+  &--disabled {
+    cursor: no-drop;
+  }
+
+  &--disabled > &__track,
+  &--disabled > &__handle  {
+    pointer-events: none;
+  }
+
+  &--disabled &__handle {
+    border-color: var(--color-light-grey);
+  }
+}

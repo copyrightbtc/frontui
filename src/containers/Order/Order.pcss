@@ -1,0 +1,124 @@
+.make-orders {
+  margin: 0;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.make-order {
+  &__body{
+    display: block;
+    &:not(.make-order__body__active) {
+      display: none;
+    }
+
+    &__active {
+      display: block;
+    }
+  }
+  .spinner-loader-center{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 10px 16px;
+    height: 100%;
+    &--extended{
+      column-gap: 20px;
+      display: grid;
+      padding: 10px 15px 15px;
+      grid-template-columns: 1fr 1fr;
+      .make-order-form{
+        width: 100%;
+        min-width: 0;
+        .orders-type-field{
+          input.inputs-custom{
+            text-align: right;
+            padding: 0 10px 0 7px;
+          }
+        }
+        &__field{
+          &__market-order{
+            .market-order__price{
+              text-align: right;
+              padding: 0 10px 0 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__header{
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px auto 15px;
+    &__button{
+      width: 100%;
+      max-width: 50%;
+      height: 100%;
+      flex: 1;
+      color: var(--color-dark);
+      border: 1px solid var(--color-table-lines-grey);
+      position: relative;
+      font-size: 13px;
+      white-space: nowrap;
+      &:first-child{
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        &:hover{
+          background-color: #07ca421a;
+        }
+      }
+      &:last-child{
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        &:hover{
+          background-color: #d64c4f1a;
+        }
+      }
+      &.active{
+        color: #fff;
+        &:first-child{
+          background-color: var(--color-buy);
+          border-color: var(--color-buy);
+          &:after {
+            background-color: inherit;
+            border-radius: 0 0 0 var(--color-buy);
+            content: "";
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            right: -11px;
+            transform: rotate(-135deg);
+            z-index: 1;
+          }
+        }
+        &:last-child{
+          background-color: var(--color-sell);
+          border-color: var(--color-sell);
+          &:before {
+            background-color: inherit;
+            border-radius: 0 0 0 var(--color-sell);
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: -11px;
+            position: absolute;
+            transform: rotate(45deg);
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}

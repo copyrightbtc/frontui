@@ -1,0 +1,138 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+
+[
+   {
+      "id":1,
+      "coin_currency":"bch",
+      "fiat_currency":"usd",
+      "price":"21400.0",
+      "amount":"5200.0525",
+      "state":"active",
+      "min_amount":"20.0",
+      "max_amount":"100.0",
+      "side":"sell",
+      "paytime":15,
+      "description":"Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin Tôi bán coin ",
+      "payments":[
+         {
+            "id":1,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Vietcombank with really long name for test",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         },
+         {
+            "id":2,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Vietcombank",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         },
+         {
+            "id":3,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Monobank",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         },
+         {
+            "id":4,
+            "state":"active",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"Hello",
+               "bank_branch":"Dong Da",
+               "account_number":"01276412344"
+            }
+         }
+      ],
+      "advertiser":{
+         "uid":"ID64C0917431",
+         "username":"Shadow",
+         "trades_count_30d":1,
+         "success_rate_30d":50,
+         "positive_feedback_count":75,
+         "negative_feedback_count":22
+      }
+   },
+   {
+      "id":2,
+      "coin_currency":"btc",
+      "fiat_currency":"usd",
+      "price":"15000000.0",
+      "amount":"5.0",
+      "state":"inactive",
+      "min_amount":"500000.0",
+      "max_amount":"2500000.0",
+      "side":"sell",
+      "paytime":20,
+      "description":"Bán ETH nhanh chóng",
+      "payments":[
+         {
+            "id":2,
+            "state":"inactive",
+            "payment_type":"e-wallet",
+            "data":{
+               "wallet_name":"Momo",
+               "account_number":"03345678901"
+            }
+         }
+      ],
+      "advertiser":{
+         "uid":"ID64C0917431",
+         "username":"Shadow",
+         "trades_count_30d":1,
+         "success_rate_30d":0,
+         "positive_feedback_count":0,
+         "negative_feedback_count":1
+      }
+   },
+   {
+      "id":3,
+      "coin_currency":"ltc",
+      "fiat_currency":"vnd",
+      "price":"2000000.0",
+      "amount":"25.0",
+      "state":"active",
+      "min_amount":"50000.0",
+      "max_amount":"500000.0",
+      "side":"sell",
+      "paytime":25,
+      "description":"Bán LTC với giá ưu đãi",
+      "payments":[
+         {
+            "id":3,
+            "state":"inactive",
+            "payment_type":"bank",
+            "data":{
+               "bank_name":"BIDV",
+               "bank_branch":"Thanh Xuan",
+               "account_number":"04567890123"
+            }
+         }
+      ],
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   }
+]

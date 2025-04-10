@@ -1,0 +1,45 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+  {
+    "uid": "ID787E383938",
+    "username": "Turbo3000",
+    "body": "Alo mày bank chưa?",
+    "image": {
+      "url": null
+    },
+    "created_at": "2024-06-18T18:45:20+02:00"
+  },
+  {
+    "uid": "ID64C0917431",
+    "username": "Shadow",
+    "body": "Tao bank rồi mà",
+    "image": {
+      "url": null
+    },
+    "created_at": "2024-06-18T18:45:31+02:00"
+  },
+  {
+    "uid": "ID787E383938",
+    "username": "Turbo3000",
+    "body": "Má t có thấy đâu m trêu t à?",
+    "image": {
+      "url": null
+    },
+    "created_at": "2024-06-18T18:45:50+02:00"
+  },
+  {
+    "uid": "ID64C0917431",
+    "username": "Shadow",
+    "body": "Má đùa làm chó accept đi mai thấy",
+    "image": {
+      "url": "http://localhost:3000/sfortradebacks.png"
+    },
+    "created_at": "2024-06-18T18:46:06+02:00"
+  }
+]

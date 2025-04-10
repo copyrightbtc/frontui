@@ -1,0 +1,1 @@
+export const MAX_LIMIT_CURRENCY = 100_000_000_000_000_000;

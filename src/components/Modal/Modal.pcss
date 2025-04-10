@@ -1,0 +1,224 @@
+.modal-window {
+  width: 100%;
+  min-width: 100vw;
+  align-items: center;
+  background-color: #111214cc;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999999;
+  backdrop-filter: blur(7px);
+  padding: 35px;
+  .error-danger{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--danger);
+  }
+  &__title{
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    margin: 5px 0 15px;
+    font-size: 15px;
+  }
+  &__button{
+    width: 100%;
+    margin: 25px 0 0; 
+  }
+  &__buttons{
+    width: 100%;
+    margin: 25px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .medium-button{
+      &.MuiButton-root{
+        text-transform: capitalize;
+        width: 100%;
+        max-width: calc(50% - 10px);
+      }
+    }
+  }
+  &__description-bottom{
+    color: var(--color-light-grey);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+  &__error{
+    opacity: 1;
+    color: var(--color-danger);
+    margin: 5px 0px;
+    position: relative;
+    display: block;
+    padding: 0;
+    font-size: 15px;
+  }
+  &__container {
+    position: relative;
+    padding: 15px 15px 25px;
+    width: 100%;
+    max-width: 440px;
+    background: var(--main-dark-brown);
+    border-radius: var(--medium-border-radius);
+    box-shadow: var(--box-shadow-dark);
+    transition: all 0.2s;
+    max-height: 95vh;
+    overflow: hidden;
+    overflow-y: auto;
+    &__twofa{
+      padding: 15px 15px;
+    }
+    &.scroll{
+      padding: 0;
+      .modal-window__container__header{
+        margin: 5px auto 0;
+        padding: 15px 0;
+        width: calc(100% - 30px);
+      }
+    }
+    &.wide{
+      max-width: max-content;
+    }
+    &.twofa-modalscreen{
+      max-width: 460px;
+      padding: 25px 35px 0;
+      .twofa__form{
+        padding: 10px;
+        &__content__body{
+          margin: 10px 0 5px;
+        }
+      }
+    }
+    &__header {
+      display: block;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      margin: 5px 0 25px;
+      h1{
+        text-align: center;
+        color: #fff;
+        margin: .75rem 0;
+        font-size: 20px;
+        line-height: 38px;
+        text-transform: inherit;
+        font-weight: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &__close{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    
+    &__content {
+      width: 100%;
+      &__info{
+        font-size: 15px;
+        color: #fff;
+        margin: 0 0 15px;
+      }
+      &__danger{
+        font-size: 15px;
+        color: var(--danger);
+        margin: 0 0 15px;
+        font-weight: 500;
+      }
+    }
+
+    &__footer {
+      width: 100%;
+      margin-top: 30px;
+    }
+    &.verification{
+      max-width: max-content;
+    }
+  } 
+}
+
+.themes.modal-window{
+  .error-danger{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-danger);
+  }
+  .modal-window{
+    &__container{
+      background: var(--color-main-dark-brown); 
+      box-shadow: var(--color-box-shadow-dark);
+      .login-form{
+        &__content{
+          &__group{
+            .input-group{
+              input{
+                box-shadow: 0 0 0 50px var(--color-main-dark-brown) inset !important;
+                color: var(--color-dark) !important;
+                -webkit-text-fill-color: var(--color-dark) !important;
+              }
+            }
+            &--focused{
+              .input-group{
+                input{
+                  color: var(--color-dark);
+                  &::placeholder{
+                    color: var(--color-dark);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &__header{
+        color: var(--color-dark); 
+        h1{
+          color: var(--color-dark);
+        }
+      }
+      &__content {
+        &__info{
+          color: var(--color-dark);
+        }
+        &__danger{ 
+          color: var(--color-danger); 
+        }
+      }
+    }
+    &__title{
+      color: var(--color-dark);
+    }
+  }
+}
+
+.modal-window__container.fadet,
+.enter.enter-active .modal-window__container.fadet {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.enter-done .modal-window__container.fadet {
+  opacity: 1;
+  transform: scale(1);
+}
+.exit .modal-window__container.fadet {
+  opacity: 1;
+  transform: scale(1);
+}
+.exit.exit-active .modal-window__container.fadet {
+  opacity: 0;
+  transform: scale(0.9);
+}

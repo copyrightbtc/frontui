@@ -1,0 +1,241 @@
+.main_footer__wrap__navigation a:hover{
+  color: #fdce01;
+}
+.main_footer__wrap__navigation a:hover img{
+  filter: invert(71%) sepia(90%) saturate(740%) hue-rotate(360deg) brightness(102%) contrast(102%);
+} 
+.main_footer{
+    margin-top: 100px;
+    background: var(--main-dark);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+
+    &__wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 211px;
+
+      &__left,
+      &__navigation,
+      &__social {
+        display: flex;
+        height: 211px;
+        width: 100%;
+      }
+
+      &__left {
+        align-items: center;
+        cursor: pointer;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        img {
+          width: 174px;
+        }
+      }
+
+      &__navigation {
+      align-items: flex-start;
+          flex-direction: row;
+          justify-content: center;
+          max-width: 1005px;
+          padding-top: 26px;
+          margin: 0 auto;
+
+        &__col {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            max-width: 25%;
+            -ms-flex: 1 0 25%;
+            flex: 1 0 25%;
+                padding: 10px;
+          p{
+            font-size: 13px; 
+            color: #ffffff9c;
+          }
+          a {
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-darkgrey);
+            margin-bottom: 10px;
+
+            &:last-child {
+              margin: 0;
+            }
+
+          }
+        }
+      }
+
+      &__social { 
+        flex-direction: column;
+        justify-content: center;
+          max-width: 25%;
+        -ms-flex: 1 0 25%;
+        flex: 1 0 25%;
+
+        &__row {
+          align-items: flex-start;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          max-width: 25%;
+            -ms-flex: 1 0 25%;
+            flex: 1 0 25%;
+          a{
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            color: var(--text-darkgrey);
+          }
+
+          img {
+            cursor: pointer;
+            height: 15px;
+            margin: 9px;
+            width: 15px; 
+            filter: invert(53%) sepia(8%) saturate(858%) hue-rotate(178deg) brightness(95%) contrast(93%); 
+
+            &:hover {
+              opacity: 1;
+              transition: .2s linear;
+            }
+          }
+        }
+      }
+    }
+
+    &__rights {
+        align-items: center;
+        color: #ffffff9c;
+        display: flex;
+        font-size: 14px;
+        font-weight: normal;
+        height: 100%;
+        justify-content: center;
+        line-height: 15px;
+        width: 100%;
+        background: var(--main-dark);
+          p{
+            margin: 0;
+          }
+          a{
+            margin-left: 5px;
+            color: #fdce01;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+
+          }
+          img{
+            max-width: 33px;
+            fill: #fff;
+            margin-left: 10px;
+          }
+    }
+.main_footer__ewallets {
+      min-height: 50px;
+      display: flex;
+      justify-content: center;
+  
+      img {
+          height: 100%;
+          margin: 0 15px;
+          width: 105px;
+      }
+  }
+}
+
+@media (max-width: 768px) {
+  .main_footer {
+    &__footer{
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: max-content;
+      padding: 0 50px;
+
+      &__wrap{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: max-content;
+
+        &__rights {
+          margin: 35px 0 5px;
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 25px;
+            p{
+              margin-bottom: 15px;
+              text-align: center;
+            }
+            a{
+              display: flex;
+              flex-direction: column-reverse;
+                img{
+                  margin-bottom: 7px;
+                }     
+            }
+        } 
+
+        &__left {
+          justify-content: center;
+          height: 111px;
+        }
+
+        &__navigation,
+        &__social {
+            flex-wrap: wrap;
+        }
+
+        &__social__row,
+        &__navigation__col{
+
+          max-width: 100%;
+          flex: 1 0 100%;
+             
+            a{
+              font-size: 18px;
+              padding: 5px 0;
+              margin: 6px 0;
+            }
+            p{
+              font-size: 18px;
+              padding: 5px 0;
+              margin: 0;
+            }
+            img{
+              width: 18px;
+              height: 18px;
+            }
+        }
+      }
+    } 
+  }
+  .main_footer__ewallets {
+    width: 100%;
+    min-height: initial;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+
+    img {
+        height: 50px;
+        margin: initial;
+    }
+}
+}

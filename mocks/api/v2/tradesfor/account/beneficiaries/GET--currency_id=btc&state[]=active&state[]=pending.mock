@@ -1,0 +1,53 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+  {
+    "id":9,
+    "currency":"btc",
+    "blockchain_name":"Bitcoin chain",
+    "blockchain_key":"bitcoin",
+    "protocol": "electrum",
+    "name":"Mom",
+    "description":"description description description",
+    "data":{"address":"11111SnmHrRcuRtbQunU2HUkembjxuzrgD"},
+    "state":"active"
+  },
+  {
+    "id":10,
+    "currency":"btc",
+    "blockchain_name":"Bitcoin disabled chain",
+    "blockchain_key":"bitcoin_disabled",
+    "protocol": "BTC-pending",
+    "name":"Pentagon",
+    "description":null,
+    "data":{"address":"1MM67SnmHrRcuRtbQunU2HUkembjxuzrgD_disabled"},
+    "state":"active"
+  },
+  {
+    "id":11,
+    "currency":"btc",
+    "blockchain_name":"Bitcoin1 testoso chain",
+    "blockchain_key":"bitcoin_test",
+    "protocol": "electrum",
+    "name":"Mom2",
+    "description":null,
+    "data":{"address":"1MM67SnmHrRcuRtbQunU2HUkembjxuzrgD_test"},
+    "state":"active"
+  },
+  {
+    "id":12,
+    "currency":"btc",
+    "blockchain_name":"Bitcoin disabled chain",
+    "blockchain_key":"bitcoin_disabled",
+    "protocol": "electrum",
+    "name":"Pentagon2",
+    "description":null,
+    "data":{"address":"1MM67SnmHrRcuRtbQunU2HUkembjxuzrgD_disabled"},
+    "state":"pending"
+  }
+]

@@ -1,0 +1,110 @@
+.recent-trades {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  .underlines-container{
+    &.trade-slide{
+      .underlines-container__body{
+        height: 100%;
+      }
+    }
+  }
+  .decimal-opacity{
+    opacity: 1!important;
+  }
+  &__table{
+    height: 100%;
+    max-height: calc(100% - 40px);
+    &__head{
+      height: 30px;
+      min-height: 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 5px;
+      .cells{
+        padding: 0 5px;
+        justify-content: flex-end;
+        width: 100%;
+        max-width: calc(100% / 3);
+        font-size: .85rem;
+        flex: 1 0 auto;
+        color: var(--color-light-grey);
+        background: transparent;
+        font-weight: 400;
+        line-height: 1.5rem;
+        letter-spacing: 0.01071em;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        &:first-child{
+          justify-content: flex-start;
+        }
+      }
+    }
+    &__body{
+      overflow: hidden;
+      overflow-y: auto;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      padding-right: 3px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-height: calc(100% - 30px);
+      &__row{
+        height: 22px;
+        min-height: 22px;
+        border: none;
+        cursor: pointer;
+        padding: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        &:hover{
+          background-color: #00000023;
+        }
+        .cells{
+          padding: 0 5px;
+          justify-content: flex-end;
+          width: 100%;
+          max-width: calc((100% / 3) - 4%);
+          font-size: .9rem;
+          flex: 1 0 auto;
+          color: var(--color-dark);
+          line-height: 1.5rem;
+          letter-spacing: 0.01071em;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          z-index: 10;
+          &:first-child{
+            justify-content: flex-start;
+          }
+        }
+      }
+      &.empty{
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        .no-data-empty{
+          margin: 0 auto;
+          svg{
+            width: 40px;
+          }
+          span{
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,279 @@
+.button-underlines{
+  display: flex;
+  align-items: flex-start;
+  &__wrapper{
+    position: relative;
+    .w-buttons{
+      position: relative;
+    }
+    &.additional-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .w-buttons{
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          max-width: max-content;
+        }
+        .add-header{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          position: relative;
+        }
+    }
+    &.borders{
+      border-bottom: 1px solid var(--table-lines-grey);
+    }
+  }
+  &__button{
+    color: var(--light-grey);
+    transition: .2s;
+    font-size: 14px;
+    padding: 12px 16px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    &.active-tab{
+      color: var(--accent);
+    }
+    &:hover{
+      color: var(--accent);
+    }
+  }
+  &__line{
+    height: 2px;
+    background-color: var(--accent);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: block;
+    bottom: 0;
+    position: absolute;
+  }
+}
+.underlines-container{
+  width: 100%;
+  min-width: 100%;
+  &__additional-header{
+    position: relative;
+  }
+  &__body{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  &.trade-slide{
+    height: 100%;
+    .underlines-container{
+      &__body{
+        height: calc(100% - 40px);
+      }
+    }
+    .button-underlines{
+      &__wrapper{
+        height: 40px;
+      }
+      &__button{
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+.underlines-container{
+  &.themes{
+    .button-underlines{
+      &__wrapper{
+        &.borders{
+          border-bottom: 1px solid var(--color-table-lines-grey);
+        }
+      }
+      &__button{
+        color: var(--color-light-grey);
+        transition: .2s;
+        &.active-tab{
+          color: var(--color-accent);
+        }
+        &:hover{
+          color: var(--color-accent);
+        }
+      }
+      &__line{
+        background-color: var(--color-accent);
+      }
+    }
+  }
+}
+
+.button-sliding{
+  display: flex;
+  align-items: flex-start;
+  &__wrapper{
+    margin: 1rem 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .w-buttons{
+      background: var(--main-dark-light);
+      height: 48px;
+      border-radius: var(--small-border-radius);
+      width: 100%;
+      max-width: 450px;
+      position: relative;
+      padding: 4px;
+      &__inner{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    &.additional-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .w-buttons{
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          max-width: max-content;
+        }
+        .add-header{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          position: relative;
+        }
+    }
+    &.borders{
+      .w-buttons{
+        background: transparent;
+        border: 1px solid var(--table-lines-grey);
+      }
+    }
+  }
+  &__button{
+    font-size: 15px;
+    height: 100%;
+    width: 100%;
+    max-width: calc(100%/2 - 4px);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
+    transition: .2s;
+    border-radius: var(--small-border-radius);
+    &:hover{
+      background-color: var(--grey);
+      color: #fff;
+      &.active-tab{
+        color: #fff;
+        background-color: transparent;
+      }
+    }
+    &.active-tab{
+      color: #fff;
+      background-color: transparent;
+    }
+  }
+  &__line{
+    height: 36px;
+    background-color: var(--main-dark-brown);
+    border-radius: var(--small-border-radius);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: block;
+    bottom: 5px;
+    position: absolute;
+    box-shadow: var(--box-shadow-small);
+  }
+}
+.button-sliding{
+  width: 100%;
+  min-width: 100%;
+  &__additional-header{
+    position: relative;
+  }
+}
+.button-sliding{
+  &.themes{
+    .button-underlines{
+      &__wrapper{
+        &.borders{
+          border-bottom: 1px solid var(--color-table-lines-grey);
+        }
+      }
+      &__button{
+        color: var(--color-dark);
+        &:hover{
+          background-color: var(--color-grey);
+          color: var(--color-dark);
+        }
+        &.active-tab{
+          color: var(--color-dark);
+          background-color: transparent;
+          &:hover{
+            color: var(--color-dark);
+            background-color: transparent;
+          }
+        }
+      }
+      &__line{
+        background-color: var(--color-accent);
+      }
+    }
+  }
+}
+
+.buttonsliding-container{
+  width: 100%;
+  min-width: 100%;
+  &__additional-header{
+    position: relative;
+  }
+  &__body{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+.buttonsliding-container{
+  &.themes{
+    .button-sliding{
+      &__button{
+        color: var(--color-dark);
+        &:hover{
+          background-color: var(--color-grey);
+          color: var(--color-dark);
+        }
+        &.active-tab{
+          color: var(--color-dark);
+          background-color: transparent;
+          &:hover{
+            color: var(--color-dark);
+            background-color: transparent;
+          }
+        }
+      }
+    }
+    .button-underlines{
+      &__wrapper{
+        &.borders{
+          border-bottom: 1px solid var(--color-table-lines-grey);
+        }
+      }
+      &__button{
+        color: var(--color-light-grey);
+        transition: .2s;
+        &.active-tab{
+          color: var(--color-accent);
+        }
+        &:hover{
+          color: var(--color-accent);
+        }
+      }
+      &__line{
+        background-color: var(--color-accent);
+      }
+    }
+  }
+}

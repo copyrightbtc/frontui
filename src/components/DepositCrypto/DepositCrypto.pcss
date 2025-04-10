@@ -1,0 +1,66 @@
+
+.deposit-crypto {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+
+  &__create{
+    margin: 1.45rem 0;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  &__address{
+    margin-top: 15px;
+    width: 100%;
+  }
+  &__details{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 3.5rem 0 0;
+    width: 100%;
+    .qr-code{
+      position: relative;
+      width: 100%;
+      max-width: 200px;
+      height: 200px;
+      flex: 1;
+    }
+    &__right{
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      justify-content: flex-start;
+      padding-left: 2.45rem;
+      .details-row{
+        padding: 8px 0;
+        font-weight: 400;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--table-lines-grey);
+        span{
+          color: var(--light-grey);
+        }
+      }
+    }
+  }
+}
+.wallet-address-input{
+  position: relative;
+  width: 100%;
+  fieldset{
+    width: 100%;
+  }
+  &__warning{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,153 @@
+.wallets-coinpage{
+  padding: 25px 35px 0;
+  position: relative;
+  display: block;
+  margin: 0 auto 2.5rem;
+  width: 100%;
+  min-width: 100%;
+  &__middle{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 600px;
+    height: 100%;
+    .buttonsliding-container{
+      margin-top: 3rem;
+      .w-buttons{
+        .button-sliding{
+          &__line{
+            &.first{
+              background-color: var(--success);
+            }
+            &.second{
+              background-color: var(--danger);
+            }
+          }
+        }
+      }
+    }
+  }
+  &__top{
+    width: 100%;
+    position: relative;
+    &__header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .currency-icon{
+        width: 100%;
+        max-width: 61px;
+        height: 61px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 55px;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .buttons-head{
+        border-radius: 20px;
+        color: var(--light-grey);
+        font-size: 1rem;
+        margin: 0 25px 0;
+        display: flex;
+        align-items: center;
+        .MuiButtonBase-root{
+          color: #fff;
+          width: 40px;
+          height: 40px;
+          margin-right: 7px;
+          &:hover{
+            color: var(--accent);
+            .arrow-back{
+              fill: var(--accent);
+            }
+          }
+          &:active{
+            color: var(--accent);
+            .arrow-back{
+              fill: var(--accent);
+            }
+          }
+          .arrow-back{
+            user-select: none;
+            width: 21px;
+            height: 21px;
+            display: inline-block;
+            flex-shrink: 0;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            fill: var(--light-grey);
+          }
+        }
+        &.change{
+          .MuiButtonBase-root{
+            color: var(--blue);
+            margin-right: 0;
+            margin-left: 7px;
+            border: 1px solid #007fff63;
+            svg{
+              user-select: none;
+              width: 21px;
+              height: 21px;
+              display: inline-block;
+              flex-shrink: 0;
+              transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+              fill: var(--blue);
+            }
+            &:hover{
+              color: var(--blue);
+            }
+            &:active{
+              color: var(--blue);
+            }
+          }
+        }
+      }
+    }
+    h2{
+      font-size: 20px;
+      color: #fff;
+      margin-top: 23px;
+      font-weight: 400;
+      width: 100%;
+      text-align: center;
+      span{
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.wallet__error {
+  color: var(--danger);
+  font-size: 1.2rem;
+  margin-left: calc(var(--gap) * 4);
+}
+ 
+@media screen and (max-width: 1024px) {
+ 
+}
+
+@media screen and (min-width: 768px) {
+ 
+}
+
+@media screen and (max-width: 640px) {
+ 
+}
+
+@media screen and (max-width: 576px) {
+ 
+}
+
+@media screen and (max-width: 430px) {
+ 
+}
+
+@media screen and (max-width: 380px) {
+ 
+}

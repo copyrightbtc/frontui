@@ -1,0 +1,92 @@
+.no-data-empty{
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 45px auto;
+    span{
+      color: var(--light-grey);
+      font-size: 15px;
+      font-weight: 400;
+      margin: 15px 0;
+      text-transform: uppercase;
+    }
+    svg{ 
+      width: 56px;
+      .st0{
+        fill: #494E54;
+      }
+      .st1{
+        fill: #2C373F;
+      }
+      .st2{
+        fill: #20262B;
+      }
+    }
+}
+.light-mode{
+  .themes{
+    &.no-data-empty{
+      span{
+        color: #707a8a;
+      }
+      svg{
+        .st0{
+          fill: #CACCCE;
+        }
+        .st1{
+          fill: #9AA0A5;
+        }
+        .st2{
+          fill: #5A676D;
+        }
+      }
+    }
+}
+}
+.ticker-table{
+    .no-data-empty{
+        width: 260px; 
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 5rem);
+    }
+}
+.table-noresult{
+  .no-data-empty{
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 65px 0;
+  }
+}
+.invite-screen{
+    .no-data-empty{
+        left: calc(50% + 80px);
+    }
+}
+.profile-activity{
+    width: 100%;
+    &__empty{
+      position: relative;
+    }
+}
+.themes{
+    .no-data-empty{
+        span{
+            color: var(--color-light-grey); 
+        }
+        svg{
+            .light{
+                fill: var(--color-light-grey);
+            }
+            .danger{
+                fill: var(--color-danger);
+            }  
+        }
+    }
+}
+   

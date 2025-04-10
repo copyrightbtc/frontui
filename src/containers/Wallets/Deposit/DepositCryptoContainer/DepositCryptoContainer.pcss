@@ -1,0 +1,353 @@
+.wallets-coinpage{
+  &__wrapper{
+    margin-top: 3.2rem;
+    &__footer{
+      width: 100%;
+      max-width: 100%;
+      margin: 6rem 0 0;
+      &__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0 2.1rem;
+      }
+      h3{
+        color: #fff;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+    &__body{
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      box-shadow: var(--box-shadow-huge);
+      background-color: var(--main-dark-brown);
+      border-radius: var(--medium-border-radius);
+      padding: 1rem 1rem 2rem;
+      height: 100%;
+      flex-wrap: wrap;
+      &.with__tabs{
+        .button-underlines{
+          &__wrapper{
+            margin-bottom: 20px;
+          }
+        }
+        .underlines-container{
+          &__body{
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+          }
+        }
+      }
+      .wallet-warning{
+        min-height: 405px;
+        height: 100%;
+        flex-wrap: wrap;
+        img{
+          margin-bottom: 1.2rem;
+        }
+        h6{
+          color: #fff;
+          font-size: 18px;
+          font-weight: 500;
+        }
+        p{
+          color: #fff;
+          margin: 15px auto;
+          width: 100%;
+          max-width: 360px;
+          text-align: center;
+        }
+        .big-button{
+          &.MuiButtonBase-root{
+            max-width: max-content;
+            padding: 1.25rem 4rem;
+            margin-top: 25px;
+            width: 100%;
+            max-width: 285px;
+          }
+        }
+      }
+      &__left{
+        width: 100%;
+        max-width: 60%;
+        padding-right: 1.2rem;
+        flex: 1 0 60%;
+        position: relative;
+        min-height: 420px;
+        border-right: 1px solid var(--table-lines-grey);
+        .wallet-warning{
+          min-height: 310px;
+        }
+      }
+      &__right{
+        width: 100%;
+        max-width: 40%;
+        flex: 1 0 40%;
+        color: #fff;
+        padding: 1rem 15px 0 1.2rem;
+        position: relative;
+        h4{
+          color: #fff;
+          margin: 10px 0 20px;
+          font-size: 16px;
+        }
+        ul{
+          color: var(--light-grey);
+          padding-left: 13px;
+          font-size: 14px;
+          li{
+            padding: 8px 0;
+            list-style: decimal;
+          }
+        }
+      }
+    }
+    &__details{
+      padding: 1.1rem;
+      h4{
+        color: #fff;
+        margin: 10px 0 20px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .currency-icon{
+          width: 22px;
+          margin-left: 6px;
+        }
+      }
+      h6{
+        color: var(--light-grey);
+        margin-bottom: 9px;
+        font-size: 14px;
+      }
+    }
+    &__bank{
+      padding-top: 1rem;
+      .banks-rows{
+        width: 100%;
+        padding: 8px 0;
+        font-weight: 400;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--table-lines-grey);
+        .name{
+          color: var(--light-grey);
+          white-space: nowrap;
+        }
+        .details{
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          width: 100%;
+          &__input{
+            border: none;
+            padding: 0;
+            background: transparent;
+            position: relative;
+            text-align: right;
+            width: 100%;
+            &:focus,
+            &:focus-within,
+            &:active,
+            &:hover{
+              text-align: right;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    &__ewallets{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: space-between;
+      padding-top: 1rem;
+      .ewallet{
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 14px 18px;
+        border-radius: var(--small-border-radius);
+        margin-bottom: 35px;
+        box-shadow: var(--small-button-shadow);
+        width: 100%;
+        max-width: calc(50% - 15px);
+        flex-direction: column;
+        img{
+          width: 100%;
+          height: 50px;
+          margin-bottom: 5px;
+        }
+        h5{
+          font-size: 16px;
+          color: #fff;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+        }
+        .description{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid var(--table-lines-grey);
+          width: 100%;
+          height: 35px;
+          &:nth-child(4){
+            border: none;
+          }
+          span{
+            font-size: 13px;
+            color: var(--light-grey);
+          }
+        }
+        .little-button{
+          &.MuiButton-root{
+            max-width: 100%;
+            margin: 15px 0;
+          }
+        }
+      }
+    }
+  }
+}
+.ewallets-modal{
+  width: 100%;
+  padding: 15px 15px;
+  max-width: 420px;
+  &__header{
+    width: 100%;
+    img{
+      width: 100%;
+      max-width: 140px;
+      margin: 0 auto 20px;
+    }
+    span{
+      font-size: 15px;
+      width: 100%;
+      display: block;
+      color: #fff;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+  &__body{
+    margin: 30px 0 15px;
+    .react-numeric-input{
+      width: 100%;
+      input{
+        &.numeric__input{
+          width: 100%;
+          max-width: 100%;
+          background-color: transparent;
+          font-size: 14px !important;
+          border-radius: 4px !important;
+          border: var(--input-border-thin) !important;
+          height: 39px;
+          transition: border 0.1s linear;
+          color: #fff;
+        }
+      }
+      a,b{
+        width: 4.5ex!important;
+        i{
+          background: #fff!important;
+          transition: .2s;
+        }
+        &:hover{
+          i{
+            background: var(--accent)!important;
+          }
+        }
+      }
+    }
+    p{
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      margin: 20px 0 20px;
+    }
+  }
+}
+.wallet-warning{
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  img{
+    width: 100%;
+    max-width: 70px;
+  }
+  span{
+    color: var(--light-grey);
+    font-size: 16px;
+    font-weight: 400;
+    margin: 15px 0;
+    text-transform: uppercase;
+    max-width: 320px;
+    text-align: center;
+  }
+}
+.networks-panel{
+  width: 100%;
+  .networks-arrows{
+    &.MuiTabs-root{
+      align-items: center;
+      min-height: 35px;
+      margin-bottom: 20px;
+      .MuiTabs-flexContainer{
+        padding: 3px 0;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .MuiButtonBase-root{
+        width: 15px;
+        .MuiSvgIcon-root{
+          width: 1.2em;
+          height: 1.2em;
+          .MuiSvgIcon-root{
+            path{
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  .networks-tabs{
+    &.MuiButton-root{
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      color: #fff;
+      height: 27px;
+      padding: 0 .9rem;
+      transition: .2s;
+      border-radius: 3px;
+      margin-right: 5px;
+      font-family: inherit;
+      min-width: max-content;
+      margin: 0 5px;
+      &:hover{
+        background-color: var(--main-dark-light);
+      }
+    }
+    &__active{
+      &.MuiButton-root{
+        background-color: var(--main-dark-light);
+        color: var(--accent);
+        box-shadow: var(--little-button-shadow);
+      }
+    }
+  }
+}

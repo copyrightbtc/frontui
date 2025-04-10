@@ -1,0 +1,1441 @@
+.tabs-button{
+  &.MuiButton-root{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--color-light-dark);
+    height: 27px;
+    padding: 0 .9rem;
+    transition: .2s;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-family: inherit;
+    min-width: max-content;
+    margin: 0 5px;
+    &:hover{
+      background-color: var(--color-grey);
+      color: var(--color-dark);
+    }
+  }
+  &__active{
+    &.MuiButton-root{
+      background-color: var(--color-grey);
+      color: var(--color-accent);
+      box-shadow: var(--color-little-button-shadow);
+    }
+  }
+}
+.report-icon{
+  user-select: none;
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  fill: var(--danger);
+  margin-left: 10px;
+  &.themes{
+    fill: var(--color-danger);
+  }
+}
+.read-more{
+  user-select: none;
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  fill: #fff;
+}
+.ver-icon{
+  user-select: none;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  fill: var(--success);
+  &.themes{
+    fill: var(--color-success);
+  }
+}
+.icon_closeed{
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  transition: .2s;
+  &.themes{
+    fill: var(--color-dark)
+  }
+}
+.MuiIconButton-root{
+  &:hover{
+    .icon_closeed{
+      fill: var(--accent);
+    }
+  }
+}
+.iconbutton-cancel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--danger);
+  border-radius: 50%;
+  transition: .2s;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0px #00000080;
+  &:hover{
+    box-shadow: 0 1px 2px 1px #00000099;
+  }
+  &:active{
+    box-shadow: 0 0px 0px 0px #00000000;
+  }
+  svg{
+    fill:#fff;
+    width: 14px;
+    height: 14px;
+  }
+}
+.visible-button{
+  &.MuiButtonBase-root{
+    svg{
+      width: 18px;
+      height: 18px;
+      user-select: none;
+      display: inline-block;
+      flex-shrink: 0;
+      transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      fill: #fff;
+    }
+  }
+  &.themes{
+    &.MuiButtonBase-root{
+      svg{
+        fill: var(--color-dark);
+      }
+    }
+  }
+}
+.goback-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  p{
+    color: var(--light-grey);
+    font-size: 14px;
+    margin-left: 6px;
+  }
+}
+.copy_button{
+  &.MuiIconButton-root{
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9;
+    color: var(--blue);
+    margin: 0 5px;
+    .MuiSvgIcon-root{
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+.input-button{
+  &.MuiButton-root{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 14px;
+    background: transparent;
+    border-radius: var(--small-border-radius);
+    border: 1px solid var(--table-lines-grey);
+    transition: .2s;
+    text-transform: capitalize;
+    padding: 9px 16px;
+    font-weight: 400;
+    box-shadow: none;
+    outline: none;
+    svg{
+      width: 15px;
+      height: 15px;
+      fill: #fff;
+    }
+    &:active,
+    &:hover{
+      border: 1px solid var(--hover-accent);
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  &.themes{
+    &.MuiButton-root{
+      color: var(--color-dark);
+      border: 1px solid var(--color-table-lines-grey);
+    }
+    svg{
+      fill: var(--color-dark);
+    }
+    &:active,
+    &:hover{
+      border: 1px solid var(--color-hover-accent);
+    }
+  }
+}
+.copy-field{
+  width: 100%;
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  background: var(--main-dark);
+  padding: 2px 4px 2px 15px;
+  border-radius: var(--small-border-radius);
+  border: 1px solid var(--table-lines-grey);
+  transition: .2s;
+  &:hover{
+    border-color: var(--table-lines-light);
+  }
+  &__text{
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+  &.noborder{
+    border: none;
+    background: transparent;
+    padding: 0;
+    &:hover{
+      border: none;
+      background: transparent;
+    }
+  }
+}
+.big-button{
+  &.MuiButton-root{
+    width: 100%;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 1.25rem 0;
+    box-shadow: var(--big-button-shadow);
+    background: var(--accent);
+    transition: .2s;
+    cursor: pointer;
+    border: none;
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover{
+      box-shadow: var(--big-button-hover-shadow);
+      background: var(--accent);
+    }
+    &:active{
+      box-shadow: var(--big-button-active-shadow);
+      background: var(--accent);
+    }
+  }
+  &.success{
+    &.MuiButton-root{
+      background: var(--success); 
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--success);
+      }
+      &:active{ 
+        background: var(--success);
+      }
+    }
+  }
+  &.themes{
+    &.MuiButton-root{
+      box-shadow: var(--color-big-button-shadow);
+      background: var(--color-accent);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        box-shadow: var(--color-big-button-hover-shadow);
+        background: var(--color-accent);
+      }
+      &:active{
+        box-shadow: var(--color-big-button-active-shadow);
+        background: var(--color-accent);
+      }
+    }
+  }
+}
+.medium-button{
+  &.MuiButton-root{
+    width: 100%;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    padding: .825rem 0;
+    box-shadow: var(--big-button-shadow);
+    background: var(--accent);
+    transition: .2s;
+    cursor: pointer;
+    border: none;
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover{
+      box-shadow: var(--big-button-hover-shadow);
+      background: var(--accent);
+    }
+    &:active{
+      box-shadow: var(--big-button-active-shadow);
+      background: var(--accent);
+    }
+  }
+  &.black{
+    &.MuiButton-root{
+      color: #fff;
+      background: var(--color-grey); 
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover,
+      &:active{ 
+        background: var(--grey);
+      }
+      &:hover{
+        box-shadow: var(--small-button-hover-shadow);
+      }
+      &:active{
+        box-shadow: var(--small-button-active-shadow);
+      }
+    }
+  }
+  &.blue{
+    &.MuiButton-root{
+      background: var(--blue);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--blue);
+      }
+      &:active{ 
+        background: var(--blue);
+      }
+    }
+  }
+  &.red{
+    &.MuiButton-root{
+      background: var(--danger);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--danger);
+      }
+      &:active{ 
+        background: var(--danger);
+      }
+    }
+  }
+  &.themes{
+    &.black{
+      &.MuiButton-root{
+        color: var(--color-dark);
+        background: var(--color-grey);
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
+        &:hover,
+        &:active{ 
+          background: var(--color-grey);
+        }
+        &:hover{
+          box-shadow: var(--color-small-button-hover-shadow);
+        }
+        &:active{
+          box-shadow: var(--color-small-button-active-shadow);
+        }
+      }
+    }
+    &.red{
+      &.MuiButton-root{
+        background: var(--color-danger);
+        color: #fff;
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
+        &:hover{ 
+          background: var(--color-danger);
+        }
+        &:active{ 
+          background: var(--color-danger);
+        }
+      }
+    }
+    &.MuiButton-root{
+      box-shadow: var(--color-big-button-shadow);
+      background: var(--color-accent);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        box-shadow: var(--color-big-button-hover-shadow);
+        background: var(--color-accent);
+      }
+      &:active{
+        box-shadow: var(--color-big-button-active-shadow);
+        background: var(--color-accent);
+      }
+    }
+  }
+} 
+.small-button{
+  &.MuiButton-root{
+    width: 100%;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 13px;
+    font-weight: 400;
+    padding: .35rem;
+    box-shadow: var(--small-button-shadow);
+    background: var(--accent);
+    transition: .2s;
+    cursor: pointer;
+    border-radius: 3px;
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover{
+      box-shadow: var(--small-button-hover-shadow);
+      background: var(--accent);
+    }
+    &:active{
+      box-shadow: var(--small-button-active-shadow);
+      background: var(--accent);
+    }
+  }
+  &.danger{
+    &.MuiButton-root{
+      color: #fff;
+      background: var(--danger); 
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--danger);
+      }
+      &:active{ 
+        background: var(--danger);
+      }
+    }
+  }
+  &.blue{
+    &.MuiButton-root{
+      color: #fff;
+      background: var(--blue);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        background: var(--blue);
+      }
+      &:active{
+        background: var(--blue);
+      }
+    } 
+  }
+  &.success{
+    &.MuiButton-root{
+      background: var(--success); 
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--success);
+      }
+      &:active{ 
+        background: var(--success);
+      }
+    }
+  }
+  &.black{
+    &.MuiButton-root{
+      color: #fff;
+      background: var(--grey); 
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover,
+      &:active{ 
+        background: var(--grey);
+      }
+      &:hover{
+        box-shadow: var(--small-button-hover-shadow);
+      }
+      &:active{
+        box-shadow: var(--small-button-active-shadow);
+      }
+    }
+  }
+  &.themes{
+    &.MuiButton-root{
+      box-shadow: var(--color-small-button-shadow);
+      background: var(--color-accent);
+      color: var(--color-dark);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        box-shadow: var(--color-small-button-hover-shadow);
+        background: var(--color-accent);
+      }
+      &:active{
+        box-shadow: var(--color-small-button-active-shadow);
+        background: var(--color-accent);
+      }
+    }
+    &.red{
+      &.MuiButton-root{
+        color: #fff;
+        background: var(--color-danger);
+        &:hover{ 
+          background: var(--color-danger);
+        }
+        &:active{ 
+          background: var(--color-danger);
+        }
+      }
+    }
+    &.blue{
+      &.MuiButton-root{
+        color: #fff;
+        background: var(--color-blue);
+        &:hover{
+          background: var(--color-blue);
+        }
+        &:active{
+          background: var(--color-blue);
+        }
+      } 
+    }
+    &.green{
+      &.MuiButton-root{
+        background: var(--color-success);
+        &:hover{ 
+          background: var(--color-success);
+        }
+        &:active{ 
+          background: var(--color-success);
+        }
+      }
+    }
+    &.black{
+      &.MuiButton-root{
+        background: var(--color-grey);
+        &:hover,
+        &:active{ 
+          background: var(--colo-grey);
+        }
+        &:hover{
+          box-shadow: var(--color-small-button-hover-shadow);
+        }
+        &:active{
+          box-shadow: var(--color-small-button-active-shadow);
+        }
+      }
+    }
+  }
+}
+.little-button{ 
+  &.MuiButton-root{
+    width: 100%;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 15px;
+    box-shadow: var(--small-button-shadow);
+    background: var(--accent);
+    transition: .2s;
+    cursor: pointer;
+    border-radius: 3px;
+    max-width: max-content;
+    text-transform: capitalize;
+    svg{
+      margin-left: 6px;
+    }
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover{
+      box-shadow: var(--small-button-hover-shadow);
+      background: var(--accent);
+    }
+    &:active{
+      box-shadow: var(--small-button-active-shadow);
+      background: var(--accent);
+    }
+  }
+  &.green{
+    &.MuiButton-root{
+      background: var(--success);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        background: var(--success);
+      }
+      &:active{
+        background: var(--success);
+      }
+    } 
+  }
+  &.red{
+    &.MuiButton-root{
+      color: #ffffff;
+      background: var(--danger);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--danger);
+      }
+      &:active{ 
+        background: var(--danger);
+      }
+    }
+  }
+  &.blue{
+    &.MuiButton-root{
+      background: var(--blue);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        background: var(--blue);
+      }
+      &:active{
+        background: var(--blue);
+      }
+    } 
+  }
+  &.black{
+    color: #fff;
+    background: var(--grey); 
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--grey);
+    }
+    &:hover{
+      box-shadow: var(--small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--small-button-active-shadow);
+    }
+  }
+  &.themes{
+    &.MuiButton-root{
+      box-shadow: var(--color-small-button-shadow);
+      background: var(--color-accent);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        box-shadow: var(--color-small-button-hover-shadow);
+        background: var(--color-accent);
+      }
+      &:active{
+        box-shadow: var(--color-small-button-active-shadow);
+        background: var(--color-accent);
+      }
+    }
+    &.green{
+      &.MuiButton-root{
+        background: var(--color-success);
+        &:hover{
+          background: var(--color-success);
+        }
+        &:active{
+          background: var(--color-success);
+        }
+      } 
+    }
+    &.blue{
+      &.MuiButton-root{
+        background: var(--color-blue);
+        &:hover{
+          background: var(--color-blue);
+        }
+        &:active{
+          background: var(--color-blue);
+        }
+      } 
+    }
+    &.red{
+      &.MuiButton-root{
+        background: var(--color-danger);
+        &:hover{ 
+          background: var(--color-danger);
+        }
+        &:active{ 
+          background: var(--color-danger);
+        }
+      }
+    }
+    &.black{
+      color: #fff;
+      background: var(--color-grey);
+      &:hover,
+      &:active{ 
+        background: var(--color-grey);
+      }
+      &:hover{
+        box-shadow: var(--color-small-button-hover-shadow);
+      }
+      &:active{
+        box-shadow: var(--color-small-button-active-shadow);
+      }
+    }
+  }
+}
+
+.text-button{
+  &.MuiButton-root{
+    width: 100%;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    padding: .25rem 0;
+    box-shadow: none;
+    background: transparent;
+    transition: .2s;
+    cursor: pointer;
+    &:hover{ 
+      color: var(--accent);
+    }
+    &:active{
+      color: var(--accent);
+    }
+  }
+}
+.button-medium{ 
+  width: 100%;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  padding: .825rem 0;
+  box-shadow: var(--color-small-button-shadow);
+  background: var(--color-accent);
+  transition: .2s;
+  cursor: pointer;
+  border-radius: 3px;
+  &:disabled{
+    background: rgba(0, 0, 0, .2); 
+    color: #ffffff73;
+    box-shadow: none;
+    cursor: not-allowed;
+    &:hover,
+    &:active{
+      background: rgba(0, 0, 0, .2); 
+    }
+  }
+  &:hover,
+  &:active{
+    background: var(--color-accent);
+  }
+  &:hover{
+    box-shadow: var(--color-small-button-hover-shadow);
+  }
+  &:active{
+    box-shadow: var(--color-small-button-active-shadow);
+  }
+  &.black{
+    color: #fff;
+    background: var(--color-grey); 
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--color-grey);
+    }
+    &:hover{
+      box-shadow: var(--color-small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--color-small-button-active-shadow);
+    }
+  }
+  &.red{ 
+    color: #fff;
+    background: var(--danger); 
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--color-danger);
+    }
+    &:hover{
+      box-shadow: var(--color-small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--color-small-button-active-shadow);
+    }
+  }
+  &.blue{ 
+    color: #fff;
+    background: var(--color-blue);
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{
+      background: var(--color-blue);
+    }
+    &:hover{
+      box-shadow: var(--color-small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--color-small-button-active-shadow);
+    }
+  }
+  &.green{ 
+    background: var(--color-success); 
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--color-success);
+    }
+    &:hover{
+      box-shadow: var(--color-small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--color-small-button-active-shadow);
+    }
+  } 
+}
+
+.button-small{ 
+  width: 100%;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 2px 8px;
+  box-shadow: var(--color-small-button-shadow);
+  background: var(--color-accent);
+  transition: .2s;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:disabled{
+    background: rgba(0, 0, 0, .2); 
+    color: #ffffff73;
+    box-shadow: none;
+    cursor: not-allowed;
+    &:hover,
+    &:active{
+      background: rgba(0, 0, 0, .2); 
+    }
+  }
+  &:hover,
+  &:active{
+    box-shadow: var(--color-small-button-active-shadow);
+    background: var(--color-accent);
+  }
+  &.black{
+    color: #fff;
+    background: var(--color-grey); 
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--color-grey);
+    } 
+  }
+  &.red{ 
+    color: #fff;
+    background: var(--color-danger); 
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--color-danger);
+    } 
+  }
+  &.blue{ 
+    color: #fff;
+    background: var(--color-blue);
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{
+      background: var(--color-blue);
+    } 
+  }
+  &.green{ 
+    background: var(--color-success); 
+    &:disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover,
+    &:active{ 
+      background: var(--color-success);
+    }
+  } 
+}
+
+.search-button{
+  &.MuiButton-root{
+    width: 100%;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 15px;
+    box-shadow: var(--small-button-shadow);
+    background: transparent;
+    transition: .2s;
+    cursor: pointer;
+    border-radius: 3px;
+    max-width: max-content;
+    text-transform: capitalize;
+    svg{
+      margin-left: 6px;
+    }
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover{
+      box-shadow: var(--small-button-hover-shadow);
+      background: transparent;
+    }
+    &:active{
+      box-shadow: var(--small-button-active-shadow);
+      background: transparent;
+    }
+  }
+  &.themes{
+    &.MuiButton-root{
+      box-shadow: var(--color-small-button-shadow);
+      color: var(--color-blue);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        box-shadow: var(--color-small-button-hover-shadow);
+        background: transparent;
+      }
+      &:active{
+        box-shadow: var(--color-small-button-active-shadow);
+        background: transparent;
+      }
+    }
+  }
+}
+.reset-button{
+  &.MuiButton-root{
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 15px;
+    background: transparent;
+    transition: .2s;
+    cursor: pointer;
+    border-radius: 3px;
+    max-width: max-content;
+    text-transform: capitalize;
+    svg{
+      margin-left: 6px;
+    }
+    &.Mui-disabled{
+      background: rgba(0, 0, 0, .2); 
+      color: #ffffff73;
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: inherit;
+      &:hover,
+      &:active{
+        background: rgba(0, 0, 0, .2);
+        box-shadow: none;
+      }
+    }
+    &:hover{
+      background: transparent;
+      color: var(--danger);
+    }
+    &:active{
+      background: transparent;
+      color: var(--danger);
+    }
+  }
+  &.themes{
+    &.MuiButton-root{
+      color: var(--color-dark);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        background: transparent;
+        color: var(--color-danger);
+      }
+      &:active{
+        background: transparent;
+        color: var(--color-danger);
+      }
+    }
+  }
+}
+
+/* --- */
+.btn-primary {
+  background: var(--main-dark);
+  border: none;
+  color: var(--white);
+  font-weight: var(--button-font-weight);
+  transition: 0.2s;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--white);
+    transition: 0.2s;
+  }
+
+  &:active,
+  &:focus {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: var(--white);
+  }
+
+  &:disabled {
+    background: var(--button-primary-cta-background-color-disabled);
+    border: none;
+    color: var(--button-primary-cta-text-color-disabled);
+    cursor: not-allowed;
+  }
+}
+ 
+
+.btn-success {
+  background: var(--button-bids-background-color);
+  border: none;
+  color: var(--button-bids-text-color);
+
+  &:hover {
+    background: var(--button-bids-background-color-hover);
+    color: var(--button-bids-text-color-hover);
+    transition: 0.2s;
+  }
+
+  &:active,
+  &:focus {
+    background: var(--button-bids-background-color-active);
+    border: none;
+    box-shadow: none;
+    color: var(--button-bids-text-color-active);
+  }
+
+  &:disabled {
+    background: var(--button-bids-background-color-disabled);
+    border: none;
+    color: var(--button-bids-text-color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.btn-success:not(:disabled):not(.disabled):active:focus {
+  background: var(--button-bids-background-color-active);
+  border: none;
+  box-shadow: none;
+  color: var(--button-bids-text-color-active);
+}
+
+.btn-danger {
+  background: var(--button-asks-background-color);
+  border: none;
+  color: var(--button-asks-text-color);
+
+  &:hover {
+    background: var(--button-asks-background-color-hover);
+    color: var(--button-asks-text-color-hover);
+    transition: 0.2s;
+  }
+
+  &:active,
+  &:focus {
+    background: var(--button-asks-background-color-active);
+    border: none;
+    box-shadow: none;
+    color: var(--button-asks-text-color-active);
+  }
+
+  &:disabled {
+    background: var(--button-asks-background-color-disabled);
+    border: none;
+    color: var(--button-asks-text-color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.btn-danger:not(:disabled):not(.disabled):active:focus {
+  background: var(--button-asks-background-color-active);
+  border: none;
+  box-shadow: none;
+  color: var(--button-asks-text-color-active);
+}
+
+.order_submit-button{
+  margin-top: 1.4rem;
+  .btn-success{
+    background: var(--button-asks-background-color);
+  }
+
+ .btn-success{
+    background: var(--button-bids-background-color);
+  }
+  .btn-danger,
+  .btn-success{
+    border-radius: 0;
+    border: none;
+    padding: 10px 5px;
+    opacity: 1; 
+    transition: .15s ease;      
+    box-shadow: var(--box-shadow-bottom-but);
+    color: #fff;
+    font-weight: 400;
+	font-size: 1.13rem;
+
+      &:hover{
+        box-shadow: var(--box-shadow-bottom-hover);
+        color: var(--white);
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:active{
+        box-shadow: var(--box-shadow-bottom-click);
+        color: #fff;
+      }
+  }
+ 
+ .btn-danger:disabled, 
+ .btn-success:disabled{ 
+      background: var(--disabled-bottombut);
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
+      box-shadow: var(--box-shadow-bottom-disabled);
+      opacity: .5;
+  }
+}

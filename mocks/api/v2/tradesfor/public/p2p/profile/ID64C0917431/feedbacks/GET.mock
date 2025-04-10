@@ -1,0 +1,87 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+   {
+      "rate":"positive",
+      "message":"121321 Very good, fast trade fvefvfbbgr",
+      "created_at":"2024-06-18T18:17:00.000+02:00",
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "rate":"negative",
+      "message":"Vitaliy",
+      "created_at":"2024-06-18T18:17:00.000+02:00",
+      "advertiser":{
+         "uid":"ID787E383934",
+         "username":"Vitaliy",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "rate":"positive",
+      "message":"Solid experience, minor delay",
+      "created_at":"2024-06-19T10:45:00.000+02:00",
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "rate":"negative",
+      "message":"Exceptional support, highly recommended.",
+      "created_at":"2024-06-20T14:30:00.000+02:00",
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "rate":"positive",
+      "message":"Average service, room for improvement.",
+      "created_at":"2024-06-21T09:00:00.000+02:00",
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   },
+   {
+      "rate":"negative",
+      "message":"Outstanding assistance, flawless transaction.",
+      "created_at":"2024-06-22T16:20:00.000+02:00",
+      "advertiser":{
+         "uid":"ID787E383938",
+         "username":"Turbo3000",
+         "trades_count_30d":324,
+         "success_rate_30d":278,
+         "positive_feedback_count":1234,
+         "negative_feedback_count":54
+      }
+   }
+]

@@ -1,0 +1,216 @@
+.wallets-page{
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  margin-bottom: 24px !important;
+  flex-direction: column;
+  max-width: 1126px !important;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+  &__renders{
+    height: 100%;
+    min-height: 90vh;
+    width: 100%;
+    min-width: 100%;
+    &__wrapper{
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  &__overview{
+    .overview-header{
+      box-shadow: var(--box-shadow-huge);
+      background-color: var(--main-dark-brown);
+      padding: 1rem 1rem 1rem;
+      width: 100%;
+      border-radius: var(--medium-border-radius);
+      margin-bottom: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      &__left{
+        padding: 15px;
+        flex: 1 0 35%;
+        width: 100%;
+        max-width: 35%;
+      }
+      &__right{
+        padding: 15px;
+        flex: 1 0 65%;
+        width: 100%;
+        max-width: 65%;
+        &__buttons{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          .small-button{
+            &.MuiButton-root{
+              margin-left: 12px;
+              max-width: 150px;
+              color: #000;
+              svg{
+                margin-right: 6px;
+                user-select: none;
+                width: 21px;
+                height: 21px;
+                display: inline-block;
+                fill: #000;
+                flex-shrink: 0;
+                transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+              }
+            }
+          }
+        }
+      }
+      &__bottom{
+        padding: 15px;
+        flex: 1 0 100%;
+        width: 100%;
+        max-width: 100%;
+      }
+      .estimated-value{
+        &__total{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          color: var(--dark);
+          &__title{
+            font-size: 19px;
+            line-height: 20px;
+            color: #fff;
+            svg{
+              width: 18px;
+              height: 18px;
+            }
+          }
+          .main-currency{
+            color: #fff;
+            height: 33px;
+            .value-container{
+              display: flex;
+              align-items: flex-end;
+              .value{
+                font-size: 22px;
+              }
+              .value-sign{
+                font-size: 15px;
+                margin-left: 8px;
+                margin-bottom: 3px;            
+              }
+            }
+          }
+          .second-currency{
+            color: var(--light-grey);
+            font-size: 15px;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    .overview-body{
+      margin-top: 45px;
+      tbody{
+        .coin{
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .currency-icon{
+            margin-right: 11px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+          }
+          img{
+            width: 100%;
+            height: 100%;
+          }
+          .info-col{
+            align-items: flex-start;
+          }
+        }
+        .info-col{
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .bold{
+          font-size: 15px;
+          font-weight: 500;
+        }
+        .secondary{
+          color: var(--light-grey);
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .wallets-action-buttons{
+    .wallets-button{
+      &.MuiButton-root{
+        width: 100%;
+        color: var(--light-grey);
+        font-size: .95rem;
+        font-weight: 400;
+        padding: 2px 8px;
+        background: transparent;
+        transition: .2s;
+        cursor: pointer;
+        border-radius: 3px;
+        max-width: max-content;
+        text-transform: capitalize;
+        margin-left: 9px;
+        border: var(--input-border-thin);
+        box-shadow: var(--small-button-shadow);
+        &:hover{
+          color: var(--accent);
+          border-color: #f0f40180;
+          box-shadow: var(--small-button-hover-shadow);
+        }
+        &:active{
+          color: var(--accent);
+          box-shadow: var(--small-button-active-shadow);
+        }
+      }
+      &.Mui-disabled{
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .1);
+          box-shadow: none;
+          color: #ffffff73;
+        }
+      }
+      &.success{
+        &.MuiButton-root{
+          &:hover{
+            color: var(--success);
+            border-color: #11d04a80;
+          }
+          &:active{
+            color: var(--success);
+          }
+        }
+      }
+      &.danger{
+        &.MuiButton-root{
+          &:hover{
+            color: var(--danger);
+            border-color: #f50000d6;
+          }
+          &:active{
+            color: var(--danger);
+          }
+        }
+      }
+    }
+  }
+}
+ 

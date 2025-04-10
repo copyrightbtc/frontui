@@ -1,0 +1,10 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+  {"id":9,"currency":"btc","friend_uid":"ID1235542222","amount": "0.012","total": "1.012", "reference_type": "Trade", "reference_id": 7, "created_at": "2024-05-24T15:30:12", "updated_at": "2024-05-24T15:30:12"}
+]

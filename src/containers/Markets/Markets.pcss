@@ -1,0 +1,188 @@
+.markets-list {
+  background-color: var(--color-main-dark);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .flexes-tables{
+    height: calc(100% - 90px);
+    &.themes{
+      .flexes-tables{
+        &__head{
+          padding: 0 4px;
+          border-bottom: none;
+          height: 35px;
+          min-height: 35px;
+          &__cell{
+            padding: 0 2px;
+            &:nth-child(2),
+            &:last-child{
+              justify-content: flex-end;
+            }
+          }
+          .sort-head{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            cursor: pointer;
+            padding: 4px 2px;
+            span{
+              font-size: .85rem;
+            }
+            .sort-icon{
+              max-width: 6px;
+              width: 100%;
+              margin-left: 4px;
+              svg{
+                width: 100%;
+              }
+            }
+          }
+        }
+        &__body{
+          &__row{
+            cursor: pointer;
+            padding: 0 7px 0 6px;
+            &.selected{
+              &:before{
+                content: "";
+                width: 2px;
+                height: 70%;
+                position: absolute;
+                display: block;
+                top: 15%;
+                left: 0;
+                background: var(--color-accent);
+              }
+            }
+            .positive{
+              color: var(--color-success);
+            }
+            .negative{
+              color: var(--color-danger);
+            }
+            .coin-data{
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              font-weight: 500;
+              .coin-icon{
+                width: 16px;
+                height: 16px;
+                margin-right: 6px;
+              }
+            }
+            &__cell{
+              padding: 3px 5px;
+              font-size: 12px;
+              &:first-child{
+                width: 0px!important;
+                display: none!important;
+                opacity: 0!important;
+                visibility: hidden!important;
+              }
+              &:nth-child(3),
+              &:last-child{
+                justify-content: flex-end;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-data-empty{
+      svg {
+        width: 40px;
+      }
+      span{
+        font-size: 13px;
+      }
+    }
+  }
+  .trading-markets-menu{
+    &__search{
+      padding: 3px 9px;
+      max-width: calc(100% - 20px);
+      border-radius: 4px;
+      height: 32px;
+      color: var(--color-dark);
+      margin: 13px auto 7px;
+      .icon{
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2px 0 0;
+        display: flex;
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+      .s-field{
+        font-size: 13px;
+        padding-left: 6px;
+        &::placeholder{
+          font-size: 13px;
+        }
+      }
+      .s-close{
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+  .tabs-arrows{
+    &.MuiTabs-root{
+      align-items: center;
+      border-bottom: 1px solid var(--color-table-lines-grey);
+      min-height: 28px;
+      height: 28px;
+      padding: 0;
+      margin-bottom: 4px;
+      .MuiTabs-flexContainer{
+        padding: 0;
+      }
+      .MuiButtonBase-root{
+        width: 30px;
+        .MuiSvgIcon-root{
+          width: 1.2em;
+          height: 1.2em;
+          .MuiSvgIcon-root{
+            path{
+              fill: var(--color-dark);
+            }
+          }
+        }
+      }
+    }
+  }
+  .tabs-button{
+    font-size: 14px;
+    color: var(--color-dark);
+    position: relative;
+    height: 26px;
+    padding: 0 8px;
+    &:after{
+      content: "";
+      bottom: -1px;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 0;
+      transition: width .2s;
+      background-color: var(--color-accent);
+    }
+    &:hover{
+      color: var(--color-accent);
+    }
+    &__active{
+      color: var(--color-accent);
+      &:after{
+        width: 100%;
+        transition: width .2s;
+      }
+    }
+  }
+}

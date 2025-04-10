@@ -1,0 +1,119 @@
+.leng-button{
+    color: #fff;
+    &.MuiButton-root{
+      border: none;
+      border-radius: .25rem;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      background: transparent;
+      margin: 0 8px;
+      padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+      position: relative;
+      width: 50px;
+      min-width: 50px;  
+      height: 43px;
+      .MuiSvgIcon-root { 
+          fill: #fff;
+          width: 18px;
+      }
+    }
+    &.themes{
+      color: var(--color-dark);
+      &.MuiButton-root{
+        color: var(--color-dark);
+        .MuiSvgIcon-root { 
+            fill: var(--color-dark);
+            width: 18px;
+          }
+      }
+    }
+}
+button.MuiButton-root .arrow_menu {
+    position: relative;
+    margin-left: 14px;
+    &:after,
+    &:before {
+        content: "";
+        background: #fff;
+        position: absolute;
+        width: 7px;
+        height: 1px;
+        transition: 0.2s;
+    }
+    &:after {
+        transform: rotate(45deg);
+        right: -2px;
+    }
+    &:before {
+        transform: rotate(-45deg);
+        left: 0;
+    }
+}
+
+.simple_menu {
+    .MuiMenu-paper {
+        width: 100%;
+        max-width: max-content;
+        min-width: 195px;
+        margin: 0.125rem 0 0;
+        text-align: left;
+        list-style: none;
+        background-color: var(--main-dark);
+        background-clip: padding-box;
+        box-shadow: var(--box-shadow-dark);
+        border-radius: 4px;
+        padding: 15px 0;
+        z-index: 99999999999;
+    }
+    svg {
+        fill: #fff;
+        width: 16px;
+        height: 16px;
+        margin: 0 15px 0 10px;
+    }
+    &_list,
+    .MuiMenuItem-root {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        opacity: 1;
+        font-size: 14px;
+        font-weight: 400;
+        &:hover {
+            background: var(--hover-background-light);
+        }
+        img{
+            padding: 5px;
+            margin-left: 10px;
+        }
+        span {
+            padding: 10px 30px 10px 20px;
+            width: 100%;
+            color: #fff;
+            font-size: 16px;
+        }
+    }
+    &.theme{
+        .MuiMenu-paper {
+            background-color: var(--color-main-dark);
+            box-shadow: var(--color-box-shadow-dark);
+            .MuiMenuItem-root,
+            .simple_menu_list{
+                svg {
+                    fill: var(--color-dark);
+                }
+                span{
+                    color: var(--color-dark);
+                } 
+                &:hover{
+                    background: var(--color-hover-background-light);
+                }
+            }
+        } 
+    }
+}
