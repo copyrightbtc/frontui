@@ -146,7 +146,7 @@ export const en = {
     "page.body.trade.header.marketDepths": "Market Depth",
     "page.body.trade.header.marketDepths.content.price": "Price:",
     "page.body.trade.header.marketDepths.content.volume": "Amount:",
-    "page.body.trade.header.marketDepths.content.cumulativeVolume": "Total:",
+    "page.body.trade.header.marketDepths.content.cumulativePrice": "Cost:",
     "page.body.trade.header.marketDepths.content.cumulativeValue": "Est. Value:",
 
     "page.body.trade.toolBar.lowest": "24h Min",

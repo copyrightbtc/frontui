@@ -93,7 +93,9 @@ export const TableOrders: React.FC<TableOrdersProps> = (props: TableOrdersProps)
 
         return (
             <div className='table-datas__body'>
-                {rowElements}
+                <div className='wrops'>
+                    {rowElements}
+                </div>
             </div>
         );
     }, [handleSelect, renderRowCells, data, selectedRowKey]);

@@ -218,8 +218,8 @@ const CustomTooltip = (props: CustomToolTipProps) => {
          return (
             <div className="area-chart-tooltip__tooltip">
                 <span><FormattedMessage id="page.body.trade.header.marketDepths.content.price" /> {payload[0].payload.price} ({sumd}%)</span>
-                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.volume" /> {payload[0].payload.volume} {askCurrency}</span>
-                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.cumulativeVolume" /> {value} {askCurrency}</span>
+                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.volume" /> {value} {askCurrency}</span>
+                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.cumulativePrice" /> {payload[0].payload.cumulativePrice} {bidCurrency}</span>
             </div> 
         );
     };

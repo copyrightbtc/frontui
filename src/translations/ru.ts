@@ -143,8 +143,8 @@ export const ru = {
     "page.body.trade.header.marketDepths": "Глубина рынка",
     "page.body.trade.header.marketDepths.midmarket.price": "Среднерыночная цена",
     "page.body.trade.header.marketDepths.content.price": "Цена:",
-    "page.body.trade.header.marketDepths.content.volume": "Cтоим.:",
-    "page.body.trade.header.marketDepths.content.cumulativeVolume": "Кол-во:",
+    "page.body.trade.header.marketDepths.content.volume": "Кол.:",
+    "page.body.trade.header.marketDepths.content.cumulativePrice": "Цена:",
     "page.body.trade.header.marketDepths.content.cumulativeValue": "Расч. Cтоим.:",
 
     "page.body.trade.toolBar.lowest": "24ч Мин.",

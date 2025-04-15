@@ -28,19 +28,19 @@ export const MarketDepthsComponent = () => {
         };
     }, []); 
 
-    const tipLayout = React.useCallback(({ volume, price, cumulativeVolume }) => {
+    const tipLayout = ({ price, cumulativeVolume, cumulativePrice }) => {
         const [askCurrency, bidCurrency] = [currentMarket.base_unit.toUpperCase(), currentMarket.quote_unit.toUpperCase()];
 
         return (
             <div className="area-chart-tooltip__tooltip">
-                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.price" /> {Decimal.format(price, currentMarket.price_precision)} {bidCurrency}</span>
-                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.volume" /> {Decimal.format(volume, currentMarket.amount_precision)} {askCurrency}</span>
-                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.cumulativeVolume" /> {Decimal.format(cumulativeVolume, currentMarket.amount_precision)} {askCurrency}</span>
+                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.price" /> {parseFloat(Number(price).toFixed(currentMarket.price_precision))} {bidCurrency}</span>
+                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.volume" /> {parseFloat(Number(cumulativeVolume).toFixed(currentMarket.amount_precision))} {askCurrency}</span>
+                <span><FormattedMessage id="page.body.trade.header.marketDepths.content.cumulativePrice" /> {parseFloat(Number(cumulativePrice).toFixed(currentMarket.price_precision))} {bidCurrency}</span>
             </div>
         );
-    }, [currentMarket ]);
+    };
 
-    const cumulative = React.useCallback((data, type) => {
+    const cumulative = (data, type) => {
         let cumulativeVolumeData = 0;
         let cumulativePriceData = 0;
 
@@ -53,21 +53,21 @@ export const MarketDepthsComponent = () => {
             cumulativePriceData = cumulativePriceData + (+numberPrice * +numberVolume);
 
             return {
-                [type]: Decimal.format(cumulativeVolumeData, currentMarket.amount_precision),
-                cumulativePrice: Decimal.format(cumulativePriceData, currentMarket.price_precision),
-                cumulativeVolume: +Decimal.format(cumulativeVolumeData, currentMarket.amount_precision),
-                volume: Decimal.format(+volume, currentMarket.amount_precision),
-                price: Decimal.format(+numberPrice, currentMarket.price_precision),
-                name: tipLayout({ volume, price, cumulativeVolume: cumulativeVolumeData, cumulativePrice: cumulativePriceData }),
+                [type]: parseFloat(Number(cumulativeVolumeData).toFixed(currentMarket.amount_precision)),
+                cumulativePrice: parseFloat(Number(cumulativePriceData).toFixed(currentMarket.price_precision)),
+                cumulativeVolume: parseFloat(Number(cumulativeVolumeData).toFixed(currentMarket.amount_precision)),
+                volume: parseFloat(Number(+volume).toFixed(currentMarket.amount_precision)),
+                price: parseFloat(Number(+numberPrice).toFixed(currentMarket.price_precision)),
+                name: tipLayout({ price, cumulativePrice: cumulativePriceData, cumulativeVolume: cumulativeVolumeData }),
             };
         });
-    }, [currentMarket]);
+    };
 
-    const convertToCumulative = React.useCallback((data, type) => {
+    const convertToCumulative = (data, type) => {
         const cumulativeData = cumulative(data, type);
 
         return type === 'bid' ? cumulativeData.sort((a, b) => b.bid - a.bid) : cumulativeData.sort((a, b) => a.ask - b.ask);
-    }, []);
+    };
 
     const convertToDepthFormat = React.useMemo(() => {
         const resultLength = asksItems.length > bidsItems.length ? bidsItems.length : asksItems.length;
