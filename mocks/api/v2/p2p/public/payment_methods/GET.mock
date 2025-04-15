@@ -24,7 +24,7 @@ Access-Control-Allow-Credentials: true
         "required": true
       }
     },
-    "created_at": "2021-09-23T14:30:55.13Z",
+    "created_at": "2024-09-23T14:30:55.13Z",
     "enabled": true
   },
   {
@@ -32,7 +32,7 @@ Access-Control-Allow-Credentials: true
     "type": "Bank Transfer",
     "name": "Monobank",
     "enabled": true,
-    "created_at": "2021-08-12T13:20:48.227Z",
-    "updated_at": "2021-09-23T14:30:58.616Z"
+    "created_at": "2024-08-12T13:20:48.227Z",
+    "updated_at": "2024-09-23T14:30:58.616Z"
   }
 ]

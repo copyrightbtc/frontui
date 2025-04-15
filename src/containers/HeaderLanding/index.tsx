@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { selectUserLoggedIn } from '../../modules';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { LangDrop, SupportDrop } from '../../containers';
+import { LangDrop, SupportDrop, MenunavDrop } from '../../containers';
 
 const LogoImage = require('../../assets/images/biglogo.svg').default;
  
@@ -32,55 +32,32 @@ export const HeaderLanding: React.FC = () => {
             </Link>
             <div className="top-header__right">
                 {!shouldRenderHeader ? (
+                    !isLoggedIn && 
                     <div className="top-header__right__buttons">
-                        { isLoggedIn ? (
-                            <Stack direction="row" spacing={2}>
-                                <Button
-                                    variant="text"
-                                    href="/profile"
-                                >
-                                    {intl.formatMessage({id: 'page.body.landing.header.profile'})}
-                                </Button>
-                                <Button
-                                    className="withborder"
-                                    variant="outlined"
-                                    href="/trading"
-                                >
-                                    {intl.formatMessage({id: 'page.body.header.up.titles.trading'})}
-                                </Button>
-                                <Button
-                                    className="withborder"
-                                    variant="outlined"
-                                    href="/p2p/all-adverts/"
-                                >
-                                    {intl.formatMessage({id: 'page.body.header.up.titles.p2ptrading'})}
-                                </Button> 
-                            </Stack>
-                        ) : (
-                            <Stack direction="row" spacing={2}>
-                                <Button
-                                    variant="text"
-                                    href="/signin"
-                                >
-                                    {intl.formatMessage({id: 'page.body.landing.header.login'})}
-                                </Button>
-                                <Button
-                                    href="/signup"
-                                    variant="outlined"
-                                >
-                                    {intl.formatMessage({id: 'page.body.land.button.register'})}
-                                </Button>
-                                <Button
-                                    className="withborder"
-                                    variant="outlined"
-                                    href="/p2p/all-adverts/"
-                                >
-                                    {intl.formatMessage({id: 'page.body.header.up.titles.p2ptrading'})}
-                                </Button> 
-                            </Stack>
-                        )}
+                        <Stack direction="row" spacing={2}>
+                            <Button
+                                variant="text"
+                                href="/signin"
+                            >
+                                {intl.formatMessage({id: 'page.body.landing.header.login'})}
+                            </Button>
+                            <Button
+                                href="/signup"
+                                variant="outlined"
+                            >
+                                {intl.formatMessage({id: 'page.body.land.button.register'})}
+                            </Button>
+                            <Button
+                                className="withborder"
+                                variant="outlined"
+                                href="/p2p/all-adverts/"
+                            >
+                                {intl.formatMessage({id: 'page.body.header.up.titles.p2ptrading'})}
+                            </Button> 
+                        </Stack>
                     </div>
                 ) : null}
+                { isLoggedIn && <MenunavDrop /> }
                 <SupportDrop />
                 <LangDrop />
             </div>

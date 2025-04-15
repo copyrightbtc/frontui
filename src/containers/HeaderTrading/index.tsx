@@ -37,8 +37,8 @@ export const HeaderTrading: React.FC<Props> = ({ showChartSettings } : Props) =>
                 <img src={LogoImage} alt="SFOR.TRADE Logo"/>
             </Link>
             <div className="header-trading__right"> 
-                <div className="header-trading__right__buttons">
-                    { !isLoggedIn ? (
+                { !isLoggedIn ? (
+                    <div className="header-trading__right__buttons">
                         <Stack direction="row" spacing={2}>
                             <Button
                                 variant="text"
@@ -59,8 +59,8 @@ export const HeaderTrading: React.FC<Props> = ({ showChartSettings } : Props) =>
                                 {intl.formatMessage({id: 'page.body.header.up.titles.p2ptrading'})}
                             </Button>
                         </Stack>
-                    ) : null }
-                </div>
+                    </div>
+                ) : null }
                 <SupportDrop /> 
                 <LangDrop />
                 { isLoggedIn && <MenunavDrop /> }

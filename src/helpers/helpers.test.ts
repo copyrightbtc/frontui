@@ -182,12 +182,12 @@ describe('Helpers', () => {
 
     // localeDate.ts
     it('Should return correct locale date', () => {
-        expect(helpers.localeDate('2023-11-29T16:54:46+01:00', 'fullDate', 'Europe/Kiev')).toBe('29-11-2023 17:54:46');
-        expect(helpers.localeDate('2023-11-12T16:55:12-01:00', 'fullDate', 'Europe/Kiev')).toBe('12-11-2023 19:55:12');
-        expect(helpers.localeDate('2023-11-29T16:54:46+01:00', 'shortDate', 'Europe/Kiev')).toBe('29-11-2023 17:54');
-        expect(helpers.localeDate('2023-11-12T16:55:12-01:00', 'shortDate', 'Europe/Kiev')).toBe('12-11-2023 19:55');
-        expect(helpers.localeDate('2023-11-29T16:54:46+01:00', 'time', 'Europe/Kiev')).toBe('17:54:46');
-        expect(helpers.localeDate('2023-11-12T16:55:12-01:00', 'time', 'Europe/Kiev')).toBe('19:55:12');
+        expect(helpers.localeDate('2024-11-29T16:54:46+01:00', 'fullDate', 'Europe/Kiev')).toBe('29-11-2023 17:54:46');
+        expect(helpers.localeDate('2024-11-12T16:55:12-01:00', 'fullDate', 'Europe/Kiev')).toBe('12-11-2023 19:55:12');
+        expect(helpers.localeDate('2024-11-29T16:54:46+01:00', 'shortDate', 'Europe/Kiev')).toBe('29-11-2023 17:54');
+        expect(helpers.localeDate('2024-11-12T16:55:12-01:00', 'shortDate', 'Europe/Kiev')).toBe('12-11-2023 19:55');
+        expect(helpers.localeDate('2024-11-29T16:54:46+01:00', 'time', 'Europe/Kiev')).toBe('17:54:46');
+        expect(helpers.localeDate('2024-11-12T16:55:12-01:00', 'time', 'Europe/Kiev')).toBe('19:55:12');
     });
 
     // handleCCYPrecision.ts
@@ -465,8 +465,8 @@ describe('Helpers', () => {
 
     describe('Helpers', () => {
         it('getCountdownDate', () => {
-            expect(helpers.getCountdownDate('2021-04-01T15:55:00.000Z')).toBe('00:00:00');
-            expect(helpers.getCountdownDate('2021-04-01T15:55:00.000Z', '5m')).toBe('00:00:00');
+            expect(helpers.getCountdownDate('2024-04-01T15:55:00.000Z')).toBe('00:00:00');
+            expect(helpers.getCountdownDate('2024-04-01T15:55:00.000Z', '5m')).toBe('00:00:00');
         });
     });
 });

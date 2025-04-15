@@ -19,18 +19,9 @@ export const DEFAULT_TRADING_VIEW_INTERVAL = "15";
 export const VALUATION_PRIMARY_CURRENCY = "USDT";
 export const VALUATION_SECONDARY_CURRENCY = "BTC";
 
-export const PASSWORD_ENTROPY_STEP = 6;
-
-export const DEFAULT_KYC_STEPS = ["email", "phone", "profile", "document", "address"];
-
-export const DEFAULT_MARKET_HEADERS = ["Pair", "Price", "24h Change"];
-
-export const TRANSFER_TYPES_LIST = ["Spot", "P2P"];
-
 export const DEFAULT_ORDER_TYPES: RowOrderElement[] = ["Limit", "Market"];
 export const AMOUNT_PERCENTAGE_ARRAY = [0, 0.25, 0.5, 0.75, 1];
 export const SET_MAXIMUM_AMOUNT_ARRAY = [1];
-export const DEFAULT_TABLE_PAGE_LIMIT = 25;
 export const HOST_URL = window.location.hostname === "localhost" ? "http://localhost:9002" : window.location.origin;
 
 export const ORDER_TYPES_WITH_TRIGGER = ["Stop-loss", "Take-profit", "Stop-limit", "Take-limit"];

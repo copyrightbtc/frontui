@@ -214,8 +214,8 @@ const Helpers = {
                             "data": {
                                 "card_number": "1312123123123123"
                             },
-                            "created_at": "2021-04-16T14:12:46.547Z",
-                            "updated_at": "2021-04-16T14:12:46.547Z",
+                            "created_at": "2024-04-16T14:12:46.547Z",
+                            "updated_at": "2024-04-16T14:12:46.547Z",
                             "payment_method": {
                                 "id": 6,
                                 "type": "Bank Transfer",
@@ -229,8 +229,8 @@ const Helpers = {
                                     }
                                 },
                                 "enabled": true,
-                                "created_at": "2021-04-16T10:49:57.13Z",
-                                "updated_at": "2021-04-16T10:49:57.13Z"
+                                "created_at": "2024-04-16T10:49:57.13Z",
+                                "updated_at": "2024-04-16T10:49:57.13Z"
                             }
                         },
                          {
@@ -241,8 +241,8 @@ const Helpers = {
                                 "card_number": "1312123123123123",
                                 "account_name": "Boss"
                             },
-                            "created_at": "2021-04-16T14:12:46.547Z",
-                            "updated_at": "2021-04-16T14:12:46.547Z",
+                            "created_at": "2024-04-16T14:12:46.547Z",
+                            "updated_at": "2024-04-16T14:12:46.547Z",
                             "payment_method": {
                                 "id": 6,
                                 "type": "Bank Transfer",
@@ -256,8 +256,8 @@ const Helpers = {
                                     }
                                 },
                                 "enabled": true,
-                                "created_at": "2021-04-16T10:49:57.13Z",
-                                "updated_at": "2021-04-16T10:49:57.13Z"
+                                "created_at": "2024-04-16T10:49:57.13Z",
+                                "updated_at": "2024-04-16T10:49:57.13Z"
                             }
                         }
                     ],
@@ -267,8 +267,8 @@ const Helpers = {
                         "user_nickname": "kek",
                         "offers_count": 1
                     },
-                    "created_at": "2021-04-16T14:42:10.167Z",
-                    "updated_at": "2021-04-16T14:42:10.167Z"
+                    "created_at": "2024-04-16T14:42:10.167Z",
+                    "updated_at": "2024-04-16T14:42:10.167Z"
                 }
             }
         }
@@ -302,8 +302,8 @@ const Helpers = {
                         "data": {
                             "card_number": "1312123123123123"
                         },
-                        "created_at": "2021-04-16T14:12:46.547Z",
-                        "updated_at": "2021-04-16T14:12:46.547Z",
+                        "created_at": "2024-04-16T14:12:46.547Z",
+                        "updated_at": "2024-04-16T14:12:46.547Z",
                         "payment_method": {
                             "id": 6,
                             "type": "Bank Transfer",
@@ -317,8 +317,8 @@ const Helpers = {
                                 }
                             },
                             "enabled": true,
-                            "created_at": "2021-04-16T10:49:57.13Z",
-                            "updated_at": "2021-04-16T10:49:57.13Z"
+                            "created_at": "2024-04-16T10:49:57.13Z",
+                            "updated_at": "2024-04-16T10:49:57.13Z"
                         }
                     }
                 ],
@@ -328,8 +328,8 @@ const Helpers = {
                     "user_nickname": "maker",
                     "offers_count": 4
                 },
-                "created_at": "2021-04-16T14:42:10.167Z",
-                "updated_at": "2021-04-20T08:01:52.539Z"
+                "created_at": "2024-04-16T14:42:10.167Z",
+                "updated_at": "2024-04-20T08:01:52.539Z"
             }
         }
     },

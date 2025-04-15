@@ -13,7 +13,6 @@ import { compose } from 'redux';
 import { IntlProps } from 'src';
 import {
     CurrencyInfo,
-    //WarningMessage,
     WalletList,
 } from 'src/components';
 import { TabPanelSliding } from 'src/components/TabPanelUnderlines/TabPanelSliding';

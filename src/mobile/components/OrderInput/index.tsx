@@ -1,6 +1,6 @@
 import cr from 'classnames';
-import * as React from 'react';
-import { CustomInput } from '../../../components';
+import React, { ReactNode } from 'react';
+import { InputOrders } from 'src/components/OrderInput/InputOrders';
 import { areEqualProps} from '../../../helpers/areEqualProps';
 
 /* Icons */
@@ -11,8 +11,11 @@ export interface OrderInputProps {
     className?: string;
     isFocused: boolean;
     isWrong?: boolean;
-    label?: string;
+    currency?: string;
+    autoFocus?: boolean;
+    fixedLabel?: string;
     placeholder?: string;
+    label?: string;
     value: string | number;
     precision: number;
     handleChangeValue: (text: string) => void;
@@ -27,18 +30,19 @@ export const OrderInput: React.FunctionComponent<OrderInputProps> = React.memo((
         handleFocusInput,
         isFocused,
         isWrong,
-        label,
+        autoFocus,
         onKeyPress,
         placeholder,
         precision,
+        currency,
         value,
+        fixedLabel,
     } = props;
-    const cx = cr('cr-order-input-mobile', className);
 
-    const fieldsetFocusedClass = cr('cr-order-input-mobile__fieldset', {
-        'cr-order-input-mobile__fieldset--focused': isFocused,
-        'cr-order-input-mobile__fieldset--wrong': isWrong,
-    });
+    const fieldsetFocusedClass = React.useMemo(() => cr('orders-type-field__fieldset', {
+        'isfocused': isFocused,
+        'iswrong': isWrong,
+    }), [isFocused, isWrong]);
 
     const handleChangeValueByButton = (increase: boolean) => {
         let updatedValue = value;
@@ -53,23 +57,24 @@ export const OrderInput: React.FunctionComponent<OrderInputProps> = React.memo((
     };
 
     return (
-        <div className={cx}>
-            <div className="cr-order-input-mobile__button" onClick={() => handleChangeValueByButton(false)}>
+        <div className="orders-type-field orders-type-field__mobile">
+            <div className="orders-type-field__button">
                 <MinusIcon />
             </div>
-            <fieldset className={fieldsetFocusedClass}>
-                <CustomInput
+            <fieldset className={cr(fieldsetFocusedClass, className)}>
+                <InputOrders
                     type="number"
                     inputValue={value}
-                    placeholder={placeholder || '0'}
+                    placeholder={placeholder || '0.00'}
                     handleChangeInput={handleChangeValue}
-                    label={value && placeholder ? placeholder : ''}
-                    defaultLabel={value && placeholder ? placeholder : ''}
                     onKeyPress={onKeyPress}
-                    handleFocusInput={() => handleFocusInput(label)}
+                    handleFocusInput={() => handleFocusInput(props.label)}
+                    autoFocus={autoFocus}
+                    currencys={currency.toUpperCase()}
+                    fixedLabel={fixedLabel}
                 />
             </fieldset>
-            <div className="cr-order-input-mobile__button" onClick={() => handleChangeValueByButton(true)}>
+            <div className="orders-type-field__button">
                 <PlusIcon />
             </div>
         </div>

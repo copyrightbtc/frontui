@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
@@ -266,7 +265,6 @@ export class MarketDepths extends React.PureComponent<MarketDepthsProps> {
         const {
             chartType,
             colorTheme,
-            className,
             data,
             hideCartesianGrid,
             intervalX,
@@ -276,11 +274,10 @@ export class MarketDepths extends React.PureComponent<MarketDepthsProps> {
             orientation,
             gradientHide,
         } = this.props;
-        const cx = classnames('market-depths__wrapper', className);
         const colorSettings = getColorSettings(colorTheme);
 
         return (
-            <div className={cx}>
+            <div className='market-depths__wrapper'>
                 <ResponsiveContainer width="100%" height={settings.height}>
                     <AreaChart data={data} margin={{ top: 4, right: 0, left: 0, bottom: 1 }}>
                         {this.defineGradient(colorSettings, gradientHide)}

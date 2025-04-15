@@ -100,6 +100,8 @@ export const ru = {
     "page.body.trade.header.newOrder.content.orderType.market": "Рынок",
     "page.body.trade.header.newOrder.content.price": "Цена",
     "page.body.trade.header.newOrder.content.amount": "Кол-во",
+    "page.body.trade.header.newOrder.content.minimum": "Минимум",
+    "page.body.trade.header.newOrder.content.maximum": "Максимум",
     "page.body.trade.header.newOrder.content.total": "Всего",
     "page.body.trade.header.newOrder.content.total.get": "Всего пол.",
     "page.body.trade.header.newOrder.content.total.buy": "Макс. купить",

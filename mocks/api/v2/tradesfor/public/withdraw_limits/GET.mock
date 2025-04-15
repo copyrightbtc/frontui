@@ -12,8 +12,8 @@ Access-Control-Allow-Credentials: true
         "kyc_level": "3",
         "limit_24_hour": "20",
         "limit_1_month": "200",
-        "created_at": "2021-05-06T08:25:05Z",
-        "updated_at": "2021-05-06T08:47:48Z"
+        "created_at": "2024-05-06T08:25:05Z",
+        "updated_at": "2024-05-06T08:47:48Z"
     },
     {
         "id": 2,
@@ -21,8 +21,8 @@ Access-Control-Allow-Credentials: true
         "kyc_level": "2",
         "limit_24_hour": "78124.00",
         "limit_1_month": "1000000",
-        "created_at": "2021-05-06T08:48:27Z",
-        "updated_at": "2021-05-06T08:48:27Z"
+        "created_at": "2024-05-06T08:48:27Z",
+        "updated_at": "2024-05-06T08:48:27Z"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@ Access-Control-Allow-Credentials: true
         "kyc_level": "1",
         "limit_24_hour": "3999",
         "limit_1_month": "200",
-        "created_at": "2021-05-06T08:48:35Z",
-        "updated_at": "2021-05-06T08:48:35Z"
+        "created_at": "2024-05-06T08:48:35Z",
+        "updated_at": "2024-05-06T08:48:35Z"
     }
 ]

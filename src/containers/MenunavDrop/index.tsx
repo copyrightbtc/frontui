@@ -28,12 +28,23 @@ const handleGetActiveItemClass = (currentRoute: string, targetRoute: string, abs
     });
 };
 
-const noHeaderRoutes = [
+const noHeaderRoutesP2P = [
     '/p2p/',
+];
+const noHeaderRoutesTrading = [
+    '/trading/',
+];
+
+const noHeaderRoutesClass = [
+    '/p2p/',
+    '/trading/',
+    '/profile/',
 ];
 
 export const MenunavDrop: React.FC = () => {
-    const shouldRenderLink = noHeaderRoutes.some(r => location.pathname.includes(r));
+    const shouldRenderLinkP2P = noHeaderRoutesP2P.some(r => location.pathname.includes(r));
+    const shouldRenderLinkTrading = noHeaderRoutesTrading.some(r => location.pathname.includes(r));
+    const shouldRenderClass = noHeaderRoutesClass.some(r => location.pathname.includes(r));
     const intl = useIntl();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -67,7 +78,7 @@ export const MenunavDrop: React.FC = () => {
  
             <Menu
                 id="menunav-menu"
-                className="menunav-drop__menu"
+                className={`${!shouldRenderClass ? 'blackmenu menunav-drop__menu ' : 'menunav-drop__menu'}`}
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
@@ -108,11 +119,14 @@ export const MenunavDrop: React.FC = () => {
                         </div> 
                     ) : null}
                 </div> 
-                <Link to="/trading" className={handleGetActiveItemClass(pathname, '/trading')}>
-                    <TradeIcon className="nav-icon" />
-                    <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.trading' })}</span>
-                </Link>
-                {!shouldRenderLink ? (
+                {!shouldRenderLinkTrading ? (
+                    <Link to="/trading" className={handleGetActiveItemClass(pathname, '/trading')}>
+                        <TradeIcon className="nav-icon" />
+                        <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.trading' })}</span>
+                    </Link>
+                    ) : null
+                }
+                {!shouldRenderLinkP2P ? (
                     <a href="/p2p/all-adverts/" className='menunav-drop__menu__nav'>
                         <P2PIcon className="nav-icon" />
                         <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.p2ptrading' })}</span>

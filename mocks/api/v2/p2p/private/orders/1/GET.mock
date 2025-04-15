@@ -15,10 +15,10 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
     "locked": "18.18",
     "state": "prepared",
     "side": "buy",
-    "first_approve_expire_at": "2021-04-27T16:33:15.266Z",
-    "second_approve_expire_at": "2021-04-27T16:48:15.266Z",
-    "created_at": "2021-04-27T16:18:15.266Z",
-    "updated_at": "2021-04-27T16:18:15.266Z",
+    "first_approve_expire_at": "2024-04-27T16:33:15.266Z",
+    "second_approve_expire_at": "2024-04-27T16:48:15.266Z",
+    "created_at": "2024-04-27T16:18:15.266Z",
+    "updated_at": "2024-04-27T16:18:15.266Z",
     "payment_method": {
         "id": 27,
         "user_uid": "ID04D2A6C3F5",
@@ -27,8 +27,8 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
             "card_number": "1000000000000"
         },
         "state": "active",
-        "created_at": "2021-04-23T08:13:17.418Z",
-        "updated_at": "2021-04-23T08:13:17.418Z",
+        "created_at": "2024-04-23T08:13:17.418Z",
+        "updated_at": "2024-04-23T08:13:17.418Z",
         "payment_method": {
             "id": 1,
             "type": "Bank Transfer",
@@ -42,8 +42,8 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
                 }
             },
             "enabled": true,
-            "created_at": "2021-04-21T11:40:53.251Z",
-            "updated_at": "2021-04-22T16:55:04.845Z"
+            "created_at": "2024-04-21T11:40:53.251Z",
+            "updated_at": "2024-04-22T16:55:04.845Z"
         }
     },
     "offer": {
@@ -71,8 +71,8 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
                     "card_number": "4112459634234234"
                 },
                 "state": "active",
-                "created_at": "2021-04-23T08:13:17.418Z",
-                "updated_at": "2021-04-23T08:13:17.418Z",
+                "created_at": "2024-04-23T08:13:17.418Z",
+                "updated_at": "2024-04-23T08:13:17.418Z",
                 "payment_method": {
                     "id": 1,
                     "type": "Bank Transfer",
@@ -86,8 +86,8 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
                         }
                     },
                     "enabled": true,
-                    "created_at": "2021-04-21T11:40:53.251Z",
-                    "updated_at": "2021-04-22T16:55:04.845Z"
+                    "created_at": "2024-04-21T11:40:53.251Z",
+                    "updated_at": "2024-04-22T16:55:04.845Z"
                 }
             },
             {
@@ -99,8 +99,8 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
                     "bank_name_": "privat"
                 },
                 "state": "active",
-                "created_at": "2021-04-23T09:02:52.179Z",
-                "updated_at": "2021-04-23T09:02:52.179Z",
+                "created_at": "2024-04-23T09:02:52.179Z",
+                "updated_at": "2024-04-23T09:02:52.179Z",
                 "payment_method": {
                     "id": 5,
                     "type": "Bank Transfer",
@@ -120,8 +120,8 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
                         }
                     },
                     "enabled": true,
-                    "created_at": "2021-04-23T09:02:28.463Z",
-                    "updated_at": "2021-04-23T09:02:28.463Z"
+                    "created_at": "2024-04-23T09:02:28.463Z",
+                    "updated_at": "2024-04-23T09:02:28.463Z"
                 }
             }
         ],
@@ -133,7 +133,7 @@ Access-Control-Allow-Headers: content-type, x-csrf-token
             "offers_count": 20,
             "success_rate": 0
         },
-        "created_at": "2021-04-27T16:17:48.157Z",
-        "updated_at": "2021-04-27T16:18:15.27Z"
+        "created_at": "2024-04-27T16:17:48.157Z",
+        "updated_at": "2024-04-27T16:18:15.27Z"
     }
 }

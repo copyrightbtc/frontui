@@ -31,8 +31,8 @@ Total: 26
                 "data": {
                     "card_number": "1312123123123123"
                 },
-                "created_at": "2021-04-16T14:12:46.547Z",
-                "updated_at": "2021-04-16T14:12:46.547Z",
+                "created_at": "2024-04-16T14:12:46.547Z",
+                "updated_at": "2024-04-16T14:12:46.547Z",
                 "payment_method": {
                     "id": 6,
                     "type": "Bank Transfer",
@@ -46,8 +46,8 @@ Total: 26
                         }
                     },
                     "enabled": true,
-                    "created_at": "2021-04-16T10:49:57.13Z",
-                    "updated_at": "2021-04-16T10:49:57.13Z"
+                    "created_at": "2024-04-16T10:49:57.13Z",
+                    "updated_at": "2024-04-16T10:49:57.13Z"
                 }
             }
         ],
@@ -57,8 +57,8 @@ Total: 26
             "user_nickname": "kek",
             "offers_count": 1
         },
-        "created_at": "2021-04-16T14:42:10.167Z",
-        "updated_at": "2021-04-16T14:42:10.167Z"
+        "created_at": "2024-04-16T14:42:10.167Z",
+        "updated_at": "2024-04-16T14:42:10.167Z"
     },
         {
         "id": 2,
@@ -83,8 +83,8 @@ Total: 26
                 "data": {
                     "card_number": "1312123123123123"
                 },
-                "created_at": "2021-04-16T14:12:46.547Z",
-                "updated_at": "2021-04-16T14:12:46.547Z",
+                "created_at": "2024-04-16T14:12:46.547Z",
+                "updated_at": "2024-04-16T14:12:46.547Z",
                 "payment_method": {
                     "id": 6,
                     "type": "Bank Transfer",
@@ -98,8 +98,8 @@ Total: 26
                         }
                     },
                     "enabled": true,
-                    "created_at": "2021-04-16T10:49:57.13Z",
-                    "updated_at": "2021-04-16T10:49:57.13Z"
+                    "created_at": "2024-04-16T10:49:57.13Z",
+                    "updated_at": "2024-04-16T10:49:57.13Z"
                 }
             }
         ],
@@ -109,8 +109,8 @@ Total: 26
             "user_nickname": "kek",
             "offers_count": 1
         },
-        "created_at": "2021-04-16T14:42:10.167Z",
-        "updated_at": "2021-04-16T14:42:10.167Z"
+        "created_at": "2024-04-16T14:42:10.167Z",
+        "updated_at": "2024-04-16T14:42:10.167Z"
     },
     {
         "id": 10,
@@ -135,8 +135,8 @@ Total: 26
                 "data": {
                     "card_number": "1312123123123123"
                 },
-                "created_at": "2021-04-16T14:12:46.547Z",
-                "updated_at": "2021-04-16T14:12:46.547Z",
+                "created_at": "2024-04-16T14:12:46.547Z",
+                "updated_at": "2024-04-16T14:12:46.547Z",
                 "payment_method": {
                     "id": 6,
                     "type": "Bank Transfer",
@@ -150,8 +150,8 @@ Total: 26
                         }
                     },
                     "enabled": true,
-                    "created_at": "2021-04-16T10:49:57.13Z",
-                    "updated_at": "2021-04-16T10:49:57.13Z"
+                    "created_at": "2024-04-16T10:49:57.13Z",
+                    "updated_at": "2024-04-16T10:49:57.13Z"
                 }
             }
         ],
@@ -161,7 +161,7 @@ Total: 26
             "user_nickname": "kek",
             "offers_count": 1
         },
-        "created_at": "2021-04-16T14:42:10.167Z",
-        "updated_at": "2021-04-16T14:42:10.167Z"
+        "created_at": "2024-04-16T14:42:10.167Z",
+        "updated_at": "2024-04-16T14:42:10.167Z"
     }
 ]

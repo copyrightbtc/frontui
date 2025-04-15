@@ -19,6 +19,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    .menunav-button{
+      color: #ffffff;
+      &.MuiButton-root{
+        color: #ffffff;
+        svg{ 
+          fill: #ffffff;
+        }
+      }
+    }
     &__buttons{
       display: flex;
       align-items: center;
@@ -45,5 +54,102 @@
         }
       } 
     } 
+  }
+}
+.blackmenu{
+  &.menunav-drop__menu{
+    .menunav-drop__menu__userinfo{
+      color: #fff;
+      border-bottom: 1px solid var(--table-lines-grey);
+    }
+    .profile-userinfo__verification{
+      .verif_level{
+        &.MuiButton-root{
+          box-shadow: var(--small-button-shadow);
+          &:hover{
+            box-shadow: var(--small-button-hover-shadow);
+          }
+          svg{
+            fill: #fff;
+          }
+        }
+      }
+      &__level-2{
+        .verif_level{
+          &.MuiButton-root{
+            svg{
+              fill: #000;
+            }
+          }
+        }
+      }
+      &__level-3{
+        .verified{
+          color: var(--success);
+          border: 1px solid var(--success);
+          svg{
+            fill: var(--success);
+          }
+        }
+      } 
+    }
+    .MuiMenu-paper {
+        background-color: var(--main-dark);
+        box-shadow: var(--box-shadow-dark);
+    }
+    svg {
+        fill: #fff;
+    }
+    .menunav-drop__menu_list,
+    .MuiMenuItem-root {
+        color: #fff;
+        &:hover {
+            background: var(--hover-background-light);
+        }
+        span {
+            color: #fff;
+        }
+    }
+    .logout-link,
+    .menunav-drop__menu__nav{
+      .nav-icon {
+          fill: #fff;
+      }
+      .nav-title {
+          color: #fff;
+      }
+      &--active{
+        background: var(--main-dark);
+        .nav-title{
+          color: #fff;
+        }
+        &:before{
+          background-color: var(--accent);
+        }
+      }
+      &:hover{
+          background: var(--hover-background-light);
+      }
+    }
+    .logout-link{
+      .nav-icon{
+        fill: var(--danger);
+      }
+      .nav-title{
+        color: var(--danger);
+      }
+      &:hover{
+        background: var(--main-dark);
+        .nav-icon{
+          fill: var(--danger);
+        }
+        .nav-title{
+          color: var(--danger);
+        }
+      }
+      &:hover{
+        background: var(--hover-background-light);
+      }
+    }
   }
 }

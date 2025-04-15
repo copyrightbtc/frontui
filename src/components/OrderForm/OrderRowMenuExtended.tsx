@@ -1,11 +1,6 @@
 import classnames from 'classnames';
 import * as React from "react";
 
-export enum HideMode {
-    hide = 'hide',
-    unmount = 'unmount',
-}
-
 export type OnUnderChangeCallback = (index: number, label?: string | JSX.Element) => void;
 
 type OnCurrentTabChange = (index: number) => void;
@@ -21,11 +16,9 @@ export interface TabPanelUnderlinesProps {
     onTabChange?: OnUnderChangeCallback;
     onCurrentTabChange?: OnCurrentTabChange;
     currentTabIndex: number;
-    hideMode?: HideMode;
 }
 
 export const OrderRowMenuExtended: React.FC<TabPanelUnderlinesProps> = ({
-    hideMode = HideMode.hide,
     borders,
     panels,
     currentTabIndex,

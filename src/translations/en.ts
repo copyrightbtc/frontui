@@ -103,6 +103,8 @@ export const en = {
     "page.body.trade.header.newOrder.content.orderType.market": "Market",
     "page.body.trade.header.newOrder.content.price": "Price",
     "page.body.trade.header.newOrder.content.amount": "Amount",
+    "page.body.trade.header.newOrder.content.minimum": "Minimum",
+    "page.body.trade.header.newOrder.content.maximum": "Maximum",
     "page.body.trade.header.newOrder.content.total": "Total",
     "page.body.trade.header.newOrder.content.total.get": "Total get",
     "page.body.trade.header.newOrder.content.total.buy": "Max Buy",

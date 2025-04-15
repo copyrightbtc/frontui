@@ -11,17 +11,8 @@ export interface Filter {
 }
 
 export interface TableState {
-    /**
-     * Selected filter
-     */
     activeFilter?: string;
-    /**
-     * Filtered data
-     */
     resultData?: CellData[][];
-    /**
-     * Key of selected row
-     */
     selectedRowKey?: string;
 }
 

@@ -141,10 +141,12 @@ export class OrderFormExtended extends React.PureComponent<OrderFormProps, Order
                 {isMobileDevice ? (
                     <OrderInputMobile
                         className={Number(price) !== 0 && Number(price) < Number(currentMarketMinPrice) ? 'iserrored' : ''}
-                        label={priceText}
-                        placeholder={translate('page.mobile.order.price.placeholder', { currency: from ? from.toUpperCase() : '' })}
-                        value={price || ''}
+                        currency={from}
+                        fixedLabel={priceText}
+                        placeholder={`this.props.translate('page.body.trade.header.newOrder.content.minimum')} ${currentMarketMinPrice}`}
+                        value={finalPrice || ''}
                         isFocused={priceFocused}
+                        isWrong={!isPriceValid.valid}
                         precision={currentMarketBidPrecision}
                         handleChangeValue={this.handlePriceChange}
                         handleFocusInput={this.handleFieldFocus}
@@ -350,9 +352,10 @@ export class OrderFormExtended extends React.PureComponent<OrderFormProps, Order
                     {isMobileDevice ? (
                         <OrderInputMobile
                             className={inputAmountError}
-                            label={amountText}
-                            placeholder={translate('page.mobile.order.amount.placeholder', { currency: to ? to.toUpperCase() : '' })}
-                            value={amount || ''}
+                            currency={to}
+                            fixedLabel={amountText}
+                            placeholder={`${this.props.translate('page.body.trade.header.newOrder.content.minimum')} ${currentMarketMinAmount}`}
+                            value={finalAmount || ''}
                             isFocused={amountFocused}
                             precision={currentMarketAskPrecision}
                             handleChangeValue={this.handleAmountChange}

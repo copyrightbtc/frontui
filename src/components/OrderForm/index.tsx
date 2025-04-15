@@ -145,10 +145,12 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                 {isMobileDevice ? (
                     <OrderInputMobile
                         className={Number(price) !== 0 && Number(price) < Number(currentMarketMinPrice) ? 'iserrored' : ''}
-                        label={priceText}
-                        placeholder={translate('page.mobile.order.price.placeholder', { currency: from ? from.toUpperCase() : '' })}
-                        value={price || ''}
+                        currency={from}
+                        fixedLabel={priceText}
+                        placeholder={`${this.props.translate('page.body.trade.header.newOrder.content.minimum')} ${currentMarketMinPrice}`}
+                        value={finalPrice || ''}
                         isFocused={priceFocused}
+                        isWrong={!isPriceValid.valid}
                         precision={currentMarketBidPrecision}
                         handleChangeValue={this.handlePriceChange}
                         handleFocusInput={this.handleFieldFocus}
@@ -352,13 +354,14 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                     {isMobileDevice ? (
                         <OrderInputMobile
                             className={inputAmountError}
-                            label={amountText}
-                            placeholder={translate('page.mobile.order.amount.placeholder', { currency: to ? to.toUpperCase() : '' })}
-                            value={amount || ''}
+                            fixedLabel={amountText}
+                            placeholder={`${this.props.translate('page.body.trade.header.newOrder.content.minimum')} ${currentMarketMinAmount}`}
+                            value={finalAmount || ''}
                             isFocused={amountFocused}
                             precision={currentMarketAskPrecision}
                             handleChangeValue={this.handleAmountChange}
                             handleFocusInput={this.handleFieldFocus}
+                            currency={to}
                         />
                     ) : (
                         <OrderInput
@@ -410,13 +413,14 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                         {isMobileDevice ? (
                             <OrderInputMobile
                                 className={inputTotalError}
-                                label={totalText}
-                                placeholder={`≥ ${new DecimalJS(Number(currentMarketMinAmount)).times(Number(currentMarketMinPrice)).toString()}`}
-                                value={Decimal.format(total, currentMarketBidPrecision, ',') || ''}
+                                fixedLabel={totalText}
+                                placeholder={`${this.props.translate('page.body.trade.header.newOrder.content.minimum')} ${new DecimalJS(Number(currentMarketMinAmount)).times(Number(currentMarketMinPrice)).toString()}`}
+                                value={total || ''}
                                 isFocused={totalFocused}
                                 precision={currentMarketAskPrecision}
                                 handleChangeValue={this.handleTotalChange}
                                 handleFocusInput={this.handleFieldFocus}
+                                currency={from}
                             />
                         ) : (
                             <OrderInput
