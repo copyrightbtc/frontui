@@ -27,6 +27,7 @@ export interface CombinedOrderBookProps {
   noDataAsks?: boolean;
   noDataBids?: boolean;
   noDataMessage?: string;
+  sliderCompare?: React.ReactNode;
 }
 
 interface State { 
@@ -160,6 +161,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
           onSelectAsks,
           onSelectBids,
           lastPrice,
+          sliderCompare,
           noDataAsks,
           noDataBids,
           noDataMessage,
@@ -182,7 +184,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                             data={dataAsks}
                             rowBackgroundColor={rowBackgroundColorAsks}
                             maxVolume={maxVolume}
-                            orderBookEntry={orderBookEntryAsks.reverse()}
+                            orderBookEntry={orderBookEntryAsks}
                             onSelect={onSelectAsks}
                         />
                     }
@@ -203,6 +205,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                             onSelect={onSelectBids}
                         />
                     }
+                    {sliderCompare}
                 </div> ) : null,
                 icon: <AllbookIcon />,
                 },
@@ -226,6 +229,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                         onSelect={onSelectBids}
                     />
                 }
+                {sliderCompare}
                 </div> ) : null,
                 icon: <AskbookIcon />,
                 },
@@ -239,7 +243,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                             data={dataAsks}
                             rowBackgroundColor={rowBackgroundColorAsks}
                             maxVolume={maxVolume}
-                            orderBookEntry={orderBookEntryAsks.reverse()}
+                            orderBookEntry={orderBookEntryAsks}
                             onSelect={onSelectAsks}
                         />
                     }
@@ -250,6 +254,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                             <strong>{spreadPrice == "NaN" ? '-.--' : spreadPrice} %</strong>
                         </div>
                     </div>
+                    {sliderCompare}
                 </div> ) : null,
                 icon: <BidsbookIcon />,
                 },

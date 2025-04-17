@@ -177,6 +177,7 @@ export const en = {
 
     "page.body.trade.header.openOrders": "Open orders",
     "page.body.trade.header.currentopenOrders": "Current pair",
+    "page.body.trade.header.openOrders.compare.tooltip": "Real-time data from 50 price levels of spot buy and sell orders",
 
     "page.body.trade.header.currenAlltopenOrders": "All pairs ",
 

@@ -1,4 +1,5 @@
 export * from './accumulateVolume';
+export * from './accumulateCompare';
 export * from './buildQueryString';
 export * from './calcMaxVolume';
 export * from './changeElementPosition';

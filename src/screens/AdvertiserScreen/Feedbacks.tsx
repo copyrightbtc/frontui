@@ -165,7 +165,7 @@ export const Feedbacks = () => {
         },
     ];
 
-    if (advertiserLoading) return <div className="spinner-loader-center"><FillSpinner size={19} color="var(--color-accent)"/></div>;
+    if (advertiserLoading) return <div className="spinner-loader-center fixed"><FillSpinner size={19} color="var(--color-accent)"/></div>;
     //if (!feedbacks.length) return <NoResultData title={formatMessage({ id: 'page.noDataToShow.feedbacks' })} class="themes"/>;
     
     return (

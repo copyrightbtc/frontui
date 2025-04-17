@@ -177,6 +177,8 @@ export const ru = {
 
     "page.body.trade.header.openOrders": "Открытые ордера",
     "page.body.trade.header.currentopenOrders": "Эта пара",
+    "page.body.trade.header.openOrders.compare.tooltip": "Данные в режиме реального времени по 50 уровням цен ордеров на покупку и продажу спотовых сделок",
+
     "page.body.trade.header.currenAlltopenOrders": "Все пары",
     "page.body.trade.header.openOrders.content.date": "Дата",
     "page.body.trade.header.openOrders.content.state": "Состояние",

@@ -128,7 +128,7 @@ const DepositCrypto: React.FunctionComponent<DepositCryptoProps> = (props: Depos
                 <div className="deposit-crypto__details__right">
                     <div className="details-row">
                         <span>{formatMessage({ id: 'page.body.wallets.tabs.deposit.min.deposit'})}</span>
-                        <Decimal fixed={wallet.fixed} thousSep=",">{minDepositAmount?.toString()}</Decimal>
+                        {minDepositAmount} {wallet?.currency.toUpperCase()}
                     </div>
                     <div className="details-row">
                         <span>{formatMessage({ id: 'page.body.wallets.tabs.deposit.network'})}</span>

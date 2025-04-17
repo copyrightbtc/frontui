@@ -15,7 +15,6 @@ import {
 export const MarketDepthsComponent = () => {
     const asksItems = useSelector(selectDepthAsks);
     const bidsItems = useSelector(selectDepthBids);
-    const chartRebuild = useSelector(selectChartRebuildState);
     const colorTheme = useSelector(selectCurrentColorTheme);
     const currentMarket = useSelector(selectCurrentMarket);
     const loading = useSelector(selectOrderBookLoading);
@@ -44,7 +43,7 @@ export const MarketDepthsComponent = () => {
         let cumulativeVolumeData = 0;
         let cumulativePriceData = 0;
 
-        return data.map((item, index) => {
+        return data.map((item) => {
             const [price, volume] = item;
             const numberVolume = Decimal.format(volume, currentMarket.amount_precision);
             const numberPrice = Decimal.format(price, currentMarket.price_precision);
@@ -69,7 +68,7 @@ export const MarketDepthsComponent = () => {
         return type === 'bid' ? cumulativeData.sort((a, b) => b.bid - a.bid) : cumulativeData.sort((a, b) => a.ask - b.ask);
     };
 
-    const convertToDepthFormat = React.useMemo(() => {
+    const convertToDepthFormat = () => {
         const resultLength = asksItems.length > bidsItems.length ? bidsItems.length : asksItems.length;
 
         const asks = asksItems.slice(0, resultLength);
@@ -79,17 +78,17 @@ export const MarketDepthsComponent = () => {
         const bidsVolume = convertToCumulative(bids, 'bid');
 
         return [...bidsVolume, ...asksVolume];
-    }, [asksItems, bidsItems]);
+    };
 
-    const renderMarketDepths = React.useMemo(() => {
+    const renderMarketDepths = () => {
         return (
             <MarketDepths
                 settings={settings}
-                data={convertToDepthFormat}
+                data={convertToDepthFormat()}
                 colorTheme={colorTheme}
             />
         );
-    }, [settings, colorTheme, asksItems, bidsItems, chartRebuild]);
+    };
 
     if (loading) {
         return null;
@@ -97,7 +96,7 @@ export const MarketDepthsComponent = () => {
 
     return (
         <div className="market-depths">
-            {renderMarketDepths}
+            {renderMarketDepths()}
         </div>
     );
 };

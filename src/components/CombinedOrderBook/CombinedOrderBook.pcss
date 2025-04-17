@@ -50,6 +50,7 @@
   &__small{
     width: 100%;
     min-width: 100%;
+    padding-bottom: 5px;
     .order-book-block{
       height: 100%;
       width: 100%;
@@ -66,17 +67,20 @@
           }
         }
         &.full{
-          max-height: calc(100% - 32px);
+          max-height: calc(100% - 57px);
         }
       }
       &.buy-block{
-        .table-datas__body{
-          &__row{
-            margin-top: 1px;
+        max-height: calc(50% - 41px);
+        .table-datas{
+          &__body{
+            &__row{
+              margin-top: 1px;
+            }
           }
         }
         &.full{
-          max-height: calc(100% - 32px);
+          max-height: calc(100% - 57px);
         }
       }
       &.empty{
@@ -239,6 +243,62 @@
             justify-content: flex-start;
           }
         }
+      }
+    }
+  }
+}
+.compare-orders{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  height: 25px;
+  cursor: default;
+  &__bar{
+    align-items: center;
+    display: flex;
+    flex: 1 1;
+    padding: 0 8px;
+    opacity: .8;
+    .bids{
+      background-color: var(--color-success);
+      border-radius: 2px 0 0 2px;
+      height: 6px;
+      margin-right: 3px;
+    }
+    .asks{
+      background-color: var(--color-danger);
+      border-radius: 0 2px 2px 0;
+      height: 6px;
+      opacity: .8;
+    }
+  }
+  &__datas{
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    span{
+      border-radius: 2px;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &.buy{
+      color: var(--color-success);
+      justify-content: flex-start;
+      span{
+        border: 1px solid var(--color-success);
+        margin-right: 3px;
+      }
+    }
+    &.sell{
+      color: var(--color-danger);
+      justify-content: flex-end;
+      span{
+        border: 1px solid var(--color-danger);
+        margin-left: 3px;
       }
     }
   }

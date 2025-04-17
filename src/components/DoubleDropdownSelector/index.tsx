@@ -55,23 +55,23 @@ export const DoubleDropdownSelector: React.FunctionComponent<Props> = (props: Pr
     }, [arrayFrom, arrayTo, to, props.handleSelectFrom, props.handleSelectTo]);
 
     return (
-        <div className="cr-double-dp-selector">
-            <div className="cr-double-dp-selector__group">
-                <div className="cr-double-dp-selector__group-label">{labelFrom || intl.formatMessage({ id: 'page.body.wallets.transfers.from' })}</div>
+        <div className="double-dp-selector">
+            <div className="double-dp-selector__group">
+                <div className="double-dp-selector__group-label">{labelFrom || intl.formatMessage({ id: 'page.body.wallets.transfers.from' })}</div>
                 <DropdownComponent
-                    className="cr-double-dp-selector__group-dropdown"
+                    className="double-dp-selector__group-dropdown"
                     list={arrayFrom}
                     onSelect={handleSelectFrom}
                     placeholder={from}
                 />
             </div>
-            <div className="cr-double-dp-selector__swap" onClick={handleClickSwap}>
+            <div className="double-dp-selector__swap" onClick={handleClickSwap}>
                 <ChangeIcon className="icon"/>
             </div>
-            <div className="cr-double-dp-selector__group">
-                <div className="cr-double-dp-selector__group-label">{labelTo || intl.formatMessage({ id: 'page.body.wallets.transfers.to' })}</div>
+            <div className="double-dp-selector__group">
+                <div className="double-dp-selector__group-label">{labelTo || intl.formatMessage({ id: 'page.body.wallets.transfers.to' })}</div>
                 <DropdownComponent
-                    className="cr-double-dp-selector__group-dropdown"
+                    className="double-dp-selector__group-dropdown"
                     list={arrayTo}
                     onSelect={handleSelectTo}
                     placeholder={to}

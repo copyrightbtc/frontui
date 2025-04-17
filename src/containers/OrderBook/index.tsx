@@ -7,9 +7,11 @@ import { connect, MapDispatchToPropsFunction } from 'react-redux';
 import { IntlProps } from '../../';
 import { CombinedOrderBook, Decimal } from '../../components';
 import { colors } from '../../constants';
-import { accumulateVolume, calcMaxVolume, sortBids, sortAsks } from '../../helpers';
+import { accumulateVolume, accumulateCompare, calcMaxVolume, sortBids, sortAsks } from '../../helpers';
 import { ArrowOrderNegative } from '../../assets/images/ArrowOrderNegative';
 import { ArrowOrderPositive } from '../../assets/images/ArrowOrderPositive';
+import { OverlayTrigger } from 'react-bootstrap';
+import { Tooltip } from '../../components';
 import {
     Market,
     PublicTrade,
@@ -163,6 +165,7 @@ class OrderBookContainer extends React.Component<Props, State> {
                 dataBids={this.renderOrderBook(bids, 'bids', '', isLarge, currentMarket)}
                 headers={this.renderHeaders()}
                 lastPrice={this.lastPrice()}
+                sliderCompare={this.sliderCompare(bids, asks)}
                 onSelectAsks={this.handleOnSelectAsks}
                 onSelectBids={this.handleOnSelectBids}
                 isLarge={isLarge}
@@ -176,6 +179,49 @@ class OrderBookContainer extends React.Component<Props, State> {
     };
 
     private bestOBPrice = (list: string[][]) => list[0] && list[0][0];
+
+    public sliderCompare = (bids, asks) => {
+        const allAsks = Math.max(...accumulateCompare(asks));
+        const allBids = Math.max(...accumulateCompare(bids));
+        const allTotal = Number(allAsks + allBids);
+        const percAsks = Number(allAsks * 100 / allTotal);
+        const percBids = Number(allBids * 100 / allTotal);
+
+        const ProgressBarPositive = () => {          
+            const labelAsks = {
+              width: `${percAsks}%`,
+            }
+            const labelBids = {
+              width: `${percBids}%`,
+            }
+          
+            return (
+              <div className="compare-orders__bar">
+                  <div className="bids" style={labelBids}></div>
+                  <div className="asks" style={labelAsks}></div>
+              </div>
+            );
+        };
+
+        return (
+            <OverlayTrigger 
+                placement="top"
+                delay={{ show: 250, hide: 300 }} 
+                overlay={<Tooltip className="themes" title="page.body.trade.header.openOrders.compare.tooltip" />}>
+                    <div className='compare-orders'>
+                        <div className='compare-orders__datas buy'>
+                            <span>B</span>
+                            {percBids.toFixed(2)}%
+                        </div>
+                        <ProgressBarPositive />
+                        <div className='compare-orders__datas sell'>
+                            {percAsks.toFixed(2)}%
+                            <span>S</span>
+                        </div>                 
+                    </div>
+            </OverlayTrigger>
+        );
+    }
 
     public lastPrice() {
         const { 
@@ -216,7 +262,7 @@ class OrderBookContainer extends React.Component<Props, State> {
             return (
                 <React.Fragment>
                     <div className={cn}>
-                        <span>{Decimal.format(lastPrice, currentMarket.price_precision, ',')}
+                        <span>{parseFloat(Number(lastPrice).toFixed(currentMarket.price_precision))}
                             <div className='icon-order'>{priceChangeSign === 'negative' ? <ArrowOrderNegative /> : <ArrowOrderPositive />}</div>
                         </span>
                     </div>
@@ -257,7 +303,7 @@ class OrderBookContainer extends React.Component<Props, State> {
         const amountFixed = currentMarket ? currentMarket.amount_precision : 0;
 
         if (isMobileDevice) {
-            return this.getOrderBookData(isLarge, side, array, priceFixed, amountFixed, message);
+            return this.getOrderBookData(isLarge, side, array, priceFixed, message);
         }
 
         return array.length ? array.map((item, i) => {
@@ -269,29 +315,29 @@ class OrderBookContainer extends React.Component<Props, State> {
                     //total = isLarge ? accumulateVolume(array) : accumulateVolume(array.slice(0).reverse()).slice(0).reverse();
 
                     return [
-                        (<div className="sell_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>),
-                        (<div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>),
-                        (<div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>),
+                        <div className="sell_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
+                        <div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>,
+                        <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
                     ];
                 default:
                     if (isLarge) {
                         return [
-                            (<div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>),
-                            (<div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>),
-                            (<div key={i}>{Decimal.format(price, priceFixed, ',')}</div>),
+                            <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
                         ];
                     } else {
                         return [
-                            (<div className="buy_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>),
-                            (<div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>),
-                            (<div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>),
+                            <div className="buy_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
                         ];
                     }
             }
         }) : [[[''], message]];
     };
 
-    private getOrderBookData = (isLarge, side, array, priceFixed, amountFixed, message) => {
+    private getOrderBookData = (isLarge, side, array, priceFixed, message) => {
         return array.length ? array.map((item, i) => {
             const [price, volume] = item;
             const totalAmount = Number(volume) * Number(price);
@@ -301,19 +347,19 @@ class OrderBookContainer extends React.Component<Props, State> {
                     //total = isLarge ? accumulateVolume(array) : accumulateVolume(array.slice(0).reverse()).slice(0).reverse();
 
                     return [
-                        (<div className="sell_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>),
-                        (<div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>),
+                        <div className="sell_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
+                        <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
                     ];
                 default:
                     if (isLarge) {
                         return [
-                            (<div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>),
-                            (<div key={i}>{Decimal.format(price, priceFixed, ',')}</div>),
+                            <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
                         ];
                     } else {
                         return [
-                            (<div key={i}>{Decimal.format(price, priceFixed, ',')}</div>),
-                            (<div className="buy_price" key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>),
+                            <div key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
+                            <div className="buy_price" key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
                         ];
                     }
             }

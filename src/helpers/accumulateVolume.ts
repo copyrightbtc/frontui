@@ -3,9 +3,10 @@ export const accumulateVolume = array => {
     array.map(item => {
         return item[1];
     }).reduce((accumulator, currentValue, currentIndex) => {
-        total[currentIndex] = Number(accumulator) * Number(currentValue);
-        //total[currentIndex] = Number(accumulator) + Number(currentValue);
-        return (Number(accumulator) + Number(currentValue));
+        //total[currentIndex] = Number(accumulator) * Number(currentValue);
+        //return (Number(accumulator) + Number(currentValue));
+        total[currentIndex] = Number(currentValue);
+        return Number(currentValue);
     }, 0);
 
     return total;
