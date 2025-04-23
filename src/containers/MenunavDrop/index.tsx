@@ -18,6 +18,7 @@ import { WalletIcon } from '../../assets/images/sidebar/WalletIcon';
 import { P2PIcon } from '../../assets/images/sidebar/P2PIcon';
 import { 
     logoutFetch,
+    selectUserLoggedIn
 } from '../../modules';
 import { truncateEmail } from '../../helpers';
 import { selectUserInfo } from '../../modules';
@@ -42,6 +43,7 @@ const noHeaderRoutesClass = [
 ];
 
 export const MenunavDrop: React.FC = () => {
+    const userLoggedIn = useSelector(selectUserLoggedIn);
     const shouldRenderLinkP2P = noHeaderRoutesP2P.some(r => location.pathname.includes(r));
     const shouldRenderLinkTrading = noHeaderRoutesTrading.some(r => location.pathname.includes(r));
     const shouldRenderClass = noHeaderRoutesClass.some(r => location.pathname.includes(r));
@@ -86,7 +88,7 @@ export const MenunavDrop: React.FC = () => {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <div className="menunav-drop__menu__userinfo">{truncateEmail(user.email)}</div>
-                <div className="profile-userinfo__verification"> 
+                {userLoggedIn && <div className="profile-userinfo__verification"> 
                     { user.level === 1 ? ( 
                         <div className="profile-userinfo__verification__level-1">
                             <Button
@@ -118,7 +120,7 @@ export const MenunavDrop: React.FC = () => {
                             </div>
                         </div> 
                     ) : null}
-                </div> 
+                </div>}
                 {!shouldRenderLinkTrading ? (
                     <Link to="/trading" className={handleGetActiveItemClass(pathname, '/trading')}>
                         <TradeIcon className="nav-icon" />

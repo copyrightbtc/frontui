@@ -1,17 +1,17 @@
-import * as React from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { Orders } from '../';
-import { TabPanel } from '../../../components';
+import { TabPanelMobile } from '../../../components';
 import { selectUserLoggedIn } from '../../../modules';
 import { Charts } from './Charts';
 import { CreateOrder } from './CreateOrder';
 
-const TradingTabsComponent: React.FC = () => {
+const TradingTabsComponent: FC = (): ReactElement => {
     const intl = useIntl();
     const userLoggedIn = useSelector(selectUserLoggedIn);
-    const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
-    const [currentOrderType, setCurrentOrderType] = React.useState(0);
+    const [ currentTabIndex, setCurrentTabIndex ] = useState(0);
+    const [ currentOrderType, setCurrentOrderType ] = useState(0);
 
     const redirectToCreateOrder = (index: number) => {
         setCurrentTabIndex(0);
@@ -36,10 +36,11 @@ const TradingTabsComponent: React.FC = () => {
 
     return (
         <div className="pg-mobile-trading-tabs">
-            <TabPanel
+            <TabPanelMobile
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}
+                borders={true}
             />
         </div>
     );

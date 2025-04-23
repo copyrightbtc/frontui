@@ -286,7 +286,10 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
             platformAccessStatus,
         } = this.props;
         const { isShownExpSessionModal } = this.state;
-        const desktopCls = classnames('container-fluid layout', {
+        const desktopCls = classnames('layout', {
+            'trading-layout': location.pathname.includes('/trading'),
+        });
+        const mobileCls = classnames('layout layout--mobile', {
             'trading-layout': location.pathname.includes('/trading'),
         });
  
@@ -298,7 +301,7 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
 
         if (isMobileDevice) {
             return (
-                <div className='container-fluid layout layout--mobile'>
+                <div className={mobileCls}>
                     <Switch>\
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signin" component={SignInMobileScreen} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signup" component={SignUpMobileScreen} />

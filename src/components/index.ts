@@ -49,7 +49,7 @@ export * from './SignIn';
 export * from './SignUp';
 export * from './Table';
 export * from './TableFlex';
-export * from './TabPanel';
+export * from './TabPanelMobile';
 export * from './TabPanelUnderlines';
 export * from './TickerTable';
 export * from './Tooltip';

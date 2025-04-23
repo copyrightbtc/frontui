@@ -17,7 +17,7 @@ import {
 import { cleanPositiveFloatInput, precisionRegExp } from '../../helpers';
 import { OrderInput as OrderInputMobile } from '../../mobile/components';
 import { Decimal } from '../Decimal';
-import { OrderRowMenuExtended } from './OrderRowMenuExtended';
+import { OrderRowMenu } from './OrderRowMenu';
 import { OrderProps } from '../Order';
 import { OrderInput } from '../OrderInput';
 import { PercentageSlider } from '../PercentageSlider';
@@ -341,7 +341,7 @@ export class OrderFormExtended extends React.PureComponent<OrderFormProps, Order
  
         return (
             <div className={classnames('make-order-form', typeClass)} onKeyPress={this.handleEnterPress}>
-                <OrderRowMenuExtended
+                <OrderRowMenu
                     panels={this.renderTabs()}
                     onTabChange={this.handleOrderTypeChange}
                     currentTabIndex={this.state.index}

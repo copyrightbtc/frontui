@@ -1,0 +1,54 @@
+.tabmobile-panel {
+  background: transparent;
+  display: flex;
+  gap: 15px;
+  position: relative;
+  scrollbar-width: none;
+  width: 100%;
+  align-items: center;
+  height: 42px;
+  overflow: visible;
+  padding: 0 14px;
+  &.borders{
+    border-bottom: 1px solid var(--color-table-lines-grey);
+  }
+  &__dropdown{
+    width: 100%;
+    max-width: 100%;
+  }
+  &__content {
+    background: transparent;
+  }
+
+  .tabmobile {
+    transition: .2s;
+    font-size: 14px;
+    padding: 10px 5px 5px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    color: var(--color-dark);
+    position: relative;
+    height: 100%;
+    white-space: nowrap;
+    flex: 1;
+    width: 100%;
+    max-width: max-content;
+    &:after{
+      content: "";
+      bottom: -1px;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 0;
+      transition: width .2s;
+      background: var(--color-accent);
+    }
+    &__active{
+      color: var(--color-accent);
+      &:after{
+        width: 70%;
+        transition: width .2s;
+      }
+    }
+  }
+}

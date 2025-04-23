@@ -61,7 +61,7 @@ const RenderDeviceContainers = () => {
 
     if (isMobileDevice) {
         return (
-            <div className="pg-mobile-app">
+            <div className="mobile-version">
                 {!isActivepathname && <MobileHeader />}
                 <AlertsContainer/>
                 <LayoutContainer/>

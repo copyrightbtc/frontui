@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router';
-import { TabPanel } from '../../../components/TabPanel';
+import { TabPanelMobile } from '../../../components/TabPanelMobile';
 import { HistoryTable } from '../../components/HistoryTable';
 
 const WalletsHistory: React.FC = () => {
@@ -22,7 +22,7 @@ const WalletsHistory: React.FC = () => {
 
     return (
         <div className="pg-mobile-trading-tabs">
-            <TabPanel
+            <TabPanelMobile
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}

@@ -40,14 +40,12 @@ import {
 import { GridLayoutState, saveLayouts, selectGridLayoutState } from '../../modules/public/gridLayout';
 import { Market, marketsFetch, selectMarkets } from '../../modules/public/markets';
 import { depthFetch } from '../../modules/public/orderBook';
- 
 
 const breakpoints = {
     lg: 1200,
     sm: 996,
     xss: 768, 
 };
-
 
 const cols = {
     xs: 24,
@@ -246,12 +244,10 @@ const TradingWrapper = props => {
     ];
 
     return (
-        <React.Fragment> 
-            <FixedMenupanel 
-                panels={renderTabs()}
-                currentTabIndex={parseInt(currentTabMode) || 0}
-            />
-        </React.Fragment>
+        <FixedMenupanel 
+            panels={renderTabs()}
+            currentTabIndex={parseInt(currentTabMode) || 0}
+        />
     );
 };
 

@@ -7,7 +7,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { LangDrop, SupportDrop, MenunavDrop, ThemeSwitcher, TabGridModeSwitcher } from '../../containers';
 
-
 const LogoImage = require('../../assets/images/biglogo.svg').default;
   
 const noHeaderRoutes = [

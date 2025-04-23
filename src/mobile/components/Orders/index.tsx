@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { CloseIcon } from '../../../assets/images/CloseIcon';
-import { Pagination, TabPanel } from '../../../components';
+import { Pagination, TabPanelMobile } from '../../../components';
 import { useMarketsFetch, useUserOrdersHistoryFetch } from "../../../hooks";
 import {
     ordersCancelAllFetch,
@@ -106,7 +106,7 @@ const OrdersComponent: React.FC<IOrdersComponentProps> = ({ withDropdownSelect }
 
     return (
         <div className="pg-mobile-orders">
-            <TabPanel
+            <TabPanelMobile
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}

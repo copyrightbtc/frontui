@@ -1,0 +1,43 @@
+.icon-button{
+  display: flex;
+  height: auto;
+  width: max-content;
+  min-height: 2rem;
+  position: relative;
+  white-space: nowrap;
+  font-size: .875rem;
+  border-radius: var(--small-border-radius);
+  &:active{
+    color: var(--color-accent);
+    svg{
+      fill: var(--color-accent);
+    }
+  }
+}
+.simple-button{
+  display: flex;
+  height: auto;
+  width: 100%;
+  max-width: max-content;
+  padding: 8px 30px;
+  position: relative;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: var(--small-border-radius);
+  background: var(--color-accent);
+  color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  &:active{
+    background: var(--color-accent-active);
+  }
+  &.dark{
+    background: var(--color-button-grey);
+    color: var(--color-dark);
+    &:active{
+      background: var(--color-button-grey-active);
+    }
+  }
+}

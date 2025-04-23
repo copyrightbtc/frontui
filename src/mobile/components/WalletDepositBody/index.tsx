@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { TabPanel } from '../../../components';
+import { TabPanelMobile } from '../../../components';
 import { CurrencyInfo } from '../../../components/CurrencyInfo';
 import { DepositCrypto } from '../../../components/DepositCrypto';
 import { DepositFiatContainer } from 'src/containers/Wallets/Deposit/DepositFiatContainer';
@@ -78,7 +78,7 @@ const WalletDepositBodyComponent = props => {
             return (
                 <React.Fragment>
                     <CurrencyInfo wallet={wallet}/>
-                    {currencyItem?.networks && <TabPanel
+                    {currencyItem?.networks && <TabPanelMobile
                         panels={renderTabs}
                         onTabChange={(_, label) => onTabChange(label)}
                         currentTabIndex={currentTabIndex}

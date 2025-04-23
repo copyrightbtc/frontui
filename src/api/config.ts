@@ -15,7 +15,7 @@ export const defaultConfig: Config = {
     isResizable: false,
     isDraggable: false, 
     sentryEnabled: false,
-    captchaLogin: true,
+    captchaLogin: false,
     usernameEnabled: false,
     gaTrackerKey: '',
     minutesUntilAutoLogout: '240',

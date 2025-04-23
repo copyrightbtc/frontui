@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { OrderButtons } from '../../';
-import { TabPanel } from '../../../../components';
+import { TabPanelMobile } from '../../../../components';
 import {
     OrderBook,
     RecentTrades,
@@ -26,7 +26,7 @@ const ChartsComponent = props => {
     return (
         <div className="pg-mobile-charts">
             <TradingChart />
-            <TabPanel
+            <TabPanelMobile
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}
