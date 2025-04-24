@@ -115,11 +115,11 @@ class Decimal extends React.Component<DecimalProps> {
         return isPositive ? result : `-${result}`;
     }
 
-    public static getNumberBeforeDot(value: DecimalProps['children'], fixed: number, thousSep?: string, floatSep?: string) {
+    public static getNumberBeforeDot(value: DecimalProps['children'], thousSep?: string, floatSep?: string) {
         return Decimal.format(value, 0, thousSep, floatSep);
     }
 
-    public static getNumberAfterDot(value: DecimalProps['children'], fixed: number, thousSep?: string, floatSep?: string) {
+    public static getNumberAfterDot(value: DecimalProps['children'], fixed: number, floatSep?: string) {
         if (fixed === 0) {
             return;
         }
@@ -148,7 +148,7 @@ class Decimal extends React.Component<DecimalProps> {
         } else {
             return (
                 <div className="decimal-steght" style={{ color: this.props.color }}>
-                    {Decimal.getNumberBeforeDot(children, fixed, thousSep, floatSep)}
+                    {Decimal.getNumberBeforeDot(children, thousSep, floatSep)}
                     <div style={{ color: this.props.color }} className="decimal-opacity">{Decimal.getNumberAfterDot(children, fixed)}</div>
                 </div>
             );

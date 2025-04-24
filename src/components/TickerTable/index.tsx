@@ -47,36 +47,35 @@ export const TickerTable: React.FC<CustomProps> = ({
 
     const { formatMessage } = useIntl();
 
-    const renderItem = React.useCallback(
-        (market, index: number) => {
-            const marketChangeColor = +(market.change || 0) < 0 ? 'negative' : 'positive';
-            const icons = market.base_unit;
-            return (
-                <div className="ticker-table__wrapper__body__row" key={index} onClick={() => redirectToTrading(market.id)}>
-                    <div className="cell icons">
-                        <CryptoIcon code={icons.toUpperCase()} />
-                        {market && market.name}
-                    </div>
-                    <div className="cell"> 
-                        <Decimal fixed={market.price_precision} thousSep=",">{market.last}</Decimal>
-                    </div>
-                    <div className="cell"> 
-                        <span className={marketChangeColor}>{market.price_change_percent}</span>
-                    </div>
-                    <div className="cell"> 
-                        <Decimal fixed={market.price_precision} thousSep=",">{market.high}</Decimal>
-                    </div>
-                    <div className="cell"> 
-                        <Decimal fixed={market.price_precision} thousSep=",">{market.low}</Decimal>
-                    </div>
-                    <div className="cell"> 
-                        <Decimal fixed={market.amount_precision} thousSep=",">{market.amount}</Decimal>
-                    </div> 
+    const renderItem = (market, index: number) => {
+        const marketChangeColor = (market.change || 0) < 0 ? 'negative' : 'positive';
+        const isPositive = market && /\+/.test(market.price_change_percent);
+        const priceChanged = market.last - market.open;
+        const icons = market.base_unit;
+        return (
+            <div className="ticker-table__wrapper__body__row" key={index} onClick={() => redirectToTrading(market.id)}>
+                <div className="cell icons">
+                    <CryptoIcon code={icons.toUpperCase()} />
+                    {market && market.name}
                 </div>
-            );
-        },
-        [redirectToTrading, formatMessage]
-    );
+                <div className="cell"> 
+                    <Decimal fixed={market.price_precision} thousSep=",">{market.last}</Decimal>
+                </div>
+                <div className={`cell ${marketChangeColor}`}> 
+                    {isPositive ? '+' : ''}<Decimal fixed={market.price_precision} thousSep=",">{priceChanged}</Decimal> (<span>{market.price_change_percent}</span>)
+                </div>
+                <div className="cell"> 
+                    <Decimal fixed={market.price_precision} thousSep=",">{market.high}</Decimal>
+                </div>
+                <div className="cell"> 
+                    <Decimal fixed={market.price_precision} thousSep=",">{market.low}</Decimal>
+                </div>
+                <div className="cell"> 
+                    <Decimal fixed={market.amount_precision} thousSep=",">{market.amount}</Decimal>
+                </div> 
+            </div>
+        );
+    };
 
     return (
         <div className="ticker-table"> 

@@ -49,10 +49,12 @@ class HeaderToolbarContainer extends React.Component<Props> {
 
     public render() {
         const { marketTickers, currentMarket } = this.props;
-        const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, avg_price:0, price_change_percent: '+0.00%' };
+        const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, avg_price:0, price_change_percent: '0.00%' };
 
+        const priceChanged = Number(this.getTickerValue('last')) - Number(this.getTickerValue('open'))
+        
         const isPositive = currentMarket && /\+/.test(this.getTickerValue('price_change_percent'));
-        const cls = isPositive ? 'positive' : 'negative';
+        const marketChangeColor = isPositive ? 'positive' : 'negative';
 
         const bidUnit = currentMarket && currentMarket.quote_unit.toUpperCase();
         const askUnit = currentMarket && currentMarket.base_unit.toUpperCase();
@@ -63,8 +65,8 @@ class HeaderToolbarContainer extends React.Component<Props> {
                     <div className="name">
                         {this.translate('page.body.trade.toolBar.change')}
                     </div>
-                    <div className={`datas datas__${cls}`}>
-                        {currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)}
+                    <div className={`datas datas__${marketChangeColor}`}>
+                        {currentMarket && `${isPositive ? '+' : ''}${Decimal.format(priceChanged, currentMarket.price_precision, ',')}`} ({currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)})
                     </div>
                 </div>
                 <div className="statistic-header__toolbar__row">
@@ -110,14 +112,6 @@ class HeaderToolbarContainer extends React.Component<Props> {
             </div>
         );
     }
-
-    private setTickerInfo = (market: Market, tickers: ReduxProps['marketTickers']) => {
-        const tickerPrice = tickers[market.id] ? tickers[market.id].last : '0.0';
-        const info = `${Decimal.format(tickerPrice, market.price_precision, ',')} 
-            | ${market.base_unit.toUpperCase()} ${market.quote_unit.toUpperCase()}
-            | Sfor.Trade`;
-        return info;
-    };
   
     private formatPercentageValue = (value: string) => (
         <React.Fragment>
@@ -128,7 +122,7 @@ class HeaderToolbarContainer extends React.Component<Props> {
  
     private getTickerValue = (value: string) => {
         const { marketTickers, currentMarket } = this.props;
-        const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, avg_price:0, price_change_percent: '+0.00%'};
+        const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, avg_price:0, price_change_percent: '0.00%'};
 
         return currentMarket && (marketTickers[currentMarket.id] || defaultTicker)[value];
     };
