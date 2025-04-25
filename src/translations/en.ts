@@ -92,6 +92,7 @@ export const en = {
     "page.body.trade.header.markets.content.search": "Search",
     "page.body.trade.header.markets.content.search.txid": "Enter txID",
     "page.body.trade.header.markets.content.volume": "Volume",
+    "page.body.trade.header.markets.content.market.volume": "Market / Volume",
     "page.body.trade.header.chart": "Chart",
 
     "page.body.trade.header.newOrder": "Place Order",

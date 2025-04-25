@@ -88,7 +88,8 @@ export const ru = {
     "page.body.trade.header.markets.content.last_price": "Посл. цена",
     "page.body.trade.header.markets.content.search": "Поиск",
     "page.body.trade.header.markets.content.search.txid": "Введите txID",
-    "page.body.trade.header.markets.content.volume": "Всего",
+    "page.body.trade.header.markets.content.volume": "Объем",
+    "page.body.trade.header.markets.content.market.volume": "Рынок / Объем",
     "page.body.trade.header.chart": "График",
 
     "page.body.trade.header.newOrder": "Разместить ордер",

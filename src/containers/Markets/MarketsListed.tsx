@@ -102,7 +102,7 @@ class MarketsListedComponent extends React.Component<Props, State> {
     };
 
     private getHeaders = () => [
-        {id: 'id', translationKey: 'market'},
+        {id: 'volume', translationKey: 'market.volume'},
         {id: 'last', translationKey: 'price'},
         {id: 'price_change_percent_num', translationKey: 'change'},
     ].map(obj => {
@@ -120,7 +120,7 @@ class MarketsListedComponent extends React.Component<Props, State> {
         const classname = classnames('sort-head', {
             'sorted': obj.selected,
         });
-
+        
         return (
             <div className={classname} key={obj.id} onClick={() => this.handleHeaderClick(obj.id)}>
                 <span>{this.props.intl.formatMessage({id: `page.body.trade.header.markets.content.${obj.translationKey}`})}</span>
@@ -135,6 +135,7 @@ class MarketsListedComponent extends React.Component<Props, State> {
         const { markets, marketTickers, search, currencyQuote, user: {role} } = this.props;
         const defaultTicker = {
             last: 0,
+            volume: 0,
             price_change_percent: '+0.00%',
         };
         const arr: Market[] = [];
@@ -142,6 +143,7 @@ class MarketsListedComponent extends React.Component<Props, State> {
         const marketsMapped = markets.map((market: Market) => {
             return {
                 ...market,
+                volume: (marketTickers[market.id] || defaultTicker).volume,
                 last: (marketTickers[market.id] || defaultTicker).last,
                 price_change_percent: (marketTickers[market.id] || defaultTicker).price_change_percent,
                 price_change_percent_num: Number.parseFloat((marketTickers[market.id] || defaultTicker).price_change_percent),
@@ -187,9 +189,14 @@ class MarketsListedComponent extends React.Component<Props, State> {
 
             return [
                 market.name,
-                (<div className='coin-data'>
+                (<div className='volume-wrapper'> 
                     <CryptoIcon className="coin-icon" code={market.base_unit.toUpperCase()} />
-                    {market.name}
+                    <div className='coin-data'>
+                        {market.name}
+                        <div className='volume'>
+                            {Decimal.format(Number(market.volume), market.price_precision, ',')}
+                        </div>
+                    </div>
                 </div>),
                 Decimal.format(Number(market.last), market.price_precision, ','),
                 (<div className={classname}>
