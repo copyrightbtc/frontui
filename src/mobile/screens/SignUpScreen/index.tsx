@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router';
 import { SignUpScreen } from '../../../screens/SignUpScreen';
-import { Modal } from '../../components';
+import { ModalMobile } from '../../components';
 
 
 const SignUpMobileScreen: React.FC = () => {
@@ -10,14 +10,14 @@ const SignUpMobileScreen: React.FC = () => {
     const intl = useIntl();
 
     return <div>
-        <Modal
+        <ModalMobile
             isOpen={true}
             onClose={() => history.push('/trading')}
             onBack={() => history.push('/signin')}
             backTitle={intl.formatMessage({ id: 'page.body.landing.header.button2' })}
             title={intl.formatMessage({ id: 'page.body.landing.header.button3' })}>
             <SignUpScreen/>
-        </Modal>
+        </ModalMobile>
     </div>;
 };
 

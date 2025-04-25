@@ -42,7 +42,7 @@ export const ru = {
     'page.mobile.orders.header.trigger': 'Trigger',
     'page.mobile.orders.header.volume': 'Total',
 
-    'page.mobile.currentMarketInfo.search.placeholder': 'Search',
+    'page.mobile.currentMarketInfo.search.placeholder': 'Искать',
     'page.mobile.currentMarketInfo.volume': 'Vol',
     'page.mobile.currentMarketInfo.high': 'High',
     'page.mobile.currentMarketInfo.low': 'Low',

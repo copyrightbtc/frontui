@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { is2faValid } from '../../helpers';
-import { Modal } from '../../mobile/components/Modal';
+import { ModalMobile } from '../../mobile/components/ModalMobile';
 import {
     beneficiariesCreate,
     BeneficiaryBank,
@@ -577,12 +577,12 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
 
     return (
         isMobileDevice ?
-            <Modal
+            <ModalMobile
                 title={formatMessage({ id: 'page.body.wallets.beneficiaries.addAddressModal.header' })}
                 onClose={handleToggleAddAddressModal}
                 isOpen>
                 {renderContent()}
-            </Modal> : renderContent()
+            </ModalMobile> : renderContent()
     );
 };
 

@@ -1,0 +1,87 @@
+.mobile-modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  z-index: 99999;
+
+  &__header {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin: 12px 15px;
+
+    &-title {
+      font-size: 16px;
+      text-align: center;
+      color: var(--color-dark);
+    }
+
+    &-back,
+    &-close {
+      font-size: 14px;
+      box-sizing: border-box;
+      min-width: 0px;
+      font-size: 20px;
+      color: var(--color-light-grey);
+      cursor: pointer;
+      width: 1em;
+      height: 1em;
+      svg{
+        fill: var(--color-light-grey);
+      }
+    }
+
+    &-back {
+      svg {
+        padding-right: 2px;
+        transform: rotate(90deg);
+      }
+    }
+
+    &-close {
+      cursor: pointer;
+      text-align: right;
+    }
+  }
+
+  &--open {
+    height: 100vh;
+  }
+  &--close {
+    height: 0;
+    transition-delay: .4s;
+  }
+
+  &__block {
+    background-color: var(--main-dark);
+    border-radius: .85rem .85rem 0 0;
+    bottom: 0;
+    left: 0;
+    margin-top: 20px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    height: 80vh;
+
+    &--open {
+      overflow: hidden;
+      top: 20vh;
+      transition: all ease .4s;
+    }
+    &--close {
+      overflow: hidden;
+      top: 100vh;
+      transition: all ease .4s;
+    }
+  }
+
+  &__body {
+    height: 100%;
+    overflow-y: scroll;
+    overflow: hidden;
+    padding: 11px 0 5px;
+  }
+}

@@ -8,7 +8,7 @@ import { DEFAULT_CCY_PRECISION, DEFAULT_PERCENTAGE_PRECISION } from '../../../co
 import { MarketsTable } from '../../../containers';
 import { Market, selectCurrentMarket, selectMarkets, selectMarketTickers } from '../../../modules';
 import { ChevronIcon } from '../../assets/images/ChevronIcon';
-import { Modal } from '../../components';
+import { ModalMobile } from '../../components';
 
 const defaultTicker = {
     amount: '0.0',
@@ -40,16 +40,11 @@ const CurrentMarketInfoComponent: React.FC = () => {
     };
 
     const renderModalHeader = (
-        <div className="cr-mobile-modal__header">
-            <div className="cr-mobile-modal__header-search">
-                <FilterInput
-                    data={markets}
-                    onFilter={handleFilter}
-                    filter={searchFilter}
-                    placeholder={intl.formatMessage({id: 'page.mobile.currentMarketInfo.search.placeholder'})}
-                />
+        <div className="mobile-modal__header">
+            <div className="mobile-modal__header-title">
+                {intl.formatMessage({ id: 'page.body.trade.header.markets.content.market' })}
             </div>
-            <div className="cr-mobile-modal__header-close" onClick={() => setOpenMarketSelector(false)}>
+            <div className="mobile-modal__header-close" onClick={() => setOpenMarketSelector(false)}>
                 <CloseIcon />
             </div>
         </div>
@@ -62,8 +57,8 @@ const CurrentMarketInfoComponent: React.FC = () => {
         'change-positive': (+currentMarketTickerChange || 0) >= 0,
         'change-negative': (+currentMarketTickerChange || 0) < 0,
     });
-    const isOpenMarketSelectorClass = classnames('pg-mobile-current-market-info__left__selector__chevron', {
-        'pg-mobile-current-market-info__left__selector__chevron--open': isOpenMarketSelector,
+    const isOpenMarketSelectorClass = classnames('mobile-current-market-info__left__selector__chevron', {
+        'mobile-current-market-info__left__selector__chevron--open': isOpenMarketSelector,
     });
 
     React.useEffect(() => {
@@ -71,15 +66,15 @@ const CurrentMarketInfoComponent: React.FC = () => {
     }, [currentMarket]);
 
     return (
-        <div className="pg-mobile-current-market-info">
-            <div className="pg-mobile-current-market-info__left">
-                <div className="pg-mobile-current-market-info__left__selector" onClick={() => setOpenMarketSelector(!isOpenMarketSelector)}>
+        <div className="mobile-current-market-info">
+            <div className="mobile-current-market-info__left">
+                <div className="mobile-current-market-info__left__selector" onClick={() => setOpenMarketSelector(!isOpenMarketSelector)}>
                     <span>{currentMarket ? currentMarket.name : ''}</span>
                     <div className={isOpenMarketSelectorClass}>
                         <ChevronIcon />
                     </div>
                 </div>
-                <div className="pg-mobile-current-market-info__left__price-change">
+                <div className="mobile-current-market-info__left__price-change">
                     <span className={currentMarketChangeClass}>
                         {Decimal.format(currentMarketTicker.last, currentMarketPricePrecision, ',')}
                     </span>
@@ -90,13 +85,13 @@ const CurrentMarketInfoComponent: React.FC = () => {
                     </span>
                 </div>
             </div>
-            <div className="pg-mobile-current-market-info__right">
-                <div className="pg-mobile-current-market-info__right__col">
+            <div className="mobile-current-market-info__right">
+                <div className="mobile-current-market-info__right__col">
                     <span>{intl.formatMessage({id: 'page.mobile.currentMarketInfo.volume'})}</span>
                     <span>{intl.formatMessage({id: 'page.mobile.currentMarketInfo.high'})}</span>
                     <span>{intl.formatMessage({id: 'page.mobile.currentMarketInfo.low'})}</span>
                 </div>
-                <div className="pg-mobile-current-market-info__right__col">
+                <div className="mobile-current-market-info__right__col">
                     <span className={currentMarketChangeClass}>
                         {Decimal.format(currentMarketTicker.volume, currentMarketPricePrecision, ',')}
                     </span>
@@ -108,16 +103,25 @@ const CurrentMarketInfoComponent: React.FC = () => {
                     </span>
                 </div>
             </div>
-            <Modal
+            <ModalMobile
                 header={renderModalHeader}
                 isOpen={isOpenMarketSelector}
                 onClose={() => setOpenMarketSelector(!isOpenMarketSelector)}
-                title={intl.formatMessage({ id: 'page.header.signUp.modal.header' })}>
+            >
+                <div className="mobile-search">
+                    <FilterInput
+                        data={markets}
+                        onFilter={handleFilter}
+                        filter={searchFilter}
+                        placeholder={intl.formatMessage({id: 'page.mobile.currentMarketInfo.search.placeholder'})}
+                        themes={true}
+                    />
+                </div>
                 <MarketsTable
                     handleChangeCurrentMarket={() => setOpenMarketSelector(false)}
                     markets={marketsSearchKey && filteredMarkets}
                 />
-            </Modal>
+            </ModalMobile>
         </div>
     );
 };

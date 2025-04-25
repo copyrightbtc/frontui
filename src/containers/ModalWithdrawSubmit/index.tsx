@@ -7,7 +7,7 @@ import { IntlProps } from '../../';
 import { CSSTransition } from "react-transition-group";
 import { IconButton } from '@mui/material';
 import { CloseIcon } from '../../assets/images/CloseIcon';
-import { Modal as MobileModal } from '../../mobile/components/Modal';
+import { ModalMobile as MobileModal } from '../../mobile/components/ModalMobile';
 
 interface ModalWithdrawSubmitProps {
     currency: string;

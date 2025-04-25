@@ -2,7 +2,7 @@ export * from './CreatedApiKeyModal';
 export * from './CurrentMarketInfo';
 export * from './EstimatedValue';
 export * from './Header';
-export * from './Modal';
+export * from './ModalMobile';
 export * from './ModalWithdrawConfirmation';
 export * from './OpenOrders';
 export * from './OrderButtons';

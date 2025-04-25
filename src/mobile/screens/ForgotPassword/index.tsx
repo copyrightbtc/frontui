@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router';
 import { ForgotPasswordScreen } from '../../../screens/ForgotPassword';
-import { Modal } from '../../components';
+import { ModalMobile } from '../../components';
 
 const ForgotPasswordMobileScreen: React.FC = () => {
     const history = useHistory();
@@ -10,14 +10,14 @@ const ForgotPasswordMobileScreen: React.FC = () => {
 
     return (
         <div>
-            <Modal
+            <ModalMobile
                 isOpen={true}
                 onClose={() => history.push('/trading')}
                 onBack={() => history.push('/signin')}
                 backTitle={intl.formatMessage({ id: 'page.body.landing.header.button2' })}
                 title={intl.formatMessage({ id: 'page.forgotPassword' })}>
                 <ForgotPasswordScreen/>
-            </Modal>
+            </ModalMobile>
         </div>
     );
 };

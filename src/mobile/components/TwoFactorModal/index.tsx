@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import { CustomInput } from '../../../components/CustomInput';
-import { Modal } from '../../components/Modal';
+import { ModalMobile } from '../../components/ModalMobile';
 import { is2faValid } from 'src/helpers';
 
 export const TwoFactorModalComponent = props => {
@@ -59,13 +59,13 @@ export const TwoFactorModalComponent = props => {
 
     return (
         <div className="cr-mobile-two-fa-modal">
-            <Modal
+            <ModalMobile
                 isOpen={props.showModal}
                 onClose={() => handleToggle2FA(false)}
                 title={intl.formatMessage({ id: 'page.mobile.twoFactorModal.title' })}>
                 {renderModalBody()}
                 {renderModalFooter()}
-            </Modal>
+            </ModalMobile>
         </div>
     );
 };

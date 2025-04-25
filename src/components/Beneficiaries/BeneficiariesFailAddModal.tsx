@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
-import { Modal } from '../../mobile/components/Modal';
+import { ModalMobile } from '../../mobile/components/ModalMobile';
 
 interface Props {
     handleToggleFailModal: () => void;
@@ -47,12 +47,12 @@ const BeneficiariesFailAddModalComponent: React.FC<Props> = (props: Props) => {
 
     return (
         props.isMobileDevice ?
-            <Modal
+            <ModalMobile
                 isOpen
                 onClose={props.handleToggleFailModal}
                 title={formatMessage({ id: 'page.body.wallets.beneficiaries.failAddModal.content' })}>
                 {renderContent()}
-            </Modal> : renderContent()
+            </ModalMobile> : renderContent()
     );
 };
 

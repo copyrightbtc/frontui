@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { CopyableTextField } from '../../../components';
 import { copy } from '../../../helpers';
 import { WarningIcon } from '../../assets/images/WarningIcon';
-import { Modal } from '../../components/Modal';
+import { ModalMobile } from '../../components/ModalMobile';
 
 export const CreatedApiKeyModalComponent = props => {
     const [apiKey, setApiKey] = React.useState({ kid: '', secret: '' });
@@ -18,8 +18,8 @@ export const CreatedApiKeyModalComponent = props => {
 
     const renderModalBody = () => {
         return (
-            <div className="cr-mobile-modal__body">
-                <div className="cr-mobile-modal__body__fieldset">
+            <div className="mobile-modal__body">
+                <div className="mobile-modal__body__fieldset">
                     <fieldset onClick={() => copy('access-key-id')}>
                         <CopyableTextField
                             className="pg-copyable-text-field__input"
@@ -30,7 +30,7 @@ export const CreatedApiKeyModalComponent = props => {
                         />
                     </fieldset>
                 </div>
-                <div className="cr-mobile-modal__body__fieldset">
+                <div className="mobile-modal__body__fieldset">
                     <fieldset onClick={() => copy('secret-key-id')}>
                         <CopyableTextField
                             className="pg-copyable-text-field__input"
@@ -41,11 +41,11 @@ export const CreatedApiKeyModalComponent = props => {
                         />
                     </fieldset>
                 </div>
-                <div className="cr-mobile-modal__body__title">
+                <div className="mobile-modal__body__title">
                     <WarningIcon />
                     <span>{intl.formatMessage({ id: 'page.body.profile.apiKeys.modal.secret_key' })}</span>
                 </div>
-                <div className="cr-mobile-modal__body__note">
+                <div className="mobile-modal__body__note">
                     <p>
                         {intl.formatMessage({ id: 'page.body.profile.apiKeys.modal.secret_key_info' })}&nbsp;
                         {intl.formatMessage({ id: 'page.body.profile.apiKeys.modal.secret_key_store' })}
@@ -61,7 +61,7 @@ export const CreatedApiKeyModalComponent = props => {
 
     const renderModalFooter = () => {
         return (
-            <div className="cr-mobile-modal__footer">
+            <div className="mobile-modal__footer">
                 <Button
                     
                     onClick={props.closeCreatedApiKeyModal}
@@ -76,13 +76,13 @@ export const CreatedApiKeyModalComponent = props => {
 
     return (
         <div className="pg-mobile-created-api-key-modal">
-            <Modal
+            <ModalMobile
                 isOpen={props.showModal}
                 onClose={props.closeCreatedApiKeyModal}
                 title={intl.formatMessage({ id: 'page.mobile.createdApiKeyModal.title' })}>
                 {renderModalBody()}
                 {renderModalFooter()}
-            </Modal>
+            </ModalMobile>
         </div>
     );
 };

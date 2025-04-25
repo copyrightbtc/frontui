@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { selectSignInRequire2FA } from '../../../modules/user/auth';
 import { SignInScreen } from '../../../screens/SignInScreen';
-import { Modal } from '../../components';
+import { ModalMobile } from '../../components';
 
 
 const SignInMobileScreen: React.FC = () => {
@@ -19,14 +19,14 @@ const SignInMobileScreen: React.FC = () => {
     });
 
     return <div className={className}>
-        <Modal
+        <ModalMobile
             isOpen={true}
             onClose={() => history.push('/trading')}
             onBack={() => !require2FA && history.push('/signup')}
             backTitle={intl.formatMessage({ id: 'page.body.landing.header.button3' })}
             title={intl.formatMessage(title)}>
             <SignInScreen/>
-        </Modal>
+        </ModalMobile>
     </div>;
 };
 

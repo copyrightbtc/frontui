@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector} from 'react-redux';
-import { Modal } from '../../mobile/components/Modal';
+import { ModalMobile } from '../../mobile/components/ModalMobile';
 import {
     beneficiariesActivate,
     beneficiariesResendPin,
@@ -134,12 +134,12 @@ const BeneficiariesActivateModalComponent: React.FC<Props> = (props: Props) => {
 
     return (
         isMobileDevice ?
-            <Modal
+            <ModalMobile
                 onClose={props.handleToggleConfirmationModal}
                 title={formatMessage({ id: 'page.mobile.wallet.withdraw.modal.new.account' })}
                 isOpen>
                 {renderContent()}
-            </Modal> : renderContent()
+            </ModalMobile> : renderContent()
     );
 };
 

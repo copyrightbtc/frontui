@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 import { getVerificationStep } from '../../../helpers';
 import { selectLabelData } from '../../../modules/user/kyc/label';
 import { ConfirmScreen } from '../../../screens/ConfirmScreen';
-import { Modal } from '../../components/Modal';
+import { ModalMobile } from '../../components/ModalMobile';
 import { Subheader } from '../../components/Subheader';
 
 const ConfirmMobileScreen: React.FC = () => {
@@ -18,12 +18,12 @@ const ConfirmMobileScreen: React.FC = () => {
         return (
             <div className="cr-mobile-confirm">
                 <div className="cr-mobile-confirm__phone">
-                    <Modal
+                    <ModalMobile
                         isOpen
                         onClose={() => history.goBack()}
                         title={intl.formatMessage({id: 'page.body.profile.header.account.profile.phone.unverified.title'})}>
                         <ConfirmScreen/>
-                    </Modal>
+                    </ModalMobile>
                 </div>
             </div>
         );

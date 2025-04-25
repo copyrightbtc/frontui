@@ -4,16 +4,16 @@ import { CloseIcon } from '../../../assets/images/CloseIcon';
 import { ArrowIcon } from '../../../containers/ToolBar/icons/ArrowIcon';
 
 const ModalComponent = props => {
-    const [shouldAnimate, setShouldAnimate] = React.useState(false);
+    const [shouldOpen, setShouldOpen] = React.useState(false);
 
     React.useEffect(() => {
         if (props.isOpen) {
             setTimeout(() => {
-                setShouldAnimate(true);
+                setShouldOpen(true);
             }, 200);
         }
 
-        return () => setShouldAnimate(false);
+        return () => setShouldOpen(false);
     }, [props.isOpen]);
 
     const handleOnClose = (event, strictTarget?: boolean) => {
@@ -24,16 +24,17 @@ const ModalComponent = props => {
                 return;
             }
 
-            setShouldAnimate(false);
+            setShouldOpen(false);
 
             setTimeout(() => {
                 props.onClose && props.onClose();
             }, 200);
+            
         }
     };
 
     const handleOnBack = () => {
-        setShouldAnimate(false);
+        setShouldOpen(false);
 
         setTimeout(() => {
             props.onBack();
@@ -41,33 +42,35 @@ const ModalComponent = props => {
     };
 
     const renderDefaultHeader = (
-        <div className="cr-mobile-modal__header">
-            <div className="cr-mobile-modal__header-back" onClick={handleOnBack}>
+        <div className="mobile-modal__header">
+            <div className="mobile-modal__header-back" onClick={handleOnBack}>
                 {props.backTitle ?
                     <React.Fragment>
                     <ArrowIcon/>
                     <span>{props.backTitle}</span>
                     </React.Fragment> : null}
             </div>
-            <div className="cr-mobile-modal__header-title">{props.title}</div>
-            <div className="cr-mobile-modal__header-close" onClick={handleOnClose}>
+            <div className="mobile-modal__header-title">{props.title}</div>
+            <div className="mobile-modal__header-close" onClick={handleOnClose}>
                 <CloseIcon />
             </div>
         </div>
     );
 
-    const modalClassName = classnames('cr-mobile-modal', {
-        'cr-mobile-modal--open': shouldAnimate,
+    const modalClassName = classnames('mobile-modal', {
+        'mobile-modal--open': shouldOpen,
+        'mobile-modal--close': !shouldOpen,
     });
-    const bodyClassName = classnames('cr-mobile-modal__block', {
-        'cr-mobile-modal__block--open': shouldAnimate,
+    const bodyClassName = classnames('mobile-modal__block', {
+        'mobile-modal__block--open': shouldOpen,
+        'mobile-modal__block--close': !shouldOpen,
     });
 
     return (
         <div className={modalClassName} onClick={e => handleOnClose(e, true)}>
             <div className={bodyClassName}>
                 {props.header || renderDefaultHeader}
-                <div className="cr-mobile-modal__body">
+                <div className="mobile-modal__body">
                     {props.children}
                 </div>
             </div>
@@ -75,4 +78,4 @@ const ModalComponent = props => {
     );
 };
 
-export const Modal = React.memo(ModalComponent);
+export const ModalMobile = React.memo(ModalComponent);

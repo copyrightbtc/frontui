@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import { Decimal } from '../../../components';
-import { Modal } from '../../components';
+import { ModalMobile } from '../../components';
 
 interface ModalWithdrawConfirmationProps {
     amount: string;
@@ -34,7 +34,7 @@ const ModalWithdraw = (props: ModalWithdrawConfirmationProps) => {
     }, [formatMessage]);
 
     return (
-        <Modal title={renderHeader()} onClose={onDismiss} isOpen={props.show}>
+        <ModalMobile title={renderHeader()} onClose={onDismiss} isOpen={props.show}>
             <div className="pg-exchange-modal-submit-body mobile-modal-body__withdraw-confirm">
                 <div className="mobile-modal-body__withdraw-confirm--block">
                     <span className="mobile-modal-body__withdraw-confirm--light">
@@ -76,7 +76,7 @@ const ModalWithdraw = (props: ModalWithdrawConfirmationProps) => {
                     {formatMessage({ id: 'page.body.wallets.tabs.withdraw.modal.button.withdraw' })}
                 </Button>
             </div>
-        </Modal>
+        </ModalMobile>
     );
 };
 

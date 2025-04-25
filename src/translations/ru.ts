@@ -83,7 +83,7 @@ export const ru = {
     "page.body.trade.header.markets.content.any": "Все",
     "page.body.trade.header.markets.content.price": "Цена",
     "page.body.trade.header.markets.content.change": "Изм. 24ч",
-    "page.body.trade.header.markets.content.market": "Маркет",
+    "page.body.trade.header.markets.content.market": "Рынок",
     "page.body.trade.header.markets.content.coin": "Актив",
     "page.body.trade.header.markets.content.last_price": "Посл. цена",
     "page.body.trade.header.markets.content.search": "Поиск",
@@ -2240,7 +2240,7 @@ export const ru = {
     "page.body.filters.all": "Все",
 
     "page.body.openOrders.header.date": "Дата",
-    "page.body.openOrders.header.market": "Маркет",
+    "page.body.openOrders.header.market": "Рынок",
     "page.body.openOrders.header.side": "Сторона",
     "page.body.openOrders.header.side.buy": "Покупка",
     "page.body.openOrders.header.side.sell": "Продажа",
