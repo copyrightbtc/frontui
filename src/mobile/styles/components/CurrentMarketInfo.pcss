@@ -1,132 +1,104 @@
-.mobile-current-market-info {
-  align-items: flex-start;
+.mobile-market-info {
   background: var(--color-main-dark);
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  padding: 12px 16px;
   display: flex;
-  flex-direction: row;
-  height: 87px;
-  justify-content: space-between;
-  margin: 4px 0;
-  padding: 12px 14px;
-  width: 100%;
-
-  .change-positive {
-    color: var(--system-green);
-  }
-
-  .change-negative {
-    color: var(--system-red);
-  }
-
-  &__left {
-    align-items: flex-start;
+  &__selector{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0px;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    max-width: 50%;
-    padding-right: 14px;
-    width: 50%;
-
-    &__selector {
-      align-items: center;
-      background: var(--icons-level-2);
-      border-radius: 3px;
-      display: flex;
-      flex-direction: row;
-      height: 30px;
-      justify-content: space-between;
-      padding: 0 10px;
-      width: 100%;
-
-      span {
-        color: var(--color-dark);
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-        line-height: 22px;
-      }
-
-      &__chevron {
-        transition: transform 0.2s;
-
-        &--open {
-          transform: rotate(-180deg);
-        }
-      }
-    }
-
-    &__price-change {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 100%;
-
-      span {
-        align-items: center;
-        display: flex;
-        font-size: 12px;
-        height: 21px;
-        line-height: 15px;
-
-        &:first-child {
-          font-size: 20px;
-          font-weight: 500;
-          letter-spacing: 0.44px;
-          line-height: 24px;
-          padding-right: 8px;
-        }
-
-        &:last-child {
-          border-radius: 3px;
-          justify-content: center;
-          padding: 0 7px;
-        }
-
-        &:last-child.change-positive {
-          background: var(--system-green-level-1);
-        }
-
-        &:last-child.change-negative {
-          background: var(--system-red-level-1);
-        }
-      }
-    }
-  }
-
-  &__right {
     align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    h1{
+      color: var(--color-dark);
+      font-size: 19px;
+    }
+    .arrow{
+      width: 16px;
+      fill: var(--color-dark);
+      margin-left: 8px;
+      transition: .2s;
+      &__up{
+        transform: rotate(0deg);
+      }
+      &__down{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__left{
     display: flex;
-    flex-direction: row;
-    height: 100%;
-    justify-content: center;
-    max-width: 50%;
-    width: max-content;
-
-    &__col {
-      align-items: center;
+    box-sizing: border-box;
+    margin-right: 8px;
+    flex: 1 1 0%;
+    border-right: none;
+    padding-right: 0px;
+    width: 50%;
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    gap: 1px;
+    .price{
+      font-size: 27px;
       display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: space-around;
+      -webkit-box-align: center;
+      align-items: center;
+      font-weight: 600;
+      line-height: 30px;
+      &.positive {
+        color: var(--color-success);
+      }
+      &.negative {
+        color: var(--color-danger);
+      }
+    }
+    .percantage{
+      font-size: 13px;
+      &.positive {
+        color: var(--color-success);
+      }
+      &.negative {
+        color: var(--color-danger);
+      }
+    }
+  }
+  &__right{
+    display: flex;
+    flex-basis: 150px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    &__tickerlist{
+      display: grid;
       width: 100%;
-
-      &:first-child > span {
-        padding-right: 12px;
+      height: 100%;
+      gap: 1px 7px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+          "A B"
+          "C D";
+      span{
+        color: var(--color-light-grey);
+        font-size: 10px;
+        margin-right: 4px;
+        margin-bottom: 0px;
+        line-height: 16px;
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
-
-      &:last-child > span {
-        font-weight: 500;
-      }
-
-      span {
-        align-items: center;
-        color: var(--secondary-contrast-cta-color);
-        display: flex;
-        flex-direction: row;
+      .datas{
+        color: var(--color-dark);
         font-size: 12px;
-        line-height: 15px;
-        width: 100%;
       }
     }
   }

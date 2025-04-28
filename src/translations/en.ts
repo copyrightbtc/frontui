@@ -156,6 +156,7 @@ export const en = {
     "page.body.trade.toolBar.selectMarket": "Market",
     "page.body.trade.toolBar.highest": "24h Max",
     "page.body.trade.toolBar.volume": "24h Volume",
+    "page.body.trade.toolBar.volume.s": "24h Vol",
     "page.body.trade.toolBar.turnover": "24h Turnover",
     "page.body.trade.toolBar.change": "24h Change",
 

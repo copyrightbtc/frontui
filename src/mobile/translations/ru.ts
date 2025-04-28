@@ -79,7 +79,7 @@ export const ru = {
     'page.mobile.profileLinks.main.apiKeys': 'My API keys',
 
     'page.mobile.profileLinks.settings.language': 'Language',
-    'page.mobile.profileLinks.settings.theme': 'Theme',
+    'page.mobile.profileLinks.settings.theme': 'Тема',
 
     'page.mobile.profileLinks.additional.referral': 'Referral Link',
     'page.mobile.profileLinks.link.referral.success': 'Successfully copied!',

@@ -14,6 +14,7 @@ import {
     RootState,
     selectCurrentMarket,
     selectMarketSelectorState,
+    selectMobileDeviceState
 } from '../../modules';
 import { resetLayouts } from '../../modules/public/gridLayout';
 import { MarketsListed } from './MarketsListed';
@@ -22,6 +23,7 @@ import { MarketsListedTabs } from './MarketsListedTabs';
 interface ReduxProps {
     currentMarket?: Market;
     isOpen: boolean;
+    isMobile: boolean;
 }
 
 interface DispatchProps {
@@ -68,7 +70,7 @@ class ToolBarComponent extends React.Component<Props, State> {
         });
 
         return (
-            <div className="markets-list"> 
+            <div className={`markets-list${this.props.isMobile ? ' markets-list__mobile' : ''}`}> 
                 <div className={focusedClass}> 
                     <div className="icon">
                         <SearchIcon />
@@ -118,6 +120,7 @@ class ToolBarComponent extends React.Component<Props, State> {
 const reduxProps: MapStateToProps<ReduxProps, {}, RootState> = state => ({
     currentMarket: selectCurrentMarket(state),
     isOpen: selectMarketSelectorState(state),
+    isMobile: selectMobileDeviceState(state),
 });
 
 const mapDispatchToProps: MapDispatchToPropsFunction<DispatchProps, {}> = (dispatch) => ({

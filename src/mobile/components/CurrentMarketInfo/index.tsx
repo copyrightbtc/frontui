@@ -3,10 +3,10 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { CloseIcon } from '../../../assets/images/CloseIcon';
-import { Decimal, FilterInput } from '../../../components';
+import { Decimal } from '../../../components';
 import { DEFAULT_CCY_PRECISION, DEFAULT_PERCENTAGE_PRECISION } from '../../../constants';
-import { MarketsTable } from '../../../containers';
-import { Market, selectCurrentMarket, selectMarkets, selectMarketTickers } from '../../../modules';
+import { MarketsComponent } from '../../../containers';
+import { selectCurrentMarket, selectMarketTickers } from '../../../modules';
 import { ChevronIcon } from '../../assets/images/ChevronIcon';
 import { ModalMobile } from '../../components';
 
@@ -23,21 +23,8 @@ const defaultTicker = {
 const CurrentMarketInfoComponent: React.FC = () => {
     const intl = useIntl();
     const currentMarket = useSelector(selectCurrentMarket);
-    const markets = useSelector(selectMarkets);
     const tickers = useSelector(selectMarketTickers);
     const [isOpenMarketSelector, setOpenMarketSelector] = React.useState(false);
-    const [filteredMarkets, setFilteredMarkets] = React.useState(markets);
-    const [marketsSearchKey, setMarketsSearchKey] = React.useState('');
-
-    const searchFilter = (row: Market, searchKey: string) => {
-        setMarketsSearchKey(searchKey);
-
-        return row ? (row.name as string).toLowerCase().includes(searchKey.toLowerCase()) : false;
-    };
-
-    const handleFilter = (result: object[]) => {
-        setFilteredMarkets(result as Market[]);
-    };
 
     const renderModalHeader = (
         <div className="mobile-modal__header">
@@ -51,76 +38,81 @@ const CurrentMarketInfoComponent: React.FC = () => {
     );
 
     const currentMarketPricePrecision = currentMarket ? currentMarket.price_precision : DEFAULT_CCY_PRECISION;
+    const currentMarketAmountPrecision = currentMarket ? currentMarket.amount_precision : DEFAULT_CCY_PRECISION;
     const currentMarketTicker = (currentMarket && tickers[currentMarket.id]) || defaultTicker;
     const currentMarketTickerChange = +(+currentMarketTicker.last - +currentMarketTicker.open).toFixed(currentMarketPricePrecision);
-    const currentMarketChangeClass = classnames('', {
-        'change-positive': (+currentMarketTickerChange || 0) >= 0,
-        'change-negative': (+currentMarketTickerChange || 0) < 0,
+    const currentPriceClass = classnames('price', {
+        'positive': (+currentMarketTickerChange || 0) >= 0,
+        'negative': (+currentMarketTickerChange || 0) < 0,
     });
-    const isOpenMarketSelectorClass = classnames('mobile-current-market-info__left__selector__chevron', {
-        'mobile-current-market-info__left__selector__chevron--open': isOpenMarketSelector,
+    const priceChanged = Number(currentMarketTicker.last) - Number(currentMarketTicker.open)
+    const currentPricePercantage = classnames('percantage', {
+        'positive': (+currentMarketTickerChange || 0) >= 0,
+        'negative': (+currentMarketTickerChange || 0) < 0,
     });
 
     React.useEffect(() => {
         setOpenMarketSelector(false);
     }, [currentMarket]);
+    
+    const bidUnit = currentMarket && currentMarket.quote_unit.toUpperCase();
+    const askUnit = currentMarket && currentMarket.base_unit.toUpperCase();
 
     return (
-        <div className="mobile-current-market-info">
-            <div className="mobile-current-market-info__left">
-                <div className="mobile-current-market-info__left__selector" onClick={() => setOpenMarketSelector(!isOpenMarketSelector)}>
-                    <span>{currentMarket ? currentMarket.name : ''}</span>
-                    <div className={isOpenMarketSelectorClass}>
-                        <ChevronIcon />
+        <div className="mobile-market-info">
+            <div className="mobile-market-info__left">
+                <div className="mobile-market-info__selector" onClick={() => setOpenMarketSelector(!isOpenMarketSelector)}>
+                    <h1>{currentMarket ? currentMarket.name : ''}</h1>
+                    {isOpenMarketSelector ? (
+                        <ChevronIcon className="arrow arrow__down" />
+                    ) : (
+                        <ChevronIcon className="arrow arrow__up" />
+                    )}
+                </div>
+                <div className={currentPriceClass}>
+                    {Decimal.format(currentMarketTicker.last, currentMarketPricePrecision, ',')}
+                </div>
+                <div className={currentPricePercantage}>
+                    {Decimal.format(priceChanged, currentMarketPricePrecision, ',')}&#32; 
+                    ({currentMarketTicker.price_change_percent?.charAt(0)}
+                    {Decimal.format(currentMarketTicker.price_change_percent?.slice(1, -1), DEFAULT_PERCENTAGE_PRECISION, ',')}
+                    %)
+                </div>
+            </div>
+            <div className="mobile-market-info__right">
+                <div className="mobile-market-info__right__tickerlist">
+                    <div className="tickers" style={{gridArea: 'A'}}>
+                        <span>{intl.formatMessage({id: 'page.body.trade.toolBar.highest'})}</span>
+                        <div className="datas">
+                            {Decimal.format(currentMarketTicker.high, currentMarketPricePrecision, ',')}
+                        </div>
+                    </div>
+                    <div className="tickers" style={{gridArea: 'C'}}>
+                        <span>{intl.formatMessage({id: 'page.body.trade.toolBar.lowest'})}</span>
+                        <div className="datas">
+                            {Decimal.format(currentMarketTicker.low, currentMarketPricePrecision, ',')}
+                        </div>
+                    </div>
+                    <div className="tickers" style={{gridArea: 'B'}}>
+                        <span>{intl.formatMessage({id: 'page.body.trade.toolBar.volume.s'})} ({askUnit})</span>
+                        <div className="datas">
+                            {Decimal.format(currentMarketTicker.amount, currentMarketAmountPrecision, ',')}
+                        </div>
+                    </div>
+                    <div className="tickers" style={{gridArea: 'D'}}>
+                        <span>{intl.formatMessage({id: 'page.body.trade.toolBar.volume.s'})} ({bidUnit})</span>
+                        <div className="datas">
+                            {Decimal.format(currentMarketTicker.volume, currentMarketPricePrecision, ',')}
+                        </div>
                     </div>
                 </div>
-                <div className="mobile-current-market-info__left__price-change">
-                    <span className={currentMarketChangeClass}>
-                        {Decimal.format(currentMarketTicker.last, currentMarketPricePrecision, ',')}
-                    </span>
-                    <span className={currentMarketChangeClass}>
-                        {currentMarketTicker.price_change_percent?.charAt(0)}
-                        {Decimal.format(currentMarketTicker.price_change_percent?.slice(1, -1), DEFAULT_PERCENTAGE_PRECISION, ',')}
-                        %
-                    </span>
-                </div>
-            </div>
-            <div className="mobile-current-market-info__right">
-                <div className="mobile-current-market-info__right__col">
-                    <span>{intl.formatMessage({id: 'page.mobile.currentMarketInfo.volume'})}</span>
-                    <span>{intl.formatMessage({id: 'page.mobile.currentMarketInfo.high'})}</span>
-                    <span>{intl.formatMessage({id: 'page.mobile.currentMarketInfo.low'})}</span>
-                </div>
-                <div className="mobile-current-market-info__right__col">
-                    <span className={currentMarketChangeClass}>
-                        {Decimal.format(currentMarketTicker.volume, currentMarketPricePrecision, ',')}
-                    </span>
-                    <span className={currentMarketChangeClass}>
-                        {Decimal.format(currentMarketTicker.high, currentMarketPricePrecision, ',')}
-                    </span>
-                    <span className={currentMarketChangeClass}>
-                        {Decimal.format(currentMarketTicker.low, currentMarketPricePrecision, ',')}
-                    </span>
-                </div>
-            </div>
+            </div> 
             <ModalMobile
                 header={renderModalHeader}
                 isOpen={isOpenMarketSelector}
                 onClose={() => setOpenMarketSelector(!isOpenMarketSelector)}
-            >
-                <div className="mobile-search">
-                    <FilterInput
-                        data={markets}
-                        onFilter={handleFilter}
-                        filter={searchFilter}
-                        placeholder={intl.formatMessage({id: 'page.mobile.currentMarketInfo.search.placeholder'})}
-                        themes={true}
-                    />
-                </div>
-                <MarketsTable
-                    handleChangeCurrentMarket={() => setOpenMarketSelector(false)}
-                    markets={marketsSearchKey && filteredMarkets}
-                />
+            > 
+                <MarketsComponent /> 
             </ModalMobile>
         </div>
     );

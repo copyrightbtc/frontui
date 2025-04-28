@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { Button, IconButton, Drawer } from '@mui/material';
+import { Button, Drawer } from '@mui/material';
 import { CloseIcon } from 'src/assets/images/CloseIcon';
 import { MenuIcon } from 'src/assets/images/MenuIcon';
 import { VerifiedIcon } from 'src/assets/images/VerifiedIcon';
@@ -15,8 +15,11 @@ import { TradeIcon } from 'src/assets/images/sidebar/TradeIcon';
 import { OrderIcon } from 'src/assets/images/sidebar/OrderIcon';
 import { HistoryIcon } from 'src/assets/images/sidebar/HistoryIcon';
 import { ApikeysIcon } from 'src/assets/images/sidebar/ApikeysIcon';
+import { SupportIcon } from 'src/assets/images/SupportIcon';
 import { WalletIcon } from 'src/assets/images/sidebar/WalletIcon';
 import { P2PIcon } from 'src/assets/images/sidebar/P2PIcon';
+import { ThemeSwitch } from './ThemeSwitch';
+import { LangugesCont } from './LangugesCont';
 import { 
     logoutFetch,
     selectUserLoggedIn
@@ -149,7 +152,13 @@ const HeaderComponent: React.FC = () => {
                             <Link onClick={toggleDrawer(false)} to="/apikeys" className={handleGetActiveItemClass(pathname, '/apikeys')}>
                                 <ApikeysIcon className="nav-icon" />
                                 <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.apikeys' })}</span>
-                            </Link> 
+                            </Link>
+                            <ThemeSwitch />
+                            <LangugesCont />
+                            <a className="menunav-mobile__nav" href="https://sfortrade.zohodesk.eu/portal/en/newticket" target="_blank" rel="noopener noreferrer">
+                                <SupportIcon className="nav-icon" />
+                                <span className="nav-title">{intl.formatMessage({ id: 'page.body.landing.button.helpcenter' })}</span>
+                            </a>
                             {userLoggedIn && <div className="menunav-mobile__nav logout" onClick={handleLogoutUser && toggleDrawer(false)}> 
                                 <LogoutIcon className="nav-icon" /> 
                                 <span className="nav-title">{intl.formatMessage({id: 'page.body.profile.content.action.logout'})}</span>

@@ -154,6 +154,7 @@ export const ru = {
     "page.body.trade.toolBar.selectMarket": "Рынок",
     "page.body.trade.toolBar.highest": "24ч Макс.",
     "page.body.trade.toolBar.volume": "24ч Объем",
+    "page.body.trade.toolBar.volume.s": "24ч Объ",
     "page.body.trade.toolBar.turnover": "24ч Оборот",
     "page.body.trade.toolBar.change": "24ч изменения",
 

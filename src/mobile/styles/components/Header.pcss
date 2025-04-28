@@ -9,7 +9,6 @@
   display: flex;
   padding: 0 14px;
   justify-content: space-between;
-
   &__logo {
     align-items: center;
     width: 100%;
@@ -80,6 +79,28 @@
     margin-top: 30px;
     padding-bottom: 25px;
   }
+  .sub__menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 56px;
+    padding: 0 24px 0 48px;
+    cursor: pointer;
+    color: var(--color-dark);
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+    .langIcon{
+      max-width: 17px;
+      margin-right: 11px;
+    }
+    .checked{
+      fill: var(--color-dark);
+      width: 15px;
+      margin-left: 12px;
+    }
+  }
+  .accordion-button,
   &__nav{
     display: flex;
     align-items: center;
@@ -87,6 +108,15 @@
     height: 56px;
     padding: 0 24px;
     cursor: pointer;
+    position: relative;
+    .arrow{
+      fill: var(--color-dark);
+      width: 17px;
+      position: absolute;
+      right: 25px;
+      transform: rotate(180deg);
+      transition: .2s;
+    }
     &.logout{
       border-top: 1px solid var(--color-table-lines-grey);
     }
@@ -99,10 +129,8 @@
       font-size: 16px;
       color: var(--color-dark);
     }
-    &:first-child{
-      margin-top: 22px;
-    }
-    &--active{
+    &--active,
+    &:active{
       background-color: var(--color-hover-background-light);
       .nav-icon{
         fill: var(--color-dark);
@@ -110,6 +138,58 @@
     }
     &:hover{
       fill: var(--color-dark);
+    }
+  }
+  .accordion-button{
+    background-color: var(--color-hover-background-light);
+    width: 100%;
+    .nav-icon{
+      fill: var(--color-dark);
+    }
+    &.collapsed{
+      background-color: transparent;
+      .arrow{
+        transform: rotate(0deg);
+      }
+      .nav-icon{
+        fill: var(--color-light-grey);
+      }
+    }
+  }
+  .theme-switch{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 24px 0 61px;
+    span{
+      font-size: 16px;
+      color: var(--color-dark);
+    }
+    &__wrapper{
+      display: inline-flex;
+      position: relative;
+      width: 92px;
+      height: 32px;
+      border-radius: 4px;
+      border: 1px solid var(--color-table-lines-grey);
+      background-color: transparent;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      .theme-icon{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+          width: 15px;
+        }
+        &--active{
+          background-color: var(--color-hover-background-light);
+        }
+      }
     }
   }
 }
