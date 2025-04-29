@@ -27,7 +27,7 @@ import {
 import { truncateEmail } from 'src/helpers';
 import { selectUserInfo } from 'src/modules';
 
-const LogoImage = require('../../assets/images/biglogo.svg').default;
+const LogoImage = require('src/assets/images/biglogo.svg').default;
 
 const handleGetActiveItemClass = (currentRoute: string, targetRoute: string, absolute?: boolean) => {
     return classnames('menunav-mobile__nav', {
@@ -125,10 +125,10 @@ const HeaderComponent: React.FC = () => {
                                 <TradeIcon className="nav-icon" />
                                 <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.trading' })}</span>
                             </Link>
-                            <a onClick={toggleDrawer(false)} href="/p2p/all-adverts/" className='menunav-mobile__nav'>
+                            {/*<a onClick={toggleDrawer(false)} href="/p2p/all-adverts/" className='menunav-mobile__nav'>
                                 <P2PIcon className="nav-icon" />
                                 <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.p2ptrading' })}</span>
-                            </a>
+                            </a>*/}
                             <Link onClick={toggleDrawer(false)} to="/profile" className={handleGetActiveItemClass(pathname, '/profile')}>
                                 <ProfileIcon className="nav-icon" />
                                 <span className="nav-title">{intl.formatMessage({ id: 'page.body.header.up.titles.profilepage' })}</span>
@@ -159,7 +159,7 @@ const HeaderComponent: React.FC = () => {
                                 <SupportIcon className="nav-icon" />
                                 <span className="nav-title">{intl.formatMessage({ id: 'page.body.landing.button.helpcenter' })}</span>
                             </a>
-                            {userLoggedIn && <div className="menunav-mobile__nav logout" onClick={handleLogoutUser && toggleDrawer(false)}> 
+                            {userLoggedIn && <div className="menunav-mobile__nav logout" onClick={handleLogoutUser}> 
                                 <LogoutIcon className="nav-icon" /> 
                                 <span className="nav-title">{intl.formatMessage({id: 'page.body.profile.content.action.logout'})}</span>
                             </div>}

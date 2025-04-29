@@ -147,11 +147,9 @@ export const EmailForm: React.FC<EmailFormProps> = (props) => {
                             {isLoading ? <RotateSpinner size={29} color="#000"/> : buttonLabel ? buttonLabel : formatMessage({ id: 'page.forgotPassword.send' })}
                         </Button>
                     </div>
-                    {!isMobileDevice ? (
-                        <div className="login-form__footer">
-                            {renderBackloginButton}
-                        </div>
-                    ) : null }
+                    <div className="login-form__footer">
+                        {renderBackloginButton}
+                    </div>
                 </div>
         </form>
     );

@@ -394,11 +394,9 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                             {isLoading ? <RotateSpinner size={29} color="#000"/> : labelSignUp ? labelSignUp : formatMessage({ id: 'page.body.land.button.register' })}
                         </Button>
                     </div>
-                    {!isMobileDevice ? (
                     <div className="login-form__footer">
                         {renderSignin}
                     </div>
-                ) : null }
             </div>
         </form>
     );

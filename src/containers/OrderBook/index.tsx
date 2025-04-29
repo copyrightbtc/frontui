@@ -285,7 +285,8 @@ class OrderBookContainer extends React.Component<Props, State> {
         if (isMobileDevice) {
             return [
                 `${intl.formatMessage({id: 'page.body.trade.orderbook.header.price'})}\n${formattedQuoteUnit}`,
-                `${intl.formatMessage({id: 'page.body.trade.orderbook.header.amount'})}\n${formattedQuoteUnit}`,
+                `${intl.formatMessage({id: 'page.body.trade.orderbook.header.amount'})}\n${formattedBaseUnit}`,
+                `${intl.formatMessage({id: 'page.body.trade.orderbook.header.volume'})}\n${formattedQuoteUnit}`,
             ];
         }
 
@@ -303,7 +304,7 @@ class OrderBookContainer extends React.Component<Props, State> {
         const amountFixed = currentMarket ? currentMarket.amount_precision : 0;
 
         if (isMobileDevice) {
-            return this.getOrderBookData(isLarge, side, array, priceFixed, message);
+            return this.getOrderBookDataMobile(isLarge, side, array, priceFixed, amountFixed, message);
         }
 
         return array.length ? array.map((item, i) => {
@@ -337,7 +338,7 @@ class OrderBookContainer extends React.Component<Props, State> {
         }) : [[[''], message]];
     };
 
-    private getOrderBookData = (isLarge, side, array, priceFixed, message) => {
+    private getOrderBookDataMobile = (isLarge, side, array, priceFixed, amountFixed, message) => {
         return array.length ? array.map((item, i) => {
             const [price, volume] = item;
             const totalAmount = Number(volume) * Number(price);
@@ -348,18 +349,21 @@ class OrderBookContainer extends React.Component<Props, State> {
 
                     return [
                         <div className="sell_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
+                        <div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>,
                         <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
                     ];
                 default:
                     if (isLarge) {
                         return [
                             <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>,
                             <div key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
                         ];
                     } else {
                         return [
-                            <div key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
-                            <div className="buy_price" key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
+                            <div className="buy_price" key={i}>{Decimal.format(price, priceFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(volume, amountFixed, ',')}</div>,
+                            <div key={i}>{Decimal.format(totalAmount, priceFixed, ',')}</div>,
                         ];
                     }
             }

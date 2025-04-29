@@ -12,12 +12,9 @@ export const OrderPanelEtended: React.FC<OrderPanelEtendedProps> = ({
     panels,
 }) => {
  
-    const renderTabContent = React.useCallback(
-        (tab: Panel) => {
-            return tab.content;
-        },
-        []
-    );
+    const renderTabContent = (tab: Panel) => {
+        return tab.content;
+    };
 
     return (
         <React.Fragment>

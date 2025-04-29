@@ -100,7 +100,7 @@ class ForgotPasswordComponent extends React.Component<Props, ForgotPasswordState
 
         return (
             <div className="login_form-screen" onKeyPress={this.handleEnterPress}>
-                {!isMobileDevice ? <HeaderLanding/> : <img src={biglogo} className="mobile-sign-logo" alt="Logo" />}
+                {!isMobileDevice && <HeaderLanding/>}
                 <div className="login_form-screen__container">
                     <EmailForm
                         OnSubmit={this.handleChangePassword}

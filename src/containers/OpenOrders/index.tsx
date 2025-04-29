@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
@@ -99,3 +99,5 @@ export const OpenOrdersComponent: React.FC = (): React.ReactElement => {
         </div>
     );
 }
+
+export const TradeOpenOrders = React.memo(OpenOrdersComponent);

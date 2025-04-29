@@ -15,7 +15,7 @@ import { TradeHeadiconThree } from '../../assets/images/customization/TradeHeadi
 import {
     Charts,
     MarketsComponent,
-    OpenOrdersComponent,
+    TradeOpenOrders,
     OrderBook,
     OrderComponent,
     RecentTrades,
@@ -105,7 +105,7 @@ const TradingWrapper = props => {
             },
             {
                 i: 5,
-                render: () => <OpenOrdersComponent />,
+                render: () => <TradeOpenOrders />,
             },
             { 
                 i: 6,
@@ -156,7 +156,7 @@ const TradingWrapper = props => {
                 </div>
                 <div className='react-grid-item openorders'>
                     <div className='grid-item'>
-                        <OpenOrdersComponent />
+                        <TradeOpenOrders />
                     </div>
                 </div>
                 <div style={{gridArea: 'rights'}}></div>
@@ -194,7 +194,7 @@ const TradingWrapper = props => {
                 </div>
                 <div className='react-grid-item openorders'>
                     <div className='grid-item'>
-                        <OpenOrdersComponent />
+                        <TradeOpenOrders />
                     </div>
                 </div>
             </div>

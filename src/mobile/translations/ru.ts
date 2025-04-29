@@ -19,8 +19,8 @@ export const ru = {
     'page.mobile.order.amount.placeholder': 'Amount ({currency})',
     'page.mobile.order.total.placeholder': 'Minimum ({minimum})',
 
-    'page.mobile.orderButtons.buy': 'Buy {base_unit}',
-    'page.mobile.orderButtons.sell': 'Sell {base_unit}',
+    'page.mobile.orderButtons.buy': 'Купить {base_unit}',
+    'page.mobile.orderButtons.sell': 'Продать {base_unit}',
 
     'page.mobile.orders.tabs.open': 'Open',
     'page.mobile.orders.tabs.all': 'All',

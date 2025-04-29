@@ -78,6 +78,7 @@ export const ru = {
     "page.sidebar.group.text": "Fee Group:",
     "page.sidebar.group.value": "Base",
 
+    "page.body.trade.header.make.order": "Форма ордера",
     "page.body.trade.header.markets": "Рынки",
     "page.body.trade.header.markets.content.pair": "Пара",
     "page.body.trade.header.markets.content.any": "Все",
@@ -2069,7 +2070,7 @@ export const ru = {
 
     /* Charts */
     "page.body.charts.tabs.chart": "График",
-    "page.body.charts.tabs.depth": "Глубина рынка",
+    "page.body.charts.tabs.depth": "Глубина",
 
     /* Landing */
     "page.body.landing.header.button1": "profile",

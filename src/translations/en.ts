@@ -81,6 +81,7 @@ export const en = {
     "page.body.trade.header.market": "Market trades",
     "page.body.trade.header.yours": "My trades",
 
+    "page.body.trade.header.make.order": "Order form",
     "page.body.trade.header.markets": "Markets",
     "page.body.trade.header.markets.content.market": "Market",
     "page.body.trade.header.markets.content.coin": "Asset",

@@ -1,7 +1,8 @@
 import classnames from 'classnames';
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-
+import { useSelector } from 'react-redux';
+import { selectMobileDeviceState } from '../../modules';
 export enum HideMode {
     hide = 'hide',
     unmount = 'unmount',
@@ -32,6 +33,8 @@ export const OrderBookTabs: React.FC<OrderBookTabsProps> = ({
     onCurrentTabChange,
     orderBookTabs,
 }) => { 
+
+    const isMobileDevice = useSelector(selectMobileDeviceState);
 
     const createOrderBookTabsHandler = React.useCallback(
         (index: number, tab: Tab) => () => {
@@ -102,10 +105,11 @@ export const OrderBookTabs: React.FC<OrderBookTabsProps> = ({
 
     return (
         <React.Fragment>
-            <div className="grid-item__header">
-                <FormattedMessage id="page.body.trade.orderbook"/> 
-                <div className='switch-orders-wrapper'>{tabPanelRender()}</div>
-            </div>
+            {!isMobileDevice ? 
+                <div className="grid-item__header">
+                    <FormattedMessage id="page.body.trade.orderbook"/> 
+                    <div className='switch-orders-wrapper'>{tabPanelRender()}</div>
+                </div> : <div className='switch-orders-wrapper'>{tabPanelRender()}</div>}
             {contents}
         </React.Fragment>
     );

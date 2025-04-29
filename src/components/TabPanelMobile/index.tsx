@@ -18,7 +18,7 @@ export interface TabPanelProps {
     borders?: boolean;
     onTabChange?: OnTabChangeCallback;
     onCurrentTabChange?: OnCurrentTabChange;
-    currentTabIndex: number;
+    currentTabs: number;
     optionalHead?: React.ReactNode;
     isDropdown?: boolean;
 }
@@ -29,7 +29,7 @@ export interface TabPanelProps {
 export const TabPanelMobile: React.FC<TabPanelProps> = ({
     borders,
     panels,
-    currentTabIndex,
+    currentTabs,
     isDropdown,
     onCurrentTabChange,
     onTabChange,
@@ -39,11 +39,11 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
             return [];
         }
 
-        const tabNames = panels.map((panel) => panel.label).filter((label) => label !== panels[currentTabIndex].label);
-        tabNames.unshift(panels[currentTabIndex].label);
+        const tabNames = panels.map((panel) => panel.label).filter((label) => label !== panels[currentTabs].label);
+        tabNames.unshift(panels[currentTabs].label);
 
         return tabNames;
-    }, [currentTabIndex, panels]);
+    }, [currentTabs, panels]);
 
     const createOnTabChangeHandler = React.useCallback(
         (index: number, tab: Tab) => () => {
@@ -70,7 +70,7 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
     const renderTabPanel = (tab: Tab, index: number) => {
         const { disabled, label } = tab;
 
-        const active = currentTabIndex === index;
+        const active = currentTabs === index;
         const cn = classnames('tabmobile', {
             'tabmobile__active': active,
             'tabmobile__disabled': disabled,
@@ -117,7 +117,7 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
                 </div>
             );
         },
-        [currentTabIndex]
+        [currentTabs]
     );
 
     return (

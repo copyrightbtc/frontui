@@ -133,6 +133,14 @@ export class Order extends React.Component<OrderComponentProps, State> {
         amountBuy: '',
     };
 
+    // public componentWillReceiveProps(nextProps) {
+        // const { defaultTabIndex } = this.props;
+
+        // if (defaultTabIndex !== undefined) {
+            // this.handleChangeTab(nextProps.defaultTabIndex);
+        // }
+    // }
+
     public componentDidMount() {
         const { defaultTabIndex } = this.props;
 

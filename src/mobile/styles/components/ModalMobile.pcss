@@ -11,7 +11,10 @@
     align-items: center;
     justify-content: space-between;
     display: flex;
-    margin: 12px 15px;
+    padding: 9px 16px;
+    &.borders{
+      border-bottom: 1px solid var(--color-table-lines-grey);
+    }
 
     &-title {
       font-size: 16px;
@@ -57,24 +60,26 @@
 
   &__block {
     background-color: var(--main-dark);
-    border-radius: .85rem .85rem 0 0;
+    border-top-left-radius: var(--medium-border-radius);
+    border-top-right-radius: var(--medium-border-radius);
     bottom: 0;
     left: 0;
     margin-top: 20px;
     overflow: hidden;
     position: absolute;
     right: 0;
-    height: 80vh;
+    max-height: 80vh;
+    height: max-content;
 
     &--open {
       overflow: hidden;
-      top: 20vh;
       transition: all ease .4s;
+      transform: translate3d(0, 0, 0);
     }
     &--close {
       overflow: hidden;
-      top: 100vh;
       transition: all ease .4s;
+      transform: translate3d(0, 100%, 0);
     }
   }
 

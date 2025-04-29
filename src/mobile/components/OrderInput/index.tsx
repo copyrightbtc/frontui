@@ -57,10 +57,7 @@ export const OrderInput: React.FunctionComponent<OrderInputProps> = React.memo((
     };
 
     return (
-        <div className="orders-type-field orders-type-field__mobile">
-            <div className="orders-type-field__button">
-                <MinusIcon />
-            </div>
+        <div className="orders-type-field buts-class">
             <fieldset className={cr(fieldsetFocusedClass, className)}>
                 <InputOrders
                     type="number"
@@ -75,7 +72,12 @@ export const OrderInput: React.FunctionComponent<OrderInputProps> = React.memo((
                 />
             </fieldset>
             <div className="orders-type-field__button">
-                <PlusIcon />
+                <div className="buts" onClick={() => handleChangeValueByButton(true)}>
+                    <PlusIcon />
+                </div>
+                <div className="buts" onClick={() => handleChangeValueByButton(false)}>
+                    <MinusIcon />
+                </div>
             </div>
         </div>
     );

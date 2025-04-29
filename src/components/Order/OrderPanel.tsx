@@ -32,41 +32,35 @@ export const OrderPanel: React.FC<OrderPanelProps> = ({
     onTabChange,
 }) => {
 
-    const createOnTabChangeHandler = React.useCallback(
-        (index: number, tab: Panel) => () => {
-            if (onCurrentTabChange) {
-                onCurrentTabChange(index);
-            }
-            if (onTabChange) {
-                onTabChange(index, tab.label, tab.marketName);
-            }
-        },
-        [onCurrentTabChange, onTabChange]
-    );
+    const createOnTabChangeHandler = (index: number, tab: Panel) => () => {
+        if (onCurrentTabChange) {
+            onCurrentTabChange(index);
+        }
+        if (onTabChange) {
+            onTabChange(index, tab.label, tab.marketName);
+        }
+    };
 
  
-    const renderOrderPanel = React.useCallback(
-        (tab: Panel, index: number) => {
-            const { label, marketName } = tab;
-            const active = currentTabIndex === index;
-            const cn = classnames('make-order__header__button', {
-                'active': active,
-            });
+    const renderOrderPanel = (tab: Panel, index: number) => {
+        const { label, marketName } = tab;
+        const active = currentTabIndex === index;
+        const cn = classnames('make-order__header__button', {
+            'active': active,
+        });
 
-            return (
-                <button 
-                    className={cn}
-                    key={index}
-                    role="tab"
-                    onClick={createOnTabChangeHandler(index, tab)}
-                    tabIndex={index}>
-                    {label}
-                    &nbsp;{marketName}
-                </button>
-            );
-        },
-        [createOnTabChangeHandler, currentTabIndex]
-    );
+        return (
+            <button 
+                className={cn}
+                key={index}
+                role="tab"
+                onClick={createOnTabChangeHandler(index, tab)}
+                tabIndex={index}>
+                {label}
+                &nbsp;{marketName}
+            </button>
+        );
+    };
     
     const OrderPanelRender = () => {
         return (
@@ -76,19 +70,16 @@ export const OrderPanel: React.FC<OrderPanelProps> = ({
         );
     };
 
-    const renderTabContent = React.useCallback(
-        (tab: Panel, index: number) => {
-            const cn: string = classnames('make-order__body', {
-                'make-order__body__active': hideMode === HideMode.hide ? currentTabIndex === index : false,
-            });
-            return (
-                <div className={cn} key={`${tab.label}-${index}`}>
-                    {tab.content}
-                </div>
-            );
-        },
-        [currentTabIndex, hideMode]
-    );
+    const renderTabContent = (tab: Panel, index: number) => {
+        const cn: string = classnames('make-order__body', {
+            'make-order__body__active': hideMode === HideMode.hide ? currentTabIndex === index : false,
+        });
+        return (
+            <div className={cn} key={`${tab.label}-${index}`}>
+                {tab.content}
+            </div>
+        );
+    };
 
     const contents = React.useMemo(
         () =>

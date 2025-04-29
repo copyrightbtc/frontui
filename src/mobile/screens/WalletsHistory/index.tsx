@@ -7,15 +7,15 @@ import { HistoryTable } from '../../components/HistoryTable';
 const WalletsHistory: React.FC = () => {
     const intl = useIntl();
     const { currency } = useParams();
-    const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
+    const [currentTabs, setCurrentTabs] = React.useState(0);
 
     const renderTabs = () => [
         {
-            content: currentTabIndex === 0 ? <HistoryTable currency={currency} type="deposits" /> : null,
+            content: currentTabs === 0 ? <HistoryTable currency={currency} type="deposits" /> : null,
             label: intl.formatMessage({ id: 'page.mobile.wallets.deposit.history' }),
         },
         {
-            content: currentTabIndex === 1 ? <HistoryTable currency={currency} type="withdraws" /> : null,
+            content: currentTabs === 1 ? <HistoryTable currency={currency} type="withdraws" /> : null,
             label: intl.formatMessage( { id: 'page.mobile.wallets.withdraw.history' }),
         },
     ];
@@ -24,8 +24,8 @@ const WalletsHistory: React.FC = () => {
         <div className="pg-mobile-trading-tabs">
             <TabPanelMobile
                 panels={renderTabs()}
-                currentTabIndex={currentTabIndex}
-                onCurrentTabChange={setCurrentTabIndex}
+                currentTabs={currentTabs}
+                onCurrentTabChange={setCurrentTabs}
             />
         </div>
     );

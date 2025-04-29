@@ -24,7 +24,7 @@ const WalletDepositBodyComponent = props => {
     const currencyItem: Currency | any = React.useMemo(() => (currencies && currencies.find(item => item.id === wallet.currency)) || { min_confirmations: 6, deposit_enabled: false }, [currencies, wallet]);
 
     const [tab, setTab] = useState(currencyItem?.networks ? currencyItem?.networks[0]?.blockchain_key : '');
-    const [currentTabIndex, setCurrentTabIndex] = useState(0);
+    const [currentTabs, setCurrentTabs] = useState(0);
 
     useEffect(() => {
         setTab(currencyItem?.networks ? currencyItem?.networks[0]?.blockchain_key?.toUpperCase() : '');
@@ -50,7 +50,7 @@ const WalletDepositBodyComponent = props => {
         setTab(blockchain.blockchain_key);
     };
 
-    const onCurrentTabChange = index => setCurrentTabIndex(index);
+    const onCurrentTabChange = index => setCurrentTabs(index);
 
     const renderTabs = useMemo(() => {
         return currencyItem.networks?.map(network => {
@@ -81,7 +81,7 @@ const WalletDepositBodyComponent = props => {
                     {currencyItem?.networks && <TabPanelMobile
                         panels={renderTabs}
                         onTabChange={(_, label) => onTabChange(label)}
-                        currentTabIndex={currentTabIndex}
+                        currentTabs={currentTabs}
                         onCurrentTabChange={onCurrentTabChange}
                     />}
                 </React.Fragment>

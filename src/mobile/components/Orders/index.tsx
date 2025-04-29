@@ -1,120 +1,84 @@
-import * as React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { CloseIcon } from '../../../assets/images/CloseIcon';
-import { Pagination, TabPanelMobile } from '../../../components';
-import { useMarketsFetch, useUserOrdersHistoryFetch } from "../../../hooks";
+import { OpenOrders, NoResultData } from '../../../components';
+import { TabPanelMobile } from '../../../components';
 import {
     ordersCancelAllFetch,
-    ordersHistoryCancelFetch,
-    RootState,
-    selectOrdersFirstElemIndex,
+    selectCurrentMarket,
+    selectUserLoggedIn,
     selectOrdersHistory,
-    selectOrdersLastElemIndex,
-    selectOrdersNextPageExists,
     selectShouldFetchCancelAll,
-    selectShouldFetchCancelSingle,
-} from '../../../modules';
-import { OrdersItem } from './OrdersItem';
+    resetOrdersHistory,
+    marketsFetch
+} from '../../../modules'; 
 
-const userOrdersHistoryTabs = ['open', 'all'];
-
-interface IOrdersComponentProps {
-    withDropdownSelect?: boolean
-}
-
-const OrdersComponent: React.FC<IOrdersComponentProps> = ({ withDropdownSelect }) => {
-    const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
-    const [currentPageIndex, setPageIndex] = React.useState(0);
+export const OrdersComponent: React.FC = (): React.ReactElement => {
+    const { formatMessage } = useIntl();
+    const translate = useCallback((id: string) => formatMessage({ id }), [formatMessage]);
+    const isLoggedIn = useSelector(selectUserLoggedIn);
     const dispatch = useDispatch();
-    const intl = useIntl();
-    const orders = useSelector(selectOrdersHistory);
+
+    const currentMarket = useSelector(selectCurrentMarket);
     const shouldFetchCancelAll = useSelector(selectShouldFetchCancelAll);
-    const shouldFetchCancelSingle = useSelector(selectShouldFetchCancelSingle);
-    const firstElemIndex = useSelector((state: RootState) => selectOrdersFirstElemIndex(state, 25));
-    const lastElemIndex = useSelector((state: RootState) => selectOrdersLastElemIndex(state, 25));
-    const ordersNextPageExists = useSelector(selectOrdersNextPageExists);
-    const filteredOrders = currentTabIndex === 0 ? orders.filter(o => ['wait'].includes(o.state)) : orders;
-    useUserOrdersHistoryFetch(currentPageIndex, userOrdersHistoryTabs[currentTabIndex], 25);
-    useMarketsFetch();
+    const list = useSelector(selectOrdersHistory);
+    const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
     const handleCancelAllOrders = () => {
         if (shouldFetchCancelAll) {
-            dispatch(ordersCancelAllFetch());
+            currentMarket && dispatch(ordersCancelAllFetch({ market: currentMarket.id }));
         }
     };
+        
+    useEffect(() => {
+        dispatch(marketsFetch());
+        dispatch(resetOrdersHistory());
+    }, [dispatch]);
 
-    const handleCancelSingleOrder = (id: number) => () => {
-        if (shouldFetchCancelAll && shouldFetchCancelSingle) {
-            dispatch(ordersHistoryCancelFetch({
-                id,
-                type: userOrdersHistoryTabs[currentTabIndex],
-                list: filteredOrders,
-            }));
-        }
+    const renderTabs = () => {
+        return [
+            {
+                content: currentTabIndex === 0 ? <OpenOrders type="open"/> : null,
+                label: translate('page.body.openOrders.tab.open'),
+            },
+            {
+                content: currentTabIndex === 1 ? <OpenOrders type="all" /> : null,
+                label: translate('page.body.openOrders.tab.all'),
+            }
+        ];
     };
 
-    const onClickPrevPage = () => {
-        setPageIndex(currentPageIndex - 1);
-    };
+    const updateList = list.filter(o => o.state === 'wait');
 
-    const onClickNextPage = () => {
-        setPageIndex(currentPageIndex + 1);
-    };
-
-    const renderOptionalHead = () => (
-        <div className="pg-mobile-orders__optional-head" onClick={handleCancelAllOrders}>
-            <span>{intl.formatMessage({id: 'page.mobile.orders.cancelAll'})}</span>
-            <CloseIcon />
+    const cancelAll = updateList.length > 0 && isLoggedIn ? (
+        <div className="cancel-orders" onClick={handleCancelAllOrders}>
+            <span>{translate('page.body.openOrders.header.button.cancelAll')}</span>
+            <div className="cancel-orders__close" />
         </div>
-    );
+    ) : null;
 
-    const renderTab = (tabIndex: number) => (
-        <div key={tabIndex} className="pg-mobile-orders__content">
-            {filteredOrders.length ? (
-                filteredOrders.map((order, index) => (
-                    <OrdersItem
-                        key={index}
-                        order={order}
-                        handleCancel={handleCancelSingleOrder}
-                    />
-                ))
-            ) : (
-                <span className="no-data">{intl.formatMessage({id: 'page.noDataToShow'})}</span>
-            )}
-            <Pagination
-                firstElemIndex={firstElemIndex}
-                lastElemIndex={lastElemIndex}
-                page={currentPageIndex}
-                nextPageExists={ordersNextPageExists}
-                onClickPrevPage={onClickPrevPage}
-                onClickNextPage={onClickNextPage}
-            />
-        </div>
-    );
-
-    const renderTabs = () => [
-        {
-            content: currentTabIndex === 0 ? renderTab(currentTabIndex) : null,
-            label: intl.formatMessage({id: 'page.mobile.orders.tabs.open'}),
-        },
-        {
-            content: currentTabIndex === 1 ? renderTab(currentTabIndex) : null,
-            label: intl.formatMessage({id: 'page.mobile.orders.tabs.all'}),
-        },
-    ];
-
-    return (
-        <div className="pg-mobile-orders">
+    const renderContent = () => {
+        return (
             <TabPanelMobile
                 panels={renderTabs()}
-                currentTabIndex={currentTabIndex}
+                optionalHead={cancelAll}
+                currentTabs={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}
-                optionalHead={filteredOrders.length ? renderOptionalHead() : null}
-                isDropdown={withDropdownSelect}
+                borders={true}
             />
+        )
+    };
+ 
+    return (isLoggedIn ? renderContent() : 
+        <div className='trade-orders-mobile'>
+            <div className="trade-orders-mobile__header">
+                {translate('page.body.trade.header.openOrders')} {currentMarket && currentMarket.name}
+            </div>
+            <div className="trade-orders-mobile__wellcome">
+                <NoResultData class="themes" title={translate('page.body.trade.header.allOrders.nodata')}/>
+            </div>
         </div>
     );
-};
+}
 
 export const Orders = React.memo(OrdersComponent);

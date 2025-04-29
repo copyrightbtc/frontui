@@ -411,16 +411,15 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                 {orderType === 'Limit' && (
                     <div className='make-order-form__field'>
                         {isMobileDevice ? (
-                            <OrderInputMobile
+                            <OrderInput
                                 className={inputTotalError}
+                                currency={from}
                                 fixedLabel={totalText}
                                 placeholder={`${this.props.translate('page.body.trade.header.newOrder.content.minimum')} ${new DecimalJS(Number(currentMarketMinAmount)).times(Number(currentMarketMinPrice)).toString()}`}
                                 value={total || ''}
                                 isFocused={totalFocused}
-                                precision={currentMarketAskPrecision}
                                 handleChangeValue={this.handleTotalChange}
                                 handleFocusInput={this.handleFieldFocus}
-                                currency={from}
                             />
                         ) : (
                             <OrderInput

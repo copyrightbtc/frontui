@@ -227,7 +227,6 @@ const SignIn: React.FC<SignInProps> = ({
                 </div>
                 {passwordError && <div className={'login-form__error'}>{passwordError}</div>}
                 {captchaLogin() && renderCaptcha}
-                {isMobileDevice && renderForgotButton}
                 <div className="login-form__button">
                     <Button
                         className="big-button"
@@ -237,13 +236,10 @@ const SignIn: React.FC<SignInProps> = ({
                         {isLoading ? <RotateSpinner size={29} color="#000"/> : labelSignIn ? labelSignIn : formatMessage({ id: 'page.body.land.button.enter' })}
                     </Button>
                 </div>
-                {isMobileDevice && renderForgotButton}
-                {!isMobileDevice ? (
-                    <div className="login-form__footer">
-                        {renderForgotButton}
-                        {renderRegister}
-                    </div>
-                ) : null }
+                <div className="login-form__footer">
+                    {renderForgotButton}
+                    {renderRegister}
+                </div>
             </div> 
         </form>
     );

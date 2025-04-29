@@ -210,14 +210,15 @@ class OrderInsert extends React.PureComponent<Props, StoreProps> {
     public render() {
         const { 
             currentMarket, 
-            executeLoading, 
+            executeLoading,
+            isMobileDevice
          } = this.props;
 
         if (!currentMarket) {
             return null;
         }
         return (
-            <div className={'make-orders'} ref={this.orderRef}>
+            <div className={`make-orders${isMobileDevice && ' mobile-version'}`} ref={this.orderRef}>
                 {this.getContent()}
                 {executeLoading && <div className="spinner-loader-center"><FillSpinner size={19} color="var(--color-accent)"/></div>}
             </div>
