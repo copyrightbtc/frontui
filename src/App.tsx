@@ -46,14 +46,6 @@ const getTranslations = (lang: string, isMobileDevice: boolean) => {
  
 const RenderDeviceContainers = () => {
     const isMobileDevice = useSelector(selectMobileDeviceState);
-    const location = useLocation();
-    const isActivepathname = location.pathname === '/' 
-    || location.pathname === '/amlkyc-policy' 
-    || location.pathname === '/privacy-policy'
-    || location.pathname === '/terms-of-use'
-    || location.pathname === '/fees' 
-    || location.pathname === '/cookies-policy';
-
     const shouldRenderMode = 
     browserHistory.location.pathname.includes('/trading')
     || browserHistory.location.pathname.includes('/p2p');
@@ -61,7 +53,7 @@ const RenderDeviceContainers = () => {
     if (isMobileDevice) {
         return (
             <div className="mobile-version">
-                {!isActivepathname && <MobileHeader />}
+                <MobileHeader />
                 <AlertsContainer/>
                 <LayoutContainer/>
             </div>

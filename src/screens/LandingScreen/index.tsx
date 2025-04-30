@@ -1,5 +1,4 @@
-import * as React from 'react'; 
-import { Link } from 'react-router-dom';
+import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl'; 
 import { MarketsTable, Footer, HeaderLanding } from '../../containers';

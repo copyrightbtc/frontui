@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useIntl } from 'react-intl';
-import { Market } from '../../modules';
+import { Market, selectMobileDeviceState } from '../../modules';
 import { Decimal } from '../Decimal';
 import { CryptoIcon } from '../CryptoIcon';
 import { NoResultData } from 'src/components';
+import { useReduxSelector } from '../../hooks';
  
 interface Props {
     currentBidUnit: string;
@@ -23,6 +24,7 @@ export const TickerTable: React.FC<CustomProps> = ({
     redirectToTrading,
 }) => { 
 
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
     const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
     const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
   
@@ -54,25 +56,32 @@ export const TickerTable: React.FC<CustomProps> = ({
         const icons = market.base_unit;
         return (
             <div className="ticker-table__wrapper__body__row" key={index} onClick={() => redirectToTrading(market.id)}>
+                {!isMobileDevice ? 
                 <div className="cell icons">
                     <CryptoIcon code={icons.toUpperCase()} />
                     {market && market.name}
-                </div>
+                </div> : 
+                <div className="cell left">
+                    {market && market.name}
+                </div>}
                 <div className="cell"> 
                     <Decimal fixed={market.price_precision} thousSep=",">{market.last}</Decimal>
                 </div>
-                <div className={`cell ${marketChangeColor}`}> 
+                {!isMobileDevice ? <div className={`cell ${marketChangeColor}`}> 
                     {isPositive ? '+' : ''}<Decimal fixed={market.price_precision} thousSep=",">{priceChanged}</Decimal> (<span>{market.price_change_percent}</span>)
-                </div>
-                <div className="cell"> 
+                </div> : 
+                <div className={`cell backs ${marketChangeColor}`}> 
+                    <span>{market.price_change_percent}</span>
+                </div>}
+                {!isMobileDevice && <div className="cell"> 
                     <Decimal fixed={market.price_precision} thousSep=",">{market.high}</Decimal>
-                </div>
-                <div className="cell"> 
+                </div>}
+                {!isMobileDevice && <div className="cell"> 
                     <Decimal fixed={market.price_precision} thousSep=",">{market.low}</Decimal>
-                </div>
-                <div className="cell"> 
+                </div>}
+                {!isMobileDevice && <div className="cell"> 
                     <Decimal fixed={market.amount_precision} thousSep=",">{market.amount}</Decimal>
-                </div> 
+                </div>}
             </div>
         );
     };
@@ -104,9 +113,9 @@ export const TickerTable: React.FC<CustomProps> = ({
                     <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.pair' })}</div>
                     <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.lastPrice' })}</div>
                     <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.change' })}</div>
-                    <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.high' })}</div>
-                    <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.low' })}</div>
-                    <div className="cell">{formatMessage({ id: 'page.body.trade.toolBar.turnover' })}</div>
+                    {!isMobileDevice && <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.high' })}</div>}
+                    {!isMobileDevice && <div className="cell">{formatMessage({ id: 'page.body.marketsTable.header.low' })}</div>}
+                    {!isMobileDevice && <div className="cell">{formatMessage({ id: 'page.body.trade.toolBar.turnover' })}</div>}
                 </div>
                 <div className="ticker-table__wrapper__body">
                     {markets[0] ? (

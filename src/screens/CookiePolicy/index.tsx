@@ -1,15 +1,18 @@
 import * as React from 'react'; 
 import { setDocumentTitle } from '../../helpers'; 
 import { Footer, HeaderLanding } from '../../containers';
- 
+import { selectMobileDeviceState } from '../../modules';
+import { useReduxSelector } from '../../hooks';
+
 export const CookiePolicy: React.FC = () =>  {
  
     React.useEffect(() => {
         setDocumentTitle('Cookie Policy')
      }, []);
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
     return (
         <div className="landing-screen">
-            <HeaderLanding />
+            {!isMobileDevice && <HeaderLanding />}
             <div className="landing-screen__features dark_mo">
 
                 <div className="terms_wrapper__feees">

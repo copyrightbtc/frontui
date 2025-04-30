@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux'; 
+import { connect } from 'react-redux';
 import { RouteProps, withRouter } from 'react-router-dom'; 
 import { RouterProps } from 'react-router';
 import { Footer, HeaderLanding } from '../../containers';
@@ -8,6 +9,7 @@ import { IntlProps } from '../../index';
 import { CryptoIcon } from '../../components/CryptoIcon';
 import { MemberFeesBlock } from './MemberFeesBlock';
 import { setDocumentTitle } from '../../helpers';
+import { selectMobileDeviceState, RootState } from '../../modules';
 
 import { API, RequestOptions } from '../../api';
 
@@ -20,11 +22,11 @@ export interface WithdrawProps {
     currency?: string;
     fee?: number;
     withdrawFeeLabel?: string;
-    currencies: any; 
+    currencies: any;
 }
 
 interface ReduxProps {
-    isLoggedIn: boolean; 
+    isMobileDevice: boolean;
 }
  
 interface LocationProps extends RouterProps {
@@ -38,7 +40,7 @@ const currenciesOptions: RequestOptions = {
     apiVersion: 'tradesfor',
 };
 
-class Landing extends React.Component<Props, WithdrawProps> {
+class FeesRules extends React.Component<Props, WithdrawProps> {
     constructor(props){
         super(props);
         this.state = {
@@ -55,7 +57,7 @@ class Landing extends React.Component<Props, WithdrawProps> {
     public render () { 
         return (
             <div className="landing-screen">
-                <HeaderLanding />
+                {!this.props.isMobileDevice && <HeaderLanding />}
                 <div className="landing-screen__features dark_mo">
 
                     <div className="terms_wrapper__feees">
@@ -260,7 +262,11 @@ class Landing extends React.Component<Props, WithdrawProps> {
     private translate = (key: string) => this.props.intl.formatMessage({id: key});
 }
 
-export const FeesPolicy = compose(
-    injectIntl,
-    withRouter,
-)(Landing) as React.ComponentClass;
+const mapStateToProps = (state: RootState): ReduxProps => ({ 
+    isMobileDevice: selectMobileDeviceState(state),
+});
+
+const FeesRulesConnected = injectIntl(connect(mapStateToProps)(FeesRules));
+
+export const FeesPolicy = withRouter(FeesRulesConnected as any);
+

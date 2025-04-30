@@ -111,6 +111,7 @@ const CurrentMarketInfoComponent: React.FC = () => {
                 header={renderModalHeader}
                 isOpen={isOpenMarketSelector}
                 onClose={() => setOpenMarketSelector(!isOpenMarketSelector)}
+                classNames='fullheight'
             > 
                 <MarketsComponent /> 
             </ModalMobile>

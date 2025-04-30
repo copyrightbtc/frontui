@@ -64,7 +64,7 @@ const ModalComponent = props => {
     const bodyClassName = classnames('mobile-modal__block', {
         'mobile-modal__block--open': shouldOpen,
         'mobile-modal__block--close': !shouldOpen,
-    });
+    }, props.classNames);
 
     return (
         <div className={modalClassName} onClick={e => handleOnClose(e, true)}>

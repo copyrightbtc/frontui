@@ -1,7 +1,8 @@
 import * as React from 'react'; 
 import { setDocumentTitle } from '../../helpers'; 
 import { Footer, HeaderLanding } from '../../containers';
-
+import { selectMobileDeviceState } from '../../modules';
+import { useReduxSelector } from '../../hooks';
  
 export const TermsOfUse: React.FC = () =>  {
     /*public componentDidMount() { 
@@ -10,9 +11,10 @@ export const TermsOfUse: React.FC = () =>  {
     React.useEffect(() => {
         setDocumentTitle('Terms of use agreement')
      }, []);
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
     return (
         <div className="landing-screen">
-            <HeaderLanding />
+            {!isMobileDevice && <HeaderLanding />}
             <div className="landing-screen__features dark_mo">
 
                 <div className="terms_wrapper__feees">
