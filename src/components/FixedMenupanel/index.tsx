@@ -21,7 +21,6 @@ export interface FixedPanelProps {
     fixed?: boolean;
     fixedHideMenu?: FixedHideMenu;
     currentTabIndex: number;
-    optionalHead?: React.ReactNode;
     isMobileDevice?: boolean;
 }
  

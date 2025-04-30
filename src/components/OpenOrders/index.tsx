@@ -387,7 +387,7 @@ class OpenOrdersComponent extends React.PureComponent<Props, OrdersState>  {
             pageIndex: Number(pageIndex) + 1,
             type,
             limit: paginationLimit,
-                        market: filters.market && filters.market.value !== 'all' ? filters.market.value : undefined,
+            market: filters.market && filters.market.value !== 'all' ? filters.market.value : undefined,
             ord_type: filters.orderType && filters.orderType.value !== 'all' ? filters.orderType.value : undefined,
             side: filters.sides && filters.sides.value !== 'all' ? filters.sides.value : undefined,
             state: filters.status && filters.status.value !== 'all' ? filters.status.value : undefined,
@@ -433,7 +433,7 @@ class OpenOrdersComponent extends React.PureComponent<Props, OrdersState>  {
             updated_at,
             created_at,
         } = item;
-        const { marketsData, currentMarket } = this.props;
+        const { marketsData } = this.props;
 
         const thisMarket = marketsData.find(m => m.id === market)
             || { name: market, price_precision: 0, amount_precision: 0 };
@@ -449,8 +449,6 @@ class OpenOrdersComponent extends React.PureComponent<Props, OrdersState>  {
         const executedVolume = Number(origin_volume) - Number(remaining_volume);
         const filled = ((executedVolume / Number(origin_volume)) * 100).toFixed(2);
         const curMarket = marketsData.find(i => i.id === market);
-
-        const switching = currentMarket.name === marketName;
         
         return (
             <div key={id} className="trade-orders__table__body__row">

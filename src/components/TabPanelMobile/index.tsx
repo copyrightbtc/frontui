@@ -31,6 +31,7 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
     panels,
     currentTabs,
     isDropdown,
+    optionalHead,
     onCurrentTabChange,
     onTabChange,
 }) => {
@@ -123,6 +124,7 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
     return (
         <React.Fragment>
             {TabPanelRender()}
+            {optionalHead && <div className="tabmobile-panel-add-header">{optionalHead}</div>}
             {panels.map(renderTabContent)}
         </React.Fragment>
     );

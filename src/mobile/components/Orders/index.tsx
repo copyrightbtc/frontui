@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { OpenOrders, NoResultData } from '../../../components';
+import { NoResultData } from '../../../components';
 import { TabPanelMobile } from '../../../components';
 import {
     ordersCancelAllFetch,
@@ -11,7 +11,8 @@ import {
     selectShouldFetchCancelAll,
     resetOrdersHistory,
     marketsFetch
-} from '../../../modules'; 
+} from '../../../modules';
+import { OrdersItem } from './OrdersItem';
 
 export const OrdersComponent: React.FC = (): React.ReactElement => {
     const { formatMessage } = useIntl();
@@ -38,11 +39,11 @@ export const OrdersComponent: React.FC = (): React.ReactElement => {
     const renderTabs = () => {
         return [
             {
-                content: currentTabIndex === 0 ? <OpenOrders type="open"/> : null,
+                content: currentTabIndex === 0 ? <OrdersItem type="open"/> : null,
                 label: translate('page.body.openOrders.tab.open'),
             },
             {
-                content: currentTabIndex === 1 ? <OpenOrders type="all" /> : null,
+                content: currentTabIndex === 1 ? <OrdersItem type="all" /> : null,
                 label: translate('page.body.openOrders.tab.all'),
             }
         ];
@@ -74,7 +75,7 @@ export const OrdersComponent: React.FC = (): React.ReactElement => {
             <div className="trade-orders-mobile__header">
                 {translate('page.body.trade.header.openOrders')} {currentMarket && currentMarket.name}
             </div>
-            <div className="trade-orders-mobile__wellcome">
+            <div className="empty-container">
                 <NoResultData class="themes" title={translate('page.body.trade.header.allOrders.nodata')}/>
             </div>
         </div>

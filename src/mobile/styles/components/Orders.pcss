@@ -1,5 +1,9 @@
 .trade-orders-mobile{
   height: 100%;
+  min-height: 285px;
+  .empty-container{
+    margin: 85px 0 35px;
+  }
   &__header{
     display: flex;
     align-items: center;
@@ -8,5 +12,96 @@
     height: 40px;
     padding: 0 16px;
     border-bottom: 1px solid var(--color-table-lines-grey);
+  }
+  &__wrapper{
+    width: 100%;
+    padding: 0 16px;
+    background: var(--color-main-dark)
+  }
+  &__order{
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--color-table-lines-grey);
+    padding: 10px 2px;
+    &:last-child{
+      border: none;
+    }
+    .order-block{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: calc(100% - 220px);
+      padding: 0 4px;
+      flex: 1;
+      &.type{
+        max-width: 75px
+      }
+      &.last{
+        max-width: 145px;
+      }
+    }
+    .cells{
+      width: 100%;
+      margin-bottom: 3px;
+      color: var(--color-dark);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      &.name{
+        font-size: 13px;
+      }
+      span{
+        color: var(--color-light-grey);
+        font-size: 12px;
+        max-width: 56px;
+        width: 100%;
+      }
+      .numbers{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        &.dotted{
+          position: relative;
+          &:after{
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            border-bottom: 1px dotted var(--color-light-grey);
+          }
+        }
+      }
+      &.filling{
+        white-space: nowrap;
+        font-size: 13px;
+        &.full{
+            color: var(--color-accent)!important;
+        }
+      }
+      &.dates{
+        color: var(--color-light-grey);
+        justify-content: flex-end;
+        .date{
+          font-weight: 500;
+        }
+        .time{
+          margin-left: 3px;
+        }
+      }
+      &.status{
+        margin-top: 15px;
+        font-size: 14px;
+        justify-content: flex-end;
+        .cancel-wrappe{
+          background: var(--color-dark-grey);
+          color: #fff;
+          padding: 2px 20px;
+          border-radius: 3px;
+        }
+      }
+    }
   }
 }

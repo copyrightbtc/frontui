@@ -24,7 +24,6 @@ export interface DepositTabsProps {
     onTabChange?: OnTabChangeCallback;
     onCurrentTabChange?: OnCurrentTabChange;
     currentTabIndex: number;
-    optionalHead?: React.ReactNode;
     onSelect?: (value: string) => void;
 }
 

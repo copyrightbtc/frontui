@@ -125,34 +125,53 @@ body.light-mode{
     } 
   }
 }
-@media screen and (max-width: 767px), (max-height: 599px) {
+.mobile-version{
   .top-alerts {
-    bottom: 44px;
+    top: 0;
     left: 0;
     position: fixed;
     right: 0;
-    top: auto;
     z-index: 9999999;
-
-    div {
-      align-items: center;
-      border-radius: 0;
-      display: flex;
-      position: fixed;
+    &__wrapper{
       width: 100%;
-      justify-content: space-between;
+      height: auto;
       min-height: 30px;
       top: 0px;
-
+      margin: 0;
+      &__left{
+        display: none;
+      }
+      .alert{
+        border: none;
+        border-radius: 0;
+        border-bottom-left-radius: var(--small-border-radius);
+        border-bottom-right-radius: var(--small-border-radius);
+        padding: 5px 9px;
+        &.alert-danger {
+          background: #bd0000;
+            &:before{
+              display: none;
+            }
+        }
+        &.alert-success {
+          background: #069152;
+            &:before{
+              display: none;
+            }
+        } 
+      }
       .close_text{
-        flex: 1 0 85%;
-        width: 100%;
-        max-width: 85%;
+        flex: 1 0 89%;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 400;
+        padding-right: 11px;
+        text-align: left;
       }
       .close_icon{
         flex: 1 0 11%;
         background: #0b0c0e;
-        right: 2%;
+        right: 0;
         bottom: 0;
         min-height: inherit;
         max-width: 30px;
@@ -160,32 +179,11 @@ body.light-mode{
         position: relative;
           svg{
             path{
-              fill: #fff;
+              fill: #fff!important;
             }
           }
       }
-      .alert {
-        border: none;
-        color: #fff;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0.008em;
-      }
-
-      .alert-danger {
-        background: #bd0000;
-          &:before{
-            display: none;
-          }
-      }
-
-      .alert-success {
-        background: #069152;
-          &:before{
-            display: none;
-          }
-      }
     }
-  }
+  } 
 }
  
