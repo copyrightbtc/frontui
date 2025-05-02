@@ -679,8 +679,14 @@ export const ru = {
     "page.body.wallets.tabs.withdraw.content.withdrawal.day": "24-ч лимит",
     "page.body.wallets.tabs.withdraw.content.withdrawal.month": "Ежемесячный лимит",
     "page.body.wallets.tabs.withdraw.content.withdrawal.total": "Всего",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.total.24": "Всего за сутки",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.total.month": "Всего в месяц",
     "page.body.wallets.tabs.withdraw.content.withdrawal.done": "Готово",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.done.24": "Готово за сутки",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.done.month": "Готово в месяц",
     "page.body.wallets.tabs.withdraw.content.withdrawal.left": "Осталось",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.left.24": "Осталось за сутки",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.left.month": "Осталось в месяц",
     "page.body.wallets.tabs.withdraw.content.withdrawal.reached": "Достигн.",
     "page.body.wallets.tabs.withdraw.content.withdrawal.reached.limit": "Лимит достигнут",
 
@@ -740,13 +746,17 @@ export const ru = {
     "page.body.profile.content.change": "Изменить",
 
     "page.body.profile.content.twofascreen": "Двухфакторная аутентификация (2FA) включена",
+    "page.body.profile.content.twofascreen.short": "Вы в безопасности",
     "page.body.profile.content.twofascreen.alert": "Низкая безопасность аккаунта. 2FA отключена ",
     "page.body.profile.content.twofascreen.alert.high": "Высокая безопасность аккаунта!",
-    "page.body.profile.content.twofascreen.alert.bottom": "Пожалуйста, включите двухфакторную аутентификацию.",
+    "page.body.profile.content.twofascreen.alert.bottom": "Пожалуйста, включите двухфакторную аутентификацию",
+    "page.body.profile.content.twofascreen.alert.bottom.short": "Включите 2FA",
     "page.body.profile.content.twofascreen.message.enable": "Отключить",
     "page.body.profile.content.twofascreen.message.disable": "Включить",
     "mob.body.profile.header.account.content.twofascreen.message.disabled": "Двухфакторная аутентификация отключена",
+    "mob.body.profile.header.account.content.twofascreen.message.disabled.short": "2FA отключена",
     "mob.body.profile.header.account.content.twofascreen.message.enabled": "Двухфакторная аутентификация включена",
+    "mob.body.profile.header.account.content.twofascreen.message.enabled.short": "2FA включена",
     "page.body.profile.content.twofascreen.header": "Двухфакторная аутентификация",
     "page.body.profile.content.twofascreen.header.start": "Активировать 2FA",
     "page.body.profile.content.twofascreen.header.connect": "Подключить аутентификатор",
@@ -759,7 +769,7 @@ export const ru = {
     "page.body.profile.content.twofascreen.message.5":
         "Если вы не можете отсканировать QR-код, введите вручную в приложение этот MFA код: ",
     "page.body.profile.content.twofascreen.message.6": "Новый код для 2FA отобразится в приложении в списке кодов.",
-    "page.body.profile.content.twofascreen.message.7": "Вставьте этот 6-значный 2FA код в поле ниже.",
+    "page.body.profile.content.twofascreen.message.7": "Вставьте 6-значный 2FA код в поле ниже.",
     "page.body.profile.content.twofascreen.message.warning":
         "Сохраните этот код в надежном месте. Он может быть использован для доступа к 2FA с разных устройств, или для восстановления доступа к аккаунту, в случае потери доступа к вашему устройству или приложению для 2FA.",
 

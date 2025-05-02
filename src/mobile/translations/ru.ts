@@ -72,7 +72,7 @@ export const ru = {
 
     'page.mobile.userInfo.details.uid': 'UID: {uid}',
     'page.mobile.userInfo.logout.button': 'Logout',
-    'page.mobile.profileLinks.main.verification': 'Profile verification',
+    'page.mobile.profileLinks.main.verification': 'Верификация профиля',
     'page.mobile.profileLinks.main.2fa': 'Two-factor authentication',
     'page.mobile.profileLinks.main.changePassword': 'Change password',
     'page.mobile.profileLinks.main.activity': 'Account activity',

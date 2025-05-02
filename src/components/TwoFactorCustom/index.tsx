@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { useIntl } from 'react-intl';
+import { selectMobileDeviceState } from '../../modules';
+import { useReduxSelector } from '../../hooks';
 import OtpInput from "react-otp-input";
 import IconButton from '@mui/material/IconButton';
 import { CloseIcon } from '../../assets/images/CloseIcon';
@@ -22,12 +24,13 @@ export const TwoFactorAuthComponentCustom: React.FC<TwoFactorCustomAuthProps> = 
     handleOtpCodeChange,
 }) => {
  
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
     const { formatMessage } = useIntl();
     
     return (
         <div className="twofa">
             <form className="twofa__form">
-                <div className="twofa__form__header">
+                {!isMobileDevice && <div className="twofa__form__header">
                     <h1>{ title || formatMessage({ id: 'page.body.profile.apiKeys.modal.header' })}</h1>
                     <div className="twofa__form__header__close">
                             <IconButton 
@@ -44,7 +47,7 @@ export const TwoFactorAuthComponentCustom: React.FC<TwoFactorCustomAuthProps> = 
                             </IconButton>
                         </div>
 
-                </div>
+                </div>}
                 <div className="twofa__form__content">
                     <div className="twofa__form__content__header">
                         {message || formatMessage({ id: 'page.mobile.twoFactorModal.subtitle' })}

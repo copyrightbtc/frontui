@@ -9,9 +9,8 @@ import { TwoFaEnable } from '../../assets/images/TwoFaEnable';
 
 export const ProfileTwoFactorAuth = props => {
     const { is2faEnabled = false } = props;
-    const classNameButton = is2faEnabled ? 'profile_2fa-block__button__enabled'
-                                    : 'profile_2fa-block__button__disabled';
-                                    
+    const classNameButton = is2faEnabled ? 'profile_2fa-block__button__enabled' : 'profile_2fa-block__button__disabled';
+    const classNameMobileButton = is2faEnabled ? 'mobile-2fa-button enabled' : 'mobile-2fa-button disabled';
 
     const handleToggle2fa = () => {
         if (props.navigateTo2fa) {
@@ -24,25 +23,28 @@ export const ProfileTwoFactorAuth = props => {
     return (
         <React.Fragment>
             {isMobileDevice ? ( 
-                <div className="mobile profile_2fa-block"> 
-              
-                    <h5>
-                        {is2faEnabled ? <div><TwoFaEnable /><FormattedMessage id="mob.body.profile.header.account.content.twofascreen.message.enabled" /> </div>   
-                                      : <div><TwoFaDisable /><FormattedMessage id="mob.body.profile.header.account.content.twofascreen.message.disabled" /> </div>   
-                        }
-                                 
-                    </h5> 
-                    <div className={classNameButton}>
+                <React.Fragment>
+                    {is2faEnabled ? 
+                        <div className="column twofa-enabled"> 
+                            <h5><FormattedMessage id="mob.body.profile.header.account.content.twofascreen.message.enabled.short" /><TwoFaEnable /></h5>
+                            <p><FormattedMessage id="page.body.profile.content.twofascreen.short" /></p>
+                        </div> : 
+                        <div className="column twofa-disabled">
+                            <h5><FormattedMessage id="mob.body.profile.header.account.content.twofascreen.message.disabled.short" /><TwoFaDisable /></h5>
+                            <p><FormattedMessage id="page.body.profile.content.twofascreen.alert.bottom.short" /></p>
+                        </div>
+                    }
+                    <div className={classNameMobileButton}>
                         <Button
-                            className="medium-button"
+                            className="small-button"
                             onClick={handleToggle2fa}
                         >
                             {is2faEnabled ? <FormattedMessage id="page.body.profile.content.twofascreen.message.enable" />
                                             : <FormattedMessage id="page.body.profile.content.twofascreen.message.disable" />
                             }
                         </Button>
-                    </div> 
-                </div>
+                    </div>
+                </React.Fragment>
 
                 ) : (
 

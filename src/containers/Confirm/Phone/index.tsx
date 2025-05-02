@@ -18,10 +18,12 @@ import {
     selectVerifyPhoneSuccess,
     sendCode,
     verifyPhone,
+    selectMobileDeviceState,
 } from '../../../modules';
 
 interface ReduxProps {
     verifyPhoneSuccess?: string;
+    isMobileDevice: boolean;
 }
 
 interface PhoneState {
@@ -55,10 +57,13 @@ class PhoneComponent extends React.Component<Props, PhoneState> {
     }
 
     public componentDidUpdate(prevProps: Props) {
-        const { history, verifyPhoneSuccess } = this.props;
+        const { history, verifyPhoneSuccess, isMobileDevice } = this.props;
 
         if (verifyPhoneSuccess !== prevProps.verifyPhoneSuccess) {
             history.push('/profile');
+        }
+        if ( verifyPhoneSuccess !== prevProps.verifyPhoneSuccess && isMobileDevice){
+            history.push('/profile/verification');
         }
     }
 
@@ -110,7 +115,7 @@ class PhoneComponent extends React.Component<Props, PhoneState> {
                 </div>
                 <div className="modal-window__container__footer">
                     <Button
-                        onClick={this.confirmPhone}
+                        onClick={this.props.isMobileDevice ? this.confirmMobilePhone : this.confirmPhone}
                         className="medium-button"
                         disabled={!confirmationCode}
                     >
@@ -142,6 +147,15 @@ class PhoneComponent extends React.Component<Props, PhoneState> {
         }
     };
  
+    private confirmMobilePhone = () => {
+        const requestProps = {
+            phone_number: String(this.state.phoneNumber),
+            verification_code: String(this.state.confirmationCode),
+        };
+        this.props.verifyPhone(requestProps);
+        this.props.history.push('/profile/verification');
+    };
+
     private confirmPhone = () => {
         const requestProps = {
             phone_number: String(this.state.phoneNumber),
@@ -195,6 +209,7 @@ class PhoneComponent extends React.Component<Props, PhoneState> {
 
 const mapStateToProps = (state: RootState): ReduxProps => ({
     verifyPhoneSuccess: selectVerifyPhoneSuccess(state),
+    isMobileDevice: selectMobileDeviceState(state),
 });
 
 const mapDispatchToProps: MapDispatchToPropsFunction<DispatchProps, {}> =

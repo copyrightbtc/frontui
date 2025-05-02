@@ -8,6 +8,7 @@ export * from './Orders';
 export * from './Profile';
 export * from './ProfileAccountActivity';
 export * from './ProfileApiKeys';
+export * from './ProfileTwoFaScreen';
 export * from './ProfileAuth';
 export * from './ProfileChangePassword';
 export * from './ProfileColorTheme';

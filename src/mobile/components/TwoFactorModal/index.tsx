@@ -1,72 +1,65 @@
-import cr from 'classnames';
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
-import { CustomInput } from '../../../components/CustomInput';
 import { ModalMobile } from '../../components/ModalMobile';
-import { is2faValid } from 'src/helpers';
+import { is2faValid, truncateEmail } from 'src/helpers';
+import { CloseIcon } from '../../../assets/images/CloseIcon';
+import { TwoFactorCustom } from '../../../components';
+import { selectUserInfo } from '../../../modules';
 
 export const TwoFactorModalComponent = props => {
     const [code2FA, setCode2FA] = React.useState('');
-    const [code2FAFocus, setCode2FAFocus] = React.useState(false);
     const intl = useIntl();
+    const user = useSelector(selectUserInfo); 
 
     const handleToggle2FA = shouldFetch => {
         props.handleToggle2FA(code2FA, shouldFetch);
         setCode2FA('');
     };
 
-    const renderModalBody = () => {
-        const code2FAClass = cr('cr-email-form__group', {
-            'cr-email-form__group--focused': code2FAFocus,
-        });
-
-        return (
-            <div className="pg-exchange-modal-submit-body pg-exchange-modal-submit-body-2fa">
-                <span className="pg-exchange-modal-submit-body-2fa__subtitle">
-                    {intl.formatMessage({id: 'page.mobile.twoFactorModal.subtitle'})}
-                </span>
-                <div className={code2FAClass}>
-                    <CustomInput
-                        type="text"
-                        label="2FA code"
-                        placeholder="2FA code"
-                        defaultLabel=""
-                        handleFocusInput={() => setCode2FAFocus(true)}
-                        handleChangeInput={setCode2FA}
-                        inputValue={code2FA}
-                        classNameLabel="cr-email-form__label"
-                        classNameInput="cr-email-form__input"
-                        autoFocus={true}
-                    />
-                </div>
+    const renderModalHeader = (
+        <div className="mobile-modal__header">
+            <div className="mobile-modal__header-title">
+                {intl.formatMessage({ id: 'page.body.profile.apiKeys.modal.header' })}
             </div>
-        );
-    };
-
-    const renderModalFooter = () => (
-        <div className="pg-exchange-modal-submit-footer">
-            <Button
-                disabled={!is2faValid(code2FA)}
-                onClick={() => handleToggle2FA(true)}
-                size="lg"
-                variant="primary"
-            >
-                {intl.formatMessage({id: 'page.mobile.twoFactorModal.send'})}
-            </Button>
+            <div className="mobile-modal__header-close" onClick={() => handleToggle2FA(false)}>
+                <CloseIcon />
+            </div>
         </div>
     );
 
     return (
-        <div className="cr-mobile-two-fa-modal">
-            <ModalMobile
-                isOpen={props.showModal}
-                onClose={() => handleToggle2FA(false)}
-                title={intl.formatMessage({ id: 'page.mobile.twoFactorModal.title' })}>
-                {renderModalBody()}
-                {renderModalFooter()}
-            </ModalMobile>
-        </div>
+        <ModalMobile
+            header={renderModalHeader}
+            isOpen={props.showModal}
+            onClose={props.showModal}
+            classNames='fullheight'
+        > 
+            <div className="mobile-modal-2fa">
+                <TwoFactorCustom
+                    handleClose2fa={props.showModal}
+                    code={code2FA}
+                    handleOtpCodeChange={setCode2FA}
+                    title={intl.formatMessage({ id: 'page.body.profile.content.twofascreen.modalHeader'})}
+                />
+                <div className="mobile-modal-2fa__info"> 
+                    {intl.formatMessage({ id: 'page.body.profile.content.twofascreen.userinfo'})}{truncateEmail(user.email)}
+                </div>
+                <div className="mobile-modal-2fa__danger"> 
+                    {intl.formatMessage({ id: 'page.body.profile.content.twofascreen.userinfo.note'})}
+                </div>
+                <div className="mobile-modal__button">
+                    <Button
+                        className='medium-button'
+                        disabled={!is2faValid(code2FA)}
+                        onClick={() => handleToggle2FA(true)}
+                    >
+                        {intl.formatMessage({id: 'page.body.profile.content.twofascreen.disable'})}
+                    </Button>
+                </div>
+            </div>
+        </ModalMobile>
     );
 };
 

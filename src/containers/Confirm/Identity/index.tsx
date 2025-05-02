@@ -27,6 +27,7 @@ import {
     selectUserInfo,
     sendIdentity,
     User,
+    selectMobileDeviceState
 } from '../../../modules';
 import { IdentityData } from '../../../modules/user/kyc/identity/types';
 
@@ -39,6 +40,7 @@ interface ReduxProps {
     labels: Label[];
     user: User;
     loading: boolean;
+    isMobileDevice: boolean;
 }
 
 interface DispatchProps {
@@ -93,11 +95,16 @@ class IdentityComponent extends React.Component<Props, IdentityState> {
     };
 
     public componentDidUpdate(prev: Props) {
-        const { history, editSuccess, sendSuccess } = this.props;
+        const { history, editSuccess, sendSuccess, isMobileDevice } = this.props;
 
         if ((!prev.editSuccess && editSuccess) || (!prev.sendSuccess && sendSuccess)) {
             this.props.labelFetch();
             history.push('/profile');
+        }
+
+        if ((!prev.editSuccess && editSuccess && isMobileDevice) || (!prev.sendSuccess && sendSuccess && isMobileDevice)) {
+            this.props.labelFetch();
+            history.push('/profile/verification');
         }
     }
 
@@ -444,6 +451,7 @@ const mapStateToProps = (state: RootState): ReduxProps => ({
     labels: selectLabelData(state),
     user: selectUserInfo(state),
     loading: selectSendIdentityLoading(state),
+    isMobileDevice: selectMobileDeviceState(state),
 });
 
 const mapDispatchToProps: MapDispatchToPropsFunction<DispatchProps, {}> = (dispatch) => ({

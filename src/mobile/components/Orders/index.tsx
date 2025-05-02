@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ReadMoreIcon } from 'src/assets/images/ReadMoreIcon';
 import { NoResultData } from '../../../components';
 import { TabPanelMobile } from '../../../components';
 import {
@@ -58,11 +60,20 @@ export const OrdersComponent: React.FC = (): React.ReactElement => {
         </div>
     ) : null;
 
+    const readMore =  (
+        <React.Fragment>
+            <Link className='trades-more' to="/orders">
+                <ReadMoreIcon />
+            </Link>
+        </React.Fragment>
+    );
+
     const renderContent = () => {
         return (
             <TabPanelMobile
                 panels={renderTabs()}
                 optionalHead={cancelAll}
+                morePanel={readMore}
                 currentTabs={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}
                 borders={true}

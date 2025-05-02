@@ -668,8 +668,14 @@ export const en = {
     "page.body.wallets.tabs.withdraw.content.withdrawal.day": "24-hour Limits",
     "page.body.wallets.tabs.withdraw.content.withdrawal.month": "Monthly Limits",
     "page.body.wallets.tabs.withdraw.content.withdrawal.total": "Total",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.total.24": "Total in 24 hours",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.total.month": "Total in month",
     "page.body.wallets.tabs.withdraw.content.withdrawal.done": "Done",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.done.24": "Done in 24 hours",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.done.month": "Done in month",
     "page.body.wallets.tabs.withdraw.content.withdrawal.left": "Left",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.left.24": "Left in 24 hours",
+    "page.body.wallets.tabs.withdraw.content.withdrawal.left.month": "Left in month",
     "page.body.wallets.tabs.withdraw.content.withdrawal.reached": "Reached",
     "page.body.wallets.tabs.withdraw.content.withdrawal.reached.limit": "The limit reached",
 
@@ -731,13 +737,17 @@ export const en = {
     "page.body.profile.content.back": "Go back",
     "page.body.profile.content.change": "Change",
     "page.body.profile.content.twofascreen": "Two-factor authentication (2FA) is enabled",
+    "page.body.profile.content.twofascreen.short": "You are secured",
     "page.body.profile.content.twofascreen.alert": "Low account security. 2FA is disabled ",
     "page.body.profile.content.twofascreen.alert.high": "High account security!",
-    "page.body.profile.content.twofascreen.alert.bottom": "Please enable two-factor authentication.",
+    "page.body.profile.content.twofascreen.alert.bottom": "Please enable two-factor authentication",
+    "page.body.profile.content.twofascreen.alert.bottom.short": "Enable 2FA",
     "page.body.profile.content.twofascreen.message.enable": "Disable",
     "page.body.profile.content.twofascreen.message.disable": "Enable",
     "mob.body.profile.header.account.content.twofascreen.message.disabled": "Two-factor authentication is disabled",
+    "mob.body.profile.header.account.content.twofascreen.message.disabled.short": "2FA is disabled",
     "mob.body.profile.header.account.content.twofascreen.message.enabled": "Two-factor authentication is enabled",
+    "mob.body.profile.header.account.content.twofascreen.message.enabled.short": "2FA is enabled",
 
     "page.body.profile.content.twofascreen.header": "Two-Factor Authentication",
     "page.body.profile.content.twofascreen.header.start": "Enable 2FA",
@@ -753,7 +763,7 @@ export const en = {
         "If you are unable to scan the QR code, please enter this MFA code manually into the app: ",
     "page.body.profile.content.twofascreen.message.6":
         "The new code for 2FA will be displayed in the app in the list of codes.",
-    "page.body.profile.content.twofascreen.message.7": "Paste this 6-digit 2FA code into the box below.",
+    "page.body.profile.content.twofascreen.message.7": "Paste the 6-digit 2FA code into the box below.",
     "page.body.profile.content.twofascreen.message.warning":
         "Save this secret in a secure location. This code can be used to gain 2FA access from a different devices, or to restore access to your account if you lose access to your 2FA device or application.",
 

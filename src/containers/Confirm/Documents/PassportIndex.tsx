@@ -82,6 +82,9 @@ class DocumentsComponent extends React.Component<Props, DocumentsState> {
         if (next.success && !this.props.success) {
             this.props.history.push('/profile');
         }
+        if (next.success && !this.props.success && this.props.isMobileDevice) {
+            this.props.history.push('/profile/verification');
+        }
     }
     public data = [
         this.translate('page.body.kyc.documents.select.passport'),

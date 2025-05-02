@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect, MapDispatchToPropsFunction } from 'react-redux';
 import { kycSteps } from '../../api';
 import { ProfileVerificationLevels } from './ProfileVerificationLevels';
-import { Label, labelFetch, selectLabelData, selectUserInfo, User } from '../../modules';
+import { Label, labelFetch, selectLabelData, selectUserInfo, User, selectMobileDeviceState } from '../../modules';
 import { getVerificationStep } from '../../helpers';
 
 /* Icons */
@@ -19,6 +19,7 @@ import { CheckDocument } from '../../assets/images/kyc/CheckDocument';
 
 interface ReduxProps {
     labels: Label[];
+    isMobileDevice?: boolean;
 }
 
 interface DispatchProps {
@@ -156,8 +157,6 @@ class ProfileVerificationComponent extends React.Component<Props> {
         }
     }
  
- 
-
     public renderProgressBarSteps = (targetLabelStatus) => {
         switch (targetLabelStatus) {  
             case 'phone' : return (<div className="verification-icons"><CheckPhone /></div> );
@@ -170,23 +169,16 @@ class ProfileVerificationComponent extends React.Component<Props> {
     };
  
     public render() {
-        const { labels } = this.props; 
-        const step = this.handleGetVerificationStep();
+        const { labels, isMobileDevice } = this.props; 
 
         return (
             <div id="prof-ver" className="profile-page-verification"> 
-               <ProfileVerificationLevels />
+               {!isMobileDevice && <ProfileVerificationLevels />}
                 <div className="profile-page-verification__wrapper">
                     {kycSteps().map((step: string) => this.renderVerificationLabel(labels, step))}
                 </div>
             </div>
         );
-    };
-
-    private handleGetVerificationStep = (): string => {
-        const { labels } = this.props;
-
-        return getVerificationStep(labels);
     };
 
     private handleCheckLabel = (labels: Label[], labelToCheck: string) => {
@@ -215,6 +207,7 @@ class ProfileVerificationComponent extends React.Component<Props> {
 const mapStateToProps = state => ({
     user: selectUserInfo(state),
     labels: selectLabelData(state),
+    isMobileDevice: selectMobileDeviceState(state),
 });
 
 const mapDispatchProps: MapDispatchToPropsFunction<DispatchProps, {}> =

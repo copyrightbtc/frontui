@@ -14,7 +14,8 @@ import {
     truncateEmail,
 } from '../../helpers';
 import { IconInput } from '../IconInput';
-import { selectUserInfo } from '../../modules';
+import { selectUserInfo, selectMobileDeviceState } from '../../modules';
+import { useReduxSelector } from '../../hooks';
 import { PasswordStrengthMeter } from '../index';
 
 import { NoVisible } from '../../assets/images/customization/NoVisible';
@@ -32,6 +33,8 @@ export const ChangePasswordComponent = props => {
     const [passwordErrorThirdSolved, setPasswordErrorThirdSolved] = React.useState(false);
     const [passwordErrorForthSolved, setpasswordErrorForthSolved] = React.useState(false);
     const [passwordPopUp, setPasswordPopUp] = React.useState(false);
+
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
 
     const intl = useIntl();
     const user = useSelector(selectUserInfo); 
@@ -143,7 +146,7 @@ export const ChangePasswordComponent = props => {
     return (
         <div className="login-form" onKeyPress={handleEnterPress}>
             <div className="login-form__content"> 
-                {!props.hideOldPassword ? (
+                {!props.hideOldPassword && !isMobileDevice ? (
                 <div className="change-pass__header">
                     <h1>{props.title}</h1>
                     <div className="change-pass__header__close">
@@ -160,7 +163,7 @@ export const ChangePasswordComponent = props => {
                         </IconButton>
                     </div>
                 </div> ) : (
-                    <h1>{props.title}</h1>
+                    !isMobileDevice && <h1>{props.title}</h1>
                 )}
                 <div className="change-pass__title">
                     {!props.hideOldPassword ? (

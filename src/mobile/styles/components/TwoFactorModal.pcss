@@ -1,45 +1,56 @@
-.cr-mobile-two-fa-modal {
-  .mobile-modal {
-    .custom-input {
-      margin: 24px 14px;
+.mobile-modal-2fa{
+  position: relative;
+  padding: 15px 15px 25px;
+  width: 100%;
+  max-width: 400px;
+  &__info{
+    font-size: 14px;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__danger{
+    font-size: 14px;
+    color: var(--color-danger);
+    margin-bottom: 10px;
+  }
+  &__content{
+    width: 100%;
+    p{
+      color: var(--color-light-grey);
     }
-
-    .pg-exchange-modal-submit-footer {
-      margin: 0 14px;
-    }
-
-    &__header {
-      &-back {
-        display: none;
-      }
-
-      &-title {
-        color: var(--color-dark);
-        text-align: left;
-      }
-
-      &-close {
-        flex: 0;
-      }
-    }
-
-    .pg-exchange-modal-submit-body-2fa__subtitle {
-      align-items: center;
+  }
+  .twofa-modal{
+    &__secret{
       color: var(--color-dark);
-      display: flex;
-      flex-direction: row;
-      font-size: 14px;
-      font-weight: normal;
-      justify-content: flex-start;
-      letter-spacing: 0.1px;
-      padding: 24px 14px 0 14px;
-      position: relative;
+      background: var(--color-main-dark);
+      border: 1px solid var(--color-table-lines-grey);
+      .copy_button{
+        &.MuiIconButton-root{
+          color: var(--color-blue);
+        }
+      }
+      .copy-iconprop{
+        fill: var(--color-blue);
+      }
     }
   }
 }
-
-@media screen and (orientation: portrait) {
-  .cr-mobile-two-fa-modal .mobile-modal__block--open {
-    top: 200px;
+.mobile-version{
+  .twofa{
+    &__form{
+      &__content{
+        &__body{
+          input{
+            border: var(--color-input-border-thin);
+            color: var(--color-dark);
+            &:focus,
+            &:focus-visible{
+              border: 1px solid var(--color-accent);
+            }
+          }
+        }
+      }
+    }
   }
 }

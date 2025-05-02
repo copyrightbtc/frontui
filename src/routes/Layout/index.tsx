@@ -24,7 +24,6 @@ import {
     ProfileAccountActivityMobileScreen,
     ProfileApiKeysMobileScreen,
     ProfileAuthMobileScreen,
-    ProfileChangePasswordMobileScreen,
     ProfileLanguageMobileScreen,
     ProfileMobileScreen,
     ProfileThemeMobileScreen,
@@ -312,7 +311,7 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/history" component={SelectedWalletMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/deposit" component={WalletDeposit} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/withdraw" component={WalletWithdraw} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/confirm" component={ConfirmMobileScreen} />
+                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profiles/kyc-steps" component={ConfirmMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets" component={WalletsMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/orders" component={OrdersMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/account-activity" component={ProfileAccountActivityMobileScreen} />
@@ -320,7 +319,6 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/referral" component={InvitesScreenMobile} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/language" component={ProfileLanguageMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/2fa" component={ProfileAuthMobileScreen} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/change-password" component={ProfileChangePasswordMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/verification" component={ProfileVerificationMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/theme" component={ProfileThemeMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile" component={ProfileMobileScreen} /> 

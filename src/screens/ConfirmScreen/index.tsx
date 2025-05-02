@@ -148,17 +148,6 @@ class ConfirmComponent extends React.Component<Props> {
         );
     }
 
-    private toggleChangeModal = () => {
-        this.setState({
-            showModal: !this.state.showModal,
-        });
-    };
-    private closeModal = () => {
-        this.setState({
-            showModal: false,
-        });
-    };
-
     private handleGetVerificationStep = (): string => {
         const { labels } = this.props;
 

@@ -5,6 +5,9 @@ import { PassportIcon } from '../../../assets/images/customization/PassportIcon'
 import { IdcardIcon } from '../../../assets/images/customization/IdcardIcon';
 import { DrivelicenseIcon } from '../../../assets/images/customization/DrivelicenseIcon';
 
+import { selectMobileDeviceState } from '../../../modules';
+import { useReduxSelector } from '../../../hooks';
+
 import { PassportIndex } from './PassportIndex';
 import { IdentityCardIndex } from './IdentityCardIndex';
 import { DriverLicanseIndex } from './DriverLicanseIndex';
@@ -14,26 +17,28 @@ export const Documents: React.FC = () => {
     const { formatMessage } = useIntl();
 
     const [value, setValue] = React.useState(null);
+
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
  
     const renderTabs = () => [
         {
             content: value === value ? <PassportIndex /> : null,
             label: <React.Fragment>
-                    <PassportIcon />
+                    {!isMobileDevice && <PassportIcon />}
                     <span>{formatMessage({ id: 'page.body.kyc.documents.select.passport' })}</span>
                 </React.Fragment>,
         },
         {
             content: value === value ? <IdentityCardIndex /> : null,
             label: <React.Fragment>
-                    <IdcardIcon />
+                    {!isMobileDevice && <IdcardIcon />}
                     <span>{formatMessage( { id: 'page.body.kyc.documents.select.identityCard' })}</span>
                 </React.Fragment>,
         },
         {
             content: value === value ? <DriverLicanseIndex /> : null,
             label: <React.Fragment>
-                    <DrivelicenseIcon />
+                    {!isMobileDevice && <DrivelicenseIcon />}
                     <span>{formatMessage( { id: 'page.body.kyc.documents.select.driverLicense' })}</span>
                 </React.Fragment>,
         },

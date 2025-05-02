@@ -148,6 +148,3 @@ export const HeaderEmpty = compose(
     withRouter,
     connect(mapStateToProps, mapDispatchToProps)
 )(Head) as React.ComponentClass;
-
-/*<ThemeSwitcher onLinkChange={this.closeMenu} />
-{mobileWallet ? <span>{mobileWallet}</span> : <span>{location.pathname.split('/')[1]}</span>}*/

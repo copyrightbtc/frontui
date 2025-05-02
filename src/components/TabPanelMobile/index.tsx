@@ -20,6 +20,7 @@ export interface TabPanelProps {
     onCurrentTabChange?: OnCurrentTabChange;
     currentTabs: number;
     optionalHead?: React.ReactNode;
+    morePanel?: React.ReactNode;
     isDropdown?: boolean;
 }
 
@@ -32,6 +33,7 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
     currentTabs,
     isDropdown,
     optionalHead,
+    morePanel,
     onCurrentTabChange,
     onTabChange,
 }) => {
@@ -106,6 +108,7 @@ export const TabPanelMobile: React.FC<TabPanelProps> = ({
                         'borders': borders,
                     })} role="tablist">
                         {panels.map(renderTabPanel)}
+                        {morePanel && <div className="tabmobile-panel-more">{morePanel}</div>}
                 </div>
             )};
     };

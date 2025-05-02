@@ -1,8 +1,218 @@
-.pg-mobile-profile-screen {
+.mobile-profile-screen {
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: flex-start;
   width: 100%;
+  min-height: calc(100vh - 54px);
+  padding: 15px 16px;
+  .mobile-user-info{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    &__level{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      margin: 5px 0;
+      h5{
+        color: var(--color-dark);
+        font-size: 15px;
+      }
+      .small-button{
+        &.MuiButton-root{
+          padding: 1px;
+          box-shadow: var(--color-small-button-shadow);
+          background: var(--color-accent);
+          max-width: 125px;
+          min-width: 125px;
+        }
+      }
+    }
+    .accordion{
+      margin-top: 10px;
+      .accordion-button{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: var(--color-dark);
+        font-size: 14px;
+        &.collapsed{
+          .arrow{
+            transform: rotate(0deg);
+          }
+        }
+        .arrow{
+          fill: var(--color-dark);
+          width: 17px;
+          margin-left: 7px;
+          position: relative;
+          transition: .2s;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .tip_icon_container{
+      margin: 0 0 0 6px;
+    }
+    h2.title{
+      display: flex;
+      margin: 10px 0 5px;
+      align-items: center;
+      color: var(--color-dark);
+      font-size: 15px;
+    }
+    &__row{
+      display: flex;
+      border-bottom: 1px solid var(--color-table-lines-grey);
+      margin-bottom: 25px;
+      padding-bottom: 1rem;
+      img{
+        max-width: 33px;
+        height: 33px;
+        margin-right: 10px;
+      }
+      &__withbuttons{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .column{
+        display: flex;
+        flex-direction: column;
+        p{
+          color: var(--color-dark);
+        }
+        h5{
+          color: var(--color-dark);
+          display: flex;
+          align-items: center;
+          svg{
+            width: 17px;
+            height: 17px;
+            margin-left: 4px;
+          }
+        }
+        &.twofa-enabled{
+          h5{
+            color: var(--color-success);
+          }
+        }
+        &.twofa-disabled{
+          h5{
+            color: var(--color-danger);
+          }
+        }
+      }
+      .mobile-2fa-button{
+        flex: 1;
+        text-align: right;
+        min-width: 126px;
+        &.enabled{
+          .small-button{
+            &.MuiButton-root{
+              background: var(--color-danger);
+            }
+          }
+        }
+        &.disabled{
+          .small-button{
+            &.MuiButton-root{
+              background: var(--color-success);
+            }
+          }
+        }
+      }
+      .small-button{
+        &.MuiButton-root{
+          padding: 4px;
+          box-shadow: var(--color-small-button-shadow);
+          background: var(--color-accent);
+          max-width: 125px;
+        }
+      }
+    }
+    &__column{
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--color-table-lines-grey);
+      margin-bottom: 25px;
+      padding-bottom: 1rem;
+      h4{
+        font-size: 15px;
+        color: var(--color-dark);
+      }
+      .copy-field{
+        margin-top: 2px;
+        &:hover{
+          border-color: transparent;
+        }
+        color: var(--color-dark);
+        font-size: 14px;
+        background: transparent;
+        padding: 2px 0 2px;
+        border-radius: 0;
+        border: none;
+        max-width: 100%;
+        justify-content: space-between;
+      }
+    }
+    &__header{
+      display: flex;
+      margin: 10px 0 25px;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      h2{
+        color: var(--color-dark);
+        font-size: 15px;
+      }
+    }
+    &__block{
+      width: 100%;
+      margin-bottom: 25px;
+      height: auto;
+      &.shadow{
+        border-radius: var(--medium-border-radius);
+        box-shadow: var(--color-box-shadow-huge);
+        background-color: var(--color-main-dark-brown);
+        padding: calc(1rem - 5px) 1rem;
+      }
+      hr{
+        border-bottom: 1px solid var(--color-table-lines-grey);
+        margin: 11px 0;
+      }
+      &__row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 15px;
+        margin: 5px 0;
+        h5{
+          color: var(--color-light-grey);
+          font-size: 14px;
+        }
+        span{
+          color: var(--color-dark);
+          &.flex{
+            align-items: center;
+            justify-content: flex-end;
+          }
+          &.fees{
+            color: var(--color-accent);
+          }
+          &.danger{
+            color: var(--color-danger);
+          }
+          &.accent{
+            color: var(--color-accent);
+          }
+        }
+      }
+    }
+  }
 }
