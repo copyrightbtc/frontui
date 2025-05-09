@@ -8,7 +8,7 @@ import OtpInput from "react-otp-input";
 import { OverlayTrigger } from 'react-bootstrap';
 import { InfoIcon } from 'src/assets/images/InfoIcon';
 import { WarningIcon } from 'src/assets/images/WarningIcon';
-import { Tooltip, CopyableTextField } from '../../components';
+import { Tooltip, CopyableTextField, TabPanelMobile } from '../../components';
 import {
     beneficiariesCreateData,
     beneficiariesDelete,
@@ -33,6 +33,7 @@ import { BeneficiariesFailAddModal } from './BeneficiariesFailAddModal';
 import { TabPanelSliding } from 'src/components/TabPanelUnderlines/TabPanelSliding';
 import { SelectBeneficiariesCrypto } from './BeneficiariesCrypto/SelectBeneficiariesCrypto';
 import { is2faValid } from 'src/helpers';
+import { ModalMobile } from 'src/mobile/components/ModalMobile';
 import {
     getAddressWithoutTag,
     getTag,
@@ -209,7 +210,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                     <OverlayTrigger
                         placement="auto"
                         delay={{ show: 250, hide: 300 }} 
-                        overlay={<Tooltip title="error.beneficiaries.max10.addresses" />}>
+                        overlay={<Tooltip className={isMobileDevice && 'themes'} title="error.beneficiaries.max10.addresses" />}>
                             <div className="tip_icon_container">
                                 <InfoIcon />
                             </div>
@@ -218,7 +219,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                 <div className="beneficiaries-screen__current__button">
                     <Button
                         onClick={handleClickToggleAddAddressModal()}
-                        className="small-button blue"
+                        className={`small-button blue ${isMobileDevice && 'themes'}`}
                     >
                         {formatMessage({id: 'page.body.wallets.beneficiaries.addAddress' })}
                     </Button>
@@ -255,6 +256,16 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                 <div className="beneficiaries-screen__current__row">
                     <h6>{formatMessage({ id: 'page.body.wallets.beneficiaries.tipAddress' })}</h6>
                     <div className="datas">
+                        {isMobileDevice ? 
+                            <div className="wallet-address-input">
+                            <div className='wallet-address-input__adress'>{address}</div>
+                            <Button 
+                                onClick={handleOnCopy}
+                                className='wallet-address-input__copy'
+                            >
+                                {formatMessage({ id: 'page.body.wallets.tabs.deposit.copy.button.tap'})}
+                            </Button>
+                        </div> : 
                         <div className="wallet-address-input">
                             <fieldset onClick={handleOnCopy}>
                                 <CopyableTextField
@@ -262,7 +273,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                                     fieldId={address ? 'copy_deposit_1' : 'copy_deposit_2'}
                                 />
                             </fieldset>
-                        </div>
+                        </div>}
                     </div>
                 </div>
                 {textTagID && <div className="beneficiaries-screen__current__row">
@@ -393,7 +404,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                             <OverlayTrigger
                                 placement="auto"
                                 delay={{ show: 250, hide: 300 }} 
-                                overlay={<Tooltip title="error.beneficiaries.max10.warning" />}>
+                                overlay={<Tooltip className={isMobileDevice && 'themes'} title="error.beneficiaries.max10.warning" />}>
                                     <div className="tip_icon_container">
                                         <WarningIcon className="warn-icon"/>
                                     </div>
@@ -402,7 +413,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                             <OverlayTrigger
                                 placement="auto"
                                 delay={{ show: 250, hide: 300 }} 
-                                overlay={<Tooltip title="error.beneficiaries.max10.addresses" />}>
+                                overlay={<Tooltip className={isMobileDevice && 'themes'} title="error.beneficiaries.max10.addresses" />}>
                                     <div className="tip_icon_container">
                                         <InfoIcon />
                                     </div>
@@ -414,7 +425,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                     <div className="beneficiaries-screen__current__button">
                         <Button
                             onClick={handleClickToggleAddAddressModal()}
-                            className="small-button blue"
+                            className={`small-button blue ${isMobileDevice && 'themes'}`}
                         >
                             {formatMessage({id: 'page.body.wallets.beneficiaries.addAddressChange' })}
                         </Button>
@@ -431,7 +442,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                         <OverlayTrigger
                             placement="auto"
                             delay={{ show: 250, hide: 300 }} 
-                            overlay={<Tooltip title="error.beneficiaries.max10.warning" />}>
+                            overlay={<Tooltip className={isMobileDevice && 'themes'} title="error.beneficiaries.max10.warning" />}>
                                 <div className="tip_icon_container">
                                     <WarningIcon className="warn-icon"/>
                                 </div>
@@ -440,7 +451,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                         <OverlayTrigger
                             placement="auto"
                             delay={{ show: 250, hide: 300 }} 
-                            overlay={<Tooltip title="error.beneficiaries.max10.addresses" />}>
+                            overlay={<Tooltip className={isMobileDevice && 'themes'} title="error.beneficiaries.max10.addresses" />}>
                                 <div className="tip_icon_container">
                                     <InfoIcon />
                                 </div>
@@ -452,7 +463,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                 <div className="beneficiaries-screen__current__button">
                     <Button
                         onClick={handleClickToggleAddAddressModal()}
-                        className="small-button blue"
+                        className={`small-button blue ${isMobileDevice && 'themes'}`}
                     >
                         {formatMessage({id: 'page.body.wallets.beneficiaries.addAddressChange' })}
                     </Button>
@@ -549,6 +560,25 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
         />
     };
 
+    const renderTabPanelMobile = () => {
+
+        if (isOpenConfirmationModal) {
+            return renderActivateModal();
+        }
+
+        if (isOpenFailModal) {
+            return renderFailModal();
+        }
+
+        return <TabPanelMobile
+                panels={renderTabs()}
+                onTabChange={(_, label) => onTabChange(label)}
+                currentTabs={currentTabIndex}
+                onCurrentTabChange={onCurrentTabChange}
+                borders={true}
+            />
+    };
+
     const renderTitle = () => {
         if (isOpenConfirmationModal) {
             return formatMessage({ id: 'page.body.wallets.beneficiaries.title.confirm.new.account' },
@@ -581,6 +611,20 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
     return (
         <div className="beneficiaries-screen">
             {beneficiaries.length && currentWithdrawalBeneficiary.id && currentWithdrawalBeneficiary.currency === beneficiaries[0].currency ? renderAddressItem(currentWithdrawalBeneficiary) : renderAddAddress()}
+            {isMobileDevice ? 
+            <ModalMobile
+                isOpen={isOpenAddressModal}
+            >
+                <div className="mobile-modal__header">
+                    <div className="mobile-modal__header-title">{renderTitle()}</div>
+                    <div className="mobile-modal__header-close" onClick={() => handleCloseModals()}>
+                        <CloseIcon />
+                    </div>
+                </div>
+                <div className="mobile beneficiaries-modal-wrapper">
+                    {beneficiaries.length ? renderTabPanelMobile() : renderBeneficiariesAddModal()}
+                </div>
+            </ModalMobile> : 
             <CSSTransition
                 in={isOpenAddressModal}
                 timeout={{
@@ -612,7 +656,51 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                         </div>
                     </div>
                 </div>
-            </CSSTransition>
+            </CSSTransition>}
+            {isMobileDevice ? 
+            <ModalMobile
+                isOpen={isOpenOtpModal}
+            >
+                <div className="mobile-modal__header">
+                    <div className="mobile-modal__header-title">{formatMessage({id: 'page.body.wallets.beneficiaries.delete.2fa.header' })}</div>
+                    <div className="mobile-modal__header-close" onClick={closeModal}>
+                        <CloseIcon />
+                    </div>
+                </div>
+                <div className="mobile beneficiaries-modal-wrapper">
+                    <div className="modal-window__container__content">
+                        <div className="twofa__form__content__header">
+                            {formatMessage({id: 'page.body.wallets.beneficiaries.delete.2fa.title' })}
+                        </div>
+                        <div className="modal-window__container__twofa">
+                            <div className="twofa__form__content__body">
+                                <OtpInput
+                                    inputType="number"
+                                    value={code2FA}
+                                    onChange={setCode2FA}
+                                    numInputs={6}
+                                    renderSeparator={<span>-</span>}
+                                    shouldAutoFocus={true}
+                                    skipDefaultStyles={true}
+                                    inputStyle={{
+                                        caretColor: "var(--accent)"
+                                    }}
+                                    renderInput={(props) => <input {...props} />}
+                                />
+                            </div>
+                            <div className="modal-window__container__footer"> 
+                                <Button
+                                    disabled={!is2faValid(code2FA)}
+                                    onClick={deleteBeneficiary}
+                                    className="medium-button"
+                                >
+                                    {formatMessage({id: 'page.body.wallets.beneficiaries.delete.2fa.button' })}
+                                </Button>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </ModalMobile> :
             <CSSTransition
                 in={isOpenOtpModal}
                 timeout={{
@@ -672,7 +760,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                         </div>
                     </div>
                 </div>
-            </CSSTransition>
+            </CSSTransition>}
         </div>
     );
 }

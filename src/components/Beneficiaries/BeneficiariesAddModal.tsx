@@ -481,7 +481,7 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
                     <Button
                         onClick={handleSubmitAddAddressCoinModal}
                         disabled={isDisabled}
-                        className="medium-button"
+                        className={`medium-button ${isMobileDevice && 'themes'}`}
                     >
                         {formatMessage({ id: 'page.body.wallets.beneficiaries.addAddressModal.body.button' })}
                     </Button>
@@ -542,7 +542,7 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
                     <Button
                         onClick={handleSubmitAddAddressFiatModal}
                         disabled={isDisabled}
-                        className="medium-button"
+                        className={`medium-button ${isMobileDevice && 'themes'}`}
                     >
                         {formatMessage({ id: 'page.body.wallets.beneficiaries.addAddressModal.body.button' })}
                     </Button>
@@ -559,30 +559,24 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
         });
 
         return (
-                <div className={addModalClass}>
-                    {beneficiaries.length >= 10 ? (
-                        <div className="beneficiaries-list-modal__body">
-                            <div className="beneficiaries-list-modal__body__empty">
-                                <WarningIcon />
-                                {formatMessage({ id: 'error.beneficiaries.max10.warning' })}
-                            </div>
+            <div className={addModalClass}>
+                {beneficiaries.length >= 10 ? (
+                    <div className="beneficiaries-list-modal__body">
+                        <div className="beneficiaries-list-modal__body__empty">
+                            <WarningIcon />
+                            {formatMessage({ id: 'error.beneficiaries.max10.warning' })}
                         </div>
-                    ) : (
-                        type === 'coin' ? renderAddAddressModalCryptoBody() : renderAddAddressModalFiatBody()
-                    )}
-                </div>
+                    </div>
+                ) : (
+                    type === 'coin' ? renderAddAddressModalCryptoBody() : renderAddAddressModalFiatBody()
+                )}
+            </div>
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [type, isMobileDevice, getState]);
 
     return (
-        isMobileDevice ?
-            <ModalMobile
-                title={formatMessage({ id: 'page.body.wallets.beneficiaries.addAddressModal.header' })}
-                onClose={handleToggleAddAddressModal}
-                isOpen>
-                {renderContent()}
-            </ModalMobile> : renderContent()
+        renderContent()
     );
 };
 

@@ -41,7 +41,7 @@ export const DepositCryptoContainer = ({selectedWalletIndex}: DepositCryptoProps
     const currencyItem: Currency | any = React.useMemo(() => (currencies && currencies.find(item => item.id === wallet.currency)) || { min_confirmations: 6, deposit_enabled: false }, [currencies, wallet]);
 
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
-    const [tab, setTab] = useState(currencyItem?.networks ? currencyItem?.networks[0]?.blockchain_key : '')
+    const [tab, setTab] = useState(currencyItem?.networks ? currencyItem?.networks[0]?.blockchain_key : '');
 
     const blockchain = useMemo(() => currencyItem.networks?.find(item => item.blockchain_key?.toLowerCase() === tab?.toLowerCase()), [currencyItem, tab]);
 
@@ -66,13 +66,13 @@ export const DepositCryptoContainer = ({selectedWalletIndex}: DepositCryptoProps
 
     const handleOnCopy = () => dispatch(alertPush({ message: ['page.body.wallets.tabs.deposit.ccy.message.success'], type: 'success'}));
 
-    const onTabChange = useCallback(label => {
+    const onTabChange = label => {
         const blockchainItem = currencyItem.networks?.find(item => item.protocol?.toUpperCase() === label || item.blockchgain_key?.toUpperCase() === label);
 
         setTab(blockchainItem.blockchain_key);
-    }, [setTab, currencyItem]);
+    };
 
-    const onCurrentTabChange = useCallback((index) => setCurrentTabIndex(index), [setCurrentTabIndex]);
+    const onCurrentTabChange = (index) => setCurrentTabIndex(index);
 
     const renderTabs = () => {
         const tabs = currencyItem?.networks?.map(network => {

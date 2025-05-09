@@ -6,8 +6,8 @@ access-control-allow-headers: Origin, X-Requested-With, Content-Type, Accept, Au
 {
     "username": "Turbo3000s",
     "email": "jonatan@authsfor.io",
-    "level": 2,
-    "otp": false,
+    "level": 3,
+    "otp": true,
     "role": "superadmin",
     "state": "active",
     "uid": "ID787E383938",

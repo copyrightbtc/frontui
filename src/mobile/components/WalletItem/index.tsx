@@ -20,13 +20,13 @@ const WalletItemComponent = (props: Props) => {
     } = props;
 
     return (
-        <div className="cr-mobile-wallet-item" onClick={() => props.onClick(currency)}>
+        <div className="mobile-wallet-item" onClick={() => props.onClick(currency)}>
             <div>
-                <CryptoIcon className="cr-wallet-item__icon" code={currency.toUpperCase()} />
-                <span className="cr-mobile-wallet-item__currency">{currency}</span>
-                <span className="cr-mobile-wallet-item__name">{name}</span>
+                <CryptoIcon className="wallet-item__icon" code={currency.toUpperCase()} />
+                <span className="mobile-wallet-item__currency">{currency}</span>
+                <span className="mobile-wallet-item__name">{name}</span>
             </div>
-            <div className="cr-mobile-wallet-item__balance">
+            <div className="mobile-wallet-item__balance">
                 <span><Decimal fixed={fixed} children={balance || 0} thousSep=","/></span>
             </div>
         </div>

@@ -186,7 +186,7 @@ Access-Control-Allow-Credentials: true
    "fee":"0.0",
    "txid":"FD951D1670F6BBD9A80001DB0C11220303C4F597F92348B485949C7E2CB887DD",
    "created_at":"2024-11-06T12:16:26+01:00",
-   "confirmations":30858,
+   "confirmations":58,
    "completed_at":"2024-11-06T12:16:26+01:00",
    "state":"accepted"
   },
@@ -196,7 +196,7 @@ Access-Control-Allow-Credentials: true
    "fee":"0.0",
    "txid":"68e0f849e74f68585963a41b46ca046773561924def4191bbde9c478dba5aaaf",
    "created_at":"2024-11-06T12:15:45+01:00",
-   "confirmations":1959,
+   "confirmations":19,
    "completed_at":"2024-11-06T12:15:45+01:00",
    "state":"accepted"
   },

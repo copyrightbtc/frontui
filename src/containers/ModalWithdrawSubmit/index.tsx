@@ -7,7 +7,7 @@ import { IntlProps } from '../../';
 import { CSSTransition } from "react-transition-group";
 import { IconButton } from '@mui/material';
 import { CloseIcon } from '../../assets/images/CloseIcon';
-import { ModalMobile as MobileModal } from '../../mobile/components/ModalMobile';
+import { ModalMobile } from '../../mobile/components/ModalMobile';
 
 interface ModalWithdrawSubmitProps {
     currency: string;
@@ -27,11 +27,24 @@ class ModalWithdrawSubmitComponent extends React.Component<Props> {
         const { show, isMobileDevice } = this.props;
 
         return isMobileDevice ?
-            <MobileModal isOpen={this.props.show}>
-              <div>
-                  {this.renderHeaderModalSubmit()}
-              </div>
-            </MobileModal> : (
+            <ModalMobile 
+                isOpen={this.props.show}
+            >
+                <div className="mobile-modal__header">
+                    <div className="mobile-modal__header-title">{this.translate('page.modal.withdraw.success')}</div>
+                    <div className="mobile-modal__header-close" onClick={this.props.onSubmit}>
+                        <CloseIcon />
+                    </div>
+                </div>
+                <div className="mobile-modal__withdraw-success">
+                    <div className="modal-body__withdraw-success__body">
+                        <span>{this.translate('page.modal.withdraw.success.message.content.h3')}</span>
+                        <span>{this.translate('page.modal.withdraw.success.message.content.1')}</span>
+                        <span>{this.translate('page.modal.withdraw.success.message.content.2')}</span>
+                        <span>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.5')}</span>
+                    </div>
+                </div>
+            </ModalMobile> : (
             <CSSTransition
                 in={show}
                 timeout={{
@@ -73,15 +86,6 @@ class ModalWithdrawSubmitComponent extends React.Component<Props> {
         </CSSTransition>
         );
     }
-
-    private renderHeaderModalSubmit = () => {
-        return (
-            <div className="modal-body__withdraw-success__mobile">
-                <FormattedMessage id="page.modal.withdraw.success" />
-            </div>
-        );
-    };
-
 }
 
 export const ModalWithdrawSubmit = injectIntl(ModalWithdrawSubmitComponent);

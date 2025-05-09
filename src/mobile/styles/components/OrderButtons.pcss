@@ -32,6 +32,13 @@
     user-select: none;
     white-space: nowrap;
     word-break: break-all;
+    box-shadow: var(--color-small-button-shadow);
+    &:hover{
+      box-shadow: var(--color-small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--color-small-button-active-shadow);
+    }
     &.buy{
       background: var(--color-buy);
     }

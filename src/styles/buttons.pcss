@@ -366,6 +366,29 @@
       }
     }
   }
+  &.success{
+    &.MuiButton-root{
+      background: var(--success); 
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
+      &:hover{ 
+        background: var(--success);
+      }
+      &:active{ 
+        background: var(--success);
+      }
+    }
+  }
   &.blue{
     &.MuiButton-root{
       background: var(--blue);
@@ -462,6 +485,52 @@
         }
         &:active{ 
           background: var(--color-danger);
+        }
+      }
+    }
+    &.success{
+      &.MuiButton-root{
+        background: var(--color-success); 
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
+        &:hover{ 
+          background: var(--color-success);
+        }
+        &:active{ 
+          background: var(--color-success);
+        }
+      }
+    }
+    &.blue{
+      &.MuiButton-root{
+        background: var(--color-blue);
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
+        &:hover{ 
+          background: var(--color-blue);
+        }
+        &:active{ 
+          background: var(--color-blue);
         }
       }
     }

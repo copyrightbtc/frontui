@@ -6,12 +6,13 @@ import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
 import { InfoIcon } from 'src/assets/images/InfoIcon';
 import { Tooltip, Decimal } from '../../components';
-import { useUserWithdrawalsFetch, useFeeGroupFetch, useWithdrawLimits } from '../../hooks';
+import { useUserWithdrawalsFetch, useFeeGroupFetch, useWithdrawLimits, useReduxSelector } from '../../hooks';
 import {
     selectWithdrawLimits,
     selectFeeGroup,
     selectUserWithdrawalLimitsDay,
-    selectUserWithdrawalLimitsMonth,    
+    selectUserWithdrawalLimitsMonth,
+    selectMobileDeviceState  
 } from '../../modules';
 import { DEFAULT_FIAT_PRECISION } from '../../constants';
 
@@ -24,6 +25,7 @@ interface UserWithdrawalLimitsProps {
 export const UserWithdrawalLimits = React.memo((props: UserWithdrawalLimitsProps) => {
     const { fixed, price, currencyId } = props;
     const { formatMessage } = useIntl();
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
 
     useUserWithdrawalsFetch();
     useFeeGroupFetch();
@@ -54,7 +56,7 @@ export const UserWithdrawalLimits = React.memo((props: UserWithdrawalLimitsProps
                             <OverlayTrigger
                                 placement="auto"
                                 delay={{ show: 250, hide: 300 }}
-                                overlay={<Tooltip title="page.body.wallets.tabs.withdraw.content.withdrawal.limit.tip" />}>
+                                overlay={<Tooltip className={isMobileDevice && 'themes'} title="page.body.wallets.tabs.withdraw.content.withdrawal.limit.tip" />}>
                                 <div className="tip_icon_container">
                                     <InfoIcon />
                                 </div>
@@ -68,7 +70,7 @@ export const UserWithdrawalLimits = React.memo((props: UserWithdrawalLimitsProps
                             <div className="withdraw-container__row__details">
                                 {leftAmountDay > 0 ? 
                                     <React.Fragment>
-                                        <div><Decimal fixed={fixed} thousSep=",">{estimatedValueDay.toString()}</Decimal>&nbsp;{currencyId.toUpperCase()}</div>
+                                        <div>{parseFloat(Number(estimatedValueDay?.toString()).toFixed(fixed))}&nbsp;{currencyId.toUpperCase()}</div>
                                         <small>≈ $<Decimal fixed={DEFAULT_FIAT_PRECISION} thousSep=",">{leftAmountDay}</Decimal></small>
                                         </React.Fragment>
                                     : <span className="accent">{formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.withdrawal.reached.limit' })}</span>}
@@ -79,7 +81,7 @@ export const UserWithdrawalLimits = React.memo((props: UserWithdrawalLimitsProps
                             <div className="withdraw-container__row__details">
                                 {leftAmountMonth > 0 ? 
                                     <React.Fragment>
-                                        <div><Decimal fixed={fixed} thousSep=",">{estimatedValueMonth.toString()}</Decimal>&nbsp;{currencyId.toUpperCase()}</div>
+                                        <div>{parseFloat(Number(estimatedValueMonth?.toString()).toFixed(fixed))}&nbsp;{currencyId.toUpperCase()}</div>
                                         <small>≈ $<Decimal fixed={DEFAULT_FIAT_PRECISION} thousSep=",">{leftAmountMonth}</Decimal></small>
                                         </React.Fragment>
                                     : <span className="accent">{formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.withdrawal.reached.limit' })}</span>}

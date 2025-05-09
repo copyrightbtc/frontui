@@ -3,14 +3,14 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { ModalMobile } from '../../mobile/components/ModalMobile';
+import { CloseIcon } from '../../assets/images/CloseIcon';
 
 interface Props {
     handleToggleFailModal: () => void;
     isMobileDevice?: boolean;
 }
 
-
-const BeneficiariesFailAddModalComponent: React.FC<Props> = (props: Props) => {
+export const BeneficiariesFailAddModal: React.FC<Props> = (props: Props) => {
     const { formatMessage } = useIntl();
     const { isMobileDevice } = props;
 
@@ -21,12 +21,19 @@ const BeneficiariesFailAddModalComponent: React.FC<Props> = (props: Props) => {
             </span>
 
             <div className="modal-window__container__footer">
+                {isMobileDevice ? 
+                <Button
+                    href="/profile/verification"
+                    className="medium-button themes"
+                >
+                    {formatMessage({ id: 'page.body.wallets.beneficiaries.failAddModal.button' })}
+                </Button> : 
                 <Button
                     href="/profile"
                     className="medium-button"
                 >
                     {formatMessage({ id: 'page.body.wallets.beneficiaries.failAddModal.button' })}
-                </Button>
+                </Button>}
             </div>
         </React.Fragment>
     ), [formatMessage]);
@@ -50,14 +57,15 @@ const BeneficiariesFailAddModalComponent: React.FC<Props> = (props: Props) => {
             <ModalMobile
                 isOpen
                 onClose={props.handleToggleFailModal}
-                title={formatMessage({ id: 'page.body.wallets.beneficiaries.failAddModal.content' })}>
+            >
+                <div className="mobile-modal__header">
+                    <div className="mobile-modal__header-title"></div>
+                    <div className="mobile-modal__header-close" onClick={props.handleToggleFailModal}>
+                        <CloseIcon />
+                    </div>
+                </div>
                 {renderContent()}
             </ModalMobile> : renderContent()
     );
 };
 
-const BeneficiariesFailAddModal = React.memo(BeneficiariesFailAddModalComponent);
-
-export {
-    BeneficiariesFailAddModal,
-};

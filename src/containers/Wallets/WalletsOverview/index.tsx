@@ -114,7 +114,7 @@ const WalletsOverview: FC = (): ReactElement => {
  
     const [isVisibleTotal, setIsVisibleTotal] = React.useState(false);
 
-    const renderSecondaryCurrencyValuation = React.useCallback((value: string) => {
+    const renderSecondaryCurrencyValuation = (value: string) => {
         const estimatedValueSecondary = estimateUnitValue(VALUATION_SECONDARY_CURRENCY, VALUATION_PRIMARY_CURRENCY, +value, currencies, markets, tickers);
 
         return (
@@ -127,14 +127,14 @@ const WalletsOverview: FC = (): ReactElement => {
                 </div>
             </div>
         );
-    }, [currencies, markets, tickers]);
+    };
 
     const estimatedValue = React.useMemo(() => {
         return estimateValue(VALUATION_PRIMARY_CURRENCY, currencies, wallets, markets, tickers);
     }, [currencies, wallets, markets, tickers]);
 
 
-    const retrieveData = React.useCallback(() => {
+    const retrieveData = () => {
         const list = nonZeroSelected ? filteredWallets.filter(i => i.balance && Number(i.balance) > 0) : filteredWallets;
         const filteredList = list.filter(i => !filterValue || i.name?.toLocaleLowerCase().includes(filterValue.toLowerCase()) || i.currency?.toLocaleLowerCase().includes(filterValue.toLowerCase()));
 
@@ -235,13 +235,7 @@ const WalletsOverview: FC = (): ReactElement => {
                 </tr> 
             ];
         })
-    }, [
-        filteredWallets,
-        nonZeroSelected,
-        currencies,
-        markets,
-        tickers,
-    ]);
+    };
  
     const filteredListWallet = filteredWalletsModal.filter(i => !filterValueModal || i.name?.toLocaleLowerCase().includes(filterValueModal.toLowerCase()) || i.currency?.toLocaleLowerCase().includes(filterValueModal.toLowerCase()));
     return (

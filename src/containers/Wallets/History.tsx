@@ -34,6 +34,7 @@ import {
     selectWithdrawSuccess,
     Wallet,
     WalletHistoryList,
+    alertPush
 } from '../../modules';
 import { FailIcon } from './FailIcon';
 import { SucceedIcon } from './SucceedIcon';
@@ -60,6 +61,7 @@ export interface ReduxProps {
 interface DispatchProps {
     fetchHistory: typeof fetchHistory;
     resetHistory: typeof resetHistory;
+    fetchSuccess: typeof alertPush;
 }
 
 const rowsPerPage = 10;
@@ -172,6 +174,16 @@ export class WalletTable extends React.Component<Props> {
         )
     };
 
+    public copyTx = (txid?: string) => {
+        copyToClipboard(txid);
+        this.props.fetchSuccess({message: ['page.body.wallets.tabs.deposit.ccy.message.success.txid'], type: 'success'});
+    };
+
+    public copyAddress = (txid?: string, rid?: string) => {
+        copyToClipboard(txid || rid);
+        this.props.fetchSuccess({message: ['page.body.wallets.tabs.deposit.ccy.message.success'], type: 'success'});
+    };
+
     private retrieveData = () => {
         const { type, list } = this.props;
 
@@ -269,7 +281,7 @@ export class WalletTable extends React.Component<Props> {
                             <div className="blockchainLink" key={item.rid || item.blockchain_txid}>
                                 {truncateMiddle(item.rid, 24)}
                                 <IconButton
-                                    onClick={() => copyToClipboard(item.rid)}
+                                    onClick={() => this.copyAddress(item.rid)}
                                     className="copy_button"
                                 >
                                     <CopyIcon className="copy-iconprop"/> 
@@ -292,7 +304,7 @@ export class WalletTable extends React.Component<Props> {
                             <div className="blockchainLink" key={item.txid}>
                                 {truncateMiddle(item.txid, 24)}
                                 <IconButton
-                                    onClick={() => copyToClipboard(blockchainTxid)}
+                                    onClick={() => this.copyTx(item.txid)}
                                     className="copy_button"
                                 >
                                     <CopyIcon className="copy-iconprop"/> 
@@ -491,6 +503,7 @@ export const mapDispatchToProps: MapDispatchToPropsFunction<DispatchProps, {}> =
     dispatch => ({
         fetchHistory: params => dispatch(fetchHistory(params)),
         resetHistory: () => dispatch(resetHistory()),
+        fetchSuccess: payload => dispatch(alertPush(payload)),
     });
 
 export const WalletHistory = compose(

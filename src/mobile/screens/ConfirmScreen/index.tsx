@@ -5,8 +5,6 @@ import { RouterProps } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import { CSSTransition } from "react-transition-group";
-import { IconButton } from '@mui/material';
 import { CloseIcon } from 'src/assets/images/CloseIcon';
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from 'src/components';
@@ -90,7 +88,6 @@ class ConfirmComponent extends React.Component<Props> {
                 <ProfileVerificationMobileScreen />
                 <ModalMobile
                     isOpen={this.state.showModal}
-                    classNames='maxheight'
                 > 
                     <div className="mobile-modal__header">
                         <div className="mobile-modal__header-title">
@@ -107,7 +104,7 @@ class ConfirmComponent extends React.Component<Props> {
                         <div className="mobile-modal__header-close" onClick={() => this.props.history.push('/profile/verification')}>
                             <CloseIcon />
                         </div>
-                    </div>   
+                    </div>
                     <div className="verification-modal">
                         <div className="verification-modal__content"> 
                             {this.renderVerificationStep(step)}

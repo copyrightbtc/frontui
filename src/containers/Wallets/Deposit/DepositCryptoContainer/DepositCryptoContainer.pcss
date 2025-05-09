@@ -67,7 +67,6 @@
             padding: 1.25rem 4rem;
             margin-top: 25px;
             width: 100%;
-            max-width: 285px;
           }
         }
       }
@@ -347,6 +346,44 @@
         background-color: var(--main-dark-light);
         color: var(--accent);
         box-shadow: var(--little-button-shadow);
+      }
+    }
+  }
+}
+
+.mobile-version{
+  .networks-panel{
+    .networks-arrows{
+      width: 100%;
+      &.MuiTabs-root{
+        margin: 15px 0 20px;
+        .MuiButtonBase-root{
+          .MuiSvgIcon-root{
+            .MuiSvgIcon-root{
+              path{
+                fill: var(--color-dark);
+              }
+            }
+          }
+        }
+        .MuiTabs-flexContainer{
+          justify-content: center;
+        }
+      }
+    }
+    .networks-tabs{
+      &.MuiButton-root{
+        color: var(--color-dark);
+        &:hover{
+          background-color: var(--color-main-dark-light);
+        }
+      }
+      &__active{
+        &.MuiButton-root{
+          background-color: var(--color-main-dark-light);
+          color: var(--color-accent);
+          box-shadow: var(--color-little-button-shadow);
+        }
       }
     }
   }

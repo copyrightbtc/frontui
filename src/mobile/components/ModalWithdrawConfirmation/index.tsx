@@ -1,83 +1,181 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
-import { useIntl } from 'react-intl';
-import { Decimal } from '../../../components';
-import { ModalMobile } from '../../components';
+import { Button } from '@mui/material';
+import OtpInput from "react-otp-input";
+import {
+    injectIntl,
+} from 'react-intl';
+import { IntlProps } from 'src';
+import { Decimal } from 'src/components';
+import { CloseIcon } from 'src/assets/images/CloseIcon';
+import { ModalMobile } from 'src/mobile/components/ModalMobile';
+import { Beneficiary } from 'src/modules';
 
 interface ModalWithdrawConfirmationProps {
+    beneficiary: Beneficiary;
     amount: string;
+    total: string;
+    fee: string;
+    otpCode: string;
+    type: "fiat" | "coin";
     currency: string;
-    onSubmit: () => void;
-    onDismiss: () => void;
     rid: string;
+    protocol?: string;
+    isMobileDevice?: boolean;
     show: boolean;
     precision: number;
+    onSubmit: () => void;
+    onDismiss: () => void;
+    handleChangeCodeValue: (value: string) => void;
 }
 
-const ModalWithdraw = (props: ModalWithdrawConfirmationProps) => {
-    const { formatMessage } = useIntl();
-    const {
-        amount,
-        currency,
-        precision,
-        rid,
-        onDismiss,
-        onSubmit,
-    } = props;
+type Props = ModalWithdrawConfirmationProps & IntlProps;
 
-    const renderHeader = React.useCallback(() => {
+class ModalWithdraw extends React.Component<Props> {
+    constructor(props: Props) {
+        super(props);
+    }
+
+    public componentWillUnmount() {
+        document.getElementById('root')?.style.setProperty('height', 'auto');
+    }
+
+    public componentDidUpdate(prevProps: Props) {
+        if (prevProps.show !== this.props.show) {
+            if (!prevProps.show && this.props.show) {
+                document.getElementById('root')?.style.setProperty('height', '100%');
+            }
+    
+            if (prevProps.show && !this.props.show) {
+                document.getElementById('root')?.style.setProperty('height', 'auto');
+            }
+        }
+    }
+
+    public translate = (e: string) => {
+        return this.props.intl.formatMessage({id: e});
+    };
+    public render() {
+        const { show, onDismiss } = this.props;
+
         return (
-            <div className="pg-exchange-modal-submit-header">
-                {formatMessage({ id: 'page.mobile.wallet.withdraw.modal.confirmation' })}
+            <ModalMobile
+                onClose={onDismiss} 
+                isOpen={show}
+            >
+                <div className="mobile-modal__header">
+                    <div className="mobile-modal__header-title">{this.translate('page.body.wallets.tabs.withdraw.modal.title')}</div>
+                    <div className="mobile-modal__header-close" onClick={onDismiss}>
+                        <CloseIcon />
+                    </div>
+                </div>
+                <div className="mobile-wallet modal-body__withdraw-confirm">
+                    {this.renderBody()}
+                    {this.renderFooter()}
+                </div> 
+            </ModalMobile>
+        )
+    }
+
+    private renderBody = () => {
+        const { amount, currency, precision, rid, total, fee, beneficiary, protocol } = this.props;
+        const formattedCurrency = currency.toUpperCase();
+        return (
+            <div className="modal-body__withdraw-confirm__body">
+                <div className="modal-body__withdraw-confirm__columns">
+                    <div className="name">
+                        {this.translate('page.body.wallets.tabs.withdraw.modal.withdrawTo')}
+                    </div>
+                    <div className="details">
+                        {rid}
+                    </div>
+                </div>
+                <div className="modal-body__withdraw-confirm__columns">
+                    <div className="name">
+                        {this.translate('page.body.wallets.tabs.withdraw.modal.name')}
+                    </div>
+                    <div className="details">
+                        {beneficiary.name}
+                    </div>
+                </div>
+                {beneficiary.protocol || protocol ?
+                    <div className="modal-body__withdraw-confirm__columns">
+                        <div className="name">
+                            {this.translate('page.body.wallets.withdraw.blockchain.network')}
+                        </div>
+                        <div className="details">
+                            {beneficiary.protocol?.toUpperCase() || protocol?.toUpperCase()}
+                        </div>
+                    </div>
+                : null}
+                <div className="modal-body__withdraw-confirm__columns">
+                    <div className="name">
+                        {this.translate('page.body.wallets.tabs.withdraw.modal.amount')}
+                    </div>
+                    <div className="details">{Decimal.format(amount, precision, ',')} {formattedCurrency}</div>
+                </div>
+                <div className="modal-body__withdraw-confirm__columns">
+                    <div className="name">
+                        {this.translate('page.body.wallets.tabs.withdraw.modal.fee')}
+                    </div>
+                    <div className="details">{Decimal.format(fee, precision, ',')} {formattedCurrency}</div>
+                </div>
+                <div className="modal-body__withdraw-confirm__block">
+                    <div className="name">
+                        {this.translate('page.body.wallets.tabs.withdraw.modal.total')}
+                    </div>
+                    <div className="details">
+                        {Decimal.format(total, precision, ',')} {formattedCurrency}
+                    </div>
+                </div>
             </div>
         );
-    }, [formatMessage]);
+    };
 
-    return (
-        <ModalMobile title={renderHeader()} onClose={onDismiss} isOpen={props.show}>
-            <div className="pg-exchange-modal-submit-body mobile-modal-body__withdraw-confirm">
-                <div className="mobile-modal-body__withdraw-confirm--block">
-                    <span className="mobile-modal-body__withdraw-confirm--light">
-                        {formatMessage({ id: 'page.mobile.wallet.withdraw.modal.confirmation.warning' })}
-                    </span>
+    private handleEnterClick = e => {
+        if (e.key === 'Enter' && this.props.otpCode.length >= 6) {
+            e.preventDefault();
+            this.props.onSubmit();
+        }
+    };
+
+    private renderFooter = () => {
+        const { otpCode } = this.props;
+
+        return (
+            <React.Fragment>
+                <div className="twofa__form__content">
+                    <div className="twofa__form__content__header">
+                        {this.translate('page.mobile.twoFactorModal.subtitle')}
+                    </div>
+                    <div className="twofa__form__content__body" onSubmit={e => this.handleEnterClick(e)}>
+                        <OtpInput
+                            inputType="number"
+                            value={otpCode}
+                            onChange={e => this.props.handleChangeCodeValue(e)}
+                            numInputs={6}
+                            renderSeparator={<span>-</span>}
+                            shouldAutoFocus={true}
+                            skipDefaultStyles={true}
+                            inputStyle={{
+                                caretColor: "var(--accent)"
+                            }}
+                            renderInput={(props) => <input {...props} />}
+                        />
+                    </div>
                 </div>
-                <div className="mobile-modal-body__withdraw-confirm--block">
-                    <span className="mobile-modal-body__withdraw-confirm--mute">
-                        {formatMessage({ id: 'page.mobile.wallet.withdraw.modal.confirmation.message1' })}
-                    </span>
-                    <span className="mobile-modal-body__withdraw-confirm--light">
-                        {Decimal.format(amount, precision, ',')}  {currency.toUpperCase()}
-                    </span>
-                </div>
-                <div className="mobile-modal-body__withdraw-confirm--block">
-                    <span className="mobile-modal-body__withdraw-confirm--mute">
-                        {formatMessage({ id: 'page.mobile.wallet.withdraw.modal.confirmation.message2' })}
-                    </span>
-                    <span className="mobile-modal-body__withdraw-confirm--light">{rid}</span>
-                </div>
-            </div>
-            <div className="pg-exchange-modal-submit-footer modal-footer__withdraw-confirm">
+                <div className="modal-window__container__footer"> 
                 <Button
-                    
-                    className="btn-block mr-1 mt-1 btn-lg"
-                    onClick={onDismiss}
-                    size="lg"
-                    variant="danger"
+                    disabled={otpCode.length < 6}
+                    onClick={this.props.onSubmit}
+                    className="medium-button themes"
                 >
-                    {formatMessage({ id: 'page.body.wallets.tabs.withdraw.modal.button.cancel' })}
-                </Button>
-                <Button
-                    
-                    className="btn-block mr-1 mt-1 btn-lg"
-                    onClick={onSubmit}
-                    size="lg"
-                    variant="primary"
-                >
-                    {formatMessage({ id: 'page.body.wallets.tabs.withdraw.modal.button.withdraw' })}
+                    {this.translate('page.body.wallets.tabs.withdraw.modal.title.button')}
                 </Button>
             </div>
-        </ModalMobile>
-    );
-};
+        </React.Fragment>
+        );
+    };
+}
 
-export const ModalWithdrawConfirmation = React.memo(ModalWithdraw);
+// tslint:disable-next-line
+export const ModalWithdrawConfirmation = injectIntl(ModalWithdraw) as any;

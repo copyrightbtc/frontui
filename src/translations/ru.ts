@@ -55,7 +55,8 @@ export const ru = {
     "deposit.with.ewallets.mercuryo": "Депозит с Mercuryo",
     "deposit.with.ewallets.button.deposit": "Пополнить",
 
-    "deposit.with.ewallets.going.volet": "Вы собираетесь внести депозит при помощи eWallet кошелька Payeer.",
+    "deposit.with.ewallets.going.volet": "Вы собираетесь внести депозит при помощи eWallet кошелька Volet.",
+    "deposit.with.ewallets.going.payeer": "Вы собираетесь внести депозит при помощи eWallet кошелька Payeer.",
     "deposit.with.ewallets.going.mercuryo":
         "Вы собираетесь внести депозит при помощи eWallet кошелька Mercuryo.",
     "deposit.with.ewallets.minsum": "Минимальная сумма депозита составляет",
@@ -393,6 +394,7 @@ export const ru = {
     "page.body.wallets.tabs.deposit.ccy.message.address": "Депозитный адрес",
     "page.body.wallets.tabs.deposit.ccy.message.button": "Копировать",
     "page.body.wallets.tabs.deposit.copy.button": "Копировать: коснитесь {copyrency} адреса",
+    "page.body.wallets.tabs.deposit.copy.button.tap": "Нажмите, чтобы скопировать",
     "page.body.wallets.tabs.deposit.ccy.message.success": "Адрес скопирован",
     "page.body.wallets.tabs.deposit.ccy.message.success.txid": "txID скопирован",
     "page.body.wallets.tabs.deposit.ccy.button.generate": "Сгенерировать",
@@ -400,6 +402,7 @@ export const ru = {
     "page.body.wallets.tabs.deposit.ccy.button.generate.new": "Сгенерировать новый адресс",
     "page.body.wallets.tabs.deposit.ccy.message.pending": "Генерация адреса",
     "page.body.wallets.tabs.deposit.min.deposit": "Минимальная сумма депозита",
+    "page.body.wallets.tabs.deposit.important": "Важно",
     "page.body.wallets.tabs.deposit.network": "Сеть блокчейн",
     "page.body.wallets.tabs.deposit.transtime": "Время транзакции",
     "page.body.wallets.tabs.deposit.arrivaltime": "Время поступления",
@@ -597,6 +600,7 @@ export const ru = {
     "page.body.history.deposit": "История депозитов",
     "page.body.history.recent.deposit": "Недавние 10 депозитов",
     "page.body.history.recent.no.deposit": "Нет записей о последних депозитах",
+    "page.body.history.recent.no.deposit.short": "Нет никаких депозитов",
     "page.body.history.deposit.header.txid": "txID",
     "page.body.history.deposit.header.txid.modal": "Нажмите, чтобы открыть в эксплорере.",
     "page.body.history.deposit.header.depositid": "Id депозита",
@@ -630,6 +634,7 @@ export const ru = {
     "page.body.history.withdraw": "История выводов",
     "page.body.history.recent.withdraw": "Недавние 10 выводы",
     "page.body.history.recent.no.withdraw": "Нет записей о последних выводах",
+    "page.body.history.recent.no.withdraw.short": "Нет никаких выводов",
     "page.body.history.withdraw.header.id": "ID",
     "page.body.history.withdraw.header.date": "Дата",
     "page.body.history.withdraw.header.currency": "Валюта",
@@ -2121,7 +2126,7 @@ export const ru = {
     "page.body.wallets.warning.deposit.disabled": "Депозит отключен: ",
     "page.body.wallets.warning.no.networks": "Депозит отключен: Сеть не настроена для депозитов {currency}",
     "page.body.wallets.warning.deposit.verification": "Вывод средств возможен после прохождения проверки KYC.",
-    "page.body.wallets.warning.deposit.verification.button": "Верифицируйте свой аккаунт",
+    "page.body.wallets.warning.deposit.verification.button": "Верифицируйте аккаунт",
 
     "page.body.wallets.tabs.deposit.ccy.deposit.ewallet.modal.title": "Депозит {fiats} с Ewallet",
 
@@ -2180,7 +2185,7 @@ export const ru = {
     "page.body.wallets.warning.withdraw.verification.hint": `Ваш текущий уровень верификации не позволяет вам сделать вывод. Пожалуйста, отправьте требуемую информацию KYC, чтобы получить возможность выводить средства.`,
     "page.body.wallets.warning.withdraw.otp.hint":
         "Пожалуйста, включите 2FA, чтобы получить разрешение на вывод средств.",
-    "page.body.wallets.warning.withdraw.verification.button": "Верифицируйте свой аккаунт",
+    "page.body.wallets.warning.withdraw.verification.button": "Верифицируйте аккаунт",
     "page.body.wallets.tabs.withdraw.ccy.tip":
         "Вы собираетесь снять деньги с помощью сети. Чтобы снять деньги с помощью другой сети, создайте или используйте существующего бенефициара с нужной сетью.",
 
@@ -2782,6 +2787,7 @@ export const ru = {
     "page.body.wallets.overview.action.p2p": "P2P",
     "page.body.wallets.overview.seach": "Искать по имени",
     "page.body.wallets.overview.nonZero": "Скрыть нулевые балансы",
+    "page.body.wallets.overview.nonZero.short": "Скрыть нулевые",
     "page.body.wallets.transfers.transferType": "Transfer Type",
     "page.body.wallets.transfers.from": "From",
     "page.body.wallets.transfers.to": "To",

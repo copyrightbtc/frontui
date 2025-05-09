@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { CurrencyInfo, TabPanelUnderlines } from '../../../../components';
@@ -66,20 +66,20 @@ export const DepositFiatContainer = ({selectedWalletIndex}: DepositFiatProps) =>
     const wallet: Wallet = (wallets[selectedWalletIndex] || DEFAULT_WALLET);
     const currencyItem: Currency | any = (currencies && currencies.find(item => item.id === wallet.currency)) || { min_confirmations: 6, deposit_enabled: false };
 
-    const renderWarningNoNetworks = () => (
+    const renderWarningNoNetworks = useMemo(() => (
         <React.Fragment>
             <img src={LockDisabled} alt="lock" draggable="false"/>
             <span>{formatMessage({ id: 'page.body.wallets.warning.no.networks'}, {currency: wallet?.currency.toUpperCase()})}</span>
         </React.Fragment>
-        );
+        ), []);
 
-    const renderWarning = () => {
+    const renderWarning = useMemo(() => {
         return (
             <div className="wallet-warning">
-                {!currencyItem?.networks?.length && renderWarningNoNetworks()}
+                {!currencyItem?.networks?.length && renderWarningNoNetworks}
             </div>
         );
-    };
+    }, [currencyItem, memberLevels]);
 
     const renderEWallets = () => {    
         return (
@@ -278,7 +278,7 @@ export const DepositFiatContainer = ({selectedWalletIndex}: DepositFiatProps) =>
                 ) : (
                 <div className="wallets-coinpage__wrapper__body with__tabs">
                     <CurrencyInfo wallet={wallets[selectedWalletIndex]} /> 
-                    {user.level >= memberLevels?.deposit.minimum_level ? renderEWallets() : renderWarning() }
+                    {user.level >= memberLevels?.deposit.minimum_level ? renderEWallets() : renderWarning }
                 </div>
                 )}
                 <div className="wallets-coinpage__wrapper__footer">

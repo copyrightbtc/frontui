@@ -8,7 +8,6 @@ import { CopyableTextField } from '../CopyableTextField';
 //import { MetaMaskButton } from '../MetaMaskButton';
 import { QRCode } from '../QRCode';
 import { Warning } from '../../assets/images/Warning';
-import { Decimal } from '../../components';
 import LockDisabled from '../../assets/images/LockDisabled.svg';
 
 export interface DepositCryptoProps {

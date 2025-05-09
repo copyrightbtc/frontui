@@ -149,6 +149,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        color: var(--light-grey);
         span{
           font-size: 13px;
           margin-right: 5px;
@@ -178,7 +179,22 @@
     }
   }
 }
-
+.mobile-version{
+  .beneficiaries-modal-wrapper{
+    padding-bottom: 0;
+  }
+  .beneficiaries-confirmation-modal{
+    padding: 0px 30px 40px 30px;
+    &__phone{
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      &__header{
+        color: var(--color-dark);
+      }
+    }
+  }
+}
 .beneficiaries-confirmation-modal{
   padding: 0px 30px 40px 30px;
   &__phone{
@@ -258,4 +274,143 @@
     }
   } 
 }
-
+.mobile{
+  &.beneficiaries-modal-wrapper{
+    .input-withcounter{
+      .input-group{
+        input{
+          &::placeholder{
+            color: var(--color-light-grey);
+          }
+        }
+      }
+    }
+    position: relative;
+    .withdraw-added-item{
+      width: 100%;
+      height: 100%;
+      max-height: calc(80vh - 100px);
+      &__wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        &__up{
+          &__block{
+            .protocol{
+              color: var(--color-dark);
+              .disabled{
+                border: 1px solid var(--color-danger);
+                color: var(--color-danger);
+              }
+            }
+            .fee{
+              color: var(--color-dark);
+            }
+            .name,
+            .bold,
+            .secondary{
+              color: var(--color-light-grey);
+            }
+          }
+          &__disabled{
+            background: var(--color-darkest);
+            .bold,
+            .secondary,
+            .name,
+            .fee{
+              opacity: .7;
+            }
+          }
+        }
+        &__down{
+          &__button{
+            background: var(--color-main-dark-brown);
+            box-shadow: var(--color-small-button-shadow);
+            &.disabled{
+              cursor: not-allowed;
+              box-shadow: none;
+              background: var(--color-darkest);
+            }
+            &:hover{
+              box-shadow: var(--color-small-button-hover-shadow);
+            }
+            .title{
+              color: var(--color-dark);
+            }
+            .address{
+              color: var(--color-dark);
+            }
+            &.pending{
+              .title,
+              .address{
+                color: var(--color-pending);
+              }
+            }
+            &.disabled{
+              .title,
+              .address{
+                color: var(--color-danger);
+                opacity: .6;
+              }
+              &.pending{
+                .title,
+                .address{
+                  color: var(--color-pending);
+                }
+              }
+            }
+          }
+          &__block{
+            .state{
+              &.active{
+                color: var(--color-success);
+                svg{
+                  fill: var(--color-success);
+                }
+              }
+              &.pending{
+                color: var(--color-pending);
+                svg{
+                  fill: var(--color-pending);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .beneficiaries-list-modal{
+      width: 100%;
+      &__body{
+        padding: 25px 16px 15px;
+        overflow: hidden;
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+      }
+      &__item{
+        &__block{
+          .secondary,
+          .bold,
+          .item,
+          .name{
+            color: var(--color-light-grey);
+          }
+          .fee{
+            color: var(--color-dark);
+          }
+        }
+      }
+      &__warning{
+        color: var(--color-accent);
+      }
+      .twofa__form__content__header{
+        color: var(--color-dark);
+      }
+    }
+  }
+}

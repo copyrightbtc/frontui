@@ -6,7 +6,7 @@ import { HistoryTable } from '../../components/HistoryTable';
 
 const WalletsHistory: React.FC = () => {
     const intl = useIntl();
-    const { currency } = useParams();
+    const { currency = '' } = useParams<{ currency?: string }>();
     const [currentTabs, setCurrentTabs] = React.useState(0);
 
     const renderTabs = () => [
@@ -21,13 +21,12 @@ const WalletsHistory: React.FC = () => {
     ];
 
     return (
-        <div className="pg-mobile-trading-tabs">
-            <TabPanelMobile
-                panels={renderTabs()}
-                currentTabs={currentTabs}
-                onCurrentTabChange={setCurrentTabs}
-            />
-        </div>
+        <TabPanelMobile
+            panels={renderTabs()}
+            currentTabs={currentTabs}
+            onCurrentTabChange={setCurrentTabs}
+            borders={true}
+        />
     );
 };
 

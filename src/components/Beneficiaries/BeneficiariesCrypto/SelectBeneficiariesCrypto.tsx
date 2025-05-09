@@ -9,6 +9,7 @@ import {
     Beneficiary,
     Currency,
     BlockchainCurrencies,
+    selectMobileDeviceState
 } from '../../../modules';
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from '../../../components';
@@ -20,7 +21,8 @@ import {
     //getTag,
     requiresMemoTag,
     requiresDTTag,
-} from '../../../helpers/tagBasedAsset';
+} from '../../../helpers/tagBasedAsset'; 
+import { useReduxSelector } from 'src/hooks';
 import { truncateMiddle } from '../../../helpers';
 import { SucceedIcon } from 'src/containers/Wallets/SucceedIcon';
 import { PendingIcon } from 'src/containers/Wallets/PendingIcon';
@@ -34,6 +36,7 @@ interface SelectBeneficiariesCryptoProps {
 
 export const SelectBeneficiariesCrypto: React.FunctionComponent<SelectBeneficiariesCryptoProps> = (props: SelectBeneficiariesCryptoProps) => {
     const { currency, blockchainKey } = props;
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
 
     const { formatMessage } = useIntl();
 
@@ -125,7 +128,7 @@ export const SelectBeneficiariesCrypto: React.FunctionComponent<SelectBeneficiar
                     <div className={itemClassName} onClick={blockchainItem?.withdrawal_enabled && props.handleClickSelectAddress(item)}>
                         <span className="title">
                             {item.name}
-                            {!isDescription ? 
+                            {!isDescription && !isMobileDevice ? 
                                 <OverlayTrigger 
                                     placement="auto"
                                     delay={{ show: 250, hide: 300 }} 
@@ -150,7 +153,7 @@ export const SelectBeneficiariesCrypto: React.FunctionComponent<SelectBeneficiar
                         <div className="delete">
                             <Button
                                 onClick={props.handleDeleteAddress(item)}
-                                className="little-button red"
+                                className={`little-button red ${isMobileDevice && 'themes'}`}
                             >
                                 {formatMessage({ id: 'page.body.wallets.beneficiaries.deletebutton' })}
                             </Button>

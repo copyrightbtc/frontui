@@ -1,32 +1,61 @@
-.cr-mobile-wallets-buttons {
-  align-items: center;
+.mobile-wallets-buttons {
   background: var(--color-main-dark);
   border: 0;
   bottom: 0;
-  display: flex;
-  height: 54px;
-  justify-content: space-between;
   left: 0;
-  padding: 0 17px;
-  position: fixed;
   right: 0;
-  z-index: 9999;
-
-  button {
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  gap: 10px;
+  padding: 0 10px;
+  &__button {
     align-items: center;
-    border-radius: 4px;
-    display: flex;
-    flex: 1;
+    border-radius: var(--small-border-radius);
     font-size: 14px;
-    font-weight: bold;
     height: 32px;
     justify-content: center;
     letter-spacing: 1px;
     line-height: 16px;
-    text-transform: uppercase;
-
-    &:first-child {
-      margin-right: 11px;
+    color: #fff;
+    flex: 1 1;
+    display: inline-flex;
+    min-width: 74px;
+    outline: none;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    -moz-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    word-break: break-all;
+    box-shadow: var(--color-small-button-shadow);
+    &:hover{
+      box-shadow: var(--color-small-button-hover-shadow);
+    }
+    &:active{
+      box-shadow: var(--color-small-button-active-shadow);
+    }
+    svg{
+      width: 17px;
+      height: 17px;
+      fill: #fff;
+      margin: 0 4px;
+    }
+    &.deposit{
+      background: var(--color-success);
+      svg{
+        transform: rotate(-130deg);
+      }
+    }
+    &.withdraw{
+      background: var(--color-danger);
+      svg{
+        transform: rotate(130deg);
+      }
     }
   }
 }

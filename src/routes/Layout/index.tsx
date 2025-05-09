@@ -26,7 +26,6 @@ import {
     ProfileAuthMobileScreen,
     ProfileLanguageMobileScreen,
     ProfileMobileScreen,
-    ProfileThemeMobileScreen,
     ProfileVerificationMobileScreen,
     SelectedWalletMobileScreen,
     SignInMobileScreen,
@@ -308,7 +307,7 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/accounts/password_reset" component={ChangeForgottenPasswordMobileScreen} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/accounts/confirmation" component={VerificationScreen} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/email-verification" component={EmailVerificationMobileScreen} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/history" component={SelectedWalletMobileScreen} />
+                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/overview" component={SelectedWalletMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/deposit" component={WalletDeposit} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/withdraw" component={WalletWithdraw} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profiles/kyc-steps" component={ConfirmMobileScreen} />
@@ -320,7 +319,6 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/language" component={ProfileLanguageMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/2fa" component={ProfileAuthMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/verification" component={ProfileVerificationMobileScreen} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/theme" component={ProfileThemeMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile" component={ProfileMobileScreen} /> 
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/p2p/my-payments/" component={ProfileP2PPaymentsScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/p2p/orders" component={ProfileP2POrdersScreen} />

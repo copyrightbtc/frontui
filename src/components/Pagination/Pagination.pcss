@@ -31,7 +31,6 @@
       }
       &:active{
         box-shadow: none;
-  
       }
     }
     &:hover{
@@ -61,5 +60,57 @@
   }
   &__pages{
     color: #fff;
+  }
+}
+.mobile-version{
+  .pagination-element{
+    justify-content: center;
+    padding: 1.125rem 16px;
+    button {
+      color: var(--color-dark);
+      background: var(--color-main-dark-brown);
+      box-shadow: var(--color-small-button-shadow);
+      &.next{
+        margin-left: 1.15rem;
+      }
+      &:disabled {
+        color: var(--color-light-grey);
+        background: #1a1b1e66;
+        opacity: .6;
+        &:hover{
+          box-shadow: none;
+        }
+        &:active{
+          box-shadow: none;
+        }
+      }
+      &:hover{
+        color: var(--color-accent);
+        box-shadow: var(--color-small-button-hover-shadow);
+        svg{
+          &.active{
+            fill: var(--accent);
+          }
+          &.disabled{
+            fill: var(--light-grey);
+          }
+        }
+      }
+      &:active{
+        box-shadow: var(--color-small-button-active-shadow);
+      }
+    }
+    svg{
+      transition: .2s;
+      &.active{
+        fill: var(--color-dark);
+      }
+      &.disabled{
+        fill: var(--color-light-grey);
+      }
+    }
+    &__pages{
+      color: var(--color-dark);
+    }
   }
 }

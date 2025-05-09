@@ -1,28 +1,28 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router';
+import { ArrowBackIcon } from 'src/assets/images/ArrowBackIcon';
 
 const WalletsButtonsComponent = props => {
     const intl = useIntl();
     const history = useHistory();
 
     return (
-        <div className="cr-mobile-wallets-buttons">
-            <Button
+        <div className="mobile-wallets-buttons">
+            <button
+                className="mobile-wallets-buttons__button deposit"
                 onClick={() => history.push(`/wallets/${props.currency}/deposit`)}
-                size="lg"
-                variant="success"
             >
                 {intl.formatMessage({ id: 'page.body.wallets.tabs.deposit' })}
-            </Button>
-            <Button
+                <ArrowBackIcon />
+            </button>
+            <button
+                className="mobile-wallets-buttons__button withdraw"
                 onClick={() => history.push(`/wallets/${props.currency}/withdraw`)}
-                size="lg"
-                variant="danger"
             >
+                <ArrowBackIcon />
                 {intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw' })}
-            </Button>
+            </button>
         </div>
     );
 };

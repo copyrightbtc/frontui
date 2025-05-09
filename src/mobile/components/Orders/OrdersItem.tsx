@@ -205,6 +205,7 @@ class OrdersItemComponent extends React.PureComponent<Props>  {
         const actualPrice = this.getPrice(ord_type, status, avg_price, price);
         const executedVolume = Number(origin_volume) - Number(remaining_volume);
         const filled = ((executedVolume / Number(origin_volume)) * 100).toFixed(2);
+        const total = +actualPrice * +origin_volume;
         
         return (
             <div key={id} className="trade-orders-mobile__order">
@@ -216,11 +217,11 @@ class OrdersItemComponent extends React.PureComponent<Props>  {
                     <div className="cells name">
                         {marketName.toUpperCase()}
                     </div>
-                    <div className="cells">
+                    <div className="cells trad">
                         <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.amount'})}</span>
                         <div className='numbers'>{parseFloat(Number(origin_volume).toFixed(thisMarket.amount_precision))}</div>
                     </div>
-                    <div className="cells">
+                    <div className="cells trad">
                         <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.price'})}</span>
                         <div className='numbers'>
                             {ord_type === 'market' || status === 'done' ? 
@@ -232,6 +233,10 @@ class OrdersItemComponent extends React.PureComponent<Props>  {
                                 </OverlayTrigger> 
                             : parseFloat(Number(actualPrice).toFixed(thisMarket.price_precision))}
                         </div>
+                    </div>
+                    <div className="cells trad">
+                        <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.total'})}</span>
+                        <div className='numbers'>{parseFloat(Number(total).toFixed(thisMarket.price_precision))}</div>
                     </div>
                 </div>
                 <div className="order-block last">

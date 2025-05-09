@@ -5,7 +5,15 @@
   overflow: hidden;
   position: fixed;
   right: 0;
-  z-index: 99999;
+  z-index: 99999999;
+  &__expired-session{
+    padding: 25px 16px 45px;
+    h5{
+      font-size: 16px;
+      text-align: center;
+      color: var(--color-dark);
+    }
+  }
   &__button{
     width: 100%;
     margin: 25px 0 35px;
@@ -63,7 +71,6 @@
     height: 0;
     transition-delay: .4s;
   }
-
   &__block {
     background-color: var(--color-main-dark);
     border-top-left-radius: var(--medium-border-radius);
@@ -81,6 +88,29 @@
     &.maxheight{
       max-height: calc(100vh - 15px);
       min-height: 80vh;
+    }
+    &.mobile-modal-ewallets{
+      .mobile-modal{
+        &__body{
+          background-color: var(--main-dark);
+          padding-bottom: 55px;
+        }
+        &__header {
+          &.borders{
+            border-bottom: 1px solid var(--table-lines-grey);
+          }
+          &-title {
+            color: #fff;
+          }
+          &-back,
+          &-close {
+            color: var(--light-grey);
+            svg{
+              fill: var(--light-grey);
+            }
+          }
+        }
+      }
     }
     &--open {
       overflow: hidden;

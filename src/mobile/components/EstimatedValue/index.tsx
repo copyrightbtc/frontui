@@ -25,18 +25,18 @@ const EstimatedValueMobile = React.memo(() => {
     useMarketsTickersFetch();
 
     return (
-        <div className="cr-mobile-wallets-banner">
-            <div className="cr-mobile-wallets-banner__title">
+        <div className="mobile-wallets-banner">
+            <div className="mobile-wallets-banner__title">
                 {intl.formatMessage({ id: 'page.body.wallets.estimated_value' })}
             </div>
-            <div className="cr-mobile-wallets-banner__body">
-                <div className="cr-mobile-wallets-banner__body-wrap">
-                    <span className="cr-mobile-wallets-banner__body-number">{Decimal.format(estimatedValue, estimatedPrecision, ',')}</span>
-                    <span className="cr-mobile-wallets-banner__body-currency">{VALUATION_PRIMARY_CURRENCY.toUpperCase()}</span>
+            <div className="mobile-wallets-banner__body">
+                <div className="mobile-wallets-banner__body-wrap">
+                    <span className="mobile-wallets-banner__body-number">{Decimal.format(estimatedValue, estimatedPrecision, ',')}</span>
+                    <span className="mobile-wallets-banner__body-currency">{VALUATION_PRIMARY_CURRENCY.toUpperCase()}</span>
                 </div>
-                <div className="cr-mobile-wallets-banner__body-wrap">
-                    <span className="cr-mobile-wallets-banner__body-number">{Decimal.format(estimatedSecondaryValue, estimatedSecondaryPrecision, ',')}</span>
-                    <span className="cr-mobile-wallets-banner__body-currency">{VALUATION_SECONDARY_CURRENCY.toUpperCase()}</span>
+                <div className="mobile-wallets-banner__body-wrap">
+                    <span className="mobile-wallets-banner__body-number">{Decimal.format(estimatedSecondaryValue, estimatedSecondaryPrecision, ',')}</span>
+                    <span className="mobile-wallets-banner__body-currency">{VALUATION_SECONDARY_CURRENCY.toUpperCase()}</span>
                 </div>
             </div>
         </div>

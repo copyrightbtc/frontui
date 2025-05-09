@@ -3,6 +3,8 @@ import { useIntl } from 'react-intl';
 import { FilterInput } from '..';
 import { Wallet } from '../../modules';
 import { Checkbox } from '@mui/material';
+import { selectMobileDeviceState } from '../../modules';
+import { useReduxSelector } from '../../hooks';
 
 interface ParentProps {
     wallets: Wallet[];
@@ -18,6 +20,7 @@ interface ParentProps {
 export const WalletsHeader: React.FunctionComponent<ParentProps> = (props: ParentProps) => {
     const { wallets, nonZeroSelected } = props;
     const intl = useIntl();
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
 
     const searchFilter = (row: Wallet, searchKey: string) => {
         props.setFilterValue(searchKey);
@@ -40,6 +43,7 @@ export const WalletsHeader: React.FunctionComponent<ParentProps> = (props: Paren
                 onFilter={handleFilter}
                 filter={searchFilter}
                 placeholder={intl.formatMessage({id: 'page.body.wallets.overview.seach'})}
+                themes={isMobileDevice ? true : null}
             />
             <div className="wallet-checkbox"> 
                 <Checkbox 
@@ -52,7 +56,7 @@ export const WalletsHeader: React.FunctionComponent<ParentProps> = (props: Paren
                         } 
                     }}
                 />
-                <p>{intl.formatMessage({id: 'page.body.wallets.overview.nonZero'})}</p>
+                {isMobileDevice ? <p>{intl.formatMessage({id: 'page.body.wallets.overview.nonZero.short'})}</p> : <p>{intl.formatMessage({id: 'page.body.wallets.overview.nonZero'})}</p>}
             </div>
         </div>
     );

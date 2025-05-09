@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
+import { useParams } from 'react-router';
+import { useIntl } from 'react-intl';
+import { IconButton } from '@mui/material';
+import { ArrowBackIcon } from 'src/assets/images/ArrowBackIcon';
 import { useWalletsFetch } from '../../../hooks';
 import {
     selectWallets,
     Wallet,
 } from '../../../modules/user/wallets';
-import { Subheader, WalletDepositBody, WalletHeader } from '../../components';
+import { WalletDepositBody } from '../../components';
 import { DEFAULT_WALLET } from '../../../constants';
 
 const WalletDeposit: React.FC = () => {
     const intl = useIntl();
-    const history = useHistory();
     const { currency = '' } = useParams<{ currency?: string }>();
     const wallets = useSelector(selectWallets) || [];
 
@@ -20,16 +21,30 @@ const WalletDeposit: React.FC = () => {
 
     const wallet: Wallet = wallets.find(item => item.currency === currency) || DEFAULT_WALLET;
 
+    const goBack = () => {
+        window.history.back();
+    }
+
     return (
-        <React.Fragment>
-            <Subheader
-                title={intl.formatMessage({ id: 'page.body.wallets.tabs.deposit' })}
-                backTitle={intl.formatMessage({ id: 'page.body.wallets.balance' })}
-                onGoBack={() => history.push(`/wallets/${currency}/history`)}
-            />
-            <WalletHeader currency={wallet.currency} name={wallet.name}/>
+        <div className='mobile-wallet'>
+                <div className="mobile-wallet--top__close">
+                <IconButton 
+                    onClick={goBack}
+                    sx={{
+                        width: '40px',
+                        height: '40px',
+                        color: 'var(--color-light-grey)',
+                        '&:hover': {
+                            color: 'var(--color-accent)'
+                        }
+                    }}
+                >
+                    <ArrowBackIcon /> 
+                </IconButton>
+                <p>{intl.formatMessage({ id: 'page.body.profile.content.back' })}</p>
+            </div>
             <WalletDepositBody wallet={wallet}/>
-        </React.Fragment>
+        </div>
     );
 };
 

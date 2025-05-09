@@ -2,6 +2,8 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { Tabs, Button } from '@mui/material';
 import { useIntl } from 'react-intl'; 
+import { selectMobileDeviceState } from 'src/modules';
+import { useReduxSelector } from 'src/hooks';
 
 export enum HideMode {
     hide = 'hide',
@@ -37,6 +39,7 @@ export const DepositTabs: React.FC<DepositTabsProps> = ({
     onCurrentTabChange,
     onTabChange,
 }) => {
+    const isMobileDevice = useReduxSelector(selectMobileDeviceState);
 
     const { formatMessage } = useIntl();
     const translate = (id: string) => formatMessage({ id });
@@ -116,7 +119,7 @@ export const DepositTabs: React.FC<DepositTabsProps> = ({
 
     return (
         <div className="networks-panel">
-            {Number(contents.length) !== 1 ? <h6>{translate('page.body.wallets.tabs.deposit.ccy.blockchain.networks')}</h6> : null}
+            {Number(contents.length) === 1 || isMobileDevice ? null : <h6>{translate('page.body.wallets.tabs.deposit.ccy.blockchain.networks')}</h6>}
             {Number(contents.length) !== 1 ? tabPanelRender() : null}
             {contents}
         </div>

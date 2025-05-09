@@ -66,7 +66,6 @@ const ChangePasswordScreenComponent: React.FC = () => {
                 header={renderModalHeader}
                 isOpen={isOpenModal}
                 onClose={() => setOpenModal(!isOpenModal)}
-                classNames='fullheight'
             > 
                 <ChangePassword
                     handleChangePassword={handleChangePassword}

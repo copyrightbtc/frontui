@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector} from 'react-redux';
 import { ModalMobile } from '../../mobile/components/ModalMobile';
+import { CloseIcon } from 'src/assets/images/CloseIcon';
 import {
     beneficiariesActivate,
     beneficiariesResendPin,
@@ -17,7 +18,7 @@ interface Props {
     handleToggleConfirmationModal: () => void;
 }
 
-const BeneficiariesActivateModalComponent: React.FC<Props> = (props: Props) => {
+export const BeneficiariesActivateModal: React.FC<Props> = (props: Props) => {
     const { beneficiariesAddData } = props;
 
     const [confirmationModalCode, setConfirmationModalCode] = React.useState('');
@@ -87,7 +88,7 @@ const BeneficiariesActivateModalComponent: React.FC<Props> = (props: Props) => {
                 <div className="beneficiaries-confirmation-modal__repeat">
                     <Button
                         onClick={handleResendConfirmationCode}
-                        className="little-button blue"
+                        className={`little-button blue ${isMobileDevice && 'themes'}`}
                     >
                         {formatMessage({ id: 'page.body.wallets.beneficiaries.confirmationModal.body.resendButton' })}
                     </Button>
@@ -108,7 +109,7 @@ const BeneficiariesActivateModalComponent: React.FC<Props> = (props: Props) => {
                 <div className="beneficiaries-confirmation-modal__footer">
                     <Button
                         onClick={handleSubmitConfirmationModal}
-                        className="medium-button"
+                        className={`medium-button ${isMobileDevice && 'themes'}`}
                         disabled={isDisabled}
                     >
                         {formatMessage({ id: 'page.body.wallets.beneficiaries.confirmationModal.body.button' })}
@@ -132,19 +133,17 @@ const BeneficiariesActivateModalComponent: React.FC<Props> = (props: Props) => {
         );
     }, [isMobileDevice, renderConfirmationModalBody, formClass]);
 
+    const renderContentMobile = React.useCallback(() => {
+        return (
+            <div className="verification-modal">
+                <div className="verification-modal__content">
+                    {renderConfirmationModalBody()}
+                </div>
+            </div>
+        );
+    }, [isMobileDevice, renderConfirmationModalBody, formClass]);
+
     return (
-        isMobileDevice ?
-            <ModalMobile
-                onClose={props.handleToggleConfirmationModal}
-                title={formatMessage({ id: 'page.mobile.wallet.withdraw.modal.new.account' })}
-                isOpen>
-                {renderContent()}
-            </ModalMobile> : renderContent()
+        isMobileDevice ? renderContentMobile() : renderContent()
     );
-};
-
-const BeneficiariesActivateModal = React.memo(BeneficiariesActivateModalComponent);
-
-export {
-    BeneficiariesActivateModal,
 };

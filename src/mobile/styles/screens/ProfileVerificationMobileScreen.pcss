@@ -92,7 +92,7 @@
     }
   }
   .verification-modal{
-    padding: 15px 16px;
+    padding: 15px 16px 45px;
     .upload-file{
       &__content{
         &__form{
@@ -179,7 +179,7 @@
         .react-tel-input{
           .phone_input,
           .phone_input:-webkit-autofill{
-            color: var(--color-light-grey);
+            color: var(--color-dark);
             border-bottom: var(--color-input-border-thin) !important;
           }
         }
@@ -214,9 +214,18 @@
       }
       &__group{
         .input-group{
+          input:-webkit-autofill{
+            -webkit-box-shadow: 0 0 0 50px var(--color-main-dark-brown) inset !important;
+            box-shadow: 0 0 0 50px var(--color-main-dark-brown) inset !important;
+            -webkit-text-fill-color: var(--color-dark) !important;
+          }
+          input:-webkit-autofill, 
           input{
-            color: var(--color-light-grey);
+            color: var(--color-dark);
             border-bottom: var(--color-input-border-thin) !important;
+            &::placeholder{
+              color: var(--color-light-grey);
+            }
           }
         }
       }

@@ -1,34 +1,85 @@
 /* stylelint-disable */
-.cr-wallet-banner-mobile {
-  height: 87px;
+.wallet-banner-mobile{
   background: var(--color-main-dark);
-  margin-top: 4px;
-  margin-bottom: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &__item {
+  padding: 10px 16px;
+  &__close{
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: 3px;
+    svg{
+      user-select: none;
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      flex-shrink: 0;
+      transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      fill: var(--color-light-grey);
+    }
+    p{
+      color: var(--color-light-grey);
+      font-size: 17px;
+      margin-left: 7px;
+    }
+  }
+  &__header{
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px 0 15px;
+    padding: 1rem;
+    box-shadow: var(--color-box-shadow-small);
+    background-color: var(--color-main-dark-brown);
+    width: 100%;
+    border-radius: var(--medium-border-radius);
     display: flex;
     flex-direction: column;
-
-    &-title  {
-      font-size: 12px;
-    }
-
-    &-info {
-      font-size: 16px;
-
-      &-currency {
-        text-transform: uppercase;
-        font-size: 16px;
-        color: var(--color-dark);
-        padding-left: 5px;
+    position: relative;
+    .currency-icon{
+      width: 50px;
+      height: 50px;
+      margin-bottom: 7px;
+      img{
+        width: 100%;
+        height: 100%;
       }
     }
-
-    &:first-child {
-      margin-right: 32px;
+    h5{
+      color: var(--color-dark);
+      font-size: 17px;
+      margin: 3px 0 0;
+    }
+    .balance{
+      font-size: 21px;
+      color: var(--color-dark);
+      margin-bottom: 11px;
+      span{
+        margin-left: 7px;
+      }
+    }
+    .balances{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-width: 100%;
+      .numbers{
+        flex: 1;
+        width: 100%;
+        max-width: 50%;
+        padding: 0 7px;
+        text-align: center;
+        &:first-child{
+          max-width: calc(50% - 1px);
+          border-right: 1px solid var(--color-table-lines-grey);
+        }
+        h6{
+          color: var(--color-light-grey);
+        }
+        .decimal-steght{
+          color: var(--color-dark);
+        }
+      }
     }
   }
 }

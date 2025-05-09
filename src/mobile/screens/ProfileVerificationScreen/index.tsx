@@ -23,12 +23,16 @@ export const ProfileVerificationMobileScreen: React.FC = () => {
         }
     };
 
+    const goBack = () => {
+        window.history.back();
+    }
+
     return (
         <div className="mobile-profile-verification">
             <div className="mobile-profile-verification__header"> 
                 <div className="mobile-profile-verification__close">
                     <IconButton
-                        onClick={() => history.push('/profile')}
+                        onClick={goBack}
                         sx={{
                             width: '40px',
                             height: '40px',

@@ -105,7 +105,8 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
             price,
             name,
             beneficiaries,
-            balance
+            balance,
+            isMobileDevice
         } = this.props;
 
         const blockchainItem = networks?.find(item => item.blockchain_key === beneficiary.blockchain_key);
@@ -114,14 +115,14 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
 
         const text1 = this.props.intl.formatMessage({ id: 'page.body.wallets.tabs.deposit.ccy.withdraw.instruction.2' },
             {name: this.props.name, asset: currency.toUpperCase()});
-
+            
         const text2 = this.props.intl.formatMessage({ id: 'page.body.wallets.tabs.deposit.ccy.withdraw.instruction.3' },
-            {amount: Decimal.format(blockchainItem?.min_withdraw_amount?.toString(), fixed) === '0' ? '-.--' : Decimal.format(blockchainItem?.min_withdraw_amount?.toString(), fixed), 
+            {amount: Decimal.format(blockchainItem?.min_withdraw_amount?.toString(), fixed) === '0' ? '-.--' : parseFloat(Number(blockchainItem?.min_withdraw_amount?.toString()).toFixed(fixed)), 
                 asset: currency.toUpperCase()});
 
         return (
             <React.Fragment>
-                <div className="wallets-coinpage__wrapper__body__left">
+                <div className={isMobileDevice ? 'mobile-wallet__withdraw__top' : 'wallets-coinpage__wrapper__body__left'}>
                     <div className="withdraw-container">
                         <Beneficiaries
                             currency={currency}
@@ -154,14 +155,14 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
                                 <div className="withdraw-container__row column">
                                     <span>{this.translate('page.body.wallets.beneficiaries.withdrawalfee')}</span>
                                     <div className="withdraw-container__row__details">
-                                        <div><Decimal fixed={fixed} thousSep=",">{blockchainItem?.withdraw_fee?.toString()}</Decimal>&nbsp;{currency.toUpperCase()}</div>
+                                        <div>{parseFloat(Number(blockchainItem?.withdraw_fee?.toString()).toFixed(fixed))}&nbsp;{currency.toUpperCase()}</div>
                                         <small>≈ $<Decimal fixed={DEFAULT_FIAT_PRECISION} thousSep=",">{estimatedValueFee.toString()}</Decimal></small>
                                     </div>
                                 </div>
                                 <div className="withdraw-container__row">
                                     <span>{this.translate('page.body.wallets.beneficiaries.minamountwithdraw')}</span>
                                     <div className="withdraw-container__row__details">
-                                        <Decimal fixed={fixed} thousSep=",">{blockchainItem?.min_withdraw_amount?.toString()}</Decimal>&nbsp;{currency.toUpperCase()}
+                                        {parseFloat(Number(blockchainItem?.min_withdraw_amount?.toString()).toFixed(fixed))}&nbsp;{currency.toUpperCase()}
                                     </div>
                                 </div>
                                 </Accordion.Body>
@@ -196,16 +197,14 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
                             </div>
                             ) : (
                             <React.Fragment>
-                                <div className="cols"> 
+                                <div className="withdraw-container__amount__column__up"> 
                                     <div className="name">{withdrawSumlLabel ? withdrawSumlLabel : 'Amount'}</div>
-                                    <div className="summary">{this.renderSum()}</div>
-                                </div>
-                                <div className="cols">
                                     <div className="name">{withdrawFeeLabel ? withdrawFeeLabel : 'Fee'}</div>
-                                    <div className="summary">{this.renderFee()}</div>
-                                </div>
-                                <div className="cols"> 
                                     <div className="name">{withdrawTotalLabel ? withdrawTotalLabel : 'You\'ll get'}</div>
+                                </div>
+                                <div className="withdraw-container__amount__column__down">
+                                    <div className="summary">{this.renderSum()}</div>
+                                    <div className="summary">{this.renderFee()}</div>
                                     <div className="summary">{this.renderTotal()}</div>
                                 </div>
                             </React.Fragment>)}
@@ -220,7 +219,7 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
                             <Button
                                 onClick={this.handleClick}
                                 disabled={this.handleCheckButtonDisabled(total, beneficiary, otpCode) || blockchainItem && !blockchainItem.withdrawal_enabled}
-                                className="medium-button"
+                                className={`medium-button ${isMobileDevice && 'themes'}`}
                             >
                                 {withdrawButtonLabel ? withdrawButtonLabel : this.translate('page.body.wallets.tabs.withdraw.content.button')}
                             </Button>
@@ -228,6 +227,17 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
                         </div>
                     </div>
                 </div>
+                {isMobileDevice ? 
+                <div className="mobile-wallet__withdraw__conditions">
+                    <h5>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.title')}</h5>
+                    <ul>
+                        <li>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.1')}</li>
+                        <li>{text1}</li>
+                        <li>{text2}</li>
+                        <li>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.4')}</li>
+                        <li>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.5')}</li>
+                    </ul>
+                </div> : 
                 <div className="wallets-coinpage__wrapper__body__right">
                     <h4>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.title')}</h4>
                     <ul>
@@ -237,7 +247,7 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
                         <li>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.4')}</li>
                         <li>{this.translate('page.body.wallets.tabs.deposit.ccy.withdraw.instruction.5')}</li>
                     </ul>
-                </div> 
+                </div>}
             </React.Fragment>
         );
     }
@@ -265,7 +275,7 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
 
         return (
             <React.Fragment>
-                {Decimal.format(blockchainItem?.withdraw_fee?.toString(), fixed)} {currency.toUpperCase()}
+                {parseFloat(Number(blockchainItem?.withdraw_fee?.toString()).toFixed(fixed))} {currency.toUpperCase()}
             </React.Fragment>
         );
     };

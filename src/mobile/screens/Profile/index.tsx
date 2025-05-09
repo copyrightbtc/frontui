@@ -9,7 +9,7 @@ import {
 import { UserInfo } from '../../components';
 import { ProfileChangePasswordMobileScreen, ProfileTwoFaScreen } from '../../screens';
 
-const ProfileMobileScreenComponent: React.FC = () => {
+export const ProfileMobileScreen: React.FC = () => {
     const intl = useIntl();
     const user = useSelector(selectUserInfo);
 
@@ -31,5 +31,3 @@ const ProfileMobileScreenComponent: React.FC = () => {
         </div>
     );
 };
-
-export const ProfileMobileScreen = React.memo(ProfileMobileScreenComponent);

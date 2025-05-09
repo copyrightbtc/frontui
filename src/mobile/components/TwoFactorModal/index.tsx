@@ -34,7 +34,6 @@ export const TwoFactorModalComponent = props => {
             header={renderModalHeader}
             isOpen={props.showModal}
             onClose={props.showModal}
-            classNames='fullheight'
         > 
             <div className="mobile-modal-2fa">
                 <TwoFactorCustom
