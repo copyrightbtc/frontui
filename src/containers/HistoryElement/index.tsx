@@ -84,7 +84,6 @@ const defaultMarket = {
 };
 
 const paginationLimit = 25;
-const reFetchInterval = 5000; // In MS' (5000 = 5 seconds)
 
 class HistoryComponent extends React.Component<Props, HistoryState> {
     constructor(props: Props | Readonly<Props>) {
@@ -94,21 +93,10 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
             focusedInput: false,
         }
     }
-    // Properties
-    fetchIntervalId = null;
  
     public componentDidMount() {
         this.fetchData();
         this.retrieveData();
-
-        // Set up the fetch interval
-        this.setupInterval();
-    }
-
-    componentWillUnmount() {
-        if (this.fetchIntervalId) {
-            clearInterval(this.fetchIntervalId);
-        }
     }
 
     private fetchData = () => {
@@ -131,12 +119,6 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
         };
 
         this.props.fetchHistory(fetchParams);
-    };
-
-    private setupInterval = () => {
-        this.fetchIntervalId = setInterval(() => {
-            this.fetchData();
-        }, reFetchInterval);
     };
 
     public render() {
@@ -212,7 +194,7 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                             delay={{ show: 250, hide: 300 }} 
                             overlay={<Tooltip title="page.body.filters.reload.tolltip" />}>
                             <IconButton
-                                onClick={() => this.fetchData}
+                                onClick={() => this.fetchData()}
                                 sx={{
                                     color: 'var(--success)',
                                     '&:hover': {
