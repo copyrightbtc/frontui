@@ -54,6 +54,7 @@ const RenderDeviceContainers = () => {
             <div className="mobile-version">
                 <MobileHeader />
                 <AlertsContainer/>
+                <P2PAlertsContainer />
                 <LayoutContainer/>
             </div>
         );

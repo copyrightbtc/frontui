@@ -668,8 +668,8 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                     </div>
                 </div>
                 <div className="mobile beneficiaries-modal-wrapper">
-                    <div className="modal-window__container__content">
-                        <div className="twofa__form__content__header">
+                    <div className="mobile-modal-twofa-deletes">
+                        <div className="mobile-modal-twofa-deletes__title">
                             {formatMessage({id: 'page.body.wallets.beneficiaries.delete.2fa.title' })}
                         </div>
                         <div className="modal-window__container__twofa">
@@ -692,7 +692,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                                 <Button
                                     disabled={!is2faValid(code2FA)}
                                     onClick={deleteBeneficiary}
-                                    className="medium-button"
+                                    className="medium-button themes"
                                 >
                                     {formatMessage({id: 'page.body.wallets.beneficiaries.delete.2fa.button' })}
                                 </Button>

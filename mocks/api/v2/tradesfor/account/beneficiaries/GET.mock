@@ -18,14 +18,14 @@ Access-Control-Allow-Credentials: true
     "state":"active"
   },
   {
-    "id":10,
+    "id":9,
     "currency":"btc",
-    "blockchain_name":"Bitcoin disabled chain",
-    "blockchain_key":"bitcoin_disabled",
-    "protocol": "BTC-pending",
-    "name":"Pentagon",
-    "description":null,
-    "data":{"address":"1MM67SnmHrRcuRtbQunU2HUkembjxuzrgD_disabled"},
+    "blockchain_name":"Bitcoin chain",
+    "blockchain_key":"bitcoin",
+    "protocol": "electrum",
+    "name":"Momsss",
+    "description":"description description description",
+    "data":{"address":"333333SnmHrRcuRtbQunU2HUkembjxuzrgD"},
     "state":"active"
   },
   {

@@ -21,15 +21,17 @@ const defaultBeneficiary: Beneficiary = {
     id: 0,
     currency: '',
     name: '',
-    blockchain_key: '',
-    blockchain_name: '',
     state: '',
+    blockchain_key: '',
+    protocol: '',
+    blockchain_name: '',
+    description: '',
     data: {
         address: '',
     },
 };
 
-const WalletWithdrawBodyComponent = props => {
+export const WalletWithdrawBody = props => {
 
     const [otpCode, setOtpCode] = React.useState(''); 
 
@@ -79,9 +81,9 @@ const WalletWithdrawBodyComponent = props => {
 
         if (props.wallet) {
             confirmationAddress = props.wallet.type === 'fiat' ? (
-                withdrawData.beneficiary.name
+                defaultBeneficiary.name
             ) : (
-                withdrawData.beneficiary.data ? (withdrawData.beneficiary.data.address as string) : ''
+                defaultBeneficiary.data ? (defaultBeneficiary.data.address as string) : ''
             );
         }
 
@@ -236,10 +238,4 @@ const WalletWithdrawBodyComponent = props => {
             </React.Fragment> : renderWarning }
         </div>
     );
-};
-
-const WalletWithdrawBody = React.memo(WalletWithdrawBodyComponent);
-
-export {
-    WalletWithdrawBody,
 };

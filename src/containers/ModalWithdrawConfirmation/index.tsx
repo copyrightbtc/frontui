@@ -8,7 +8,7 @@ import {
 import { IntlProps } from '../../';
 import { Decimal } from '../../components';
 import { CloseIcon } from '../../assets/images/CloseIcon';
-import { ModalMobile } from 'src/mobile/components/ModalMobile';
+import { ModalMobile } from '../../mobile/components/ModalMobile';
 import { Beneficiary } from 'src/modules';
 
 interface ModalWithdrawConfirmationProps {
@@ -56,9 +56,25 @@ class ModalWithdraw extends React.Component<Props> {
         return this.props.intl.formatMessage({id: e});
     };
     public render() {
-        const { show } = this.props;
+        const { show, isMobileDevice } = this.props;
 
-        return (
+        return isMobileDevice ?
+            <ModalMobile 
+                title={this.renderHeader()} 
+                onClose={this.props.onDismiss} 
+                isOpen={this.props.show}
+            >
+                <div className="mobile-modal__header">
+                    <div className="mobile-modal__header-title">{this.translate('page.body.wallets.tabs.withdraw.modal.title')}</div>
+                    <div className="mobile-modal__header-close" onClick={this.props.onDismiss}>
+                        <CloseIcon />
+                    </div>
+                </div>
+                <div className="modal-body__withdraw-confirm">
+                    {this.renderBody()}
+                    {this.renderFooter()}
+                </div> 
+            </ModalMobile> : (
             <CSSTransition
                 in={show}
                 timeout={{
@@ -77,7 +93,7 @@ class ModalWithdraw extends React.Component<Props> {
                     </div>
                 </div>
             </CSSTransition>
-        )
+        );
     }
 
     private renderHeader = () => {
