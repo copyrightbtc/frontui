@@ -502,7 +502,7 @@ export const ru = {
     "page.body.wallets.beneficiaries.addAddressModal.body.coinDescription":
         "Описание (необязательно | макс. 80 символов)",
     "page.body.wallets.beneficiaries.addAddressModal.body.description": "Описание",
-    "page.body.wallets.beneficiaries.addAddressModal.body.coinDestinationTag": "Destination Tag (optional)",
+    "page.body.wallets.beneficiaries.addAddressModal.body.coinDestinationTag": "Тег назначения (необязательно)",
 
     "page.body.wallets.beneficiaries.addAddress": "Добавить бенефициара",
     "page.body.wallets.beneficiaries.addAddressChange": "Добавить | сменить бенефициара",

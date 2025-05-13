@@ -287,6 +287,7 @@ const HistoryTable = (props: any) => {
                                             </div>
                                         </div>
                                     </div>
+                                    <>onoin {blockchainTxid}</>
                                 </div>
                             </Accordion.Body> : 
                             <Accordion.Body>

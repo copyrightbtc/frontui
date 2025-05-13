@@ -272,10 +272,11 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
         const { beneficiary } = this.state;
 
         const blockchainItem = networks?.find(item => item.blockchain_key === beneficiary.blockchain_key);
+        const finalFee = parseFloat(Number(blockchainItem?.withdraw_fee?.toString()).toFixed(fixed));
 
         return (
             <React.Fragment>
-                {parseFloat(Number(blockchainItem?.withdraw_fee?.toString()).toFixed(fixed))} {currency.toUpperCase()}
+                {finalFee.toString() === 'NaN' ? '0' : finalFee} {currency.toUpperCase()}
             </React.Fragment>
         );
     };
