@@ -32,7 +32,7 @@ import { BeneficiariesAddModal } from './BeneficiariesAddModal';
 import { BeneficiariesFailAddModal } from './BeneficiariesFailAddModal';
 import { TabPanelSliding } from 'src/components/TabPanelUnderlines/TabPanelSliding';
 import { SelectBeneficiariesCrypto } from './BeneficiariesCrypto/SelectBeneficiariesCrypto';
-import { is2faValid } from 'src/helpers';
+import { is2faValid, copyToClipboard } from 'src/helpers';
 import { ModalMobile } from 'src/mobile/components/ModalMobile';
 import {
     getAddressWithoutTag,
@@ -229,6 +229,10 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
     };
 
     const handleOnCopy = () => dispatch(alertPush({ message: ['page.body.wallets.tabs.deposit.ccy.message.success'], type: 'success'}));
+    const onCopy = (address?: string) => {
+        copyToClipboard(address);
+        dispatch(alertPush({message: ['11111SnmHrRcuRtbQunU2HUkembjxuzrgD'], type: 'success'}));
+    };
 
     const renderDatasCoin = React.useCallback((currentWithdrawalBeneficiary: Beneficiary) => {
         const isPending = currentWithdrawalBeneficiary.state && currentWithdrawalBeneficiary.state.toLowerCase() === 'pending';
@@ -257,15 +261,15 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
                     <h6>{formatMessage({ id: 'page.body.wallets.beneficiaries.tipAddress' })}</h6>
                     <div className="datas">
                         {isMobileDevice ? 
-                            <div className="wallet-address-input">
+                        <fieldset className="wallet-address-input">
                             <div className='wallet-address-input__adress'>{address}</div>
                             <Button 
-                                onClick={handleOnCopy}
+                                onClick={() => onCopy(address)}
                                 className='wallet-address-input__copy'
                             >
                                 {formatMessage({ id: 'page.body.wallets.tabs.deposit.copy.button.tap'})}
                             </Button>
-                        </div> : 
+                        </fieldset> : 
                         <div className="wallet-address-input">
                             <fieldset onClick={handleOnCopy}>
                                 <CopyableTextField

@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { useWalletsFetch } from '../../../hooks';
 import { selectWallets } from '../../../modules/user/wallets';
-import { WalletBanner, WalletWithdrawBody } from '../../components';
+import { WalletBanner } from '../../components';
+import { WalletsSpotMobile } from 'src/mobile/screens';
+
 
 const defaultWallet = { name: '', currency: '', balance: '', type: '', address: '', fee: '' };
 
@@ -17,7 +19,7 @@ const WalletWithdraw: React.FC = () => {
     return (
         <div className="mobile-wallet">
             <WalletBanner wallet={wallet} />
-            <WalletWithdrawBody wallet={wallet}/>
+            <WalletsSpotMobile currency={currency} action='withdraw'/> 
         </div>
     );
 };

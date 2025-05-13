@@ -113,7 +113,6 @@ export const WalletWithdrawBody = props => {
         }
 
         const withdrawRequest = {
-            beneficiary,
             amount,
             currency: currency.toLowerCase(),
             otp: otpCode,

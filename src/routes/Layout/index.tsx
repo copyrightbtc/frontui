@@ -45,7 +45,8 @@ import {
     ProfileP2PPaymentsScreen,
     ProfileP2PTradeMessagesScreen,
     CreateAdvertisementMobileScreen,
-    ProfileSetUsernameMobileScreen
+    ProfileSetUsernameMobileScreen,
+    WalletsSpotMobile
 } from '../../mobile/screens';
  
 import {
@@ -308,8 +309,8 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/accounts/confirmation" component={VerificationScreen} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/email-verification" component={EmailVerificationMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/overview" component={SelectedWalletMobileScreen} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/deposit" component={WalletDeposit} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/withdraw" component={WalletWithdraw} />
+                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets/:currency/deposit" component={WalletDeposit} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profiles/kyc-steps" component={ConfirmMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets" component={WalletsMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/orders" component={OrdersMobileScreen} />
