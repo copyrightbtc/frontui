@@ -179,7 +179,6 @@ const HistoryTable = (props: any) => {
     };
 
     const getBlockchainLink = (currency: string, blockchainKey: string, txid?: string, rid?: string, blockchain_txid?: string) => {
-        const { currencies } = props;
         const currencyInfo = currencies && currencies.find(c => c.id === currency);
         const blockchainCurrency = currencyInfo?.networks?.find(blockchain_cur => blockchain_cur.blockchain_key === blockchainKey);
     
@@ -197,7 +196,6 @@ const HistoryTable = (props: any) => {
     };
 
     const getBlockchainRid = (currency: string, blockchainKey: string, rid: string) => {
-        const { currencies } = props;
         const currencyInfo = currencies && currencies.find(c => c.id === currency);
         const blockchainCurrency = currencyInfo?.networks?.find(blockchain_cur => blockchain_cur.blockchain_key === blockchainKey);
 
@@ -287,7 +285,6 @@ const HistoryTable = (props: any) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <>onoin {blockchainTxid}</>
                                 </div>
                             </Accordion.Body> : 
                             <Accordion.Body>
