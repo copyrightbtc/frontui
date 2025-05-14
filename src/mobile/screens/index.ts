@@ -11,7 +11,6 @@ export * from './ProfileApiKeys';
 export * from './ProfileTwoFaScreen';
 export * from './ProfileAuth';
 export * from './ProfileChangePassword';
-export * from './ProfileLanguage';
 export * from './ProfileVerificationScreen';
 export * from './SelectedWalletScreen';
 export * from './SignInScreen';

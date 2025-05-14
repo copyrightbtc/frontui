@@ -5,8 +5,7 @@ import { Sidebar, ProfileHeader } from "../../containers";
 import { CopyIcon } from 'src/assets/images/CopyIcon';
 import { IconButton, Button } from '@mui/material';
 import { ChevronIcon } from '../../assets/images/ChevronIcon';
-import { QRCode, NoResultData } from '../../components';
-import { TabPanelUnderlines } from '../../components';
+import { QRCode, NoResultData, TabPanelUnderlines } from '../../components';
 import { 
   alertPush,
   commissionsFetch,
@@ -189,7 +188,7 @@ export const InvitesScreen: FC = (): ReactElement => {
     if (invitesFetching) return null;
 
     return invitesFetching ? (
-			<div className="empty-loader"><FillSpinner size={19} color="var(--color-accent)"/></div>
+			<div className="empty-loader"><FillSpinner size={19} color="var(--accent)"/></div>
 		) : (
       <React.Fragment>
         <div className="table-main-wrapper">
@@ -355,7 +354,7 @@ export const InvitesScreen: FC = (): ReactElement => {
         <ProfileHeader />
         <div className="invite-screen">
           {renderInfo()}
-          <h2 id="refreward">{formatMessage({ id: 'page.body.invite.invitee.reawards'})}</h2>
+          <h1 id="refreward">{formatMessage({ id: 'page.body.invite.invitee.reawards'})}</h1>
           {renderTabs()}
         </div>
       </div>

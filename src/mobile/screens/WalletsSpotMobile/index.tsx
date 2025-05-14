@@ -1,22 +1,11 @@
 import * as React from 'react';
 import { injectIntl } from 'react-intl';
-import { CryptoIcon } from 'src/components/CryptoIcon';
-import { IconButton, Button } from '@mui/material';
-import { CSSTransition } from "react-transition-group";
-import { ArrowBackIcon } from '../../../assets/images/ArrowBackIcon';
-import { BalanceWalletIcon } from '../../../assets/images/BalanceWalletIcon';
-import { CloseIcon } from '../../../assets/images/CloseIcon';
+import { Button } from '@mui/material';
 import { connect, MapDispatchToProps } from 'react-redux';
 import { RouterProps } from 'react-router';
 import { withRouter, Link } from 'react-router-dom';
 import { compose } from 'redux';
 import { IntlProps } from 'src';
-import {
-    CurrencyInfo,
-    WalletList,
-} from 'src/components';
-import { WalletHeaderSearch } from 'src/components/WalletsHeader/WalletHeaderSearch';
-import { WalletDepositBody } from 'src/mobile/components';
 import { DEFAULT_CCY_PRECISION } from 'src/constants';
 import { Withdraw, WithdrawProps } from 'src/containers';
 import { ModalWithdrawConfirmation } from 'src/mobile/components/ModalWithdrawConfirmation';
@@ -113,7 +102,6 @@ interface WalletsState {
     bchAddress?: string;
     filterValue: string;
     filteredWallets?: Wallet[];
-    tab: string;
     withdrawDone: boolean;
     total: string;
     currentTabIndex: number;
@@ -143,7 +131,6 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
             amount: '',
             fee: '',
             beneficiary: defaultBeneficiary,
-            tab: this.translate('page.body.wallets.tabs.deposit'),
             withdrawDone: false,
             total: '',
             currentTabIndex: 0,
@@ -185,7 +172,6 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
             const tabIndex = this.tabMapping.indexOf(action);
 
             if (tabIndex !== -1 && tabIndex !== currentTabIndex) {
-                this.onTabChange(this.translate(`page.body.wallets.tabs.${action}`))
                 this.onCurrentTabChange(tabIndex);
             }
         }
@@ -226,7 +212,6 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
             const tabIndex = this.tabMapping.indexOf(action);
 
             if (tabIndex !== -1 && tabIndex !== currentTabIndex) {
-                this.onTabChange(this.translate(`page.body.wallets.tabs.${action}`))
                 this.onCurrentTabChange(tabIndex);
             }
         }
@@ -291,7 +276,7 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
 
         return (
             <React.Fragment>
-                {this.tabMapping[currentTabIndex] === 'deposit' ? this.renderDeposit() : this.renderWithdraw()}
+                {this.tabMapping[currentTabIndex] !== 'deposit' ? this.renderWithdraw() : null}
                 <ModalWithdrawSubmit
                     isMobileDevice
                     show={withdrawSubmitModal}
@@ -317,19 +302,7 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
             </React.Fragment>
         );
     }
- 
-    private formattedWallets = () => {
-        const {filteredWallets } = this.state;
 
-        return filteredWallets.map((wallet: Wallet) => ({
-            ...wallet,
-            currency: wallet.currency.toUpperCase(),
-            iconUrl: wallet.iconUrl ? wallet.iconUrl : '',
-        }));
-    }
- 
-    private onTabChange = label => this.setState({ tab: label });
-    private onActiveIndexChange = index => this.setState({ activeIndex: index });
     private onCurrentTabChange = index => {
         const { selectedWalletIndex } = this.state;
         const { wallets } = this.props;
@@ -379,33 +352,6 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
         this.props.walletsWithdrawCcy(withdrawRequest);
         this.toggleConfirmModal();
         this.setState({ otpCode: '' });
-    };
-
-    private renderDeposit = () => {
-        const { wallets, currency } = this.props;
-        const { selectedWalletIndex } = this.state;
-         
-        const wallet = (wallets[selectedWalletIndex] || DEFAULT_WALLET);
-        
-        <React.Fragment>
-            <div className="mobile-wallet--top__close">
-                <IconButton 
-                    onClick={this.goBack}
-                    sx={{
-                        width: '40px',
-                        height: '40px',
-                        color: 'var(--color-light-grey)',
-                        '&:hover': {
-                            color: 'var(--color-accent)'
-                        }
-                    }}
-                >
-                    <ArrowBackIcon /> 
-                </IconButton>
-                <p>{this.translate('page.body.profile.content.back' )}</p>
-            </div>
-            <WalletDepositBody wallet={wallet}/>
-        </React.Fragment>
     };
 
     private renderWithdraw = () => {
@@ -529,49 +475,7 @@ class WalletsSpotMobileComponent extends React.Component<Props, WalletsState> {
 
     private isTwoFactorAuthRequired(level: number, is2faEnabled: boolean) {
         return level >= this.props.memberLevels?.withdraw.minimum_level || (level === this.props.memberLevels?.withdraw.minimum_level && is2faEnabled);
-    }
-
-    private goBack = () => {
-        window.history.back();
-    };
-
-    private closeModalCurrency = () => {
-        this.setState({
-            showModalCurrency: false,
-        });
-    };
- 
-    private setFilterValue = (value: string) => {
-        this.setState({
-            filterValue: value,
-        });
-    };
-
-    private handleFilter = (result: object[]) => {
-        this.setState({
-            filteredWallets: result as Wallet[],
-        });
-    };
-
-    private onWalletSelectionChange = (value: Wallet) => {
-      const { wallets } = this.props;
-      const { currentTabIndex } = this.state;
-
-      const nextWalletIndex = this.props.wallets.findIndex(
-          wallet => wallet.currency?.toLowerCase() === value.currency.toLowerCase()
-      );
-
-      this.setState({
-          selectedWalletIndex: nextWalletIndex,
-          withdrawDone: false,
-          showModalCurrency: false,
-      });
-
-      currentTabIndex === 1 && this.props.fetchBeneficiaries({ currency_id: value.currency.toLowerCase(), state: [ 'active', 'pending' ] });
-      this.props.history.push(`/wallets/${value.currency.toLowerCase()}/${this.tabMapping[currentTabIndex]}`);
-      this.props.setMobileWalletUi(wallets[nextWalletIndex].name);
-    };
- 
+    } 
 }
 
 const mapStateToProps = (state: RootState): ReduxProps => ({

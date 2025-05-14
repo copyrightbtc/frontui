@@ -27,7 +27,7 @@ const WalletDeposit: React.FC = () => {
 
     return (
         <div className='mobile-wallet'>
-                <div className="mobile-wallet--top__close">
+            <div className="mobile-wallet--top__close">
                 <IconButton 
                     onClick={goBack}
                     sx={{

@@ -231,7 +231,7 @@ const BeneficiariesComponent: React.FC<Props> = (props: Props) => {
     const handleOnCopy = () => dispatch(alertPush({ message: ['page.body.wallets.tabs.deposit.ccy.message.success'], type: 'success'}));
     const onCopy = (address?: string) => {
         copyToClipboard(address);
-        dispatch(alertPush({message: ['11111SnmHrRcuRtbQunU2HUkembjxuzrgD'], type: 'success'}));
+        dispatch(alertPush({message: ['page.body.wallets.tabs.deposit.ccy.message.success'], type: 'success'}));
     };
 
     const renderDatasCoin = React.useCallback((currentWithdrawalBeneficiary: Beneficiary) => {
