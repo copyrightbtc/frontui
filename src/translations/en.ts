@@ -861,6 +861,7 @@ export const en = {
     "success.api_keys.deleted": "API key was deleted",
 
     "page.body.profile.content.action.more": "Show more",
+    "page.body.profile.content.action.more.filters": "Apply filters",
     "page.body.profile.header.accountActivity": "Last Activity",
     "page.body.profile.header.accountActivity.nodata": "There are no records of Last Activity",
     "page.body.profile.header.accountActivity.content.date": "Date",

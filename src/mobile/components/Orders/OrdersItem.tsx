@@ -8,6 +8,8 @@ import { OverlayTrigger } from 'react-bootstrap';
 import { NoResultData, Pagination, Tooltip } from '../../../components';
 import { Decimal } from '../../../components/Decimal';
 import { localeDate, setTradeColor } from '../../../helpers';
+import Accordion from 'react-bootstrap/Accordion';
+import { MoreHoriz } from 'src/assets/images/MoreHoriz';
 import {
     Market,
     ordersHistoryCancelFetch,
@@ -123,7 +125,7 @@ class OrdersItemComponent extends React.PureComponent<Props>  {
         return (
             <div className='trade-orders-mobile__wrapper'>
                 {this.retrieveData(list)}
-                {updateList.length > 10 ?
+                {updateList.length > paginationLimit ?
                 <Pagination
                     firstElemIndex={firstElemIndex}
                     lastElemIndex={lastElemIndex}
@@ -156,24 +158,6 @@ class OrdersItemComponent extends React.PureComponent<Props>  {
         });
     };
 
-    private renderHeaders = () => {
-        return (
-            <div className='trade-orders-mobile__table__head'>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.date'})}</div>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.market'})}</div>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.side'})}</div>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.orderType'})}</div>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.price'})}</div> 
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.total'})}</div>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.filled'})}</div>
-                <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.amountRemaining'})}</div>
-                {this.props.type === 'open' && <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.totalRemaining'})}</div>}
-                {this.props.type !== 'open' && <div className='cells'>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.status'})}</div>}
-                <div className='cells closebut'></div>
-            </div>
-        );
-    };
-
     private retrieveData = list => {
         return list.map(item => this.renderOrdersHistoryRow(item));
     };
@@ -204,56 +188,76 @@ class OrdersItemComponent extends React.PureComponent<Props>  {
         const status = this.setOrderStatus(state);
         const actualPrice = this.getPrice(ord_type, status, avg_price, price);
         const executedVolume = Number(origin_volume) - Number(remaining_volume);
+        const totalRemaining = +remaining_volume * +price;
         const filled = ((executedVolume / Number(origin_volume)) * 100).toFixed(2);
         const total = +actualPrice * +origin_volume;
+        const curMarket = marketsData.find(i => i.id === market);
         
         return (
             <div key={id} className="trade-orders-mobile__order">
-                <div className="order-block type">
-                    <div className="cells" style={{ color: setTradeColor(side).color }}>{orderType}/{orderSide}</div>
-                    <div className={`cells filling${+filled === 100 ? '' : ' full'}`}><Decimal fixed={2} thousSep=",">{+filled}</Decimal>%</div>
-                </div>
-                <div className="order-block">
-                    <div className="cells name">
-                        {marketName.toUpperCase()}
+                <div key={id} className="trade-orders-mobile__order__top">
+                    <div className="order-block type">
+                        <div className="cells" style={{ color: setTradeColor(side).color }}>{orderType}/{orderSide}</div>
+                        <div className={`cells filling${+filled === 100 ? '' : ' full'}`}><Decimal fixed={2} thousSep=",">{+filled}</Decimal>%</div>
                     </div>
-                    <div className="cells trad">
-                        <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.amount'})}</span>
-                        <div className='numbers'>{parseFloat(Number(origin_volume).toFixed(thisMarket.amount_precision))}</div>
-                    </div>
-                    <div className="cells trad">
-                        <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.price'})}</span>
-                        <div className='numbers'>
-                            {ord_type === 'market' || status === 'done' ? 
-                                <OverlayTrigger 
-                                    placement="auto"
-                                    delay={{ show: 250, hide: 300 }} 
-                                    overlay={<Tooltip title="page.body.openOrders.header.avgPrice.tooltip.description" />}>
-                                        <div className="dotted">{parseFloat(Number(actualPrice).toFixed(thisMarket.price_precision))}</div>
-                                </OverlayTrigger> 
-                            : parseFloat(Number(actualPrice).toFixed(thisMarket.price_precision))}
+                    <div className="order-block">
+                        <div className="cells name">
+                            {marketName.toUpperCase()}
                         </div>
-                    </div>
-                    <div className="cells trad">
-                        <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.total'})}</span>
-                        <div className='numbers'>{parseFloat(Number(total).toFixed(thisMarket.price_precision))}</div>
-                    </div>
-                </div>
-                <div className="order-block last">
-                    <div className="cells dates">
-                        <div className="date">{localeDate(date, 'date')}</div>
-                        <div className="time">{localeDate(date, 'time')}</div>
-                    </div>
-                    {state !== 'wait' ? 
-                        <div className='cells status'>{status}</div> : 
-                        <div className="cells status">
-                            <div key={id} className="cancel-wrappe" onClick={this.handleCancel(id)}>
-                                {this.props.intl.formatMessage({ id: 'page.body.p2p.dispute.cancel'})}
+                        <div className="cells trad">
+                            <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.amount'})}</span>
+                            <div className='numbers'>{parseFloat(Number(origin_volume).toFixed(thisMarket.amount_precision))}</div>
+                        </div>
+                        <div className="cells trad">
+                            <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.price'})}</span>
+                            <div className='numbers'>
+                                {ord_type === 'market' || status === 'done' ? 
+                                    <OverlayTrigger 
+                                        placement="auto"
+                                        delay={{ show: 250, hide: 300 }} 
+                                        overlay={<Tooltip title="page.body.openOrders.header.avgPrice.tooltip.description" />}>
+                                            <div className="dotted">{parseFloat(Number(actualPrice).toFixed(thisMarket.price_precision))}</div>
+                                    </OverlayTrigger> 
+                                : parseFloat(Number(actualPrice).toFixed(thisMarket.price_precision))}
                             </div>
                         </div>
-                    }
+                    </div>
+                    <div className="order-block last">
+                        <div className="cells dates">
+                            <div className="date">{localeDate(date, 'date')}</div>
+                            <div className="time">{localeDate(date, 'time')}</div>
+                        </div>
+                        {state !== 'wait' ? 
+                            <div className='cells status'>{status}</div> : 
+                            <div className="cells status">
+                                <div key={id} className="cancel-wrappe" onClick={this.handleCancel(id)}>
+                                    {this.props.intl.formatMessage({ id: 'page.body.p2p.dispute.cancel'})}
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
-                 
+                <Accordion className='moreinfo-trades'>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>
+                            <MoreHoriz className="dotes" />
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            <div className="order-block__full">
+                                <span>{this.props.intl.formatMessage({ id: 'page.body.trade.header.openOrders.content.total'})}</span>
+                                {parseFloat(Number(total).toFixed(thisMarket.price_precision))}&nbsp;{curMarket?.quote_unit?.toUpperCase()}
+                            </div>
+                            <div className="order-block__full">
+                                <span>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.amountRemaining'})}</span>
+                                {parseFloat(Number(remaining_volume).toFixed(thisMarket.amount_precision))}&nbsp;{curMarket?.base_unit?.toUpperCase()}
+                            </div>
+                            <div className="order-block__full">
+                                <span>{this.props.intl.formatMessage({ id: 'page.body.openOrders.header.totalRemaining'})}</span>
+                                {parseFloat(Number(totalRemaining).toFixed(thisMarket.price_precision))}&nbsp;{curMarket?.quote_unit?.toUpperCase()}
+                            </div>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
             </div>
         );
     };

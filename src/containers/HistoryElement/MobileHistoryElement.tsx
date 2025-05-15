@@ -5,6 +5,9 @@ import { injectIntl } from 'react-intl';
 import {connect, MapDispatchToPropsFunction} from 'react-redux';
 import { compose } from 'redux';
 import { IntlProps } from '../../';
+import Accordion from 'react-bootstrap/Accordion';
+import { MoreHoriz } from 'src/assets/images/MoreHoriz';
+import { ArrowDownward } from 'src/assets/images/ArrowDownward';
 import DatePicker from 'react-date-picker';
 import { Button, IconButton } from '@mui/material';
 import { LoupeIcon } from 'src/assets/images/LoupeIcon';
@@ -45,7 +48,7 @@ import { FailIcon } from '../Wallets/FailIcon';
 import { SucceedIcon } from '../Wallets/SucceedIcon';
 import { PendingIcon } from '../Wallets/PendingIcon';
 
-interface HistoryProps {
+interface MobileHistoryProps {
     type: string;
 }
 
@@ -73,7 +76,7 @@ interface HistoryState {
     focusedInput: boolean;
 }
  
-type Props = HistoryProps & ReduxProps & DispatchProps & IntlProps;
+type Props = MobileHistoryProps & ReduxProps & DispatchProps & IntlProps;
 
 const defaultMarket = {
     market: '',
@@ -85,7 +88,7 @@ const defaultMarket = {
 
 const paginationLimit = 25;
 
-class HistoryComponent extends React.Component<Props, HistoryState> {
+class MobileHistoryComponent extends React.Component<Props, HistoryState> {
     constructor(props: Props | Readonly<Props>) {
         super(props);
         this.state = {
@@ -125,9 +128,9 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
         const { list, fetching } = this.props;
 
         return (
-            <div className={`profile-history__wrapper ${list.length ? '' : 'profile-history__wrapper-empty'}`}>
-                {this.renderFilterRow()}
-                {fetching && <div className="spinner-loader-center fixed"><FillSpinner size={19} color="var(--accent)"/></div>}
+            <div className={`mobile-history-page${list.length ? '' : ' mobile-history-page--empty'}`}>
+                {list.length && !fetching ? this.renderFilterRow() : null}
+                {fetching && <div className="spinner-loader-center fixed"><FillSpinner size={19} color="var(--color-accent)"/></div>}
                 {list.length ? this.renderContent() : null}
                 {!list.length && !fetching ? <NoResultData /> : null}
             </div>
@@ -139,58 +142,68 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
         const today = new Date().toISOString().split('T')[0];
 
         return (
-            <div className="filter-elements">
-                <div className="filter-elements__left">
-                    <div className="filter-cell__dates">
-                        <div className="cell-date">
-                            <div className="suffix-date">{this.props.intl.formatMessage({ id: 'page.body.filters.dateFrom' })}</div>
-                            <DatePicker
-                                className="input-date"  
-                                onChange={this.handleDateFrom}
-                                value={this.state.filters?.time_from || ''}
-                                maxDate = {new Date(this.state.filters?.time_to || new Date(today))}
-                                format="dd-MM-y"
-                                calendarIcon={<CalendarIcon />}
-                                dayPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.dd' })}
-                                monthPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.mm' })}
-                                yearPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.yy' })}
-                            />
+            <Accordion className='moreinfo-filters'>
+                <Accordion.Item eventKey="1">
+                    <Accordion.Header>
+                        {this.props.intl.formatMessage({ id: 'page.body.profile.content.action.more.filters'})}
+                        <ArrowDownward className="arrow" />
+                    </Accordion.Header>
+                    <Accordion.Body>
+                    <div className="filter-elements">
+                        <div className="filter-elements__top">
+                            <div className="filter-cell__dates themes">
+                                <div className="cell-date">
+                                    <div className="suffix-date">{this.props.intl.formatMessage({ id: 'page.body.filters.dateFrom' })}</div>
+                                    <DatePicker
+                                        className="input-date"  
+                                        onChange={this.handleDateFrom}
+                                        value={this.state.filters?.time_from || ''}
+                                        maxDate = {new Date(this.state.filters?.time_to || new Date(today))}
+                                        format="dd-MM-y"
+                                        calendarIcon={<CalendarIcon />}
+                                        dayPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.dd' })}
+                                        monthPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.mm' })}
+                                        yearPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.yy' })}
+                                    />
+                                </div>
+                                <em>|</em>
+                                <div className="cell-date">
+                                    <div className="suffix-date">{this.props.intl.formatMessage({ id: 'page.body.filters.dateTo' })}</div>
+                                    <DatePicker
+                                        className="input-date"  
+                                        onChange={this.handleDateTo}
+                                        value={this.state.filters?.time_to || ''}
+                                        minDate={new Date(this.state.filters?.time_from || null)}
+                                        maxDate={new Date(today)}
+                                        format="dd-MM-y"
+                                        calendarIcon={<CalendarIcon />}
+                                        dayPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.dd' })}
+                                        monthPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.mm' })}
+                                        yearPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.yy' })}
+                                    />
+                                </div>
+                            </div>
+                            {this.renderSearchtypes(type)}
                         </div>
-                        <hr/>
-                        <div className="cell-date">
-                            <div className="suffix-date">{this.props.intl.formatMessage({ id: 'page.body.filters.dateTo' })}</div>
-                            <DatePicker
-                                className="input-date"  
-                                onChange={this.handleDateTo}
-                                value={this.state.filters?.time_to || ''}
-                                minDate={new Date(this.state.filters?.time_from || null)}
-                                maxDate={new Date(today)}
-                                format="dd-MM-y"
-                                calendarIcon={<CalendarIcon />}
-                                dayPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.dd' })}
-                                monthPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.mm' })}
-                                yearPlaceholder={this.props.intl.formatMessage({ id: 'page.body.filters.yy' })}
-                            />
+                        <div className="filter-elements__bottom">
+                            <Button 
+                                className="search-button" 
+                                onClick={this.handleSearch}
+                            >
+                                {this.props.intl.formatMessage({ id: 'page.body.filters.search' })}
+                            </Button>
+                            <Button 
+                                className="reset-button" 
+                                onClick={this.handleReset}
+                            >
+                                {this.props.intl.formatMessage({ id: 'page.body.filters.reset' })}
+                            </Button>
+                            {this.renderReloadtypes(type)}
                         </div>
                     </div>
-                    {this.renderSearchtypes(type)}
-                </div>
-                <div className="filter-elements__right">
-                    <Button 
-                        className="search-button" 
-                        onClick={this.handleSearch}
-                    >
-                        {this.props.intl.formatMessage({ id: 'page.body.filters.search' })}
-                    </Button>
-                    <Button 
-                        className="reset-button" 
-                        onClick={this.handleReset}
-                    >
-                        {this.props.intl.formatMessage({ id: 'page.body.filters.reset' })}
-                    </Button>
-                    {this.renderReloadtypes(type)}
-                </div>
-            </div>
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
         );
     }
  
@@ -282,14 +295,15 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
 
 
     public renderContent = () => {
-        const { type, firstElemIndex, lastElemIndex, page, nextPageExists } = this.props;
-
+        const { list, type, firstElemIndex, lastElemIndex, page, nextPageExists } = this.props;
+        
         return (
             <React.Fragment>
-                <div className="table-main with-hover">
+                <div className="trade-orders-mobile__wrapper">
                     {this.renderHeaders(type)}
-                    <tbody>{this.retrieveData()}</tbody>
+                    {this.retrieveData()}
                 </div>
+                {list.length > paginationLimit ?
                 <Pagination
                     firstElemIndex={firstElemIndex}
                     lastElemIndex={lastElemIndex}
@@ -297,7 +311,7 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                     nextPageExists={nextPageExists}
                     onClickPrevPage={this.onClickPrevPage}
                     onClickNextPage={this.onClickNextPage}
-                />
+                /> : null}
             </React.Fragment>
         );
     };
@@ -400,9 +414,8 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
         switch (type) {
             case 'deposits':
                 return [ 
-                    <div className="filter-cell">
+                    <div className="filter-cell themes">
                          <DropdownFilter
-                             fixedWidth={200}
                              maxMenuHeight={350}
                              placeholder=""
                              suffix={this.props.intl.formatMessage({ id: 'page.body.filters.status' })}
@@ -425,9 +438,8 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                              }}
                          />
                      </div>,
-                     <div className="filter-cell">
+                     <div className="filter-cell themes">
                          <DropdownFilter
-                             fixedWidth={200}
                              placeholder=""
                              suffix={this.props.intl.formatMessage({ id: 'page.body.filters.currency' })}
                              emptyTitle={this.props.intl.formatMessage({id: 'search.options.empty'})}
@@ -445,7 +457,7 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                              }}
                          />
                      </div>,
-                     <div className="filter-cell">
+                     <div className="filter-cell themes">
                          <div className={focusedClass}>
                              <span className="keyword-search-cell__icon">
                                  <SearchIcon />
@@ -476,9 +488,8 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                 ];
                 case 'withdraws':
                     return [ 
-                        <div className="filter-cell">
+                        <div className="filter-cell themes">
                             <DropdownFilter
-                                fixedWidth={200}
                                 placeholder=""
                                 suffix={this.props.intl.formatMessage({ id: 'page.body.filters.status' })}
                                 emptyTitle={this.props.intl.formatMessage({id: 'search.options.empty'})}
@@ -503,9 +514,8 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                                 }}
                             />
                         </div>,
-                        <div className="filter-cell">
+                        <div className="filter-cell themes">
                             <DropdownFilter
-                                fixedWidth={200}
                                 placeholder=""
                                 suffix={this.props.intl.formatMessage({ id: 'page.body.filters.currency' })}
                                 emptyTitle={this.props.intl.formatMessage({id: 'search.options.empty'})}
@@ -523,7 +533,7 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                                 }}
                             />
                         </div>,
-                        <div className="filter-cell">
+                        <div className="filter-cell themes">
                             <div className={focusedClass}>
                                 <span className="keyword-search-cell__icon">
                                     <SearchIcon />
@@ -554,9 +564,8 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                     ];
                 case 'trades':
                     return [
-                        <div className="filter-cell">
+                        <div className="filter-cell themes">
                             <DropdownFilter
-                                fixedWidth={200}
                                 placeholder=""
                                 suffix={this.props.intl.formatMessage({ id: 'page.body.filters.side' })}
                                 emptyTitle={this.props.intl.formatMessage({id: 'search.options.empty'})}
@@ -572,9 +581,8 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                                 }}
                             />
                         </div>,
-                        <div className="filter-cell">
+                        <div className="filter-cell themes">
                             <DropdownFilter
-                                fixedWidth={200}
                                 placeholder=""
                                 suffix={this.props.intl.formatMessage({ id: 'page.body.filters.market' })}
                                 emptyTitle={this.props.intl.formatMessage({id: 'search.options.empty'})}
@@ -646,19 +654,6 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                         </tr>
                     </thead>
                 ];
-            /*case 'quick_exchange':
-                return [
-                    <thead>
-                        <tr>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.quick.header.date' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.quick.header.amountGive' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.quick.header.currencyGive' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.quick.header.amountReceive' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.quick.header.currencyReceive' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.quick.header.status' })}</th>
-                        </tr>
-                    </thead>
-                ];*/
           default:
               return [];
         }
@@ -827,40 +822,52 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                 const sideText = setTradesType(side).text.toLowerCase() ? intl.formatMessage({id: `page.body.history.trade.content.side.${setTradesType(side).text.toLowerCase()}`}) : '';
                 const curMarket = this.props.marketsData.find(i => i.id === market);
 
-                return [
-                    <tr>
-                        <td>
-                            <div className="date-split">
-                                <div className="date">{localeDate(created_at, 'date')}</div>
-                                <div className="time">{localeDate(created_at, 'time')}</div>
+                return (
+                    <div key={id} className="trade-orders-mobile__order">
+                        <div className="trade-orders-mobile__order__top trading">
+                            <div className="order-block types">
+                                <div className="cells" style={{ color: setTradesType(side).color }}>{sideText}</div>
+                                <div className="cells">{this.makerTaker(item)}</div>
                             </div>
-                        </td>
-                        <td>
-                            <div>{marketName}</div>
-                        </td>
-                        <td>
-                            <div style={{ color: setTradesType(side).color }} key={id}>{sideText}</div>
-                        </td>
-                        <td className="right">
-                            <Decimal key={id} fixed={marketToDisplay.price_precision} thousSep=",">{price}</Decimal>
-                        </td>
-                        <td className="right">
-                            <Decimal key={id} fixed={marketToDisplay.amount_precision} thousSep=",">{amount}</Decimal>
-                        </td>
-                        <td className="right">
-                            <div key={id} className="feeamount">{fee_amount} <span>{fee_currency}</span></div>
-                        </td>
-                        <td>
-                            <div key={id}>{this.makerTaker(item)}</div>
-                        </td>
-                        <td className="right">
-                            <div className='coins-name'>
-                                <Decimal key={id} fixed={marketToDisplay.price_precision} thousSep=",">{total}</Decimal>
-                                <span>{curMarket?.quote_unit?.toUpperCase()}</span>
+                            <div className="order-block">
+                                <div className="cells name">
+                                    {marketName.toUpperCase()}
+                                </div>
+                                <div className="cells trad">
+                                    <span>{this.props.intl.formatMessage({ id: 'page.body.history.trade.header.amount'})}</span>
+                                    <div className='numbers'>{parseFloat(Number(amount).toFixed(marketToDisplay.amount_precision))}</div>
+                                </div>
+                                <div className="cells trad">
+                                    <span>{this.props.intl.formatMessage({ id: 'page.body.history.trade.header.price'})}</span>
+                                    <div className='numbers'>{parseFloat(Number(price).toFixed(marketToDisplay.price_precision))}</div>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                ];
+                            <div className="order-block">
+                                <div className="cells dates">
+                                    <div className="date">{localeDate(created_at, 'date')}</div>
+                                    <div className="time">{localeDate(created_at, 'time')}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <Accordion className='moreinfo-trades'>
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>
+                                    <MoreHoriz className="dotes" />
+                                </Accordion.Header>
+                                <Accordion.Body>
+                                    <div className="order-block__full">
+                                        <span>{this.props.intl.formatMessage({ id: 'page.body.history.trade.header.total'})}</span>
+                                        {parseFloat(Number(total).toFixed(marketToDisplay.price_precision))}&nbsp;{curMarket?.quote_unit?.toUpperCase()}
+                                    </div>
+                                    <div className="order-block__full">
+                                        <span>{this.props.intl.formatMessage({ id: 'page.body.history.trade.header.fee'})}</span>
+                                        {fee_amount}&nbsp;{fee_currency?.toUpperCase()}
+                                    </div>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        </Accordion>
+                    </div>
+                );
             }
             /*case 'quick_exchange': {
                 const { id, created_at, price, side, origin_volume, state, market } = item;
@@ -1117,7 +1124,7 @@ export const mapDispatchToProps: MapDispatchToPropsFunction<DispatchProps, {}> =
         fetchSuccess: payload => dispatch(alertPush(payload)),
     });
 
-export const HistoryElement = compose(
+export const MobileHistoryElement = compose(
     injectIntl,
     connect(mapStateToProps, mapDispatchToProps),
-)(HistoryComponent) as any; // tslint:disable-line
+)(MobileHistoryComponent) as any; // tslint:disable-line

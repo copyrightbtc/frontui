@@ -12,16 +12,22 @@
     justify-content: flex-end;
     transition: all 0.2s ease 0s;
     cursor: pointer;
-    box-shadow: none;
     font-size: 14px;
-    background: var(--color-dark-grey);
-    color: #fff;
+    background: var(--color-main-dark-light);
+    box-shadow: var(--color-icon-button-shadow);
+    color: var(--color-dark);
     padding: 2px 20px;
     border-radius: 3px;
+    &:active{
+      box-shadow: var(--color-icon-button-active-shadow);
+    }
+    &:hover{
+      box-shadow: var(--color-icon-button-hover-shadow);
+    }
     &__close{
       &:before,
       &:after{
-        background: #fff;
+        background: var(--color-dark);
       }
     }
   }

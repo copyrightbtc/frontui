@@ -71,3 +71,104 @@
     }
   }
 }
+.moreinfo-trades{
+  &.accordion{
+    margin-top: 0;
+    padding: 5px 0 0;
+    width: 100%;
+    .accordion-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-dark);
+      border: none;
+      border-radius: .25rem;
+      font-size: 14px;
+      font-weight: 400;
+      box-shadow: none;
+      position: relative;
+      width: 100%;
+      max-width: 115px;
+      height: 20px;
+      transition: .2s;
+      margin: 0 auto;
+      border: 1px solid var(--color-main-dark-light);
+      &.collapsed{
+        box-shadow: var(--color-icon-button-shadow);
+        border: 1px solid transparent;
+        .dotes{
+          fill: var(--color-dark);
+        }
+      }
+      .dotes{
+        fill: var(--color-danger);
+        width: 24px;
+        position: relative;
+        transition: .2s;
+      }
+    }
+  }
+}
+.moreinfo-filters{
+  &.accordion{
+    margin-top: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--color-table-lines-grey);
+    padding: 6px 16px;
+    .accordion-header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .accordion-collapse{
+      margin-top: 15px;
+    }
+    .accordion-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-blue);
+      border: none;
+      border-radius: .25rem;
+      font-size: 14px;
+      font-weight: 400;
+      box-shadow: none;
+      position: relative;
+      width: 100%;
+      height: 28px;
+      transition: .2s;
+      margin: 0 auto;
+      max-width: 250px;
+      border: 1px solid var(--color-main-dark-light);
+      &.collapsed{
+        box-shadow: var(--color-icon-button-shadow);
+        border: 1px solid transparent;
+        .arrow{
+          fill: var(--color-blue);
+          transform: rotate(0deg);
+        }
+      }
+      .arrow{
+        fill: var(--color-blue);
+        width: 18px;
+        margin-left: 10px;
+        position: relative;
+        transition: .2s;
+        transform: rotate(180deg);
+      }
+    }
+    .filter-elements {
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 0 .8rem;
+      .filter-cell {
+        margin: 6px 0;
+        width: 100%;
+        max-width: 100%;
+        .filter-options{
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

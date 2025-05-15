@@ -869,6 +869,7 @@ export const ru = {
     "success.api_keys.deleted": "API ключ успешно удален",
 
     "page.body.profile.content.action.more": "Показать больше",
+    "page.body.profile.content.action.more.filters": "Применить фильтры",
     "page.body.profile.header.accountActivity": "Последняя активность",
     "page.body.profile.header.accountActivity.nodata": "Нет записей о последней активности",
     "page.body.profile.header.accountActivity.content.date": "Дата",

@@ -6,7 +6,7 @@ import { IconButton } from '@mui/material';
 import { LinkIconNew } from 'src/assets/images/LinkIconNew';
 import { LoupeIcon } from 'src/assets/images/LoupeIcon';
 import { CopyIcon } from 'src/assets/images/CopyIcon';
-import { ArrowDownward } from 'src/assets/images/ArrowDownward';
+import { MoreHoriz } from 'src/assets/images/MoreHoriz';
 import { useHistoryFetch, useWalletsFetch } from '../../../hooks';
 import { Pagination, NoResultData } from '../../../components';
 import { DEFAULT_CCY_PRECISION } from '../../../constants';
@@ -255,11 +255,10 @@ const HistoryTable = (props: any) => {
                     </div>
                 </div>
                 {walletType.type !== 'fiat' && 
-                <Accordion>
+                <Accordion className='moreinfo-trades'>
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>
-                            {intl.formatMessage({id: 'page.body.profile.content.action.more'})}
-                            <ArrowDownward className="arrow" />
+                            <MoreHoriz className="dotes" />
                         </Accordion.Header>
                         {type === 'deposits' ? 
                             <Accordion.Body>

@@ -6,7 +6,6 @@ import { ArrowBackIcon } from 'src/assets/images/ArrowBackIcon';
 import { IconButton, Button } from '@mui/material';
 import { TabPanelMobile } from 'src/components/TabPanelMobile';
 import { QRCode, NoResultData } from 'src/components';
-import { TabPanelUnderlines } from 'src/components';
 import { 
   alertPush,
   commissionsFetch,
