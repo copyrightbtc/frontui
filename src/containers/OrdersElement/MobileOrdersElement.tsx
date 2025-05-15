@@ -58,7 +58,7 @@ interface OrdersState {
     }; 
 }
 
-const paginationLimit = 25;
+const paginationLimit = 15;
 
 type Props = MobileOrdersProps & ReduxProps & DispatchProps & IntlProps;
 

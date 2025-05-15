@@ -20,6 +20,7 @@ import { Decimal, Pagination, NoResultData, DropdownFilter, Tooltip } from '../.
 import { CryptoIcon } from 'src/components/CryptoIcon';
 import { ReloadIcon } from "src/assets/images/ReloadIcon";
 import { OverlayTrigger } from 'react-bootstrap';
+import { DEFAULT_CCY_PRECISION } from '../../constants';
 import {
     localeDate,
     setTradesType,
@@ -44,9 +45,6 @@ import {
     WalletHistoryList,
     alertPush
 } from '../../modules';
-import { FailIcon } from '../Wallets/FailIcon';
-import { SucceedIcon } from '../Wallets/SucceedIcon';
-import { PendingIcon } from '../Wallets/PendingIcon';
 
 interface MobileHistoryProps {
     type: string;
@@ -78,15 +76,7 @@ interface HistoryState {
  
 type Props = MobileHistoryProps & ReduxProps & DispatchProps & IntlProps;
 
-const defaultMarket = {
-    market: '',
-    price_precision: 0,
-    amount_precision: 0,
-    quote_unit: '',
-    base_unit: ''
-};
-
-const paginationLimit = 25;
+const paginationLimit = 15;
 
 class MobileHistoryComponent extends React.Component<Props, HistoryState> {
     constructor(props: Props | Readonly<Props>) {
@@ -132,7 +122,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                 {list.length && !fetching ? this.renderFilterRow() : null}
                 {fetching && <div className="spinner-loader-center fixed"><FillSpinner size={19} color="var(--color-accent)"/></div>}
                 {list.length ? this.renderContent() : null}
-                {!list.length && !fetching ? <NoResultData /> : null}
+                {!list.length && !fetching ? <NoResultData class="themes" /> : null}
             </div>
         );
     }
@@ -300,7 +290,6 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
         return (
             <React.Fragment>
                 <div className="trade-orders-mobile__wrapper">
-                    {this.renderHeaders(type)}
                     {this.retrieveData()}
                 </div>
                 {list.length > paginationLimit ?
@@ -606,60 +595,6 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
         }
     };
 
-    private renderHeaders = (type: string) => {
-        switch (type) {
-            case 'deposits':
-                return [
-                    <thead>
-                        <tr> 
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.date' })}</th>
-                            <th>TID</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.blockchain' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.currency' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.amount' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.txid' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.confirmations' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.status' })}</th>
-                        </tr>
-                    </thead>
-                ];
-            case 'withdraws':
-                return [
-                    <thead>
-                        <tr>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.date' })}</th>
-                            <th>TID</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.blockchain' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.currency' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.amount' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.fee' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.wallets.tabs.withdraw.content.totalamount' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.address' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.withdraw.header.status' })}</th>
-                        </tr>
-                    </thead>
-                ];
-            case 'trades':
-                return [
-                    <thead>
-                        <tr>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.trade.header.date' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.trade.header.pair' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.trade.header.side' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.trade.header.price' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.trade.header.amount' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.trade.header.fee' })}</th>
-                            <th>{this.props.intl.formatMessage({id: 'page.body.history.trade.header.role' })}</th>
-                            <th className="right">{this.props.intl.formatMessage({id: 'page.body.history.trade.header.total' })}</th>
-                        </tr>
-                    </thead>
-                ];
-          default:
-              return [];
-        }
-    };
-
-
     private retrieveData = () => {
         const { type, list } = this.props;
 
@@ -677,6 +612,9 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
         switch (type) {
             case 'deposits': {
                 const { amount, created_at, confirmations, currency, txid, protocol, tid } = item;
+
+                const { fixed } = wallets.find(w => w.currency === currency) || { fixed: DEFAULT_CCY_PRECISION };
+
                 const blockchainLink = this.getBlockchainLink(currency, txid);
                 const wallet = wallets.find(obj => obj.currency === currency);
                 const itemCurrency = currencies && currencies.find(cur => cur.id === currency);
@@ -688,131 +626,139 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
 
                 const confirms = `${confirmations === 'N/A' ? '--' : confirmations} ${intl.formatMessage({id: `page.body.history.deposit.content.status.of`})} ${minConfirmations} ${intl.formatMessage({id: `page.body.history.deposit.content.status.min`})}`;
 
-                return [
-                    <tr>
-                        <td>
-                            <div className="date-split">
-                                <div className="date">{localeDate(created_at, 'date')}</div>
-                                <div className="time">{localeDate(created_at, 'time')}</div>
+                return (
+                    <div key={txid} className='mobile-history-funds__row'>
+                        <div className='mobile-history-funds__row__top'>
+                            <div className='cell'>
+                                <div className='amount'>
+                                    <CryptoIcon className="crypto-icon" code={currency && currency.toUpperCase()} />
+                                    {wallet && parseFloat(Number(amount).toFixed(fixed))} {currency && currency?.toUpperCase()}
+                                </div>
+                                <div className='date'>
+                                    {localeDate(created_at, 'date')}
+                                    <span>{localeDate(created_at, 'time')}</span>
+                                </div>
                             </div>
-                        </td>
-                        <td>
-                            <div>{tid}</div>
-                        </td>
-                        <td>
-                            <div>{protocol?.toUpperCase()}</div>
-                        </td>
-                        <td>
-                            <div className="coins-block">
-                                <CryptoIcon className="crypto-icon" code={currency?.toUpperCase()} />
-                                <span>{currency?.toUpperCase()}</span>
+                            <div key={txid} className='cell'>
+                                <div className='confirmations'>{confirmations > minConfirmations ? this.props.intl.formatMessage({id: 'page.body.history.deposit.content.status.reached' }) : confirms}</div>
+                                {state}
                             </div>
-                        </td>
-                        <td>
-                            <div>{wallet && <Decimal fixed={wallet.fixed} thousSep=",">{amount}</Decimal>}</div>
-                        </td>
-                        <td className="right">
-                            <div className="blockchainLink" key={txid}>
-                                {truncateMiddle(txid, 40)} 
-                                <IconButton
-                                    onClick={() => this.copyTx(txid)}
-                                    className="copy_button"
-                                >
-                                    <CopyIcon className="copy-iconprop"/> 
-                                </IconButton>
-                                <a href={blockchainLink} className="link" target="_blank" rel="noopener noreferrer">
-                                    <LinkIconNew />
-                                </a>
-                            </div>
-                        </td>
-                        <td className="right">
-                            <div>
-                                {confirmations > minConfirmations ? this.props.intl.formatMessage({id: 'page.body.history.deposit.content.status.reached' }) : confirms}
-                            </div>
-                        </td>
-                        <td className="right">
-                            <div key={txid}>{state}</div>
-                        </td>
-                    </tr>
-                ];
+                        </div>
+                        <Accordion className='moreinfo-trades'>
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>
+                                    <MoreHoriz className="dotes" />
+                                </Accordion.Header>
+                                <Accordion.Body>
+                                    <div className='mobile-history-funds__row__bottom'> 
+                                        <div className='cell'>
+                                            <div className='name'>TID</div>
+                                            <div className='data'>{tid}</div>
+                                        </div>
+                                        <div className='cell'>
+                                            <div className='name'>{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.blockchain' })}</div>
+                                            <div className='data'>{protocol?.toUpperCase()}</div>
+                                        </div>
+                                        <div className='cell'>
+                                            <div className='name'>txID</div>
+                                            <div className='data'>
+                                                <div className="blockchainLink" key={txid}>
+                                                    {truncateMiddle(txid, 31)}
+                                                    <IconButton
+                                                        onClick={() => this.copyTx(txid)}
+                                                        className="copy_button"
+                                                    >
+                                                        <CopyIcon className="copy-iconprop"/> 
+                                                    </IconButton>
+                                                    <a href={blockchainLink} className="link" target="_blank" rel="noopener noreferrer">
+                                                        <LinkIconNew className='loupe-icon'/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        </Accordion>
+                    </div>
+                );
             }
             case 'withdraws': {
                 const { created_at, currency, amount, fee, rid, protocol, blockchain_txid, tid, blockchain_key } = item;
-                const state = 'state' in item && this.formatTxState(item.state);
+
+                const { fixed } = wallets.find(w => w.currency === currency) || { fixed: DEFAULT_CCY_PRECISION };
+
+                const state = 'state' in item ? this.formatTxState(item.state) : '';
                 const blockchainRid = this.getBlockchainRid(currency, blockchain_key, rid);
                 const blockchainLinkTx = this.getBlockchainLink(currency, blockchain_txid);
                 const wallet = wallets.find(obj => obj.currency === currency);
 
-                const popover = (  
-                    <div className="blocktip--popover"> 
-                        <div className="blocktip--popover__wrap"> 
-                            <span>txID: {blockchain_txid}</span>
-                            <span>{this.props.intl.formatMessage({id: 'page.body.history.deposit.header.txid.modal' })}</span>
-                        </div> 
-                    </div> 
-                );
-
-                return [
-                    <tr>
-                        <td>
-                            <div className="date-split">
-                                <div className="date">{localeDate(created_at, 'date')}</div>
-                                <div className="time">{localeDate(created_at, 'time')}</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div>{tid}</div>
-                        </td>
-                        <td>
-                            <div>{protocol?.toUpperCase()}</div>
-                        </td>
-                        <td>
-                            <div className="coins-block">
-                                <CryptoIcon className="crypto-icon" code={currency && currency.toUpperCase()} />
-                                <span>{currency && currency.toUpperCase()}</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{amount}</Decimal></div>
-                        </td>
-                        <td>
-                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{fee}</Decimal></div>
-                        </td>
-                        <td>
-                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{Number(amount) + Number(fee)}</Decimal></div>
-                        </td>
-                        <td className="right">
-                            <div className="blockchainLink" key={rid}>
-                                {truncateMiddle(rid, 40)}
-                                <div className="copy-field noborder">
-                                    <IconButton
-                                        onClick={() => this.copyAddress(rid)}
-                                        className="copy_button"
-                                    >
-                                        <CopyIcon className="copy-iconprop"/>
-                                    </IconButton>
+                return (
+                    <div className='mobile-history-funds__row'>
+                        <div className='mobile-history-funds__row__top'>
+                            <div className='cell'>
+                                <div className='amount'>
+                                    <CryptoIcon className="crypto-icon" code={currency && currency.toUpperCase()} />
+                                    {wallet && parseFloat(Number(amount).toFixed(fixed))} {currency && currency?.toUpperCase()}
                                 </div>
-                                <a href={blockchainRid} className="link" target="_blank" rel="noopener noreferrer">
-                                    <LinkIconNew className='loupe-icon'/>
-                                </a>
-                                {item.state !== 'failed' ? <OverlayTrigger 
-                                    placement="auto"
-                                    delay={{ show: 200, hide: 200 }} 
-                                    overlay={popover}>
-                                    <a href={blockchainLinkTx} className="link" target="_blank" rel="noopener noreferrer">
-                                        <LoupeIcon className='loupe-icon'/>
-                                    </a>
-                                </OverlayTrigger> : 
-                                <a className="link dark" target="_blank" rel="noopener noreferrer">
-                                    <LoupeIcon className='loupe-icon'/>
-                                </a>}
+                                <div className='date'>
+                                    {localeDate(item.created_at, 'date')}
+                                    <span>{localeDate(item.created_at, 'time')}</span>
+                                </div>
                             </div>
-                        </td>
-                        <td className="right">
-                            <div key={rid}>{state}</div>
-                        </td>
-                    </tr>
-                ];
+                            <div key={rid} className='cell'>
+                                {state}
+                            </div>
+                        </div>
+                        <Accordion className='moreinfo-trades'>
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>
+                                    <MoreHoriz className="dotes" />
+                                </Accordion.Header>
+                                <Accordion.Body>
+                                    <div className='mobile-history-funds__row__bottom'> 
+                                        <div className='cell'>
+                                            <div className='name'>{intl.formatMessage({ id: 'page.body.history.deposit.header.blockchain' })}</div>
+                                            <div className='data'>{protocol?.toUpperCase()}</div>
+                                        </div>
+                                        <div className='cell'>
+                                            <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.fee' })}</div>
+                                            <div className='data'>{wallet && parseFloat(Number(fee).toFixed(fixed))} {currency.toUpperCase()}</div>
+                                        </div>
+                                        <div className='cell'>
+                                            <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.totalamount' })}</div>
+                                            <div className='data'>{wallet && parseFloat(Number(Number(fee) + Number(amount)).toFixed(fixed))} {currency.toUpperCase()}</div>
+                                        </div>
+                                        <div className='cell'>
+                                            <div className='name'>{intl.formatMessage({ id: 'page.body.history.withdraw.header.address' })}</div>
+                                            <div className='data'>
+                                                <div className="blockchainLink" key={rid}>
+                                                    {truncateMiddle(rid, 28)}
+                                                    <IconButton
+                                                        onClick={() => this.copyAddress(rid)}
+                                                        className="copy_button"
+                                                    >
+                                                        <CopyIcon className="copy-iconprop"/> 
+                                                    </IconButton>
+                                                    <a href={blockchainRid} className="link" target="_blank" rel="noopener noreferrer">
+                                                        <LinkIconNew className='loupe-icon'/>
+                                                    </a>
+                                                    {item.state !== 'failed' ? 
+                                                        <a href={blockchainLinkTx} className="link" target="_blank" rel="noopener noreferrer">
+                                                            <LoupeIcon className='loupe-icon'/>
+                                                        </a> : 
+                                                    <a className="link dark" target="_blank" rel="noopener noreferrer">
+                                                        <LoupeIcon className='loupe-icon'/>
+                                                    </a>}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        </Accordion>
+                    </div>
+                );
             }
             case 'trades': {
                 const { id, created_at, side, market, price, amount, total, fee_amount, fee_currency } = item;
@@ -825,7 +771,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                 return (
                     <div key={id} className="trade-orders-mobile__order">
                         <div className="trade-orders-mobile__order__top trading">
-                            <div className="order-block types">
+                            <div key={id} className="order-block types">
                                 <div className="cells" style={{ color: setTradesType(side).color }}>{sideText}</div>
                                 <div className="cells">{this.makerTaker(item)}</div>
                             </div>
@@ -869,56 +815,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                     </div>
                 );
             }
-            /*case 'quick_exchange': {
-                const { id, created_at, price, side, origin_volume, state, market } = item;
-                const marketToDisplay = marketsData.find(m => m.id === market) || defaultMarket;
-
-                let data;
-
-                if (side === 'buy') {
-                    data = {
-                        amountGive: price * origin_volume,
-                        amountReceive: origin_volume,
-                        givePrecision: marketToDisplay.price_precision,
-                        receivePrecision: marketToDisplay.amount_precision,
-                        currencyGive: marketToDisplay.quote_unit.toUpperCase(),
-                        currencyReceive: marketToDisplay.base_unit.toUpperCase(),
-                    }
-                } else {
-                    data = {
-                        amountGive: origin_volume,
-                        amountReceive: price * origin_volume,
-                        givePrecision: marketToDisplay.amount_precision,
-                        receivePrecision: marketToDisplay.price_precision,
-                        currencyGive: marketToDisplay.base_unit.toUpperCase(),
-                        currencyReceive: marketToDisplay.quote_unit.toUpperCase(),
-                    }
-                }
-
-                return [
-                    <tr>
-                        <td>
-                            <div className="date-split">
-                                <div className="date">{localeDate(created_at, 'date')}</div>
-                                <div className="time">{localeDate(created_at, 'time')}</div>
-                            </div>
-                        </td>
-                        <td>
-                            <Decimal key={id} fixed={data.givePrecision} thousSep=",">{data.amountGive}</Decimal>
-                        </td>
-                        <td>
-                            {data.currencyGive}
-                        </td>
-                        <td>
-                            <Decimal key={id} fixed={data.receivePrecision} thousSep=",">{data.amountReceive}</Decimal>
-                        </td>
-                        <td>
-                            {data.currencyReceive}
-                        </td>
-                        <td></td>
-                    </tr>
-                ];
-            }*/
+           
             default: {
                 return [];
             }
@@ -989,92 +886,92 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
 
     private formatTxState = (tx: string) => {
         const accepted = (
-            <div className="order-success state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.accepted' })}</span><SucceedIcon />
+            <div className="order-success-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.accepted' })}</span>
             </div>
         );
 
         const succeed = (
-            <div className="order-success state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.succeed' })}</span><SucceedIcon />
+            <div className="order-success-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.succeed' })}</span>
             </div>
         );
 
         const submitted = (
-            <div className="order-success state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.submitted' })}</span><SucceedIcon />
+            <div className="order-success-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.submitted' })}</span>
             </div>
         );
 
         const rejected = (
-            <div className="order-danger state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.rejected' })}</span><FailIcon />
+            <div className="order-danger-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.rejected' })}</span>
             </div>
         );
 
         const canceled = (
-            <div className="order-danger state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.canceled' })}</span><FailIcon />
+            <div className="order-danger-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.canceled' })}</span>
             </div>
         );
 
         const errored = (
-            <div className="order-danger state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.history.deposit.content.status.errored' })}</span><FailIcon />
+            <div className="order-danger-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.history.deposit.content.status.errored' })}</span>
             </div>
         );
         
         const pending = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.pending' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.pending' })}</span>
             </div>
         );
 
         const confirming = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.confirming' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.confirming' })}</span>
             </div>
         );
 
         const skipped = (
-            <div className="order-danger state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.skipped' })}</span><FailIcon />
+            <div className="order-danger-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.skipped' })}</span>
             </div>
         );
 
         const underReview = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.under_review' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.under_review' })}</span>
             </div>
         );
 
         const prepared = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.prepared' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.prepared' })}</span>
             </div>
         );
 
         const processing = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.processing' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.processing' })}</span>
             </div>
         );
 
         const feeProcessing = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.history.deposit.content.status.fee_processing' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.history.deposit.content.status.fee_processing' })}</span>
             </div>
         );
 
         const feeCollected = (
-            <div className="order-pending state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.history.deposit.content.status.fee_collected' })}</span><PendingIcon />
+            <div className="order-pending-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.history.deposit.content.status.fee_collected' })}</span>
             </div>
         );
 
         const failed = (
-            <div className="order-danger state-style">
-                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.failed' })}</span><FailIcon />
+            <div className="order-danger-themes state-style">
+                <span className="label">{this.props.intl.formatMessage({ id: 'page.body.wallets.table.failed' })}</span>
             </div>
         );
 

@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
-import { Pagination } from '../../../components';
+import { Pagination, NoResultData } from '../../../components';
 import { useUserActivityFetch } from '../../../hooks';
 import {
     RootState,
@@ -12,14 +10,12 @@ import {
     selectUserActivityLastElemIndex,
     selectUserActivityNextPageExists,
 } from '../../../modules';
-import { Subheader, UserActivityItem } from '../../components';
+import { UserActivityItem } from '../../components';
 
 const DEFAULT_LIMIT = 10;
 
 const ProfileAccountActivityMobileScreenComponent: React.FC = () => {
     const [currentPage, setCurrentPage] = React.useState(0);
-    const intl = useIntl();
-    const history = useHistory();
     const page = useSelector(selectUserActivityCurrentPage);
     const userActivity = useSelector(selectUserActivity);
     const firstElemIndex = useSelector((state: RootState) => selectUserActivityFirstElemIndex(state, DEFAULT_LIMIT));
@@ -34,32 +30,26 @@ const ProfileAccountActivityMobileScreenComponent: React.FC = () => {
         setCurrentPage(Number(page) + 1);
     };
 
-    return (
-        <React.Fragment>
-          <Subheader
-            title={intl.formatMessage({ id: 'page.mobile.profile.accountActivity.title' })}
-            backTitle={intl.formatMessage({ id: 'page.body.profile.header.account' })}
-            onGoBack={() => history.push('/profile')}
-          />
-            <div className="pg-mobile-profile-account-activity-screen">
-                <div className="pg-mobile-profile-account-activity-screen__list">
-                    {userActivity.length ? (
-                        userActivity.map((item, index) => <UserActivityItem key={index} item={item} />)
-                    ) : (
-                        <span className="no-data">{intl.formatMessage({id: 'page.noDataToShow'})}</span>
-                    )}
-                    <Pagination
-                        firstElemIndex={firstElemIndex}
-                        lastElemIndex={lastElemIndex}
-                        page={currentPage}
-                        nextPageExists={nextPageExists}
-                        onClickPrevPage={onClickPrevPage}
-                        onClickNextPage={onClickNextPage}
-                    />
+    return ( 
+        <div className="mobile-profile-account-activity">
+            {userActivity.length ? 
+                <div className="mobile-profile-account-activity__list">
+                    {userActivity.map((item, index) => <UserActivityItem key={index} item={item} />)}
+                </div> : 
+                <div className="mobile-profile-account-activity__list--empty">
+                    <NoResultData class="themes" /> 
                 </div>
-
-            </div>
-        </React.Fragment>
+            }
+            {userActivity.length > DEFAULT_LIMIT ?
+            <Pagination
+                firstElemIndex={firstElemIndex}
+                lastElemIndex={lastElemIndex}
+                page={currentPage}
+                nextPageExists={nextPageExists}
+                onClickPrevPage={onClickPrevPage}
+                onClickNextPage={onClickNextPage}
+            /> : null}
+        </div> 
     );
 };
 

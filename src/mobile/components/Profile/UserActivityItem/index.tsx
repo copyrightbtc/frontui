@@ -33,37 +33,39 @@ const UserActivityItemComponent = props => {
     const [itemDate, itemTime] = localeDate(item.created_at, 'fullDate').split(' ');
 
     const resultStatusClassName = classnames({
-        'color-green': item.result === 'succeed',
-        'color-red':  ['failed', 'denied'].includes(item.result),
+        'success': item.result === 'succeed',
+        'failed':  ['failed', 'denied'].includes(item.result),
     });
 
     return (
-        <div key={index} className="pg-mobile-profile-account-activity-item">
-            <div className="pg-mobile-profile-account-activity-item__row">
-                <div className="pg-mobile-profile-account-activity-item__row__block">
+        <div key={index} className="mobile-profile-account-activity-item">
+            <div className="mobile-profile-account-activity-item__row">
+                <div className="mobile-profile-account-activity-item__row__block">
                     <span>{userAgent}</span>
                 </div>
-                <div className="pg-mobile-profile-account-activity-item__row__block">
-                    <span>{itemDate}</span>
-                    <span>{itemTime}</span>
+                <div className="mobile-profile-account-activity-item__row__block">
+                    <div className='date-split'>
+                        {itemDate}
+                        <span>{itemTime}</span>
+                    </div>
                 </div>
             </div>
-            <div className="pg-mobile-profile-account-activity-item__row">
-                <div className="pg-mobile-profile-account-activity-item__row__block">
+            <div className="mobile-profile-account-activity-item__row">
+                <div className="mobile-profile-account-activity-item__row__block">
                     <span>{intl.formatMessage({ id: 'page.mobile.profile.accountActivity.action' })}</span>
-                    <span className="pg-mobile-profile-account-activity-item__row__block__value">
+                    <span className="mobile-profile-account-activity-item__row__block__value">
                         {resultOfUserAction}
                     </span>
                 </div>
-                <div className="pg-mobile-profile-account-activity-item__row__block">
+                <div className="mobile-profile-account-activity-item__row__block">
                     <span>{intl.formatMessage({ id: 'page.mobile.profile.accountActivity.ip' })}</span>
-                    <span className="pg-mobile-profile-account-activity-item__row__block__value">
+                    <span className="mobile-profile-account-activity-item__row__block__value">
                         {item.user_ip}
                     </span>
                 </div>
-                <div className="pg-mobile-profile-account-activity-item__row__block">
+                <div className="mobile-profile-account-activity-item__row__block">
                     <span>{intl.formatMessage({ id: 'page.mobile.profile.accountActivity.result' })}</span>
-                    <div className="pg-mobile-profile-account-activity-item__row__block__value">
+                    <div className="mobile-profile-account-activity-item__row__block__value">
                         <span className={resultStatusClassName}>
                             {item.result}
                         </span>

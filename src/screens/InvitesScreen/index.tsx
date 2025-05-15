@@ -40,7 +40,7 @@ import step3 from '../../assets/images/invites/refferal-step3.svg';
 export const InvitesScreen: FC = (): ReactElement => {
   const { formatMessage } = useIntl();
   const dispatch = useDispatch();
-  useDocumentTitle('Referral program');
+  useDocumentTitle(translate('page.body.invite.title'));
   const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
   const user = useSelector(selectUserInfo);
   const link = `${window.location.origin}/signup?referral_uid=${user.uid}`;

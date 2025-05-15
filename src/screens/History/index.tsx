@@ -50,7 +50,7 @@ export const HistoryScreen: FC = (): ReactElement => {
     const [tabMapping] = useState<string[]>(['account-activity', 'deposits-history', 'withdraws-history'/*, 'qe-history'*/]);
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
-    useDocumentTitle('History');
+    useDocumentTitle(translate('page.body.header.up.titles.history'));
 
     useEffect(() => {
         if (routeTab) {

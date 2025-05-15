@@ -21,7 +21,7 @@ import {
     ForgotPasswordMobileScreen,
     LandingScreenMobile,
     OrdersMobileScreen,
-    ProfileAccountActivityMobileScreen,
+    AccountHistory,
     ProfileApiKeysMobileScreen,
     ProfileAuthMobileScreen,
     ProfileMobileScreen,
@@ -313,7 +313,8 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/wallets" component={WalletsMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/orders/:routeTab" component={OrdersMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/orders" component={OrdersMobileScreen} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/account-activity" component={ProfileAccountActivityMobileScreen} />
+                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/history/:routeTab" component={AccountHistory} />
+                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/history" component={AccountHistory} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/api-keys" component={ProfileApiKeysMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/referral" component={InvitesScreenMobile} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/2fa" component={ProfileAuthMobileScreen} />

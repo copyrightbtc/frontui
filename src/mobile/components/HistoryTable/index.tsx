@@ -248,7 +248,7 @@ const HistoryTable = (props: any) => {
                     </div>
                     <div className='cell'>
                         {walletType.type === 'fiat' ? 
-                        <div className='confirmations'>{item.tid}</div> :  
+                        <div className='confirmations'>{item.tid}</div> : 
                         type === 'deposits' && 
                             <div className='confirmations'>{confirmations > minConfirmations ? intl.formatMessage({id: 'page.body.history.deposit.content.status.reached' }) : confirms}</div>}
                         {state}
@@ -263,6 +263,10 @@ const HistoryTable = (props: any) => {
                         {type === 'deposits' ? 
                             <Accordion.Body>
                                 <div className='mobile-history-funds__row__bottom'> 
+                                    <div className='cell'>
+                                        <div className='name'>TID</div>
+                                        <div className='data'>{item.tid}</div>
+                                    </div>
                                     <div className='cell'>
                                         <div className='name'>{intl.formatMessage({ id: 'page.body.history.deposit.header.blockchain' })}</div>
                                         <div className='data'>{item.protocol?.toUpperCase()}</div>
@@ -293,10 +297,6 @@ const HistoryTable = (props: any) => {
                                     <div className='data'>{item.protocol?.toUpperCase()}</div>
                                 </div>
                                 <div className='cell'>
-                                    <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.amounttol' })}</div>
-                                    <div className='data' key={item.blockchain_txid || item.rid}>{parseFloat(Number(amount).toFixed(fixed))} {currency.toUpperCase()}</div>
-                                </div>
-                                <div className='cell'>
                                     <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.fee' })}</div>
                                     <div className='data' key={item.rid}>{parseFloat(Number(item.fee).toFixed(fixed))} {currency.toUpperCase()}</div>
                                 </div>
@@ -305,7 +305,7 @@ const HistoryTable = (props: any) => {
                                     <div className='data' key={item.rid}>{parseFloat(Number(Number(item.fee) + Number(amount)).toFixed(fixed))} {currency.toUpperCase()}</div>
                                 </div>
                                 <div className='cell'>
-                                    <div className='name'>txID</div>
+                                    <div className='name'>{intl.formatMessage({ id: 'page.body.history.withdraw.header.address' })}</div>
                                     <div className='data'>
                                         <div className="blockchainLink" key={item.rid || item.blockchain_txid}>
                                             {truncateMiddle(item.rid, 28)}

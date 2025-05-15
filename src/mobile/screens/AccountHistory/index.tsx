@@ -1,27 +1,26 @@
 import React, { FC, ReactElement, useCallback, useEffect, useState, } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'; 
 import { useIntl } from "react-intl";
+import { TabPanelUnderlines } from 'src/components';
 import { TabPanelMobile } from 'src/components/TabPanelMobile';
 import { MobileHistoryElement } from 'src/containers/HistoryElement/MobileHistoryElement';
-import { MobileOrdersElement } from 'src/containers/OrdersElement/MobileOrdersElement';
+import { AccountActivities } from 'src/containers/ProfileAccountActivity/AccountActivities';
+import { ProfileAccountActivityMobileScreen } from 'src/mobile/screens';
 import { useDocumentTitle } from 'src/hooks';
 import {
-    marketsFetch,
-    ordersCancelAllFetch,
-    selectShouldFetchCancelAll,
-    resetOrdersHistory,
-    selectOrdersHistory,
     fetchHistory,
+    marketsFetch,
     resetHistory,
+    walletsFetch,
 } from 'src/modules';
 
-interface ParamType {
+interface ParamTypes {
     routeTab?: string;
 }
 
-export const OrdersMobileScreen: FC = (): ReactElement => {
-     
+export const AccountHistory: FC = (): ReactElement => {
+ 
     const history = useHistory();
 
     const { formatMessage } = useIntl();
@@ -30,10 +29,9 @@ export const OrdersMobileScreen: FC = (): ReactElement => {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        list;
-        dispatch(marketsFetch());
-        dispatch(resetOrdersHistory());
         dispatch(resetHistory());
+        dispatch(marketsFetch());
+        dispatch(walletsFetch());
     }, [dispatch]);
 
     const timeFrom = String(Math.floor((Date.now() - 1000 * 60 * 60 * 24) / 1000));
@@ -46,21 +44,14 @@ export const OrdersMobileScreen: FC = (): ReactElement => {
             time_from: timeFrom 
         }));
     }, [dispatch]);
-    
-    const shouldFetchCancelAll = useSelector(selectShouldFetchCancelAll);
-    const handleCancelAllOrders = () => {
-        if (shouldFetchCancelAll) {
-            dispatch(ordersCancelAllFetch());
-        }
-    };
-    const list = useSelector(selectOrdersHistory);
-    const { routeTab } = useParams<ParamType>();
+
+    const { routeTab } = useParams<ParamTypes>();
 
     const [tab, setTab] = useState<string>('');
-    const [tabMapping] = useState<string[]>(['open-orders', 'all-orders', 'trade-history']);
+    const [tabMapping] = useState<string[]>(['account-activity', 'deposits-history', 'withdraws-history']);
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
-    useDocumentTitle('Orders');
+    useDocumentTitle(translate('page.body.header.up.titles.history'));
 
     useEffect(() => {
         if (routeTab) {
@@ -70,13 +61,13 @@ export const OrdersMobileScreen: FC = (): ReactElement => {
                 setCurrentTabIndex(index);
             }
         } else {
-            history.push('/orders/open-orders');
+            history.push('/history/account-activity');
         }
     }, [routeTab, tabMapping]);
 
     const onCurrentTabChange = (index: number) => {
         setCurrentTabIndex(index);
-        history.push(`/orders/${tabMapping[index]}`);
+        history.push(`/history/${tabMapping[index]}`);
     };
 
     const onTabChange = (index: number) => {
@@ -89,35 +80,25 @@ export const OrdersMobileScreen: FC = (): ReactElement => {
 
         return [
             {
-                content: currentTabIndex === 0 ? <MobileOrdersElement type="open"/> : null,
-                label: translate('page.body.openOrders.tab.open'),
+                content: currentTabIndex === 0 ? <ProfileAccountActivityMobileScreen /> : null,
+                label: translate('page.body.history.activity'),
             },
             {
-                content: currentTabIndex === 1 ? <MobileOrdersElement type="all" /> : null,
-                label: translate('page.body.openOrders.tab.all'),
+                content: currentTabIndex === 1 ? <MobileHistoryElement type="deposits" /> : null,
+                label: translate('page.body.history.deposit'),
             },
             {
-                content: currentTabIndex === 2 ? <MobileHistoryElement type="trades" /> : null,
-                label: translate('page.body.history.trade'),
+                content: currentTabIndex === 2 ? <MobileHistoryElement type="withdraws" /> : null,
+                label: translate('page.body.history.withdraw'),
             },
         ];
     };
-
-    const updateList = list.filter(o => o.state === 'wait');
-
-    const cancelAll = updateList.length > 0 && tab !== 'trade-history' ? (
-        <div className="cancel-orders" onClick={handleCancelAllOrders}>
-            <span>{translate('page.body.openOrders.header.button.cancelAll')}</span>
-            <div className="cancel-orders__close" />
-        </div>
-    ) : null;
-
+ 
     return (
         <div className="mobile-history-page">
             <TabPanelMobile
                 panels={renderTabs()}
                 onTabChange={onTabChange}
-                optionalHead={cancelAll}
                 currentTabs={currentTabIndex}
                 onCurrentTabChange={onCurrentTabChange}
                 borders={true}

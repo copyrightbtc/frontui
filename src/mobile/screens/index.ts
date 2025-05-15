@@ -1,4 +1,5 @@
 export * from './ChangeForgottenPasswordScreen';
+export * from './AccountHistory';
 export * from './ConfirmScreen';
 export * from './EmailVerificationScreen';
 export * from './ForgotPassword';

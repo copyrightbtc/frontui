@@ -60,7 +60,7 @@ export const OrdersMobileScreen: FC = (): ReactElement => {
     const [tabMapping] = useState<string[]>(['open-orders', 'all-orders', 'trade-history']);
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
 
-    useDocumentTitle('Orders');
+    useDocumentTitle(translate('page.header.navbar.openOrders'));
 
     useEffect(() => {
         if (routeTab) {
