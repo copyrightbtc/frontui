@@ -8,7 +8,6 @@ import { CloseIcon } from '../../assets/images/CloseIcon';
 import { CSSTransition } from "react-transition-group";
 import { injectIntl } from 'react-intl';
 import { connect, MapDispatchToPropsFunction } from 'react-redux';
-import { withRouter } from 'react-router';
 import { OverlayTrigger } from 'react-bootstrap';
 import { Tooltip } from '../../components';
 import { ReportIcon } from 'src/assets/images/ReportIcon';
