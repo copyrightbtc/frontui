@@ -805,6 +805,7 @@ export const en = {
         "You reached out the max number of API keys. You can delete the existing one and after add new API",
 
     "page.body.profile.apiKeys.main.header.title": "Create API to suit your Trading needs",
+    "page.body.profile.apiKeys.main.header.title.short": "Create APIs",
     "page.body.profile.apiKeys.main.header.security.1":
         "Create API keys to help you trade easier. Please do not disclose your API Key to anyone to avoid asset losses.",
     "page.body.profile.apiKeys.main.header.security.2": "Each user can create up to 20 API Keys.",

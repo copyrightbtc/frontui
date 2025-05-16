@@ -117,7 +117,9 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
         } = this.props;
 
         const headerText = this.props.modal.action === 'createSuccess' ? this.translate('page.body.profile.apiKeys.modal.created_header')
-            : this.translate('page.body.profile.apiKeys.modal.header');
+        : this.translate('page.body.profile.apiKeys.modal.header');
+
+ 
 
         return (
             <div className="accountpage-wrapper">
@@ -151,7 +153,7 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
                                             placement="auto"
                                             delay={{ show: 250, hide: 300 }} 
                                             overlay={<Tooltip title="page.body.profile.apiKeys.header.create.reachedout" />}>
-                                            <ReportIcon className='report-icon'/>
+                                                <div><ReportIcon className='report-icon'/></div>
                                         </OverlayTrigger>
                                     }
                                 </div>
@@ -181,9 +183,10 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
                                 )
                             )}
 
-                        </div>  
+                        </div>
                         <CSSTransition
-                            in={this.state.showModal}
+                            in={this.props.modal.active}
+                            out={!this.props.modal.active}
                             timeout={{
                                 enter: 100,
                                 exit: 400
@@ -297,8 +300,7 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
         const isDisabled = !otpCode.match(/.{6}/g);
         switch (this.props.modal.action) {
             case 'createKey':
-                button =
-                    (
+                button = (
                         <Button
                             onClick={this.handleCreateKey}
                             disabled={isDisabled}
@@ -309,8 +311,7 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
                     );
                 break;
             case 'createSuccess':
-                button =
-                    (
+                button = (
                         <Button
                             onClick={this.handleCreateSuccess}
                             className="medium-button"
@@ -469,34 +470,22 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
     private handleCreateKeyClick = () => {
         const payload: ApiKeys2FAModal['payload'] = {active: true, action: 'createKey'};
         this.props.toggleApiKeys2FAModal(payload);
-        this.setState({
-            showModal: !this.state.showModal,
-        });
     };
 
     private handleCreateKey = () => {
         const payload: ApiKeyCreateFetch['payload'] = {totp_code: this.state.otpCode};
         this.props.createApiKey(payload);
         this.setState({otpCode: ''});
-        this.setState({
-            showModal: false,
-        });
     };
 
     private handleCreateSuccess = () => {
         const payload: ApiKeys2FAModal['payload'] = {active: false};
         this.props.toggleApiKeys2FAModal(payload);
-        this.setState({
-            showModal: false,
-        });
     };
 
     private handleToggleStateKeyClick = apiKey => () => {
         const payload: ApiKeys2FAModal['payload'] = {active: true, action: 'updateKey', apiKey};
         this.props.toggleApiKeys2FAModal(payload);
-        this.setState({
-            showModal: !this.state.showModal,
-        });
     };
 
     private handleUpdateKey = () => {
@@ -515,16 +504,13 @@ class ProfileApiKeysComponent extends React.Component<Props, ProfileApiKeysState
     private handleDeleteKeyClick = apiKey => {
         const payload: ApiKeys2FAModal['payload'] = {active: true, action: 'deleteKey', apiKey};
         this.props.toggleApiKeys2FAModal(payload);
-        this.setState({
-            showModal: !this.state.showModal,
-        });
     };
 
     private handleDeleteKey = () => {
         const { modal } = this.props;
         const payload: ApiKeyDeleteFetch['payload'] = {kid: (modal.apiKey && modal.apiKey.kid) || '', totp_code: this.state.otpCode};
         this.props.deleteApiKey(payload);
-        this.setState({otpCode: '', showModal: false});
+        this.setState({otpCode: ''});
     };
 }
 
@@ -550,5 +536,4 @@ const mapDispatchToProps: MapDispatchToPropsFunction<DispatchProps, {}> =
         fetchSuccess: payload => dispatch(alertPush(payload)),
     });
 
-const connected = injectIntl(connect(mapStateToProps, mapDispatchToProps)(ProfileApiKeysComponent)) as any;
-export const ProfileApiKeys = withRouter(connected);
+export const ProfileApiKeys = injectIntl(connect(mapStateToProps, mapDispatchToProps)(ProfileApiKeysComponent)) as any;

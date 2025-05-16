@@ -8,7 +8,6 @@ export * from './Landing';
 export * from './Orders';
 export * from './Profile';
 export * from './ProfileAccountActivity';
-export * from './ProfileApiKeys';
 export * from './ProfileTwoFaScreen';
 export * from './ProfileAuth';
 export * from './ProfileChangePassword';
@@ -23,10 +22,7 @@ export * from './WalletsScreen';
 export * from './WalletWithdraw';
 export * from './WalletsSpotMobile';
 export * from './InvitesScreenMobile';
-
-export * from './PayeerpaymentMobile';
-export * from './VoletpaymentMobile';
-
+export * from './MobileProfileApiKeys';
 export * from './AdvertiserMobileScreen';
 export * from './AdvertisementMobileScreen';
 export * from './MyAdvertisementMobileScreen';

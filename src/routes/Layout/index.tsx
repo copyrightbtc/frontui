@@ -22,7 +22,6 @@ import {
     LandingScreenMobile,
     OrdersMobileScreen,
     AccountHistory,
-    ProfileApiKeysMobileScreen,
     ProfileAuthMobileScreen,
     ProfileMobileScreen,
     ProfileVerificationMobileScreen,
@@ -33,8 +32,6 @@ import {
     WalletDeposit,
     WalletsMobileScreen,
     WalletWithdraw,
-    PayeerpaymentMobile,
-    VoletpaymentMobile,
     InvitesScreenMobile,
     AdvertiserMobileScreen,
     AdvertisementMobileScreen,
@@ -45,6 +42,7 @@ import {
     ProfileP2PTradeMessagesScreen,
     CreateAdvertisementMobileScreen,
     ProfileSetUsernameMobileScreen,
+    MobileProfileApiKeys,
 } from '../../mobile/screens';
  
 import {
@@ -315,8 +313,8 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/orders" component={OrdersMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/history/:routeTab" component={AccountHistory} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/history" component={AccountHistory} />
-                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/api-keys" component={ProfileApiKeysMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/referral" component={InvitesScreenMobile} />
+                        <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/apikeys" component={MobileProfileApiKeys} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/2fa" component={ProfileAuthMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/verification" component={ProfileVerificationMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile" component={ProfileMobileScreen} /> 
@@ -327,9 +325,6 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/p2p/myads" component={MyAdvertisementMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/p2p/advertisements/create" component={CreateAdvertisementMobileScreen} />
                         <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/profile/set-username" component={ProfileSetUsernameMobileScreen} />
-
-                        <PrivateRoute exact={true} loading={userLoading} isLogged={isLoggedIn} path="/voletpayment" component={VoletpaymentMobile} /> 
-                        <PrivateRoute exact={true} loading={userLoading} isLogged={isLoggedIn} path="/payeerpayment" component={PayeerpaymentMobile} />
 
                         <Route exact={true} path="/fees" component={FeesPolicy} /> 
                         <Route exact={true} path="/amlkyc-policy" component={AmlPolicy} />

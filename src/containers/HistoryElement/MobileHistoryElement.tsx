@@ -48,6 +48,7 @@ import {
 
 interface MobileHistoryProps {
     type: string;
+    types: 'fiat' | 'coin';
 }
 
 interface ReduxProps {
@@ -608,6 +609,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
             intl,
             marketsData,
             wallets,
+            types
         } = this.props;
         switch (type) {
             case 'deposits': {
@@ -639,11 +641,14 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                                     <span>{localeDate(created_at, 'time')}</span>
                                 </div>
                             </div>
-                            <div key={txid} className='cell'>
-                                <div className='confirmations'>{confirmations > minConfirmations ? this.props.intl.formatMessage({id: 'page.body.history.deposit.content.status.reached' }) : confirms}</div>
+                            <div className='cell'>
+                                {types === 'fiat' ? 
+                                    <div className='confirmations'>{tid}</div> : 
+                                    <div className='confirmations'>{confirmations > minConfirmations ? intl.formatMessage({id: 'page.body.history.deposit.content.status.reached' }) : confirms}</div>}
                                 {state}
                             </div>
                         </div>
+                        {types !== 'fiat' && 
                         <Accordion className='moreinfo-trades'>
                             <Accordion.Item eventKey="1">
                                 <Accordion.Header>
@@ -679,7 +684,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                                     </div>
                                 </Accordion.Body>
                             </Accordion.Item>
-                        </Accordion>
+                        </Accordion>}
                     </div>
                 );
             }
@@ -687,7 +692,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                 const { created_at, currency, amount, fee, rid, protocol, blockchain_txid, tid, blockchain_key } = item;
 
                 const { fixed } = wallets.find(w => w.currency === currency) || { fixed: DEFAULT_CCY_PRECISION };
-
+                const totals = Number(fee) + Number(amount);
                 const state = 'state' in item ? this.formatTxState(item.state) : '';
                 const blockchainRid = this.getBlockchainRid(currency, blockchain_key, rid);
                 const blockchainLinkTx = this.getBlockchainLink(currency, blockchain_txid);
@@ -699,17 +704,18 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                             <div className='cell'>
                                 <div className='amount'>
                                     <CryptoIcon className="crypto-icon" code={currency && currency.toUpperCase()} />
-                                    {wallet && parseFloat(Number(amount).toFixed(fixed))} {currency && currency?.toUpperCase()}
+                                    {wallet && Number(amount)} {currency && currency?.toUpperCase()}
                                 </div>
                                 <div className='date'>
-                                    {localeDate(item.created_at, 'date')}
-                                    <span>{localeDate(item.created_at, 'time')}</span>
+                                    {localeDate(created_at, 'date')}
+                                    <span>{localeDate(created_at, 'time')}</span>
                                 </div>
                             </div>
                             <div key={rid} className='cell'>
                                 {state}
                             </div>
                         </div>
+                        {types !== 'fiat' && 
                         <Accordion className='moreinfo-trades'>
                             <Accordion.Item eventKey="1">
                                 <Accordion.Header>
@@ -723,11 +729,11 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                                         </div>
                                         <div className='cell'>
                                             <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.fee' })}</div>
-                                            <div className='data'>{wallet && parseFloat(Number(fee).toFixed(fixed))} {currency.toUpperCase()}</div>
+                                            <div className='data'>{wallet && Number(fee)}</div>
                                         </div>
                                         <div className='cell'>
                                             <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.totalamount' })}</div>
-                                            <div className='data'>{wallet && parseFloat(Number(Number(fee) + Number(amount)).toFixed(fixed))} {currency.toUpperCase()}</div>
+                                            <div className='data'>{wallet && totals}</div>
                                         </div>
                                         <div className='cell'>
                                             <div className='name'>{intl.formatMessage({ id: 'page.body.history.withdraw.header.address' })}</div>
@@ -756,7 +762,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                                     </div>
                                 </Accordion.Body>
                             </Accordion.Item>
-                        </Accordion>
+                        </Accordion>}
                     </div>
                 );
             }

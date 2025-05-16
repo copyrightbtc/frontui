@@ -811,6 +811,7 @@ export const ru = {
         "Вы достигли максимального количества API ключей. Вы можете удалить существующий и затем добавить новый API",
 
     "page.body.profile.apiKeys.main.header.title": "Создайте API, отвечающий вашим торговым потребностям",
+    "page.body.profile.apiKeys.main.header.title.short": "Создайте API",
     "page.body.profile.apiKeys.main.header.security.1":
         "Создавайте ключи API , чтобы упростить торговлю. Пожалуйста, никому не сообщайте свой API ключ, чтобы избежать потери активов.",
     "page.body.profile.apiKeys.main.header.security.2": "Каждый пользователь может создать до 20 ключей API .",

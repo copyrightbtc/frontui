@@ -55,17 +55,14 @@ const CopyableTextField: React.FC<CopyableTextFieldProps> = (props: CopyableText
             label={label}
             buttonText={copyButtonText}
             buttonClassName="copyable-text-field__button"
-            icon={
-                <React.Fragment>
-                    {!isMobileDevice ? <IconButton 
-                        className="copy_button"
-                        sx={{
-                            width: '39px',
-                            height: '39px',
-                        }}>
-                        <CopyIcon className="copy-iconprop"/> 
-                    </IconButton> : translate('page.body.wallets.tabs.deposit.copy.button.tap')}
-                </React.Fragment>
+            icon={<IconButton 
+                    className="copy_button"
+                    sx={{
+                        width: '39px',
+                        height: '39px',
+                    }}>
+                    <CopyIcon className="copy-iconprop"/> 
+                </IconButton>
             }
         />
     );

@@ -932,7 +932,20 @@
     }
     &.green{
       &.MuiButton-root{
+        box-shadow: var(--color-small-button-shadow);
         background: var(--color-success);
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
         &:hover{
           background: var(--color-success);
         }
@@ -943,7 +956,20 @@
     }
     &.blue{
       &.MuiButton-root{
+        box-shadow: var(--color-small-button-shadow);
         background: var(--color-blue);
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
         &:hover{
           background: var(--color-blue);
         }
@@ -954,7 +980,20 @@
     }
     &.red{
       &.MuiButton-root{
+        box-shadow: var(--color-small-button-shadow);
         background: var(--color-danger);
+        &.Mui-disabled{
+          background: rgba(0, 0, 0, .2); 
+          color: #ffffff73;
+          box-shadow: none;
+          cursor: not-allowed;
+          pointer-events: inherit;
+          &:hover,
+          &:active{
+            background: rgba(0, 0, 0, .2);
+            box-shadow: none;
+          }
+        }
         &:hover{ 
           background: var(--color-danger);
         }
@@ -965,7 +1004,20 @@
     }
     &.black{
       color: #fff;
+      box-shadow: var(--color-small-button-shadow);
       background: var(--color-grey);
+      &.Mui-disabled{
+        background: rgba(0, 0, 0, .2); 
+        color: #ffffff73;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: inherit;
+        &:hover,
+        &:active{
+          background: rgba(0, 0, 0, .2);
+          box-shadow: none;
+        }
+      }
       &:hover,
       &:active{ 
         background: var(--color-grey);

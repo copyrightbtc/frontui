@@ -167,7 +167,7 @@ export const P2PPaymentsScreen = () => {
               placement="auto"
               delay={{ show: 250, hide: 300 }} 
               overlay={<Tooltip className="themes" title="page.body.p2p.payments.add.reachedout" />}>
-              <div><ReportIcon className="report-icon themes"/></div>
+                <div><ReportIcon className="report-icon themes"/></div>
             </OverlayTrigger>
           )}
         </div>
