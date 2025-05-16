@@ -16,7 +16,7 @@ import { CopyIcon } from 'src/assets/images/CopyIcon';
 import { SearchIcon } from '../../assets/images/SearchIcon';
 import { SearchFieldCloseIcon } from '../../assets/images/SearchFieldCloseIcon';
 import { CalendarIcon } from '../../assets/images/CalendarIcon';
-import { Decimal, Pagination, NoResultData, DropdownFilter, Tooltip } from '../../components';
+import { Pagination, NoResultData, DropdownFilter, Tooltip } from '../../components';
 import { CryptoIcon } from 'src/components/CryptoIcon';
 import { ReloadIcon } from "src/assets/images/ReloadIcon";
 import { OverlayTrigger } from 'react-bootstrap';
@@ -120,7 +120,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
 
         return (
             <div className={`mobile-history-page${list.length ? '' : ' mobile-history-page--empty'}`}>
-                {list.length && !fetching ? this.renderFilterRow() : null}
+                {list.length ? this.renderFilterRow() : null}
                 {fetching && <div className="spinner-loader-center fixed"><FillSpinner size={19} color="var(--color-accent)"/></div>}
                 {list.length ? this.renderContent() : null}
                 {!list.length && !fetching ? <NoResultData class="themes" /> : null}
@@ -139,6 +139,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                         {this.props.intl.formatMessage({ id: 'page.body.profile.content.action.more.filters'})}
                         <ArrowDownward className="arrow" />
                     </Accordion.Header>
+                    {this.renderReloadtypes(type)}
                     <Accordion.Body>
                     <div className="filter-elements">
                         <div className="filter-elements__top">
@@ -189,7 +190,6 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                             >
                                 {this.props.intl.formatMessage({ id: 'page.body.filters.reset' })}
                             </Button>
-                            {this.renderReloadtypes(type)}
                         </div>
                     </div>
                     </Accordion.Body>
@@ -372,9 +372,9 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                 return [
                     <div className="filter-elements__refresh">
                         <OverlayTrigger 
-                            placement="top"
+                            placement="bottom"
                             delay={{ show: 250, hide: 300 }} 
-                            overlay={<Tooltip title="page.body.filters.reload.tolltip" />}>
+                            overlay={<Tooltip className='themes' title="page.body.filters.reload.tolltip" />}>
                             <IconButton
                                 onClick={() => this.fetchData()}
                                 sx={{

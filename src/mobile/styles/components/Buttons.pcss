@@ -110,11 +110,32 @@
   }
 }
 .moreinfo-filters{
+  position: relative;
   &.accordion{
     margin-top: 0;
     width: 100%;
     border-bottom: 1px solid var(--color-table-lines-grey);
-    padding: 6px 16px;
+    padding: 10px 16px 7x;
+    .filter-elements{
+      &__refresh{
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 17px;
+        .MuiIconButton-root{
+          box-shadow: var(--color-icon-button-shadow);
+          background: var(--color-main-dark-light);
+          &:hover,
+          &:active{
+            box-shadow: var(--icon-button-hover-shadow);
+            background: var(--color-main-dark-light);
+          }
+          svg{
+            fill: var(--color-dark);
+          }
+        }
+      }
+    }
     .accordion-header{
       display: flex;
       align-items: center;
@@ -138,7 +159,7 @@
       height: 28px;
       transition: .2s;
       margin: 0 auto;
-      max-width: 250px;
+      max-width: 235px;
       border: 1px solid var(--color-main-dark-light);
       &.collapsed{
         box-shadow: var(--color-icon-button-shadow);

@@ -99,7 +99,7 @@ class MobileOrdersComponent extends React.PureComponent<Props, OrdersState>  {
         return (
             <div className={`mobile-history-page${updateList.length ? '' : ' mobile-history-page--empty'}`}>
                 {fetching && <div className="spinner-loader-center fixed"><FillSpinner size={19} color="var(--color-accent)"/></div>}
-                {updateList.length && !fetching ? this.renderFilterRow() : null}
+                {updateList.length ? this.renderFilterRow() : null}
                 {updateList.length ? this.renderContent(updateList) : null}
                 {!updateList.length && !fetching ? <NoResultData class="themes"/> : null}
             </div>
