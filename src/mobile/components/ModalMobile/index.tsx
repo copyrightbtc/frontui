@@ -44,7 +44,7 @@ const ModalComponent = props => {
         <div className={modalClassName} onClick={e => handleOnClose(e, true)}>
             <div className={bodyClassName}>
                 {props.header}
-                <div className="mobile-modal__body">
+                <div className="mobile-modal__body" onClick={e => e.stopPropagation()}>
                     {props.children}
                 </div>
             </div>
