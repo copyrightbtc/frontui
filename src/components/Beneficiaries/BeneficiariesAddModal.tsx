@@ -5,7 +5,6 @@ import { Button } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { is2faValid } from '../../helpers';
-import { ModalMobile } from '../../mobile/components/ModalMobile';
 import {
     beneficiariesCreate,
     BeneficiaryBank,
@@ -226,8 +225,13 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
         const doesCurrencyExistsInPackage = WAValidator.findCurrency(currency);
 
         if (doesCurrencyExistsInPackage) {
-            setCoinAddressValid(WAValidator.validate(value.trim(), currency));
-            setCoinTestnetAddressValid(WAValidator.validate(value.trim(), currency, 'testnet'));
+            if (currency !== 'usdt') {
+                setCoinAddressValid(WAValidator.validate(value.trim(), currency));
+                setCoinTestnetAddressValid(WAValidator.validate(value.trim(), currency, 'testnet'));
+            } else {
+                setCoinAddressValid(true);
+                setCoinTestnetAddressValid(true);
+            }
         } else {
             setCoinAddressValid(true);
             setCoinTestnetAddressValid(true);

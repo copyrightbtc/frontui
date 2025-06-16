@@ -112,6 +112,7 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
         const blockchainItem = networks?.find(item => item.blockchain_key === beneficiary.blockchain_key);
 
         const estimatedValueFee = +price * +blockchainItem?.withdraw_fee;
+        const estimatedAmountFee = +price * +blockchainItem?.min_withdraw_amount;
 
         const text1 = this.props.intl.formatMessage({ id: 'page.body.wallets.tabs.deposit.ccy.withdraw.instruction.2' },
             {name: this.props.name, asset: currency.toUpperCase()});
@@ -159,10 +160,11 @@ class WithdrawComponent extends React.Component<Props, WithdrawState> {
                                         <small>≈ $<Decimal fixed={DEFAULT_FIAT_PRECISION} thousSep=",">{estimatedValueFee.toString()}</Decimal></small>
                                     </div>
                                 </div>
-                                <div className="withdraw-container__row">
+                                <div className="withdraw-container__row column">
                                     <span>{this.translate('page.body.wallets.beneficiaries.minamountwithdraw')}</span>
                                     <div className="withdraw-container__row__details">
-                                        {parseFloat(Number(blockchainItem?.min_withdraw_amount?.toString()).toFixed(fixed))}&nbsp;{currency.toUpperCase()}
+                                        <div>{parseFloat(Number(blockchainItem?.min_withdraw_amount?.toString()).toFixed(fixed))}&nbsp;{currency.toUpperCase()}</div>
+                                        <small>≈ $<Decimal fixed={DEFAULT_FIAT_PRECISION} thousSep=",">{estimatedAmountFee.toString()}</Decimal></small>
                                     </div>
                                 </div>
                                 </Accordion.Body>

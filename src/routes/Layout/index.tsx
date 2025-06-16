@@ -298,6 +298,7 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
             return (
                 <div className={mobileCls}>
                     <Switch>
+                        <Route exact={true} path="/magic-link" component={MagicLink} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signin" component={SignInMobileScreen} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signup" component={SignUpMobileScreen} />
                         <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/forgot_password" component={ForgotPasswordMobileScreen} />
@@ -338,6 +339,8 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                         <Route exact={true} path="/" component={LandingScreenMobile} />
 
                         <Route path="**" component={ErrorScreen} />
+                        <Route path="/restriction" component={RestrictedScreen} />
+                        <Route path="/maintenance" component={MaintenanceScreen} />
 
                     </Switch>
                     {isLoggedIn && <WalletsFetch />}

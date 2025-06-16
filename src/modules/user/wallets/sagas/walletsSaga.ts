@@ -8,7 +8,7 @@ import { selectCurrenciesState } from '../../../';
 
 const walletsOptions: RequestOptions = {
     apiVersion: 'tradesfor',
-};;
+};
 
 
 export function* walletsSaga(action: WalletsFetch) {

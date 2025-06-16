@@ -141,7 +141,7 @@ const WalletDepositBodyComponent = props => {
                                 /> 
                             </React.Fragment> : renderWarning }
                         </div>
-                    )};
+                    )}
                 </React.Fragment>
             );
         } else {
