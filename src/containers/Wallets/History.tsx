@@ -315,13 +315,13 @@ export class WalletTable extends React.Component<Props> {
                             </div>}
                         </td>
                         <td>
-                            <Decimal key={item.blockchain_txid || item.rid} fixed={fixed} thousSep=",">{amount}</Decimal>
+                            <Decimal key={item.blockchain_txid || item.rid} fixed={fixed} thousSep=",">{Number(amount) - Number(item.fee)}</Decimal>
                         </td>
                         {type === 'withdraws' && <td>
                             <div><Decimal key={item.rid} fixed={fixed} thousSep=",">{item.fee}</Decimal></div>
                         </td>}
                         {type === 'withdraws' && <td>
-                            <div><Decimal key={item.rid} fixed={fixed} thousSep=",">{Number(item.fee) + Number(amount)}</Decimal></div>
+                            <div><Decimal key={item.rid} fixed={fixed} thousSep=",">{amount}</Decimal></div>
                         </td>}
                         {type === 'deposits' && <td>
                             <div>{confirmations > minConfirmations ? this.props.intl.formatMessage({id: 'page.body.history.deposit.content.status.reached' }) : confirms}</div>

@@ -692,7 +692,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                 const { created_at, currency, amount, fee, rid, protocol, blockchain_txid, tid, blockchain_key } = item;
 
                 const { fixed } = wallets.find(w => w.currency === currency) || { fixed: DEFAULT_CCY_PRECISION };
-                const totals = Number(fee) + Number(amount);
+                const totals = Number(amount) - Number(fee);
                 const state = 'state' in item ? this.formatTxState(item.state) : '';
                 const blockchainRid = this.getBlockchainRid(currency, blockchain_key, rid);
                 const blockchainLinkTx = this.getBlockchainLink(currency, blockchain_txid);
@@ -704,7 +704,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                             <div className='cell'>
                                 <div className='amount'>
                                     <CryptoIcon className="crypto-icon" code={currency && currency.toUpperCase()} />
-                                    {wallet && Number(amount)} {currency && currency?.toUpperCase()}
+                                    {wallet && totals} {currency && currency?.toUpperCase()}
                                 </div>
                                 <div className='date'>
                                     {localeDate(created_at, 'date')}
@@ -733,7 +733,7 @@ class MobileHistoryComponent extends React.Component<Props, HistoryState> {
                                         </div>
                                         <div className='cell'>
                                             <div className='name'>{intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.totalamount' })}</div>
-                                            <div className='data'>{wallet && totals}</div>
+                                            <div className='data'>{wallet && Number(amount)}</div>
                                         </div>
                                         <div className='cell'>
                                             <div className='name'>{intl.formatMessage({ id: 'page.body.history.withdraw.header.address' })}</div>

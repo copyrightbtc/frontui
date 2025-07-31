@@ -778,13 +778,13 @@ class HistoryComponent extends React.Component<Props, HistoryState> {
                             </div>
                         </td>
                         <td>
-                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{amount}</Decimal></div>
+                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{Number(amount) - Number(fee)}</Decimal></div>
                         </td>
                         <td>
                             <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{fee}</Decimal></div>
                         </td>
                         <td>
-                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{Number(amount) + Number(fee)}</Decimal></div>
+                            <div><Decimal fixed={wallet && wallet.fixed} thousSep=",">{amount}</Decimal></div>
                         </td>
                         <td className="right">
                             <div className="blockchainLink" key={rid}>
